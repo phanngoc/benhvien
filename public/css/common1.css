@@ -1,0 +1,71 @@
+.logo{
+  background: url('../img/front/logo.png') no-repeat 0px 0px;
+  text-indent: -9999px;
+  height: 80px;
+  margin-top: 15px;
+  width: 120px;
+  float: left;
+  position: fixed;
+  top: -10px;
+  left: 9%;
+  z-index: 1212;
+  transform: scale(0.8);
+}
+.title_login {
+	margin: 0 auto;
+	margin-bottom: 35px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(187, 10, 10);
+}
+#login {
+	text-align: center;
+    width: 250px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.user {
+	width: 250px;
+    height: 35px;
+    margin-bottom: 6px;
+    border-radius: 3px;
+    border: 1px solid #A9A3A3;
+    padding-left: 10px;
+}
+.pass {
+	width: 250px;
+    height: 35px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid #A9A3A3;
+    padding-left: 10px;
+}
+.check {
+	float: left;
+    margin-bottom: 10px;
+}
+.check input[type=checkbox]{
+	margin-right: 7px;
+}
+.check:after {
+	clear: both;
+	content: "";
+}
+.btn_login {
+	width: 250px !important;
+}
+/*main page ------*/
+.choose_list {
+    margin: 0 auto;
+    margin-top: 30%;
+}
+.choose_list li {
+	border-right: 1px solid #c1c1c1;
+	border-bottom: 1px solid #c1c1c1;
+}
+.choose_list .item_choose {
+	text-align: center;
+	height: 50px;
+    line-height: 50px;
+}
