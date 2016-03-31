@@ -12,6 +12,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{{ asset('css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link rel="stylesheet" href="{{ asset('css/common.css')}}" type="text/css" media="screen,projection" />
+	<script src="{{ asset('js/jquery-1.11.0.min.js')}}" type="text/javascript"></script>
 </head>
 <body>
 <!-- loading ======== -->
@@ -87,9 +88,12 @@
 							<div  class="input-field col s12 m6 input_center fadeleft">
 				                <select id="mySelectBox" class="icons fadeleft" name="mySelectBox">
 				                  <option value="" disabled selected>Ghé Thăm</option>
-				                  <option value="Bệnh viện đa khoa Đà Nẵng" data-icon="{{asset('img/images/4.jpg')}}" class="circle">BỆNH VIỆN ĐA KHOA ĐÀ NẴNG</option>
+													@foreach ($benhviens as $benhvien)
+														<option value="{{ $benhvien->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$benhvien->ten}}</option>
+													@endforeach
+				                  <!-- <option value="Bệnh viện đa khoa Đà Nẵng" data-icon="{{asset('img/images/4.jpg')}}" class="circle">BỆNH VIỆN ĐA KHOA ĐÀ NẴNG</option>
 				                  <option value="Bệnh viện C Đà Nẵng" data-icon="{{asset('img/images/5.jpg')}}" class="circle">BỆNH VIỆN C ĐÀ NẴNG</option>
-				                  <option value="Bệnh viện Phụ sản Đà Nẵng" data-icon="{{asset('img/images/7.jpg')}}" class="circle">BỆNH VIỆN PHỤ SẢN ĐÀ NẴNG</option>
+				                  <option value="Bệnh viện Phụ sản Đà Nẵng" data-icon="{{asset('img/images/7.jpg')}}" class="circle">BỆNH VIỆN PHỤ SẢN ĐÀ NẴNG</option> -->
 				                </select>
 				             </div>
 				            <button class="btn waves-effect waves-light fadeleft" type="submit" name="action">Đặt khám
@@ -247,11 +251,7 @@
 									       <!-- <span class="add-on"><i class="material-icons" >today</i></span> -->
 									       <!-- <i class="material-icons" id="datepicker">today</i> -->
 									      </a>
-									      <script>
-										  $(function(){
-										    $( "#datepicker" ).datepicker();
-										  });
-										  </script>
+
 									    </li>
 									    <li class="collection-item avatar">
 									      <span class="title"> Phòng Khám 2</span>
@@ -756,42 +756,7 @@
 				</section>
 			    <hr>
 <!-- section Phan hoi cua nguoi dung ============================================== -->
-				<section id="response2" class = "container each">
-					<h2 class="title"> PHẢN HỒI </h2>
-					<h3 class="sub_title">Hãy góp ý cho chúng tôi</h3>
-					 <div class="row">
-					    <form class="col s12">
-					      <div class="row">
-					        <div class="input-field col s6">
-					          <input  id="first_name" type="text" class="validate">
-					          <label for="first_name">Firstname</label>
-					        </div>
-					        <div class="input-field col s6">
-					          <input id="last_name" type="text" class="validate">
-					          <label for="last_name">Lastname</label>
-					        </div>
-					      </div>
-					      <div class="row">
-					        <div class="input-field col s12">
-					          <input id="email" type="email" class="validate">
-					          <label for="email">Email</label>
-					        </div>
-					      </div>
-					      <div class="row">
-					      	<div class="input-field col s12">
-					          <textarea id="textarea1" class="materialize-textarea"></textarea>
-					          <label for="textarea1">Comment</label>
-					        </div>
-					      </div>
-					      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-						    <i class="material-icons right">send</i>
-						  </button>
-					    </form>
-					  </div>
-				</section>
-			</div>
-		</div>
-
+		@include('mainpage.ykien')
 		<!-- footer -->
 	 <footer class="page-footer">
       <div class="container">

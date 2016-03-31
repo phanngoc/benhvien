@@ -1,5 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Ykienphanhoi;
+use App\Models\Benhvien;
+use Illuminate\Http\Request;
+
 class HomeController extends Controller {
 
 	/*
@@ -30,7 +34,17 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$benhviens = Benhvien::all();
+		return view('home', compact('benhviens'));
+	}
+
+	public function submitYkienNguoiDung(Request $request) {
+		$data = $request->all();
+		Ykienphanhoi::create([
+			'hoten' => $data['last_name'].' '.$data['first_name'],
+			'email' => $data['email'],
+			'ykien' => $data['ykien'],
+		]);
 	}
 
 }
