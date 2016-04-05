@@ -2,6 +2,9 @@
 
 use App\Models\Ykienphanhoi;
 use App\Models\Benhvien;
+use App\Models\Loaidichvu;
+use App\Models\Phongkham;
+use App\Models\Khoa;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller {
@@ -32,10 +35,15 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($id = 1)
 	{
+		$loaidichvus = Loaidichvu::where('benhvien_id', $id)->get();
 		$benhviens = Benhvien::all();
-		return view('home', compact('benhviens'));
+		$phongkhams = Phongkham::where('benhvien_id', $id)->get();
+		$khoas = Khoa::where('benhvien_id', $id)->get();
+		$ykienphanhoi = Ykienphanhoi::where('status',1)->get();
+		$idBenhvien = $id;
+		return view('home', compact('benhviens', 'loaidichvus', 'phongkhams', 'khoas', 'idBenhvien', 'ykienphanhoi'));
 	}
 
 	public function submitYkienNguoiDung(Request $request) {
@@ -44,6 +52,7 @@ class HomeController extends Controller {
 			'hoten' => $data['last_name'].' '.$data['first_name'],
 			'email' => $data['email'],
 			'ykien' => $data['ykien'],
+			'benhvien_id' => $data['benhvien_id'],
 		]);
 	}
 

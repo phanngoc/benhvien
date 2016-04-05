@@ -44,8 +44,8 @@
 								        <li><a href="#information">TIN TỨC</a></li>
 								        <li><a href="#news">THÔNG TIN KHOA</a></li>
 								        <li><a href="#find">TRA CỨU</a></li>
-										<li><a href="#response1">Ý KIẾN KHÁCH HÀNG</a></li>
-										<li><a href="#response2">PHẢN HỒI</a></li>
+												<li><a href="#response1">Ý KIẾN KHÁCH HÀNG</a></li>
+												<li><a href="#response2">PHẢN HỒI</a></li>
 								      </ul>
 								    </div>
 								  </nav>
@@ -53,7 +53,7 @@
 						</div>
 						<!-- ========== swiper slider ========== -->
 						<div class="swiper-container">
-				            <div class="swiper-wrapper">
+				        <div class="swiper-wrapper">
 					            <div class="swiper-slide">
 								    <img src="{{ asset('img/images/2.jpg')}}" alt="" class="image img-responsive">
 								</div>
@@ -86,20 +86,30 @@
 							<p class="center fadeleft">-------------- Hệ thống đặt khám trực tuyến ---------------</p>
 
 							<div  class="input-field col s12 m6 input_center fadeleft">
-				                <select id="mySelectBox" class="icons fadeleft" name="mySelectBox">
-				                  <option value="" disabled selected>Ghé Thăm</option>
-													@foreach ($benhviens as $benhvien)
-														<option value="{{ $benhvien->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$benhvien->ten}}</option>
-													@endforeach
-				                  <!-- <option value="Bệnh viện đa khoa Đà Nẵng" data-icon="{{asset('img/images/4.jpg')}}" class="circle">BỆNH VIỆN ĐA KHOA ĐÀ NẴNG</option>
-				                  <option value="Bệnh viện C Đà Nẵng" data-icon="{{asset('img/images/5.jpg')}}" class="circle">BỆNH VIỆN C ĐÀ NẴNG</option>
-				                  <option value="Bệnh viện Phụ sản Đà Nẵng" data-icon="{{asset('img/images/7.jpg')}}" class="circle">BỆNH VIỆN PHỤ SẢN ĐÀ NẴNG</option> -->
-				                </select>
-				             </div>
-				            <button class="btn waves-effect waves-light fadeleft" type="submit" name="action">Đặt khám
+	                <select id="mySelectBox" class="icons fadeleft" name="mySelectBox">
+	                  <option value="" disabled selected>Ghé Thăm</option>
+										@foreach ($benhviens as $benhvien)
+											<option value="{{ $benhvien->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$benhvien->ten}}</option>
+										@endforeach
+	                  <!-- <option value="Bệnh viện đa khoa Đà Nẵng" data-icon="{{asset('img/images/4.jpg')}}" class="circle">BỆNH VIỆN ĐA KHOA ĐÀ NẴNG</option>
+	                  <option value="Bệnh viện C Đà Nẵng" data-icon="{{asset('img/images/5.jpg')}}" class="circle">BỆNH VIỆN C ĐÀ NẴNG</option>
+	                  <option value="Bệnh viện Phụ sản Đà Nẵng" data-icon="{{asset('img/images/7.jpg')}}" class="circle">BỆNH VIỆN PHỤ SẢN ĐÀ NẴNG</option> -->
+	                </select>
+				      </div>
+	            <button class="btn waves-effect waves-light fadeleft" type="submit" name="action">Đặt khám
 							    <i class="material-icons right">settings_phone</i>
 							</button>
 						</div>
+
+						<script type="text/javascript">
+							$(document).ready(function(){
+								$('select[id="mySelectBox"]').change(function(){
+										var idBenhvien = $(this).val();
+										window.location.href = "{{route('home')}}/"+idBenhvien;
+								});
+							});
+						</script>
+
 					</section>
 				</header>
 <!-- ================================ section dang ki kham benh ======================================================= -->
@@ -111,6 +121,7 @@
 							<li id="step_1" class="circle1 wow animatedsss bounceIn">Bước 1</li>
 							<li id="step_2" class="circle1 wow animatedsss bounceIn">Bước 2</li>
 							<li id="step_3" class="circle1 wow animatedsss bounceIn">Bước 3</li>
+							<li id="step_4" class="circle1 wow animatedsss bounceIn">Bước 4</li>
 						</ul>
 						<!-- form dang nhap ID benh nhan khi nguoi dung la benh nhan ========== -->
 						<button class="btn  wow animateds fadeInRightBig signin btn-info btn-lg" type="submit" data-toggle="modal" data-target="#myModal">Đăng Nhập ID Bệnh Nhân
@@ -126,7 +137,7 @@
 							        </div>
 							        <div class="modal-body">
 							          <input id = "username" class="group-control user" type="text" placeholder = "ID Benh nhan">
-									  <input id = "password" class="group-control pass" type="text" placeholder = "Mat khau">
+									  		<input id = "password" class="group-control pass" type="text" placeholder = "Mat khau">
 							        </div>
 							        <div class="modal-footer">
 							          <button id= "btn_login" class="btn btn-primary btn_login">LOGIN</button>
@@ -140,16 +151,16 @@
 						<div class="row">
 						    <form class="col s12">
 						    <!-- first form ===================================== -->
-							    <div id="first_form" >
+							    <div id="first_form" class="animated fadeInRightBig">
 							    	<div class="row">
 							        <div class="input-field col s6 wow animatedss fadeInLeftBig">
 							          <i class="material-icons prefix">account_circle</i>
-							          <input id="icon_prefix" type="text" class="validate">
+							          <input id="icon_prefix" type="text" class="validate" name="hoten">
 							          <label for="icon_prefix">Họ tên:</label>
 							        </div>
 							        <div class="input-field col s6 wow animatedss fadeInRightBig">
 							          <i class="material-icons prefix">phone</i>
-							          <input id="icon_telephone" type="tel" class="validate">
+							          <input id="icon_telephone" type="tel" class="validate" name="phone">
 							          <label for="icon_telephone">Số điện thoại: </label>
 							        </div>
 							      </div>
@@ -162,7 +173,7 @@
 								        </div>
 								        <div class="input-field col s6 wow animatedss fadeInRightBig">
 									        <i class="material-icons prefix">email</i>
-									        <input id="email" type="email" class="validate">
+									        <input id="email" type="email" class="validate" name="email">
 									        <label for="icon_telephone">Email</label>
 									        <label for="email" data-error="wrong" data-success="right">Email</label>
 								        </div>
@@ -171,12 +182,12 @@
 								    <div class="row">
 								    	<div class="input-field col s6 wow animatedss fadeInLeftBig">
 								          <i class="material-icons prefix">assignment_ind</i>
-								          <input id="icon_prefix" type="text" class="validate">
+								          <input id="icon_prefix" type="text" class="validate" name="CMND">
 								          <label for="icon_prefix">CMND:</label>
 								        </div>
 								        <div class="input-field col s6 wow animatedss fadeInRightBig">
 								          <i class="material-icons prefix">location_on</i>
-								          <input id="icon_telephone" type="tel" class="validate">
+								          <input id="icon_telephone" type="tel" class="validate" name="diachi">
 								          <label for="icon_telephone">Địa chỉ: </label>
 								        </div>
 								    </div>
@@ -187,98 +198,72 @@
 								        <i class="material-icons prefix">person_pin</i>
 								           <div class="male">
 										      <input name="group1" type="radio" id="test1" />
-										      <label class="input_sex" for="test1">Male</label>
+										      <label class="input_sex" for="test1" name="gioitinh" value="0">Male</label>
 										    </div>
 										    <div>
 										      <input name="group1" type="radio" id="test2" />
-										      <label class="input_sex" for="test2">Female</label>
+										      <label class="input_sex" for="test2" name="gioitinh" value="1">Female</label>
 										    </div>
 								        </div>
 								    </div>
-									 <button id="first_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="" name="action">Tiếp
+									 <button id="first_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="button">Tiếp
 									    <i class="material-icons right">send</i>
 									 </button>
 							    </div>
 							    <!-- sencond form ========================================================-->
 							    <div id="second_form" style="display:none;" class="animated fadeInRightBig">
-							    	<ul class="collection with-header">
+										<input type="hidden" name="loaidichvu" value="0">
+										<script type="text/javascript">
+											$(document).ready(function(){
+												$('.list-dichvu').find('li.collection-item').click(function(){
+													var idDichvu = $(this).data('id');
+													$('input[name="loaidichvu"]').val(idDichvu);
+												});
+											});
+										</script>
+							    	<ul class="collection with-header list-dichvu">
 								        <li class="collection-header"><h2>Loại Dịch Vụ</h2></li>
-								        <li class="collection-item">
-								        	<div>
-								        		Khám Sản, Khám Phụ Khoa
-								        		<a href="#!" class="secondary-content">200.000<span>vnd</span></a>
-								        	</div>
-								        </li>
-								        <li class="collection-item">
-								        	<div>
-								        		Khám Nhi
-								        		<a href="#!" class="secondary-content">200.000<span>vnd</span></a>
-								        	</div>
-								        </li>
-								        <li class="collection-item">
-								        	<div>
-								        		Khám Nội Khoa
-								        		<a href="#!" class="secondary-content">200.000<span>vnd</span></a>
-								        	</div>
-								        </li>
-								        <li class="collection-item">
-								        	<div>
-								        		Nội Soi
-								        		<a href="#!" class="secondary-content">200.000<span>vnd</span></a>
-								        	</div>
-								        </li>
-								        <li class="collection-item">
-								        	<div>
-								        		Siêu Âm
-								        		<a href="#!" class="secondary-content">200.000<span>vnd</span></a>
-								        	</div>
-								        </li>
+												@foreach ($loaidichvus as $loaidichvu)
+													<li class="collection-item" data-id = "{{$loaidichvu->id}}">
+														<div>
+															{{ $loaidichvu->tendichvu }}
+															<a href="#!" class="secondary-content">{{ $loaidichvu->giatien }}<span>vnd</span></a>
+														</div>
+													</li>
+												@endforeach
 								    </ul>
-								    <button id="sencond_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="" name="action">Tiếp
+								    <button id="second_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="button">Tiếp
 									    <i class="material-icons right">send</i>
 									 </button>
 							    </div>
 							    <!-- third form =========================================================s -->
 							    <div id="third_form" class="animated fadeInRightBig" style="display:none;">
-							    	<ul class="collection">
-									    <li class="collection-item avatar">
-									      <span class="title">Phòng Khám 1</span>
-									      <p>Bác Sỹ: <br>
-									         Trần Đình Lâm
-									      </p>
-									      <a class="secondary-content form_datetime">
-									       <input type="text" id="datepicker">
-									       <!-- <span class="add-on"><i class="material-icons" >today</i></span> -->
-									       <!-- <i class="material-icons" id="datepicker">today</i> -->
-									      </a>
-
-									    </li>
-									    <li class="collection-item avatar">
-									      <span class="title"> Phòng Khám 2</span>
-									      <p> Báo Sỹ: <br>
-									         Lê Văn Hùng
-									      </p>
-									      <a href="#!" class="secondary-content"><i class="material-icons" id="datepicker">today</i></a>
-									    </li>
-									    <li class="collection-item avatar">
-									      <span class="title"> Phòng Khám 3</span>
-									      <p>First Line <br>
-									         Second Line
-									      </p>
-									      <a href="#!" class="secondary-content"><i class="material-icons" id="datepicker">today</i></a>
-									    </li>
-									    <li class="collection-item avatar">
-									      <span class="title"> Phòng Khám 4</span>
-									      <p>First Line <br>
-									         Second Line
-									      </p>
-									      <a href="#!" class="secondary-content"><i class="material-icons" id="datepicker">today</i></a>
-									    </li>
+							    	<ul class="collection" id="list-phongkham">
+											@foreach ($phongkhams as $phongkham)
+												<li class="collection-item avatar">
+													<span class="title">{{ $phongkham->ten }}</span>
+													<p>Bác Sỹ: <br>
+														 {{ $phongkham->bacsi }}
+													</p>
+													<a class="secondary-content form_datetime">
+													 <input type="text" id="datepicker" class="datepicker">
+												  </a>
+												</li>
+											@endforeach
 									  </ul>
-									  <button id="last_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="submit" name="action">Tiếp
+									  <button id="third_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="submit" name="action">Tiếp
 									    <i class="material-icons right">send</i>
-									 </button>
-							    </div>
+									  </button>
+							    </div> <!-- #third_form -->
+									<!-- form choose time -->
+									<div id="fourth_form" class="animated fadeInRightBig" style="display:none;">
+										<a class="secondary-content form_datetime">
+											<input type="text" id="datepicker" class="datepicker">
+										</a>
+									  <button id="fourth_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="submit" name="action">Tiếp
+									    <i class="material-icons right">send</i>
+									  </button>
+							    </div> <!-- #fourth_form -->
 						    </form>
 						</div>
 					</div>
@@ -425,152 +410,39 @@
 				    <h2 class="title">THÔNG TIN CÁC KHOA, PHÒNG BAN</h2>
 				    <!-- list khoa ======= -->
 				    <ul class="khoa_list" id="list_khoa">
-			            <li id="show_dialog" class="khoa_item arrow_up x_scrollFadeIn">
-			              <a data-toggle="modal" data-target="#myModal1">
-			                <p class="khoa_title">Phòng Tổ Chức Cán Bộ</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Phòng Kế Hoạch Tổng Hợp</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Phòng Điều Dưỡng</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Phòng Vật Tư Thiết Bị Y Tế</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Phòng Hành Chính Quản Trị</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Phòng Chỉ Đạo Tuyến</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			               <p class="khoa_title">Phòng Tài Chính - Kế Toán</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title"> Phòng Quản Lý Chất Lượng</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Phòng Công Nghệ Thông Tin</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Khoa Dược</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Khoa Khám Bệnh</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Khoa Hồi Sức Tích Cực - Chống Độc</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Khoa Nội Tim Mạch</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Khoa Nội Hô Hấp - Miễn Dịch Dị Ứng</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title"> Khoa Nội Tiêu Hóa - Gan Mật </p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title"> Khoa Nội Thận - Nội Tiết </p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title">Khoa Nội Tổng Hợp</p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title"> Khoa Y Học Nhiệt Đới </p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title"> Khoa Y Học Hạt Nhân </p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title"> Khoa Gây Mê Hồi Sức </p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title"> Khoa Ngoại Thần Kinh </p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title"> Khoa Ngoại Chấn Thương Chỉnh Hình </p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title"> Khoa Ngoại Tiêu Hóa Tổng Hợp </p>
-			              </a>
-			            </li>
-			            <li class="khoa_item arrow_up x_scrollFadeIn">
-			              <a href="#">
-			                <p class="khoa_title"> Khoa Ngoại Tiết Niệu </p>
-			              </a>
-			            </li>
+			            @foreach($khoas as $khoa)
+									<li id="show_dialog" class="khoa_item arrow_up x_scrollFadeIn">
+										<a data-toggle="modal" data-target="#myModal{{$khoa->id}}">
+											<p class="khoa_title">{{$khoa->tenkhoa}}</p>
+										</a>
+										<!-- click vao ten khoa, se hien ra thong tin chi tiet cua khoa -->
+										<div class="row TTKhoa modal fade" id="myModal{{$khoa->id}}" role="dialog">
+											 <div class="modal-dialog content_dialog">
+												 <div class="modal-content">
+														<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h2 class="modal_title">{{$khoa->tenkhoa}}</h2>
+													</div>
+													<div class="modal-body">
+														<div class="img_content">
+															<div class="view view-fifth">
+																<a href="#ns-6" class="click-view-detail image">
+																		<img src="{{ asset($khoa->hinhanh)}}" alt="" />
+																		<span class="line"></span>
+																</a>
+															</div>
+														</div>
+														<div class="para">
+																<p>{{ $khoa->thongtin }}</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div> <!-- .row TTKhoa modal fade -->
+									</li>
+									@endforeach
 			          </ul>
-					<!-- click vao ten khoa, se hien ra thong tin chi tiet cua khoa -->
-			          <div class="row TTKhoa modal fade" id="myModal1" role="dialog">
-			           <div class="modal-dialog content_dialog">
-				           <div class="modal-content">
-				           		<div class="modal-header">
-						          <button type="button" class="close" data-dismiss="modal">&times;</button>
-						          <h2 class="modal_title">PHÒNG TỔ CHỨC CÁN BỘ</h2>
-						        </div>
-						        <div class="modal-body">
-						          	<div class="img_content">
-								        <div class="view view-fifth">
-									        <a href="#ns-6" class="click-view-detail image">
-				                                <img src="{{ asset('img/images/1.jpg')}}" alt="" />
-				                                <span class="line"></span>
-				                            </a>
-				                		</div>
-								    </div>
-							        <div class="para">
-							            <p>Hành trình Đỏ 2015 – Hành trình vận động hiến máu xuyên Việt tổ chức tại 22 tỉnh, thành phố trên cả nước, diễn ra từ ngày 5- 26/7/2015  chia thành 2 đoàn Nam, Bắc. Đoàn Hành trình Đỏ phía Nam bắt đầu xuất quân tại tỉnh Cà Mau và phía Bắc xuất quân tại tỉnh Vĩnh Phúc. Theo báo cáo của Ban tổ chức Hành trình Đỏ  2015, tính đến ngày 19/7, Hành trình Đỏ đã di chuyển qua 2/3 chặng đường, vận động khoảng 25.000 lượt người đăng ký hiến máu và đã tiếp nhận được hơn 17.000 đơn vị máu.
-							            Hành trình Đỏ 2015 – Hành trình vận động hiến máu xuyên Việt tổ chức tại 22 tỉnh, thành phố trên cả nước, diễn ra từ ngày 5- 26/7/2015  chia thành 2 đoàn Nam, Bắc. Đoàn Hành trình Đỏ phía Nam bắt đầu xuất quân tại tỉnh Cà Mau và phía Bắc xuất quân tại tỉnh Vĩnh Phúc. Theo báo cáo của Ban tổ chức Hành trình Đỏ  2015, tính đến ngày 19/7, Hành trình Đỏ đã di chuyển qua 2/3 chặng đường, vận động khoảng 25.000 lượt người đăng ký hiến máu và đã tiếp nhận được hơn 17.000 đơn vị máu.</p>
-							        </div>
-						        </div>
-					        </div>
-				        </div>
-			          </div>
+
 				</section>
 				<hr>
 <!-- section tra cuu thong tin benh vien, dia chi benh vien ======================================================== -->
@@ -612,142 +484,29 @@
 					  <!--  -->
 					  <div class="als-viewport">
 					    <ul class="als-wrapper list_images">
+								@foreach ($ykienphanhoi as $key => $ykien)
 					      <li class="als-item wow animateds zoomIn">
-					      	<div id="flip">
-								<div class="anh">
-									<img class="circle" src="{{ asset('img/images/img_1.jpg')}}"></img>
-									<div class="embay_border line_inner">
-										<div class="line_top"></div>
-										<div class="line_bottom"></div>
-										<div class="line_left"></div>
-										<div class="line_right"></div>
+					      	<div id="flip{{ ($key == 0) ? '' : $key }}">
+										<div class="anh">
+											<img class="circle" src="{{ asset('img/images/img_1.jpg')}}"></img>
+											<div class="embay_border line_inner">
+												<div class="line_top"></div>
+												<div class="line_bottom"></div>
+												<div class="line_left"></div>
+												<div class="line_right"></div>
+											</div>
+										</div>
+										<div class="name">
+											<h4 class="full_name">{{ $ykien->hoten }}</h4>
+											<p class="job">{{ $ykien->email }}</p>
+										</div>
 									</div>
-								</div>
-								<div class="name">
-									<h4 class="full_name">Nguyễn Nhật Ánh</h4>
-									<p class="job">Sinh Viên</p>
-								</div>
-							</div>
-							<!-- thong tin y kien khi click vao khach hang -->
-							<div id="infor">
-								<p>For the seventh year running it beat out major international capitals including New York, London, Paris, Hong Kong and Dubai -- none of which made it anywhere near the top 20.Immediately behind Vienna are a slew of other mainly Western European cities, with Zurich, Switzerland in second place and Munich, Germany in fourth.</p>
-						    </div>
+									<!-- thong tin y kien khi click vao khach hang -->
+									<div id="infor{{ ($key == 0) ? '' : $key }}">
+										<p>{{ $ykien->ykien }}</p>
+								  </div>
 					      </li>
-					      <li class="als-item wow animateds zoomIn" data-wow-delay="0.4s">
-					      	<div id="flip1">
-								<div class="anh">
-									<img class="circle" src="{{ asset('img/images/img_1.jpg')}}"></img>
-									<div class="embay_border line_inner">
-										<div class="line_top"></div>
-										<div class="line_bottom"></div>
-										<div class="line_left"></div>
-										<div class="line_right"></div>
-									</div>
-								</div>
-								<div class="name">
-									<h4 class="full_name">Nguyễn Nhật Ánh</h4>
-									<p class="job">Sinh Viên</p>
-								</div>
-							</div>
-							<!-- thong tin y kien khi click vao khach hang -->
-							<div id="infor1">
-								<p>snkvsnknskfcs sdk</p>
-								<p>hello</p>
-								<p>nkdsnksnk</p>
-						    </div>
-					      </li>
-					      <li class="als-item wow animateds zoomIn" data-wow-delay="0.8s">
-					      	<div id="flip2">
-								<div class="anh">
-									<img class="circle" src="{{ asset('img/images/img_1.jpg')}}"></img>
-									<div class="embay_border line_inner">
-										<div class="line_top"></div>
-										<div class="line_bottom"></div>
-										<div class="line_left"></div>
-										<div class="line_right"></div>
-									</div>
-								</div>
-								<div class="name">
-									<h4 class="full_name">Nguyễn Nhật Ánh</h4>
-									<p class="job">Sinh Viên</p>
-								</div>
-							</div>
-							<!-- thong tin y kien khi click vao khach hang -->
-							<div id="infor2">
-								<p>snkvsnknskfcs sdk</p>
-								<p>hello</p>
-								<p>nkdsnksnk</p>
-						    </div>
-					      </li>
-					      <li class="als-item wow animateds zoomIn" data-wow-delay="1.2s">
-					      	<div id="flip3">
-								<div class="anh">
-									<img class="circle" src="{{ asset('img/images/img_1.jpg')}}"></img>
-									<div class="embay_border line_inner">
-										<div class="line_top"></div>
-										<div class="line_bottom"></div>
-										<div class="line_left"></div>
-										<div class="line_right"></div>
-									</div>
-								</div>
-								<div class="name">
-									<h4 class="full_name">Nguyễn Nhật Ánh</h4>
-									<p class="job">Sinh Viên</p>
-								</div>
-							</div>
-							<!-- thong tin y kien khi click vao khach hang -->
-							<div id="infor3">
-								<p>snkvsnknskfcs sdk</p>
-								<p>hello</p>
-								<p>nkdsnksnk</p>
-						    </div>
-					      </li>
-					      <li class="als-item wow animateds zoomIn">
-					      	<div id="flip4">
-								<div class="anh">
-									<img class="circle" src="{{ asset('img/images/img_1.jpg')}}"></img>
-									<div class="embay_border line_inner">
-										<div class="line_top"></div>
-										<div class="line_bottom"></div>
-										<div class="line_left"></div>
-										<div class="line_right"></div>
-									</div>
-								</div>
-								<div class="name">
-									<h4 class="full_name">Nguyễn Nhật Ánh</h4>
-									<p class="job">Sinh Viên</p>
-								</div>
-							</div>
-							<!-- thong tin y kien khi click vao khach hang -->
-							<div id="infor4">
-								<p>snkvsnknskfcs sdk</p>
-								<p>hello</p>
-								<p>nkdsnksnk</p>
-						    </div>
-					      </li>
-					      <li class="als-item wow animateds zoomIn">
-					      	<div id="flip5">
-								<div class="anh">
-									<img class="circle" src="{{ asset('img/images/img_1.jpg')}}"></img>
-									<div class="embay_border line_inner">
-										<div class="line_top"></div>
-										<div class="line_bottom"></div>
-										<div class="line_left"></div>
-										<div class="line_right"></div>
-									</div>
-								</div>
-								<div class="name">
-									<h4 class="full_name">Nguyễn Nhật Ánh</h4>
-									<p class="job">Sinh Viên</p>
-								</div>
-							</div>
-							<!-- thong tin y kien khi click vao khach hang -->
-							<div id="infor5">
-								<p>snkvsnknskfcs sdk</p>
-								<p>hello</p>
-								<p>nkdsnksnk</p>
-						    </div>
-					      </li>
+								@endforeach
 					    </ul>
 					  </div>
 					  <!-- button next -->

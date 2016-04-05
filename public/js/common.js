@@ -18,12 +18,12 @@ function ShowDialog(modal)
 // active menu=============
 $(document).ready(function () {
     $(document).on("scroll", onScroll);
-    
+
     //smoothscroll
     $('#nav-mobile a[href^="#"]').on('click', function (e) {
         e.preventDefault();
         $(document).off("scroll");
-        
+
         $('a').removeClass('active1');
         $(this).addClass('active1');
         var target = this.hash,
@@ -62,14 +62,14 @@ $(document).ready(function(){
         $(".khoa_item").each(function() {
           var objectBottom = $(this).offset().top + $(this).outerHeight();
           var windowBottom = $(window).scrollTop() + $(window).innerHeight();
-          
-          if (objectBottom < windowBottom) { 
+
+          if (objectBottom < windowBottom) {
             if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
           } else {
             if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
           }
         });
-      }); $(window).scroll(); 
+      }); $(window).scroll();
     });
 
 // display step in form==========================
@@ -77,17 +77,27 @@ $(document).ready(function(){
     $("#second_form").show();
     $("#first_form").hide();
     $("#third_form").hide();
+    $("#fourth_form").hide();
   });
-  $("#step_3,#sencond_btn").click(function(){
+  $("#step_3,#second_btn").click(function(){
     $("#second_form").hide();
     $("#first_form").hide();
     $("#third_form").show();
+    $("#fourth_form").hide();
   });
   $("#step_1").click(function(){
-    $("#second_form").show();
-    $("#first_form").hide();
+    $("#first_form").show();
+    $("#second_form").hide();
     $("#third_form").hide();
+    $("#fourth_form").hide();
   });
+  $("#step_4,#third_btn").click(function(){
+    $("#first_form").hide();
+    $("#second_form").hide();
+    $("#third_form").hide();
+    $("#fourth_form").show();
+  });
+  
 // display news detail
     $(".click-view-detail").click(function(){
         $(".click-view-detail").parent().removeClass("active");
@@ -108,7 +118,7 @@ $(document).ready(function(){
         $.scrollTo( this.hash, 800,   { offset:-54 });
         return false;
     });
-  
+
   $("select").change(function(){
     $("select option:selected").each(function(){
       $(".introduce").show();
@@ -121,12 +131,12 @@ $(document).ready(function(){
   });
 
 
-  $(".brand-logo").click(function(){  
+  $(".brand-logo").click(function(){
     $.scrollTo( this.hash, 900,   { easing:'easeInCubic'});
     return false;
   });
 
-    $("#nav-mobile a").click(function(){  
+    $("#nav-mobile a").click(function(){
          $.scrollTo( this.hash, 900,   { easing:'easeInCubic' , offset:-54 });
          return false;
     });
@@ -145,8 +155,8 @@ $(document).ready(function(){
     {selector: '.other-class', offset: 200, callback: 'globalFunction()' },
   ];
   Materialize.scrollFire(options);
-   var options = [ {selector: '#staggered-test', offset: 50, callback: 'Materialize.toast("This is our ScrollFire Demo!", 1500 )' }, {selector: '#staggered-test', offset: 205, callback: 'Materialize.toast("Please continue scrolling!", 1500 )' }, {selector: '#staggered-test', offset: 400, callback: 'Materialize.showStaggeredList("#staggered-test")' }, {selector: '#image-test', offset: 500, callback: 'Materialize.fadeInImage("#image-test")' } ]; Materialize.scrollFire(options); 
-  
+   var options = [ {selector: '#staggered-test', offset: 50, callback: 'Materialize.toast("This is our ScrollFire Demo!", 1500 )' }, {selector: '#staggered-test', offset: 205, callback: 'Materialize.toast("Please continue scrolling!", 1500 )' }, {selector: '#staggered-test', offset: 400, callback: 'Materialize.showStaggeredList("#staggered-test")' }, {selector: '#image-test', offset: 500, callback: 'Materialize.fadeInImage("#image-test")' } ]; Materialize.scrollFire(options);
+
     var gethw = $(window).height(),
         truheight = gethw - 90;
     $("#menu").hide();
@@ -164,8 +174,8 @@ $(document).ready(function(){
                 $("#bg_menu").removeClass("first");
                 $("h1").removeClass("menu_logo");
         }
-        
-    });  
+
+    });
     new WOW().init();
 
     $("#flip").click(function(){
@@ -187,15 +197,15 @@ $(document).ready(function(){
      $("#flip5").click(function(){
         $("#infor5").slideToggle("slow");
     });
-    /*==loADING---*/  
-    var getwithbr = $(window).width(); 
-    $(".load-bar").animate({ 
+    /*==loADING---*/
+    var getwithbr = $(window).width();
+    $(".load-bar").animate({
       width: getwithbr
     }, 1500, function(){
       $(".loading .bg-filter").animate({
-          height: "0" 
+          height: "0"
       }, 1000, function(){
-          $(".loading").fadeOut(300, function(){  
+          $(".loading").fadeOut(300, function(){
                 $(".fadeleft, .fadedown").each(function(i){
                     var $this = $(this);
                     setTimeout(function(){
@@ -204,7 +214,7 @@ $(document).ready(function(){
                 });
           });
       });
-    });  
+    });
 //====== ajax choose city
   $('#hospital').change(function(e) {
       var hospital=$('#hospital').val();
@@ -271,7 +281,7 @@ $(function() {
 function initialize() {
    var mapOptions = {
         zoom: 15,
-        center: new google.maps.LatLng(16.072840, 108.215240), 
+        center: new google.maps.LatLng(16.072840, 108.215240),
         scrollwheel: true,
         styles: [{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#e7eaec"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"color":"#e7eaeb"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.government","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"visibility":"off"},{"color":"#c9d5ca"}]},{"featureType":"poi.place_of_worship","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.school","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.sports_complex","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ddc6a2"},{"saturation":"-50"},{"lightness":"7"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#b59e74"},{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#d7dbdc"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#d7dbdc"}]},{"featureType":"transit.station","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#abb9c1"}]}]
     };
@@ -288,7 +298,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 $(function() {
   var pull    = $('#pull');
     menu    = $("#menu");
-    
+
   $(pull).on('click', function(e) {
     e.preventDefault();
     menu.slideToggle();
