@@ -7,11 +7,11 @@
         <div class="row">
           <div class="input-field col s6">
             <input  id="first_name" type="text" class="validate" name="first_name">
-            <label for="first_name">Firstname</label>
+            <label for="first_name"> Họ tên</label>
           </div>
           <div class="input-field col s6">
             <input id="last_name" type="text" class="validate" name="last_name">
-            <label for="last_name">Lastname</label>
+            <label for="last_name"> Chức vụ </label>
           </div>
         </div>
         <div class="row">
@@ -23,7 +23,7 @@
         <div class="row">
           <div class="input-field col s12">
             <textarea id="textarea1" class="materialize-textarea" name="comment"></textarea>
-            <label for="textarea1">Comment</label>
+            <label for="textarea1"> Ý kiến phản hồi </label>
           </div>
         </div>
         <button class="btn waves-effect waves-light" type="button" id="submitYkien">Submit

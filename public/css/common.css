@@ -588,10 +588,6 @@ nav ul li a.active1 {
   visibility: hidden;
 }
 
-.khoa_list p {
-  display: inline-block;
-}
-
 .khoa_list .khoa_item {
   height: auto;
   padding: 12px;
@@ -859,10 +855,14 @@ h3 {
   margin-left: 175px;
   margin-bottom: 50px;
 }
-
+.click_show {
+  /*float: left;*/
+}
 .anh {
   overflow: hidden;
   position: relative;
+  width: 50px;
+  /*float: left;*/
 }
 
 .circle {
@@ -1170,7 +1170,7 @@ a.button:hover {
   border-bottom: 0;
   margin-bottom: 0;
 }
-/*---------------------*/
+/*--------- section search benh vien ------------*/
 hr {
   margin-top: 20px;
   border: 0;
@@ -1226,7 +1226,7 @@ hr {
   border: 2px solid #ccc;
   float: right;
 }
-
+/*---------section show y kien phan hoi ------------------*/
 .als-container {
   position: relative;
   width: 100%;
@@ -1268,7 +1268,6 @@ hr {
 #idea .als-item {
   margin: 0px 5px;
   padding: 4px 0px;
-  min-height: 120px;
   min-width: 100px;
   text-align: center;
   width: 220px;
@@ -1287,19 +1286,77 @@ hr {
 
 #idea .als-prev {
   height: 20px;
-  left: 18px;
-  top: 103px;
+  top: 22px;
+  left: 5px;
   z-index: 1111;
   background: rgba(0, 0, 0, 0.2);
 }
 
 #idea .als-next {
   height: 20px;
-  right: 18px;
-  top: 103px;
+  top: 22px;
+  right: 1px;
   background: rgba(0, 0, 0, 0.2);
 }
 
+.content_ideas {
+  background: rgba(93, 92, 92, 0.93);
+  padding: 0 70px 70px 70px;
+}
+
+.content_ideas .ct-close {
+  padding: 20px 0 35px 0;
+}
+.detail_idea .content_idea {
+  color: #fff;
+  font-size: 15px;
+  line-height: 2;
+}
+/* page new detail------------------*/
+#news_detail .title {
+  color: #17A597;
+  cursor: pointer;
+}
+#news_detail .title_main {
+  color: #ff0000;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 6px 0 50px 0;
+}
+#news_detail .title:hover,
+#news_detail .title:focus,
+#news_detail .title:visited {
+  color: #629F62;
+}
+#news_detail .collection {
+  margin: 0 !important;
+  height: 1850px;
+}
+#news_detail .list_news .item_news {
+  height: 230px;
+}
+#news_detail .list_news .item_news .circle {
+  position: relative !important;
+  width: 280px !important;
+  height: 200px !important;
+  border-radius: 0 !important;
+}
+#news_detail .time {
+  color: #0CAF0C;
+  font-style: italic;
+}
+#news_detail .list_news .more {
+  float: right;
+  cursor: pointer;
+}
+#news_detail .next_page li {
+  padding: 0 !important;
+}
+#news_detail .next_page ul {
+  margin-left: 42%;
+}
+/*------------*/
 ul.new_hospital {
   margin-bottom: 64px;
   white-space: nowrap;
@@ -1381,7 +1438,7 @@ ul.new_hospital li {
 
 /*Thong tin khoa-----*/
 
-#myModal1 .modal_title {
+.khoa_item .modal_title {
   font-size: 24px;
 }
 
@@ -1390,18 +1447,18 @@ ul.new_hospital li {
   width: 100% !important;
 }
 
-#myModal1 .content_dialog {
+.khoa_item .content_dialog {
   width: 1000px !important;
 }
 
-#myModal1 .modal-content .img_content {
+.khoa_item .modal-content .img_content {
   width: 57%;
   float: left;
   box-sizing: border-box;
   padding: 0 24px 10px 0;
 }
 
-#myModal1 .modal-body {
+.khoa_item .modal-body {
   padding: 50px !important;
 }
 
