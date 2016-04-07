@@ -44,8 +44,8 @@
 								        <li><a href="#information">TIN TỨC</a></li>
 								        <li><a href="#news">THÔNG TIN KHOA</a></li>
 								        <li><a href="#find">TRA CỨU</a></li>
-												<li><a href="#response1">Ý KIẾN KHÁCH HÀNG</a></li>
-												<li><a href="#response2">PHẢN HỒI</a></li>
+										<li><a href="#response1">Ý KIẾN KHÁCH HÀNG</a></li>
+										<li><a href="#response2">PHẢN HỒI</a></li>
 								      </ul>
 								    </div>
 								  </nav>
@@ -86,26 +86,23 @@
 							<p class="center fadeleft">-------------- Hệ thống đặt khám trực tuyến ---------------</p>
 
 							<div  class="input-field col s12 m6 input_center fadeleft">
-	                <select id="mySelectBox" class="icons fadeleft" name="mySelectBox">
-	                  <option value="" disabled selected>Ghé Thăm</option>
+				                <select id="mySelectBox" class="icons fadeleft" name="mySelectBox">
+				                  <option value="" disabled selected>Ghé Thăm</option>
 										@foreach ($benhviens as $benhvien)
 											<option value="{{ $benhvien->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$benhvien->ten}}</option>
 										@endforeach
-	                  <!-- <option value="Bệnh viện đa khoa Đà Nẵng" data-icon="{{asset('img/images/4.jpg')}}" class="circle">BỆNH VIỆN ĐA KHOA ĐÀ NẴNG</option>
-	                  <option value="Bệnh viện C Đà Nẵng" data-icon="{{asset('img/images/5.jpg')}}" class="circle">BỆNH VIỆN C ĐÀ NẴNG</option>
-	                  <option value="Bệnh viện Phụ sản Đà Nẵng" data-icon="{{asset('img/images/7.jpg')}}" class="circle">BỆNH VIỆN PHỤ SẢN ĐÀ NẴNG</option> -->
-	                </select>
-				      </div>
-	            <button class="btn waves-effect waves-light fadeleft" type="submit" name="action">Đặt khám
-							    <i class="material-icons right">settings_phone</i>
-							</button>
+				                </select>
+				            </div>
+	            		<button class="btn waves-effect waves-light fadeleft" type="submit" name="action">Đặt khám
+						    <i class="material-icons right">settings_phone</i>
+						</button>
 						</div>
 
 						<script type="text/javascript">
 							$(document).ready(function(){
 								$('select[id="mySelectBox"]').change(function(){
-										var idBenhvien = $(this).val();
-										window.location.href = "{{route('home')}}/"+idBenhvien;
+									var idBenhvien = $(this).val();
+									window.location.href = "{{route('home')}}/"+idBenhvien;
 								});
 							});
 						</script>
@@ -193,7 +190,7 @@
 								    </div>
 
 								    <div class="row">
-								        <div class="input-field col s12 wow animatedss fadeInLeftBig">
+								        <div class="input-field col s6 wow animatedss fadeInLeftBig">
 								        <label class="lb_date"> Giới tính: </label>
 								        <i class="material-icons prefix">person_pin</i>
 								           <div class="male">
@@ -205,65 +202,71 @@
 										      <label class="input_sex" for="test2" name="gioitinh" value="1">Female</label>
 										    </div>
 								        </div>
+								        <div class="input-field col s6 wow animatedss fadeInRightBig">
+								        	<input type="password" class="validate" name="password">
+								        	<label>Password (đăng kí tài khoản *)</label>
+								        </div>
 								    </div>
 									 <button id="first_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="button">Tiếp
 									    <i class="material-icons right">send</i>
 									 </button>
 							    </div>
 							    <!-- sencond form ========================================================-->
-							    <div id="second_form" style="display:none;" class="animated fadeInRightBig">
-										<input type="hidden" name="loaidichvu" value="0">
-										<script type="text/javascript">
-											$(document).ready(function(){
-												$('.list-dichvu').find('li.collection-item').click(function(){
-													var idDichvu = $(this).data('id');
-													$('input[name="loaidichvu"]').val(idDichvu);
-												});
+							    <div id="second_form" style="display:none;" >
+									<input type="hidden" name="loaidichvu" value="0">
+									<script type="text/javascript">
+										$(document).ready(function(){
+											$('.list-dichvu').find('li.collection-item').click(function(){
+												var idDichvu = $(this).data('id');
+												$('input[name="loaidichvu"]').val(idDichvu);
 											});
-										</script>
+										});
+									</script>
+									<h2 class="title">Loại Dịch Vụ</h2>
 							    	<ul class="collection with-header list-dichvu">
-								        <li class="collection-header"><h2>Loại Dịch Vụ</h2></li>
-												@foreach ($loaidichvus as $loaidichvu)
-													<li class="collection-item" data-id = "{{$loaidichvu->id}}">
-														<div>
-															{{ $loaidichvu->tendichvu }}
-															<a href="#!" class="secondary-content">{{ $loaidichvu->giatien }}<span>vnd</span></a>
-														</div>
-													</li>
-												@endforeach
+										@foreach ($loaidichvus as $loaidichvu)
+											<li class="collection-item" data-id = "{{$loaidichvu->id}}">
+												<div>
+													{{ $loaidichvu->tendichvu }}
+													<a href="#!" class="secondary-content">{{ $loaidichvu->giatien }}<span>vnd</span></a>
+												</div>
+											</li>
+										@endforeach
 								    </ul>
-								    <button id="second_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="button">Tiếp
+								    <button id="second_btn" class="btn waves-effect waves-light continue " type="button">Tiếp
 									    <i class="material-icons right">send</i>
-									 </button>
+									</button>
 							    </div>
 							    <!-- third form =========================================================s -->
-							    <div id="third_form" class="animated fadeInRightBig" style="display:none;">
+							    <div id="third_form" style="display:none;">
 							    	<ul class="collection" id="list-phongkham">
-											@foreach ($phongkhams as $phongkham)
-												<li class="collection-item avatar">
-													<span class="title">{{ $phongkham->ten }}</span>
+										@foreach ($phongkhams as $phongkham)
+											<li class="collection-item avatar">
+												<span class="title">{{ $phongkham->ten }}</span>
+												<div class="secondary-content form_datetime">
 													<p>Bác Sỹ: <br>
-														 {{ $phongkham->bacsi }}
+														{{ $phongkham->bacsi }}
 													</p>
-													<a class="secondary-content form_datetime">
-													 <input type="text" id="datepicker" class="datepicker">
-												  </a>
-												</li>
-											@endforeach
-									  </ul>
-									  <button id="third_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="submit" name="action">Tiếp
+											    </div>
+											</li>
+										@endforeach
+									</ul>
+									<button id="third_btn" class="btn waves-effect waves-light continue " type="submit" name="action">Tiếp
 									    <i class="material-icons right">send</i>
-									  </button>
-							    </div> <!-- #third_form -->
-									<!-- form choose time -->
-									<div id="fourth_form" class="animated fadeInRightBig" style="display:none;">
-										<a class="secondary-content form_datetime">
-											<input type="text" id="datepicker" class="datepicker">
-										</a>
-									  <button id="fourth_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="submit" name="action">Tiếp
+									</button>
+							    </div> 
+									<!-- #fourth_form -->
+								<div id="fourth_form" style="display:none;">
+									<div class="input-field col s6 ">
+										<p> Chọn ngày khám</p>
+										<div class="jquery-calendar"></div>
+										<!-- <label> Chọn ngày khám</label>
+										<input type="text" id="datepicker" class="datepicker" > -->
+									</div>
+									<button id="fourth_btn" class="btn waves-effect waves-light continue" type="submit" name="action">Tiếp
 									    <i class="material-icons right">send</i>
-									  </button>
-							    </div> <!-- #fourth_form -->
+									</button>
+							    </div> 
 						    </form>
 						</div>
 					</div>
@@ -411,36 +414,36 @@
 				    <!-- list khoa ======= -->
 				    <ul class="khoa_list" id="list_khoa">
 			            @foreach($khoas as $khoa)
-									<li id="show_dialog" class="khoa_item arrow_up x_scrollFadeIn">
-										<a data-toggle="modal" data-target="#myModal{{$khoa->id}}">
-											<p class="khoa_title">{{$khoa->tenkhoa}}</p>
-										</a>
-										<!-- click vao ten khoa, se hien ra thong tin chi tiet cua khoa -->
-										<div class="row TTKhoa modal fade" id="myModal{{$khoa->id}}" role="dialog">
-											 <div class="modal-dialog content_dialog">
-												 <div class="modal-content">
-														<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal">&times;</button>
-														<h2 class="modal_title">{{$khoa->tenkhoa}}</h2>
-													</div>
-													<div class="modal-body">
-														<div class="img_content">
-															<div class="view view-fifth">
-																<a href="#ns-6" class="click-view-detail image">
-																		<img src="{{ asset($khoa->hinhanh)}}" alt="" />
-																		<span class="line"></span>
-																</a>
-															</div>
-														</div>
-														<div class="para">
-																<p>{{ $khoa->thongtin }}</p>
-														</div>
+							<li id="show_dialog" class="khoa_item arrow_up x_scrollFadeIn">
+								<a data-toggle="modal" data-target="#myModal{{$khoa->id}}">
+									<p class="khoa_title">{{$khoa->tenkhoa}}</p>
+								</a>
+								<!-- click vao ten khoa, se hien ra thong tin chi tiet cua khoa -->
+								<div class="row TTKhoa modal fade" id="myModal{{$khoa->id}}" role="dialog">
+									 <div class="modal-dialog content_dialog">
+										 <div class="modal-content">
+												<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h2 class="modal_title">{{$khoa->tenkhoa}}</h2>
+											</div>
+											<div class="modal-body">
+												<div class="img_content">
+													<div class="view view-fifth">
+														<a href="#ns-6" class="click-view-detail image">
+																<img src="{{ asset($khoa->hinhanh)}}" alt="" />
+																<span class="line"></span>
+														</a>
 													</div>
 												</div>
+												<div class="para">
+														<p>{{ $khoa->thongtin }}</p>
+												</div>
 											</div>
-										</div> <!-- .row TTKhoa modal fade -->
-									</li>
-									@endforeach
+										</div>
+									</div>
+								</div> <!-- .row TTKhoa modal fade -->
+							</li>
+							@endforeach
 			          </ul>
 
 				</section>
@@ -487,24 +490,24 @@
 								@foreach ($ykienphanhoi as $key => $ykien)
 					      <li class="als-item wow animateds zoomIn">
 					      	<div id="flip{{ ($key == 0) ? '' : $key }}">
-										<div class="anh">
-											<img class="circle" src="{{ asset('img/images/img_1.jpg')}}"></img>
-											<div class="embay_border line_inner">
-												<div class="line_top"></div>
-												<div class="line_bottom"></div>
-												<div class="line_left"></div>
-												<div class="line_right"></div>
-											</div>
-										</div>
-										<div class="name">
-											<h4 class="full_name">{{ $ykien->hoten }}</h4>
-											<p class="job">{{ $ykien->email }}</p>
-										</div>
+								<div class="anh">
+									<img class="circle" src="{{ asset('img/images/img_1.jpg')}}"></img>
+									<div class="embay_border line_inner">
+										<div class="line_top"></div>
+										<div class="line_bottom"></div>
+										<div class="line_left"></div>
+										<div class="line_right"></div>
 									</div>
-									<!-- thong tin y kien khi click vao khach hang -->
-									<div id="infor{{ ($key == 0) ? '' : $key }}">
-										<p>{{ $ykien->ykien }}</p>
-								  </div>
+								</div>
+								<div class="name">
+									<h4 class="full_name">{{ $ykien->hoten }}</h4>
+									<p class="job">{{ $ykien->email }}</p>
+								</div>
+								</div>
+								<!-- thong tin y kien khi click vao khach hang -->
+								<div id="infor{{ ($key == 0) ? '' : $key }}">
+									<p>{{ $ykien->ykien }}</p>
+							  </div>
 					      </li>
 								@endforeach
 					    </ul>
@@ -551,6 +554,7 @@
 	<script type="text/javascript" src="{{ asset('js/jquery.scrollTo-1.4.3.1-min.js')}}"></script>
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 	<script src="{{ asset('js/wow.js')}}"></script>
+	<script src="{{ asset('js/calendar.js')}}"></script>
 	<script src="{{ asset('js/common.js')}}" type="text/javascript"></script>
 </body>
 </html>
