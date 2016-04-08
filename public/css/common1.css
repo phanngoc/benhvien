@@ -3,9 +3,9 @@
   text-indent: -9999px;
   height: 80px;
   margin-top: 15px;
-  width: 120px;
+  width: 140px;
   float: left;
-  position: fixed;
+  position: absolute;
   top: -10px;
   left: 9%;
   z-index: 1212;
@@ -25,21 +25,35 @@
     margin: 0 auto;
     padding-top: 50px;
 }
+.fullname {
+  width: 250px;
+  height: 35px;
+  color: #535353;
+  margin-bottom: 6px;
+  border-radius: 3px;
+  border: 1px solid #A9A3A3;
+  padding-left: 10px;
+  display: inherit;
+  margin-top: 30px;
+}
 .user {
 	width: 250px;
-    height: 35px;
-    margin-bottom: 6px;
-    border-radius: 3px;
-    border: 1px solid #A9A3A3;
-    padding-left: 10px;
+  height: 35px;
+  color: #535353;
+  margin-bottom: 6px;
+  border-radius: 3px;
+  border: 1px solid #A9A3A3;
+  padding-left: 10px;
+  display: inherit;
 }
 .pass {
 	width: 250px;
-    height: 35px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    border: 1px solid #A9A3A3;
-    padding-left: 10px;
+  height: 35px;
+  color: #535353;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid #A9A3A3;
+  padding-left: 10px;
 }
 .check {
 	float: left;
@@ -55,17 +69,422 @@
 .btn_login {
 	width: 250px !important;
 }
-/*main page ------*/
+/*--------Profile Page---------------*/
+#wrap_content .menu {
+  background: rgb(146, 161, 146);
+  height: 1200px;
+  padding: 0 !important;
+}
 .choose_list {
     margin: 0 auto;
     margin-top: 30%;
+    padding: 0;
 }
 .choose_list li {
+  list-style: none;
 	border-right: 1px solid #c1c1c1;
 	border-bottom: 1px solid #c1c1c1;
+}
+.choose_list li:hover,
+.choose_list li:focus,
+.active{
+  cursor: pointer;
+  background: rgba(100, 109, 100, 0.66);
+}
+.choose_list li a {
+  color: #fff !important;
+}
+.choose_list li a:hover,
+.choose_list li a:focus,
+.choose_list li a:visited {
+  text-decoration: none;
 }
 .choose_list .item_choose {
 	text-align: center;
 	height: 50px;
-    line-height: 50px;
+  line-height: 50px;
+}
+#profile {
+  padding: 0 !important;
+  display: inline-block;
+  margin: 50px 0 0 0;
+}
+#profile #display_img {
+  width: 365px;
+  height: 292px;
+  margin-left: 47px;
+}
+.hospital {
+  text-align: center;
+  color: #3c763d;
+  font-size: 28px;
+  font-weight: bold;
+  margin-left: -31px;
+  padding-top: 31px;
+  padding-bottom: 45px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#profile .name {
+  display: block;
+  float: left;
+  margin-right: 50px;
+  font-size: 16px;
+  font-weight: bold;
+}
+#profile .ID {
+  font-style: italic;
+}
+#profile .ID:after {
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+#profile .btn_upload_photo {
+  position: absolute;
+  top: 13px;
+  right: 5px;
+}
+#profile .input_choose {
+  position: absolute;
+  top: 12px;
+  right: 5px;
+  height: 34px;
+  width: 39px;
+  opacity: 0;
+}
+#profile .infor_profile {
+  margin-left: 35px;
+  margin-top: 20px;
+}
+#profile .wrap_infor {
+  color: #fff;
+  background: rgb(103, 165, 103);
+  padding: 30px 0 50px 145px;
+  width: 600px;
+  margin: 0 auto;
+}
+.btn_ {
+  margin-top: 20px;
+}
+.btn_ .btn_edit_profile {
+  width: 125px;
+}
+.btn_ .btn_ok {
+  width: 120px;
+}
+/*quan ly tin tuc*/
+#create_news .wrap_post .input_choose {
+  margin: 15px 0 25px 0;
+}
+#create_news .wrap_post .form_create_news .post_img img {
+    width: 400px;
+    height: 230px;
+}
+#create_news .form_create_news {
+  padding: 20px;
+  display: inline-block;
+  width: 1000px;
+  margin-bottom: 50px;
+  margin: 0 auto;
+}
+#create_news .form_create_news select,
+#create_news .form_create_news textarea,
+#create_news .form_create_news input,
+#create_news .form_create_news .post_img {
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+#create_news .form_create_news .button {
+  text-align: center;
+}
+#create_news .form_create_news .button .btn-primary a {
+  color: #fff;
+}
+#create_news .form_create_news .button .btn-primary a:hover {
+  text-decoration: none;
+}
+#create_news .form_create_news .button .btn-default a {
+  color: #535353;
+}
+#create_news .form_create_news .button .btn-default a:hover {
+  text-decoration: none;
+}
+#post_news .top_page_news {
+  margin-bottom: 30px;
+}
+#post_news .wrap_list_news {
+  width: 1200px;
+}
+#post_news .wrap_list_news .content_idea {
+  width: 40%;
+}
+#post_news .wrap_list_news .title_news {
+  width: 18%;
+}
+/*post information about Science------------*/
+#create_infor_science .wrap_post .input_choose {
+  margin: 15px 0 25px 0;
+}
+#create_infor_science .wrap_post .form_create_infor .post_img img {
+    width: 400px;
+    height: 230px;
+}
+#create_infor_science .form_create_infor {
+  padding: 20px;
+  display: inline-block;
+  width: 1000px;
+  margin-bottom: 50px;
+  margin: 0 auto;
+}
+#create_infor_science .form_create_infor select,
+#create_infor_science .form_create_infor textarea,
+#create_infor_science .form_create_infor .post_img {
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+#create_infor_science .form_create_infor .button {
+  text-align: center;
+}
+#create_infor_science .form_create_infor .button .btn-primary a {
+  color: #fff;
+}
+#create_infor_science .form_create_infor .button .btn-primary a:hover {
+  text-decoration: none;
+}
+#create_infor_science .form_create_infor .button .btn-default a {
+  color: #535353;
+}
+#create_infor_science .form_create_infor .button .btn-default a:hover {
+  text-decoration: none;
+}
+/* patients page ==============================*/
+#patients {
+  width: 125% !important;
+}
+#patients .set_room {
+  font-weight: bold;
+}
+#patients .set_time
+ {
+  color: #ED9F2F;;
+}
+#patients .list_patient .inputs {
+  display: inline-block;
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
+#patients .list_patient .search_input {
+  width: 200px;
+  float: left;
+  margin-right: 25px;
+}
+#post_news .search_input {
+  width: 200px;
+  float: left;
+  margin-right: 25px;
+}
+#patients .list_patient .btn_edit_patient {
+  width: 80px;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important;
+}
+.stylish-input-group .form-control{
+  border-right:0;
+  box-shadow:0 0 0;
+  border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+/* edit patient---------------*/
+#edit_patients .edit_patient ul li{
+  margin: 0 auto;
+  width: 400px;
+  margin-bottom: 20px;
+  list-style: none;
+}
+#edit_patients .edit_patient .button {
+  margin: 0 auto;
+  text-align: center;
+}
+#edit_patients .edit_patient .button .btn-primary a{
+  color: #fff;
+}
+#edit_patients .edit_patient .button .btn-primary a:hover {
+  text-decoration: none;
+}
+#edit_patients .edit_patient .button .btn-default a{
+  color: #535353;
+}
+#edit_patients .edit_patient .button .btn-default a:hover {
+  text-decoration: none;
+}
+/* tao thong tin khoa-----*/
+#post_information .top_page_infor .search_input {
+  width: 200px;
+  float: left;
+  margin-right: 25px;
+}
+#post_information .top_page_infor {
+  margin-bottom: 30px;
+}
+.btn-primary a{
+  color: #fff;
+}
+.btn-primary a:hover,
+.btn_edit a:hover {
+  text-decoration: none;
+}
+.btn_edit a{
+  color: #fff;
+}
+.wrap_list_infor table .name_science {
+  width: 17%;
+}
+.wrap_list_infor table .img_science {
+  width: 20%;
+}
+.wrap_list_infor table .img_science img {
+  width: 190px;
+  height: 145px;
+}
+/*phong kham-----------------*/
+#room .room .inputs {
+  display: inline-block;
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
+#room .room .search_input {
+  width: 200px;
+  float: left;
+  margin-right: 25px;
+}
+#room .room .btn_edit {
+  width: 80px;
+}
+#room .doctor {
+  color: #ff0000;
+  margin-bottom: 35px;
+}
+#room .doctor p {
+  font-style: italic;
+  float: left;
+  margin-right: 10px;
+}
+#room .doctor span {
+  font-weight: bold;
+}
+#room .doctor span:after {
+  clear: both;
+  content: "";
+  height: 0;
+  visibility: hidden;
+}
+/*----ideas-------*/
+.content_idea {
+  width: 45%;
+}
+.name_room {
+  margin: 0 0 15px 0 !important;
+  color: #CA0A0A;
+  font-weight: bold;
+}
+.option {
+  padding-left: 37px !important;
+  width: 19%;
+}
+.status {
+  padding-left: 4.5% !important;
+}
+.btn_edit {
+  font-size: 12px;
+  padding: 5px 8px;
+  background: #428bca;
+  color: #fff;
+  float: left;
+  margin-right: 4px;
+  border: 1px solid #C8BEBE;
+}
+.btn_delete {
+  font-size: 12px;
+  padding: 5px 10px;
+  background: #A50E0E;
+  color: #fff;
+  border: 1px solid #C8BEBE;
+}
+#patients .option {
+  padding-left: 9px !important;
+  width: 11%;
+}
+/*edit ideas -----------------*/
+#edit_ideas .edit_idea,
+#create_room .create_new_room {
+  margin: 0 auto;
+  width: 500px;
+}
+#edit_ideas .edit_idea ul li,
+#create_room .create_new_room ul li{
+  list-style: none;
+  margin-bottom: 20px;
+}
+#edit_ideas .edit_idea .button,
+#create_room .create_new_room .button {
+  text-align: center;
+}
+#edit_ideas .edit_idea .button .btn-primary a,
+#create_room .create_new_room .button .btn-primary a{
+  color: #fff;
+}
+#edit_ideas .edit_idea .button .btn-primary a:hover,
+#create_room .create_new_room .button .btn-primary a:hover {
+  text-decoration: none;
+}
+#edit_ideas .edit_idea .button .btn-default a,
+#create_room .create_new_room .button .btn-default a{
+  color: #535353;
+}
+#edit_ideas .edit_idea .button .btn-default a:hover,
+#create_room .create_new_room .button .btn-default a:hover {
+  text-decoration: none;
+}
+/*them loai tin-------*/
+#kind_of_news .kind_of_news {
+  margin: 0 auto;
+  width: 400px;
+  text-align: center;
+}
+#kind_of_news input {
+  margin-bottom: 20px;
+}
+#kind_of_news .button{
+  margin: 20px 0 45px 0;
+}
+#kind_of_news table{
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+#kind_of_news table .option {
+  width: 40%;
+}
+/*list room--------------*/
+#list_room .list_room .inputs {
+  display: inline-block;
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
+#list_room .list_room .search_input {
+  width: 200px;
+  float: left;
+  margin-right: 25px;
+}
+#list_room .list_room .btn_edit {
+  width: 80px;
 }

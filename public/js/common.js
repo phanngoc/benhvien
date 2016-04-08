@@ -97,6 +97,28 @@ $(document).ready(function() {
     $("#fourth_form").show();
   });
 
+
+// display news detail
+  $(".click-view-detail").click(function(){
+      $(".click-view-detail").parent().removeClass("active");
+      $(this).parent().addClass("active");
+      var curren = $(this).attr("href");
+      $(curren).parents(".content-detail").find(".item-detail").hide();
+      $(curren).show();
+      $(curren).parents(".content-detail").slideDown();
+      $("html, body").animate({
+          scrollTop:$(curren).offset().top - 54
+      }, 1000
+      );
+      return false;
+  });
+  $(".closes").click(function(){
+      $(this).parents(".content-detail").slideUp();
+      var getid = $(this).attr("href");
+      $.scrollTo( this.hash, 800,   { offset:-54 });
+      return false;
+  });
+
   $("select").change(function() {
     $("select option:selected").each(function() {
       $(".introduce").show();
@@ -198,12 +220,10 @@ $(document).ready(function() {
   $(window).bind("resize", ScaleSlider);
   $(window).bind("orientationchange", ScaleSlider);
 
+
 });
 
-// datepicker=====================
-$(function() {
-  $("#datepicker").datepicker();
-});
+
 /*== map ==*/
 function initialize() {
   var mapOptions = {
