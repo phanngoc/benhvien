@@ -23,6 +23,20 @@ Route::get('ykienphanhoi', [
 	'uses' => 'HomeController@submitYkienNguoiDung',
 ]);
 
+Route::get('getRoomFromService', [
+	'as' => 'getRoomFromService',
+	'uses' => 'HomeController@getRoomFromService',
+]);
+
+Route::get('admin/profile', [
+	'as' => 'admin.profile',
+	'uses' => 'AdminController@index',
+]);
+
+
+
+Route::controller('admin', 'AdminController');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
