@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="{{ asset('css/swiper.min.css')}}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ asset('css/animate.css')}}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="{{ asset('css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{ asset('css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link rel="stylesheet" href="{{ asset('css/common.css')}}" type="text/css" media="screen,projection" />
 	<script src="{{ asset('js/jquery-1.11.0.min.js')}}" type="text/javascript"></script>
 </head>
@@ -44,8 +44,8 @@
 								        <li><a href="#information">TIN TỨC</a></li>
 								        <li><a href="#news">THÔNG TIN KHOA</a></li>
 								        <li><a href="#find">TRA CỨU</a></li>
-												<li><a href="#response1">Ý KIẾN KHÁCH HÀNG</a></li>
-												<li><a href="#response2">PHẢN HỒI</a></li>
+										<li><a href="#response1">Ý KIẾN KHÁCH HÀNG</a></li>
+										<li><a href="#response2">PHẢN HỒI</a></li>
 								      </ul>
 								    </div>
 								  </nav>
@@ -86,26 +86,23 @@
 							<p class="center fadeleft">-------------- Hệ thống đặt khám trực tuyến ---------------</p>
 
 							<div  class="input-field col s12 m6 input_center fadeleft">
-	                <select id="mySelectBox" class="icons fadeleft" name="mySelectBox">
-	                  <option value="" disabled selected>Ghé Thăm</option>
+				                <select id="mySelectBox" class="icons fadeleft" name="mySelectBox">
+				                  <option value="" disabled selected>Ghé Thăm</option>
 										@foreach ($benhviens as $benhvien)
 											<option value="{{ $benhvien->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$benhvien->ten}}</option>
 										@endforeach
-	                  <!-- <option value="Bệnh viện đa khoa Đà Nẵng" data-icon="{{asset('img/images/4.jpg')}}" class="circle">BỆNH VIỆN ĐA KHOA ĐÀ NẴNG</option>
-	                  <option value="Bệnh viện C Đà Nẵng" data-icon="{{asset('img/images/5.jpg')}}" class="circle">BỆNH VIỆN C ĐÀ NẴNG</option>
-	                  <option value="Bệnh viện Phụ sản Đà Nẵng" data-icon="{{asset('img/images/7.jpg')}}" class="circle">BỆNH VIỆN PHỤ SẢN ĐÀ NẴNG</option> -->
-	                </select>
-				      </div>
-	            <button class="btn waves-effect waves-light fadeleft" type="submit" name="action">Đặt khám
-							    <i class="material-icons right">settings_phone</i>
-							</button>
+				                </select>
+				            </div>
+	            		<button class="btn waves-effect waves-light fadeleft" type="submit" name="action">Đặt khám
+						    <i class="material-icons right">settings_phone</i>
+						</button>
 						</div>
 
 						<script type="text/javascript">
 							$(document).ready(function(){
 								$('select[id="mySelectBox"]').change(function(){
-										var idBenhvien = $(this).val();
-										window.location.href = "{{route('home')}}/"+idBenhvien;
+									var idBenhvien = $(this).val();
+									window.location.href = "{{route('home')}}/"+idBenhvien;
 								});
 							});
 						</script>
@@ -154,7 +151,7 @@
 					</div>
 				</section>
 				<hr>
-<!-- section hien thi tin tuc ========================================================================= -->
+			<!-- section hien thi tin tuc ========================================================================= -->
 				<section id="information" class="each container">
 					<div class="wrap_news"></div>
 					<h2 class="title3">TIN TỨC</h2>
@@ -162,7 +159,7 @@
 						<ul class="infor col s12">
 							<div class="col s12 m6 l3 per_infor">
 								<li class="wow flipInY animatedss">
-						        	<a href="#news1" class="menu_text click-view-detail">
+						        	<a href="{{ asset('detail_news.blade.php')}}" class="menu_text" target="_blank">
 						        		<img src="{{ asset('img/images/icon_news.png')}}">
 						        		Tin hàng ngày
 						        		<div class="des">
@@ -271,66 +268,49 @@
 					        </div>
 					    </ul>
 					</div>
-					<!-- Khi click vao mot thong tin, se hien ra thong tin chi tiet ======= -->
-					<div class="content-detail" style="display: none;">
-						<div id= "news1" class="item-detail">
-						<div class="ct-close"><a href="#information" class="closes">x</a></div>
-							<div class="content-text">
-								Hành trình Đỏ 2015 – Hành trình vận động hiến máu xuyên Việt tổ chức tại 22 tỉnh, thành phố trên cả nước, diễn ra từ ngày 5- 26/7/2015  chia thành 2 đoàn Nam, Bắc. Đoàn Hành trình Đỏ phía Nam bắt đầu xuất quân tại tỉnh Cà Mau và phía Bắc xuất quân tại tỉnh Vĩnh Phúc. Theo báo cáo của Ban tổ chức Hành trình Đỏ  2015, tính đến ngày 19/7, Hành trình Đỏ đã di chuyển qua 2/3 chặng đường, vận động khoảng 25.000 lượt người đăng ký hiến máu và đã tiếp nhận được hơn
-							</div>
-							<img src="{{ asset('img/images/01.jpg')}}">
-						</div>
-						<div id= "news2" class="item-detail">
-						<div class="ct-close"><a href="#information" class="closes">x</a></div>
-							<div class="content-text">
-								Hành trình Đỏ 2015 – Hành trình vận động hiến máu xuyên Việt tổ chức tại 22 tỉnh, thành phố trên cả nước, diễn ra từ ngày 5- 26/7/2015  chia thành 2 đoàn Nam, Bắc. Đoàn Hành trình Đỏ phía Nam bắt đầu xuất quân tại tỉnh Cà Mau và phía Bắc xuất quân tại tỉnh Vĩnh Phúc. Theo báo cáo của Ban tổ chức Hành trình Đỏ  2015, tính đến ngày 19/7, Hành trình Đỏ đã di chuyển qua 2/3 chặng đường, vận động khoảng 25.000 lượt người đăng ký hiến máu và đã tiếp nhận được hơn
-								<img src="{{ asset('img/images/04.jpg')}}">
-							</div>
-						</div>
-					</div>
 				</section>
 				<hr>
-<!-- section cac Khoa, Phong ban cua benh vien ============================================================= -->
+			<!-- section cac Khoa, Phong ban cua benh vien ============================================================= -->
 				<section id="news" class="each">
 				    <h2 class="title">THÔNG TIN CÁC KHOA, PHÒNG BAN</h2>
 				    <!-- list khoa ======= -->
 				    <ul class="khoa_list" id="list_khoa">
 			            @foreach($khoas as $khoa)
-									<li id="show_dialog" class="khoa_item arrow_up x_scrollFadeIn">
-										<a data-toggle="modal" data-target="#myModal{{$khoa->id}}">
-											<p class="khoa_title">{{$khoa->tenkhoa}}</p>
-										</a>
-										<!-- click vao ten khoa, se hien ra thong tin chi tiet cua khoa -->
-										<div class="row TTKhoa modal fade" id="myModal{{$khoa->id}}" role="dialog">
-											 <div class="modal-dialog content_dialog">
-												 <div class="modal-content">
-														<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal">&times;</button>
-														<h2 class="modal_title">{{$khoa->tenkhoa}}</h2>
-													</div>
-													<div class="modal-body">
-														<div class="img_content">
-															<div class="view view-fifth">
-																<a href="#ns-6" class="click-view-detail image">
-																		<img src="{{ asset($khoa->hinhanh)}}" alt="" />
-																		<span class="line"></span>
-																</a>
-															</div>
-														</div>
-														<div class="para">
-																<p>{{ $khoa->thongtin }}</p>
-														</div>
+							<li id="show_dialog" class="khoa_item arrow_up x_scrollFadeIn">
+								<a data-toggle="modal" data-target="#myModal{{$khoa->id}}">
+									<p class="khoa_title">{{$khoa->tenkhoa}}</p>
+								</a>
+								<!-- click vao ten khoa, se hien ra thong tin chi tiet cua khoa -->
+								<div class="row TTKhoa modal fade" id="myModal{{$khoa->id}}" role="dialog" style="width: 100%; max-height: 100%;">
+									 <div class="modal-dialog content_dialog">
+										 <div class="modal-content">
+												<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h2 class="modal_title">{{$khoa->tenkhoa}}</h2>
+											</div>
+											<div class="modal-body">
+												<div class="img_content">
+													<div class="view view-fifth">
+														<a href="#ns-6" class="click-view-detail image">
+															<img src="{{ asset($khoa->hinhanh)}}" alt="" />
+															<span class="line"></span>
+														</a>
 													</div>
 												</div>
+												<div class="para">
+													<p>{{ $khoa->thongtin }}</p>
+												</div>
 											</div>
-										</div> <!-- .row TTKhoa modal fade -->
-									</li>
-									@endforeach
+										</div>
+									</div>
+								</div> <!-- .row TTKhoa modal fade -->
+							</li>
+							@endforeach
 			          </ul>
 
 				</section>
 				<hr>
-<!-- section tra cuu thong tin benh vien, dia chi benh vien ======================================================== -->
+			<!-- section tra cuu thong tin benh vien, dia chi benh vien ======================================================== -->
 				<section id="find" class = "container each">
 					<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<h2 class="title">TRA CỨU THÔNG TIN BỆNH VIỆN</h2>
@@ -364,39 +344,44 @@
 				<section id="response1" class="container each">
 					<h2 class="title">Ý KIẾN KHÁCH HÀNG</h2>
 					<div class="als-container" id="idea">
-					<!-- arrow prerious -->
-					  <span class="als-prev wow animateds zoomIn"><img src="{{ asset('img/images/btn_previous.png')}}" alt="prev" title="previous" /></span>
 					  <!--  -->
-					  <div class="als-viewport">
-					    <ul class="als-wrapper list_images">
-								@foreach ($ykienphanhoi as $key => $ykien)
-					      <li class="als-item wow animateds zoomIn">
-					      	<div id="flip{{ ($key == 0) ? '' : $key }}">
-										<div class="anh">
-											<img class="circle" src="{{ asset('img/images/img_1.jpg')}}"></img>
-											<div class="embay_border line_inner">
-												<div class="line_top"></div>
-												<div class="line_bottom"></div>
-												<div class="line_left"></div>
-												<div class="line_right"></div>
-											</div>
-										</div>
-										<div class="name">
-											<h4 class="full_name">{{ $ykien->hoten }}</h4>
-											<p class="job">{{ $ykien->email }}</p>
-										</div>
-									</div>
-									<!-- thong tin y kien khi click vao khach hang -->
-									<div id="infor{{ ($key == 0) ? '' : $key }}">
-										<p>{{ $ykien->ykien }}</p>
-								  </div>
-					      </li>
-								@endforeach
-					    </ul>
-					  </div>
-					  <!-- button next -->
-					  <span class="als-next wow animateds zoomIn"><img src="{{ asset('img/images/btn_next.png')}}" alt="next" title="next" /></span>
-					</div>
+				    <ul class="als-wrapper list_images">
+					@foreach ($ykienphanhoi as $key => $ykien)
+					  <a href="#idea_item1" class="click_show">
+				      <li class="als-item wow animateds zoomIn">
+				      	<div id="flip{{ ($key == 0) ? '' : $key }}">
+							<div class="anh">
+								<img class="circle" src="{{ asset('img/images/icon_advised.png')}}"></img>
+							</div>
+							<div class="name">
+								<h4 class="full_name">{{ $ykien->hoten }}</h4>
+								<p class="job">{{ $ykien->email }}</p>
+							</div>
+							</div>
+							<!-- thong tin y kien khi click vao khach hang -->
+							<div id="infor{{ ($key == 0) ? '' : $key }}">
+								<p>{{ $ykien->ykien }}</p>
+						  </div>
+				       </li>
+				      </a>
+					@endforeach
+				    </ul>
+					  <div class="content_ideas" style="display: none;">
+						<div id= "idea_item1" class="detail_idea">
+							<div class="ct-close"><a href="#response1" class="closes">x</a></div>
+								<div class="content_idea">
+									Hành trình Đỏ 2015 – Hành trình vận động hiến máu xuyên Việt tổ chức tại 22 tỉnh, thành phố trên cả nước, diễn ra từ ngày 5- 26/7/2015  chia thành 2 đoàn Nam, Bắc. Đoàn Hành trình Đỏ phía Nam bắt đầu xuất quân tại tỉnh Cà Mau và phía Bắc xuất quân tại tỉnh Vĩnh Phúc. Theo báo cáo của Ban tổ chức Hành trình Đỏ  2015, tính đến ngày 19/7, Hành trình Đỏ đã di chuyển qua 2/3 chặng đường, vận động khoảng 25.000 lượt người đăng ký hiến máu và đã tiếp nhận được hơn
+									For the seventh year running it beat out major international capitals including New York, London, Paris, Hong Kong and Dubai -- none of which made it anywhere near the top 20.Immediately behind Vienna are a slew of other mainly Western European cities, with Zurich, Switzerland in second place and Munich, Germany in fourth
+								</div>
+							</div>
+							<div id= "idea_item2" class="detail_idea">
+							<div class="ct-close"><a href="#response1" class="closes">x</a></div>
+								<div class="content_idea">
+									Hành trình Đỏ 2015 – Hành trình vận động hiến máu xuyên Việt tổ chức tại 22 tỉnh, thành phố trên cả nước, diễn ra từ ngày 5- 26/7/2015  chia thành 2 đoàn Nam, Bắc. Đoàn Hành trình Đỏ phía Nam bắt đầu xuất quân tại tỉnh Cà Mau và phía Bắc xuất quân tại tỉnh Vĩnh Phúc. Theo báo cáo của Ban tổ chức Hành trình Đỏ  2015, tính đến ngày 19/7, Hành trình Đỏ đã di chuyển qua 2/3 chặng đường, vận động khoảng 25.000 lượt người đăng ký hiến máu và đã tiếp nhận được hơn
+								</div>
+							</div>
+						</div>
+						</div>
 				</section>
 			    <hr>
 <!-- section Phan hoi cua nguoi dung ============================================== -->
@@ -436,6 +421,7 @@
 	<script type="text/javascript" src="{{ asset('js/jquery.scrollTo-1.4.3.1-min.js')}}"></script>
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 	<script src="{{ asset('js/wow.js')}}"></script>
+	<script src="{{ asset('js/calendar.js')}}"></script>
 	<script src="{{ asset('js/common.js')}}" type="text/javascript"></script>
 </body>
 </html>
