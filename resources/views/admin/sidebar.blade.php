@@ -5,6 +5,9 @@
       <a href="{{action('AdminController@index')}}">Thông tin cá nhân</a>
     </li>
     <li class="item_choose">
+      <a href="{{action('AdminController@getInforHopitals')}}">Quản lý Bệnh viện</a>
+    </li>
+    <li class="item_choose">
       <a href="{{action('AdminController@getCategoryNews')}}">Quản lý Loại Tin</a>
     </li>
     <li class="item_choose">
@@ -14,7 +17,7 @@
       <a href="{{action('AdminController@getScience')}}">Quản lý Khoa</a>
     </li>
     <li class="item_choose">
-      <a href="{{action('AdminController@getHopital')}}">Quản Lý thông tin bệnh viện</a>
+      <a href="{{action('AdminController@getHopital')}}">Quản Lý thông tin Khoa</a>
     </li>
     <li class="item_choose">
       <a href="{{action('AdminController@getKindService')}}">Quản lý Loại Dịch Vụ</a>
