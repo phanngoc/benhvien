@@ -97,7 +97,6 @@ $(document).ready(function() {
     $("#fourth_form").show();
   });
 
-
 // display news detail
   $(".click-view-detail").click(function(){
       $(".click-view-detail").parent().removeClass("active");
