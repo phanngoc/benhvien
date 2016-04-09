@@ -6,26 +6,24 @@
         <div id="kind_of_news" class="col-md-12">
           <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
           <!-- post article -->
-          <form class="kind_of_news" method="POST" action="{{action('AdminController@postCategoryNews')}}" enctype="multipart/form-data">
+          <form class="kind_of_news" method="POST" action="{{action('AdminController@postEditCategoryNews')}}" enctype="multipart/form-data">
               <input name="_token" type="hidden" value="{{csrf_token()}}"/>
-              <select class="selectpicker form-control">
-                <option> Chọn Bệnh Viện </option>
-                <option> Bệnh viện Đa khoa Đà Nẵng</option>
-                <option> Bệnh viện C Đà Nẵng </option>
-                <option> Bệnh Viện Liên Chiểu Đà Nẵng </option>
-                <option> Bệnh Viện Hoàn Mỹ Đà Nẵng </option>
-              </select>
-              <input class="form-control" type="text" name="name" placeholder=" Nhập Tên loại tin">
+              <input type="hidden" name="id" value="{{$categoryNew->id}}">
+              <input class="form-control" type="text" name="name" placeholder="Nhập Tên loại tin" value="{{ $categoryNew->name }}">
 
               <select class="form-control" name="benhvien_id">
                 @foreach($benhvien as $bv)
-                  <option value="{{$bv->id}}">{{$bv->ten}}</option>
+                  @if ($bv->id == $categoryNew->benhvien_id)
+                    <option value="{{$bv->id}}" selected>{{$bv->ten}}</option>
+                  @else
+                    <option value="{{$bv->id}}">{{$bv->ten}}</option>
+                  @endif
                 @endforeach
               </select>
 
               <div class="post_img">
                 <input class="input_choose" type='file' name="icon" onchange="readURL(this);"/>
-                <img title="Image" id="display_img" src="{{ Asset('img/images/default_spot_main_photo.png') }}" alt="your image" style="width: 240px; height: 180px;" />
+                <img title="Image" id="display_img" src="{{ (strlen($categoryNew->icon) != 0) ? Asset('uploads/'.$categoryNew->icon) : Asset('img/images/default_spot_main_photo.png') }}" alt="your image" style="width: 240px; height: 180px;" />
               </div>
 
               <div class="button">
@@ -33,7 +31,7 @@
                 <button class="btn btn-default"> Bỏ qua </button>
               </div>
           </form>
-          <table  class="table table-bordered">
+          <table class="table table-bordered">
             <thead>
               <tr>
                 <th> Icon </th>
@@ -45,7 +43,7 @@
             <tbody>
               @foreach($loaitin as $loai)
                 <tr>
-                  <td><img src="{{Asset('uploads/'.$loai->icon)}}"></td>
+                  <td><img src="{{Asset('uploads/'.$categoryNew->icon)}}"></td>
                   <td> {{$loai->tentin}} </td>
                   <td>
                      {{$loai->tenbenhvien}}

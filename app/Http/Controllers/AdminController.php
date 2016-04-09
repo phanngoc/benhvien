@@ -6,10 +6,12 @@ use App\Models\Loaidichvu;
 use App\Models\Phongkham;
 use App\Models\Khoa;
 use App\Models\Loaitin;
+use App\Models\Tintuc;
 use Illuminate\Http\Request;
 use DB;
+use Validator;
 
-class AdminController extends Controller {
+class AdminController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -33,6 +35,7 @@ class AdminController extends Controller {
 	}
 
   public function getInfoUser() {
+		$dataSample['id'] = 1;
     $dataSample['username'] = "Phan Ngoc";
     $dataSample['password'] = "Phann123@123";
     return $dataSample;
@@ -49,8 +52,9 @@ class AdminController extends Controller {
 	}
 
   public function getCategoryNews() {
-		$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien')->get();
-    return view('admin.category-news', compact('loaitin'));
+		$benhvien = Benhvien::all();
+		$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien','loaitin.icon')->get();
+		return view('admin.category-news', compact('loaitin', 'benhvien'));
   }
 
 	public function postCategoryNews(Request $request) {
@@ -68,9 +72,10 @@ class AdminController extends Controller {
 		}
 		$fileName = '';
 		if ($request->hasFile('icon')) {
-			$destinationPath = public_path().'uploads/';
-			$fileName = str_random(40);
-			Request::file('photo')->move($destinationPath, $fileName);
+			$destinationPath = public_path().'/uploads/';
+			$extension = $request->file('icon')->getClientOriginalExtension();
+			$fileName = str_random(40).'.'.$extension;
+			$request->file('icon')->move($destinationPath, $fileName);
 		}
 		Loaitin::create([
 			 'name' => $request->input('name'),
@@ -80,9 +85,41 @@ class AdminController extends Controller {
 		return redirect(action('AdminController@getCategoryNews'));
 	}
 
-  public function getNews() {
-    return view('admin.news');
-  }
+	public function getEditCategoryNews($idCategoryNew) {
+		$categoryNew = Loaitin::find($idCategoryNew);
+		$benhvien = Benhvien::all();
+		$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien')->get();
+		return view('admin.category-news-edit', compact('loaitin', 'benhvien','categoryNew'));
+	}
+
+	public function postEditCategoryNews(Request $request) {
+		$validator = Validator::make(
+		    $request->all(),
+		    [
+					'benhvien_id' => 'required',
+					'name' => 'required',
+				]
+		);
+		if ($validator->fails())
+		{
+			return redirect()->back()->withErrors($validator->errors());
+		}
+		$fileName = '';
+		if ($request->hasFile('icon')) {
+			$destinationPath = public_path().'/uploads/';
+			$extension = $request->file('icon')->getClientOriginalExtension();
+			$fileName = str_random(40).'.'.$extension;
+			$request->file('icon')->move($destinationPath, $fileName);
+		}
+		Loaitin::find($request->input('id'))->update([
+			 'name' => $request->input('name'),
+			 'benhvien_id' => $request->input('benhvien_id'),
+			 'icon' => $fileName
+			]);
+		return redirect(action('AdminController@getCategoryNews'));
+	}
+
+
 
   public function getScience() {
     return view('admin.science');

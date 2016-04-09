@@ -34,8 +34,8 @@ Route::get('admin/profile', [
 ]);
 
 
-
 Route::controller('admin', 'AdminController');
+Route::controller('new', 'NewController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
