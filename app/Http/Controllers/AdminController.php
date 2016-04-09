@@ -88,6 +88,10 @@ class AdminController extends Controller {
     return view('admin.science');
   }
 
+  public function getInforHopitals() {
+    return view('admin.inforhopital');
+  }
+
   public function getHopital() {
     return view('admin.hopital');
   }

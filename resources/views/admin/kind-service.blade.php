@@ -8,6 +8,13 @@
           <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
           <!-- post article -->
           <form class="kind_of_news">
+              <select class="selectpicker form-control">
+                <option> Chọn Bệnh Viện </option>
+                <option> Bệnh viện Đa khoa Đà Nẵng</option>
+                <option> Bệnh viện C Đà Nẵng </option>
+                <option> Bệnh Viện Liên Chiểu Đà Nẵng </option>
+                <option> Bệnh Viện Hoàn Mỹ Đà Nẵng </option>
+              </select>
               <input class="form-control" type="text" placeholder=" Nhập Loại Dịch Vụ">
               <input class="form-control" type="text" placeholder="Giá tiền">
               <div class="button">

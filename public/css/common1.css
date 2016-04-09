@@ -460,19 +460,46 @@
   width: 400px;
   text-align: center;
 }
-#kind_of_news input {
+#kind_of_news input,
+#kind_of_news select {
   margin-bottom: 20px;
 }
 #kind_of_news .button{
   margin: 20px 0 45px 0;
 }
 #kind_of_news table{
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   width: 100%;
 }
 #kind_of_news table .option {
-  width: 40%;
+  width: 25%;
+}
+/* quan ly thong tin benh vien --------------------*/
+#infor_hospital .infor_hospital {
+  margin: 0 auto;
+  width: 800px;
+  text-align: center;
+}
+#infor_hospital input,
+#infor_hospital textarea {
+  margin: 0 auto;
+  width: 400px;
+  margin-bottom: 20px;
+}
+#infor_hospital .button{
+  margin: 20px 0 45px 0;
+}
+#infor_hospital table{
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+#infor_hospital table .option {
+  width: 18%;
+}
+#infor_hospital table .infor {
+  width: 42%;
 }
 /*list room--------------*/
 #list_room .list_room .inputs {

@@ -8,6 +8,13 @@
           <!-- post article -->
           <form class="kind_of_news" method="POST" action="{{action('AdminController@postCategoryNews')}}" enctype="multipart/form-data">
               <input name="_token" type="hidden" value="{{csrf_token()}}"/>
+              <select class="selectpicker form-control">
+                <option> Chọn Bệnh Viện </option>
+                <option> Bệnh viện Đa khoa Đà Nẵng</option>
+                <option> Bệnh viện C Đà Nẵng </option>
+                <option> Bệnh Viện Liên Chiểu Đà Nẵng </option>
+                <option> Bệnh Viện Hoàn Mỹ Đà Nẵng </option>
+              </select>
               <input class="form-control" type="text" name="name" placeholder=" Nhập Tên loại tin">
               <div class="post_img">
                 <input class="input_choose" type='file' name="icon" onchange="readURL(this);"/>
