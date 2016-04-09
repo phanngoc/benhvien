@@ -8,9 +8,8 @@
         <label for="icon_prefix">Họ tên:</label>
       </div>
       <div class="input-field col s6 wow animatedss fadeInRightBig">
-        <i class="material-icons prefix">phone</i>
-        <input id="icon_telephone" type="tel" class="validate" name="phone">
-        <label for="icon_telephone">Số điện thoại: </label>
+          <label> Mật Khẩu </label>
+          <input type="text" class="validate" name="Password">
       </div>
     </div>
 
@@ -42,7 +41,7 @@
     </div>
 
     <div class="row">
-        <div class="input-field col s12 wow animatedss fadeInLeftBig">
+        <div class="input-field col s6 wow animatedss fadeInLeftBig">
         <label class="lb_date"> Giới tính: </label>
         <i class="material-icons prefix">person_pin</i>
            <div class="male">
@@ -54,13 +53,18 @@
           <label class="input_sex" for="test2" name="gioitinh" value="1">Female</label>
         </div>
         </div>
+        <div class="input-field col s6 wow animatedss fadeInRightBig">
+          <i class="material-icons prefix">phone</i>
+          <input id="icon_telephone" type="tel" class="validate" name="phone">
+          <label for="icon_telephone">Số điện thoại: </label>
+        </div>
     </div>
    <button id="first_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="button">Tiếp
       <i class="material-icons right">send</i>
    </button>
   </div>
   <!-- sencond form ========================================================-->
-  <div id="second_form" style="display:none;" class="animated fadeInRightBig">
+  <div id="second_form" style="display:none;">
     <input type="hidden" name="loaidichvu" value="0">
     <script type="text/javascript">
       $(document).ready(function(){
@@ -82,8 +86,8 @@
         });
       });
     </script>
+    <h2 class="title">Loại Dịch Vụ</h2>
     <ul class="collection with-header list-dichvu">
-        <li class="collection-header"><h2>Loại Dịch Vụ</h2></li>
         @foreach ($loaidichvus as $loaidichvu)
           <li class="collection-item" data-id = "{{$loaidichvu->id}}">
             <div>
@@ -98,7 +102,7 @@
    </button>
   </div>
   <!-- third form =========================================================s -->
-  <div id="third_form" class="animated fadeInRightBig" style="display:none;">
+  <div id="third_form" style="display:none;">
     <input type="hidden" name="phongkham" value="">
     <ul class="collection" id="list-phongkham">
       @foreach ($phongkhams as $phongkham)
@@ -113,12 +117,13 @@
     <button id="third_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="submit" name="action">Tiếp
       <i class="material-icons right">send</i>
     </button>
-  </div> <!-- #third_form -->
+  </div> 
   <!-- form choose time -->
-  <div id="fourth_form" class="animated fadeInRightBig" style="display:none;">
-    <a class="secondary-content form_datetime">
-      <input type="text" id="datepicker" class="datepicker">
-    </a>
+  <div id="fourth_form" style="display:none;">
+    <p class="choose_date"> Chọn ngày khám: </p>
+    <div class="jquery-calendar"></div>
+    <p class="choose_time"> Chọn thời gian: </p>
+    <input id="timepicker" class="timepicker" placeholder="00:00"/>
     <button id="fourth_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="submit" name="action">Tiếp
       <i class="material-icons right">send</i>
     </button>
@@ -132,6 +137,14 @@
       $('#third_form').find('li.collection-item').removeClass('status-choose');
       $(this).addClass('status-choose');
       $('#third_form').find('input[name="phongkham"]').val(phongkhamId);
+    });
+   $('input.timepicker').timepicker({
+      change: function(time) {
+        var element = $(this), text;
+        var timepicker = element.timepicker();
+        text = 'Selected time is: ' + timepicker.format(time);
+        element.siblings('span.help-line').text(text);
+      }
     });
   });
 </script>

@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css')}}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ asset('css/swiper.min.css')}}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css')}}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ asset('css/animate.css')}}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -422,6 +423,7 @@
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 	<script src="{{ asset('js/wow.js')}}"></script>
 	<script src="{{ asset('js/calendar.js')}}"></script>
+	<script src="{{ asset('js/jquery.timepicker.js')}}"></script>
 	<script src="{{ asset('js/common.js')}}" type="text/javascript"></script>
 </body>
 </html>

@@ -763,7 +763,7 @@ a.menu_text {
 .name {
   text-align: center;
   font-size: 14px;
-  margin-top: 15px;
+  margin-top: 30px;
   color: #3B8C3D;
 }
 
@@ -862,7 +862,7 @@ h3 {
   overflow: hidden;
   position: relative;
   width: 50px;
-  /*float: left;*/
+  float: left;
 }
 
 .circle {
@@ -1045,7 +1045,8 @@ a.button:hover {
 }
 /* third form---------*/
 #third_form .collection li {
-  padding: 30px 0 0 35px !important;
+  min-height: 65px !important;
+  padding: 24px 0 0 35px !important;
 }
 #third_form li .form_datetime {
   width: 128px;
@@ -1053,8 +1054,39 @@ a.button:hover {
 #third_form .collection li p {
   color: #26A69A;
   font-size: 15px;
+  float: right;
+  margin: -16px 35px 0 0;
 }
 /*form chọn ngày khám--------*/
+/*form fourth----------------*/
+#fourth_form .jquery-calendar {
+  margin-left: 40%;
+  margin-top: 30px;
+  margin-bottom: 45px;
+}
+#fourth_form .timepicker {
+  width: 100px;
+  text-align: center;
+  position: absolute;
+  right: 172px;
+  bottom: 62px;
+}
+#fourth_form .choose_date {
+  font-size: 17px;
+  text-align: center;
+  color: #ff0000;
+  margin-top: 20px;
+  font-weight: bold;
+}
+#fourth_form .choose_time {
+  position: absolute;
+  right: 190px;
+  bottom: 121px;
+  font-size: 14px;
+  color: #26A69A;
+  font-style: italic;
+  font-weight: bold;
+}
 .cal {
   background-color: white;
   display: block;
