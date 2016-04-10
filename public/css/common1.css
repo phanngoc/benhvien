@@ -327,13 +327,16 @@
   text-decoration: none;
 }
 /* tao thong tin khoa-----*/
-#post_information .top_page_infor .search_input {
+.top_page_infor .search_input {
   width: 200px;
   float: left;
   margin-right: 25px;
 }
-#post_information .top_page_infor {
+.top_page_infor {
   margin-bottom: 30px;
+}
+#post_information .wrap_list_infor {
+  width: 1300px;
 }
 .btn-primary a{
   color: #fff;
@@ -345,16 +348,20 @@
 .btn_edit a{
   color: #fff;
 }
-.wrap_list_infor table .name_science {
+#post_information .wrap_list_infor table .name_science {
+  width: 15%;
+}
+#post_information .wrap_list_infor table .img_science {
   width: 17%;
 }
-.wrap_list_infor table .img_science {
-  width: 20%;
+#post_information .wrap_list_infor table .content_idea {
+  width: 41%;
 }
-.wrap_list_infor table .img_science img {
+#post_information .wrap_list_infor table .img_science img {
   width: 190px;
   height: 145px;
 }
+
 /*phong kham-----------------*/
 #room .room .inputs {
   display: inline-block;
@@ -389,7 +396,7 @@
 }
 /*----ideas-------*/
 .content_idea {
-  width: 45%;
+  width: 34%;
 }
 .name_room {
   margin: 0 0 15px 0 !important;
@@ -425,33 +432,40 @@
 }
 /*edit ideas -----------------*/
 #edit_ideas .edit_idea,
-#create_room .create_new_room {
+#create_room .create_new_room,
+#edit_room .edit_new_room  {
   margin: 0 auto;
   width: 500px;
 }
 #edit_ideas .edit_idea ul li,
-#create_room .create_new_room ul li{
+#create_room .create_new_room ul li,
+#edit_room .edit_new_room ul li{
   list-style: none;
   margin-bottom: 20px;
 }
 #edit_ideas .edit_idea .button,
-#create_room .create_new_room .button {
+#create_room .create_new_room .button,
+#edit_room .edit_new_room .button {
   text-align: center;
 }
 #edit_ideas .edit_idea .button .btn-primary a,
-#create_room .create_new_room .button .btn-primary a{
+#create_room .create_new_room .button .btn-primary a,
+#edit_room .edit_new_room .button .btn-primary a{
   color: #fff;
 }
 #edit_ideas .edit_idea .button .btn-primary a:hover,
-#create_room .create_new_room .button .btn-primary a:hover {
+#create_room .create_new_room .button .btn-primary a:hover,
+#edit_room .edit_new_room .button .btn-primary a:hover {
   text-decoration: none;
 }
 #edit_ideas .edit_idea .button .btn-default a,
-#create_room .create_new_room .button .btn-default a{
+#create_room .create_new_room .button .btn-default a,
+#edit_room .edit_new_room .button .btn-default a{
   color: #535353;
 }
 #edit_ideas .edit_idea .button .btn-default a:hover,
-#create_room .create_new_room .button .btn-default a:hover {
+#create_room .create_new_room .button .btn-default a:hover,
+#edit_room .edit_new_room .button .btn-default a:hover {
   text-decoration: none;
 }
 /*them loai tin-------*/

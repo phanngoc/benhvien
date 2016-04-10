@@ -24,12 +24,14 @@
       <table  class="table table-bordered">
         <thead>
           <tr>
+            <th> Bệnh Viện </th>
             <th> Tên Khoa </th>
             <th class="option"> Tùy Chọn </th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td> Bệnh Viện C Đà Nẵng</td>
             <td> Khoa Công nghệ thông tin </td>
             <td class="option">
               <button class="btn btn_edit"> Chỉnh Sửa</button>
@@ -37,6 +39,7 @@
             </td>
           </tr>
           <tr>
+            <td> Bệnh Viện Hoàn Mỹ Đà Nẵng </td>
             <td>Khoa mắt </td>
             <td class="option">
               <button class="btn btn_edit"> Chỉnh Sửa</button>
@@ -44,6 +47,7 @@
             </td>
           </tr>
           <tr>
+            <td> Bệnh Viện Liên Chiểu Đà Nẵng </td>
             <td> Khoa Tai - Mũi - Họng </td>
             <td class="option">
               <button class="btn btn_edit"> Chỉnh Sửa</button>

@@ -52,9 +52,9 @@ class AdminController extends BaseController {
 	}
 
   public function getCategoryNews() {
-		$benhvien = Benhvien::all();
-		$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien','loaitin.icon')->get();
-		return view('admin.category-news', compact('loaitin', 'benhvien'));
+	$benhvien = Benhvien::all();
+	$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien','loaitin.icon')->get();
+	return view('admin.category-news', compact('loaitin', 'benhvien'));
   }
 
 	public function postCategoryNews(Request $request) {
@@ -96,9 +96,9 @@ class AdminController extends BaseController {
 		$validator = Validator::make(
 		    $request->all(),
 		    [
-					'benhvien_id' => 'required',
-					'name' => 'required',
-				]
+				'benhvien_id' => 'required',
+				'name' => 'required',
+			]
 		);
 		if ($validator->fails())
 		{
@@ -137,9 +137,26 @@ class AdminController extends BaseController {
     return view('admin.kind-service');
   }
 
+  public function getCreatInforScience() {
+    return view('admin.creat-infor-science');
+  }
+
+   public function getEditInforScience() {
+    return view('admin.edit_infor_science');
+  }
+
 	public function getRooms() {
 		return view('admin.list-room');
 	}
+
+	public function getCreatRoom() {
+		return view('admin.create_new_room');
+	}
+
+	public function getEditRoom() {
+		return view('admin.edit_room');
+	}
+
 
 	public function getInRoom() {
 		return view('admin.patient-in-room');
@@ -147,6 +164,10 @@ class AdminController extends BaseController {
 
 	public function getPatientInfo() {
 		return view('admin.patient-info');
+	}
+
+	public function getMedicalExameInfo() {
+		return view('admin.medical-exame-info');
 	}
 
 	public function getIdea() {

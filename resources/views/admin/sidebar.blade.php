@@ -29,6 +29,9 @@
       <a href="{{action('AdminController@getPatientInfo')}}"> Quản lý thông tin bệnh nhân </a>
     </li>
     <li class="item_choose">
+      <a href="{{action('AdminController@getMedicalExameInfo')}}"> Quản lý thông tin Khám </a>
+    </li>
+    <li class="item_choose">
       <a href="{{action('AdminController@getIdea')}}"> Thông tin khách hàng phản hồi </a>
     </li>
     <li class="item_choose">
