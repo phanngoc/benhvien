@@ -32,7 +32,6 @@
                 <th> Tên Bệnh Nhân </th>
                 <th> Giờ Khám </th>
                 <th> Đã Khám</th>
-                <th class="option"> Tùy Chọn </th>
               </tr>
             </thead>
             <tbody>
@@ -41,30 +40,18 @@
                 <td> Lê Văn Huy </td>
                 <td class="set_time"> 8:00 23/4/2016 </td>
                 <td class="status"> <input type="checkbox"> </td>
-                <td class="option">
-                  <button class="btn btn_edit"> Chỉnh Sửa</button>
-                  <button class="btn btn_delete"> Xóa </button>
-                </td>
               </tr>
               <tr>
                 <td>BN01</td>
                 <td> Lê Văn Huy </td>
                 <td class="set_time"> 8:00 23/4/2016 </td>
                 <td class="status"> <input type="checkbox"> </td>
-                <td class="option">
-                  <button class="btn btn_edit"> Chỉnh Sửa</button>
-                  <button class="btn btn_delete"> Xóa </button>
-                </td>
               </tr>
               <tr>
                 <td>BN01</td>
                 <td> Lê Văn Huy </td>
                 <td class="set_time"> 8:00 23/4/2016 </td>
                 <td class="status"> <input type="checkbox"> </td>
-                <td class="option">
-                  <button class="btn btn_edit"> Chỉnh Sửa</button>
-                  <button class="btn btn_delete"> Xóa </button>
-                </td>
               </tr>
             </tbody>
           </table>

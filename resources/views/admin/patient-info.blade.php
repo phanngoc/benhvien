@@ -14,7 +14,7 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="patients" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+          <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
           <!-- post article -->
           <form class="list_patient">
             <div class="inputs">
@@ -35,15 +35,13 @@
               <tr>
                 <th>ID</th>
                 <th> Họ Tên </th>
+                <th> Bệnh Viện </th>
                 <th> Ngày Sinh </th>
                 <th> Email </th>
                 <th> CMND </th>
                 <th> Giới Tính </th>
                 <th> Số Điện Thoại </th>
                 <th> Địa Chỉ </th>
-                <th> Phòng Khám </th>
-                <th> Giờ Khám </th>
-                <th> Đã Khám </th>
                 <th class="option"> Tùy Chọn </th>
               </tr>
             </thead>
@@ -51,14 +49,13 @@
               <tr>
                 <td>BN01</td>
                 <td> Lê Văn Huy </td>
+                <td> Bệnh Viện Đa khoa Đà Nẵng </td>
                 <td>09/04/1992</td>
                 <td>abc@gmail.com</td>
                 <td> 187367824 </td>
                 <td>Nam </td>
                 <td>0974635284</td>
                 <td> Hải Châu, Đà Nẵng </td>
-                <td class="set_room"><a href="../dat kham online/rooms.html"> Phòng 1 </a></td>
-                <td class="set_time"> 8:00 23/4/2016 </td>
                 <td> <input type="checkbox"> </td>
                 <td class="option">
                   <button class="btn btn_edit"> <a href="../dat kham online/edit_patient.html">Chỉnh Sửa</a></button>
@@ -68,15 +65,13 @@
               <tr>
                 <td>BN02</td>
                 <td> Nguyễn Thị Thu Hương </td>
+                <td> Bệnh Viện Đa khoa Đà Nẵng </td>
                 <td>09/04/1992</td>
                 <td>abc@gmail.com</td>
                 <td> 187367824 </td>
                 <td>Nữ </td>
                 <td>0974635284</td>
                 <td> Hải Châu, Đà Nẵng </td>
-                <td class="set_room"> <a href="../dat kham online/rooms.html">Phòng 2 </a></td>
-                <td class="set_time"> 8:00 23/4/2016 </td>
-                <td> <input type="checkbox"> </td>
                 <td class="option">
                   <button class="btn btn_edit"> Chỉnh Sửa</button>
                   <button class="btn btn_delete"> Xóa </button>
@@ -85,15 +80,13 @@
               <tr>
                 <td>BN02</td>
                 <td> Nguyễn Thị Thu Hương </td>
+                <td> Bệnh Viện Đa khoa Đà Nẵng </td>
                 <td>09/04/1992</td>
                 <td>abc@gmail.com</td>
                 <td> 187367824 </td>
                 <td>Nữ </td>
                 <td>0974635284</td>
                 <td> Hải Châu, Đà Nẵng </td>
-                <td class="set_room"> <a href="#">Phòng 3 </a></td>
-                <td class="set_time"> 8:00 23/4/2016 </td>
-                <td> <input type="checkbox" checked> </td>
                 <td class="option">
                   <button class="btn btn_edit"> Chỉnh Sửa</button>
                   <button class="btn btn_delete"> Xóa </button>

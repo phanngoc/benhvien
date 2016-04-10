@@ -25,6 +25,7 @@
           <table  class="table table-bordered">
             <thead>
               <tr>
+                <th> Tên Bệnh Viện </th>
                 <th> Tên Dịch Vụ </th>
                 <th> Giá tiền </th>
                 <th class="option"> Tùy Chọn </th>
@@ -32,6 +33,7 @@
             </thead>
             <tbody>
               <tr>
+                <td> Bệnh Viện Đa Khoa Đà Nẵng </td>
                 <td> Khám Nội Soi </td>
                 <td> 200.000đ </td>
                 <td class="option">
@@ -40,6 +42,7 @@
                 </td>
               </tr>
               <tr>
+                <td> Bệnh Viện Đa Khoa Đà Nẵng </td>
                 <td>Xét Nghiệm </td>
                 <td> 200.000đ </td>
                 <td class="option">
@@ -48,6 +51,7 @@
                 </td>
               </tr>
               <tr>
+                <td> Bệnh Viện Đa Khoa Đà Nẵng </td>
                 <td> Siêu Âm </td>
                 <td> 200.000đ </td>
                 <td class="option">

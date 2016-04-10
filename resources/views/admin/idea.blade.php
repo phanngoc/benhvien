@@ -33,6 +33,7 @@
             <table  class="table table-bordered">
             <thead>
               <tr>
+                <th> Bệnh Viện </th>
                 <th> Họ Tên </th>
                 <th> Chức Vụ </th>
                 <th> Email </th>
@@ -43,6 +44,7 @@
             </thead>
             <tbody>
               <tr>
+                <td> Bệnh Viện Đa Khoa Đà Nẵng </td>
                 <td> Lê Văn Huy </td>
                 <td>Sinh Viên</td>
                 <td>abc@gmail.com</td>
@@ -54,6 +56,7 @@
                 </td>
               </tr>
               <tr>
+                <td> Bệnh Viện Đa Khoa Đà Nẵng </td>
                 <td> Lê Văn Huy </td>
                 <td> Công Nhân </td>
                 <td>abc@gmail.com</td>
@@ -65,6 +68,7 @@
                 </td>
               </tr>
               <tr>
+                <td> Bệnh Viện Đa Khoa Đà Nẵng </td>
                 <td> Lê Văn Huy </td>
                 <td> Nhân Viên Văn Phòng </td>
                 <td>abc@gmail.com</td>

@@ -24,6 +24,7 @@
 							<table  class="table table-bordered">
 		            <thead>
 		              <tr>
+		              	<th> Bệnh Viện</th>
 		                <th> Thời Gian </th>
 		                <th> Hình Ảnh </th>
 		                <th class="title_news"> Tiêu Đề </th>
@@ -35,6 +36,7 @@
 		            <tbody>
                   @foreach($news as $new)
                     <tr>
+                      <td> Bệnh Viện Đa Khoa Đà Nẵng</td>
                       <td class="time">{{ $new->created_at }}</td>
                       <td>
                         <img id="display_img" src="{{ ($new->thumbnail == '') ? Asset('img/images/6.jpg') : asset('uploads/'.$new->thumbnail) }}" alt="your image" style="width: 100px; height: 70px; " />
