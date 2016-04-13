@@ -1,6 +1,6 @@
 <form class="col s12">
 <!-- first form ===================================== -->
-  <div id="first_form" class="animated fadeInRightBig">
+  <div id="first_form" class="animated fadeInRightBig" style="display:none;">
     <div class="row">
       <div class="input-field col s6 wow animatedss fadeInLeftBig">
         <i class="material-icons prefix">account_circle</i>
