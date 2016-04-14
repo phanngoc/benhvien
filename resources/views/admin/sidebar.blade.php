@@ -14,7 +14,7 @@
       <a href="{{action('NewController@getNews')}}">Quản lý tin tức</a>
     </li>
     <li class="item_choose">
-      <a href="{{action('AdminController@getScience')}}">Quản lý Khoa</a>
+      <a href="{{action('ScienceController@getScience')}}">Quản lý Khoa</a>
     </li>
     <li class="item_choose">
       <a href="{{action('AdminController@getHopital')}}">Quản Lý thông tin Khoa</a>
