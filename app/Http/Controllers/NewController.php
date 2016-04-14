@@ -35,10 +35,10 @@ class NewController extends BaseController {
 	}
 
 
-  public function getNews() {
-		$news = DB::table('tintuc')->join('loaitin','loaitin.id','=','tintuc.category_id')->select('tintuc.*','loaitin.name as nameloaitin')->get();
-    return view('admin.news', compact('news'));
-  }
+    public function getNews() {
+	   $news = DB::table('tintuc')->join('loaitin','loaitin.id','=','tintuc.category_id')->select('tintuc.*','loaitin.name as nameloaitin')->get();
+       return view('admin.news', compact('news'));
+    }
 
 	public function getCreateNew() {
     $loaitin = DB::table('loaitin')->join('benhvien','loaitin.benhvien_id','=','benhvien.id')->get();

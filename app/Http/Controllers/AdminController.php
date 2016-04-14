@@ -34,12 +34,13 @@ class AdminController extends BaseController {
 		//$this->middleware('auth');
 	}
 
-  public function getInfoUser() {
+    public function getInfoUser() {
 		$dataSample['id'] = 1;
-    $dataSample['username'] = "Phan Ngoc";
-    $dataSample['password'] = "Phann123@123";
-    return $dataSample;
-  }
+	    $dataSample['username'] = "Phan Ngoc";
+	    $dataSample['password'] = "Phann123@123";
+	    return $dataSample;
+    }
+    
 	/**
 	 * Show the application dashboard to the user.
 	 *
@@ -119,11 +120,6 @@ class AdminController extends BaseController {
 		return redirect(action('AdminController@getCategoryNews'));
 	}
 
-
-
-  public function getScience() {
-    return view('admin.science');
-  }
 
   public function getInforHopitals() {
     return view('admin.inforhopital');
