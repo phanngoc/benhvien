@@ -18,6 +18,16 @@ Route::get('home/{id?}', [
 	'uses' => 'HomeController@index',
 ]);
 
+Route::post('login', [
+	'as' => 'login',
+	'uses' => 'HomeController@login',
+]);
+
+Route::post('update-profile', [
+	'as' => 'update-profile',
+	'uses' => 'HomeController@updateProfile',
+]);
+
 Route::get('ykienphanhoi', [
 	'as' => 'ykienphanhoi',
 	'uses' => 'HomeController@submitYkienNguoiDung',

@@ -112,100 +112,8 @@
 				</header>
 <!-- ================================ section dang ki kham benh ======================================================= -->
 				<section id="sign" class="container each">
-			<!-- form profile cua benh nhan ================================= -->
-				<h2 class="title_profile"> TRANG CÁ NHÂN </h2>
-				<div class="row information_profile">
-				    <ul class="col-md-12 infor_profile">
-				    	<li class="col-md-6"> Nguyen Van A</li>
-				    	<li class="col-md-6"> Sinh ngay: <span class="display">21/3/1990</span></li>
-				    	<li class="col-md-6"> Email: <span class="display"> hayhay@gmail.com</span></li>
-				    	<li class="col-md-6">CMND: <span class="display">12904324433</span></li>
-				    	<li class="col-md-6">Dia Chi: <span class="display">Cam Le, tp Da nang</span></li>
-				    	<li class="col-md-6">Gioi Tinh: <span class="display">Nam</span></li>
-				    	<li class="col-md-6">So Dien Thoai: <span class="display">012398472</span></li>
-				    	<li class="col-md-6">Mã bệnh nhân: <span class="display"> BN002 </span></li>
-				    	<button id="edit_infor_profile" class="btn btn-primary btn_profile"> Chỉnh sửa </button>
-				    </ul>
-					  <div class="col-md-12 infor_medical">
-					    <table class="calender_madecal bordered">
-					      <thead>
-					          <tr>
-					              <th data-field="id">Thời gian</th>
-					              <th data-field="name"> Dịch vụ khám </th>
-					              <th data-field="price"> Phòng khám </th>
-					              <th> Tổng thanh toán</th>
-					              <th> Tùy chọn </th>
-					          </tr>
-					        </thead>
-
-					        <tbody>
-					          <tr>
-					            <td> 12/4/2016 9:30 </td>
-					            <td> Khám nội soi </td>
-					            <td> Phòng khám 1 </td>
-					            <td>$0.87</td>
-					            <td>
-					            	<button class="btn btn-primary btn_profile"> Chỉnh sửa </button>
-					            	<button class="btn btn-default btn_profile"> Xóa </button>
-					            </td>
-					          </tr>
-					          <tr>
-					            <td> 12/4/2016 9:30 </td>
-					            <td> Khám nội soi </td>
-					            <td> Phòng khám 1 </td>
-					            <td>$0.87</td>
-					            <td>
-					            	<button class="btn btn-primary btn_profile"> Chỉnh sửa </button>
-					            	<button class="btn btn-default btn_profile"> Xóa </button>
-					            </td>
-					          </tr>
-					          <tr>
-					            <td> 12/4/2016 9:30 </td>
-					            <td> Khám nội soi </td>
-					            <td> Phòng khám 1 </td>
-					            <td>$0.87</td>
-					            <td>
-					            	<button class="btn btn-primary btn_profile"> Chỉnh sửa </button>
-					            	<button class="btn btn-default btn_profile"> Xóa </button>
-					            </td>
-					          </tr>
-					        </tbody>
-					    </table>
-					  </div>
-					  <div class="edit_profile col-md-12"  style="display: none;">
-						 <div id="fourth_form" class="col-md-6">
-						    <p class="choose_date"> Chọn ngày khám: </p>
-						    <div class="jquery-calendar"></div>
-						    <div class="time">
-						    	<p class="choose_time"> Chọn thời gian: </p>
-						    	<input id="timepicker" class="timepicker" placeholder="00:00" />
-						    </div>
-						  </div>
-						  <div class="select col-md-6">
-						  	<select class="selectpicker">
-				              <option> Chọn Dịch Vụ </option>
-				              <option> Khám mắt</option>
-				              <option> Khám Phụ khoa </option>
-				              <option> Khám nội </option>
-				              <option> Siêu âm </option>
-				            </select>
-				             <select class="selectpicker">
-				              <option> Chọn Phòng khám </option>
-				              <option> Phòng khám 1</option>
-				              <option> Phòng khám 2 </option>
-				              <option> Phòng khám 3 </option>
-				              <option> Phòng khám 4 </option>
-				            </select>
-				            <div class="btn_edit_profile">
-				            	<button id="done" class="btn btn-primary  btn_profile"> Xong</button>
-				            	<button id="cancel" class="btn btn-default btn_profile"> Bỏ qua</button>
-				            </div>
-						  </div>
-					  </div>	
-				</div>
-
-<!-- form dang ki kham benh===================================== -->
-					<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:none;">
+					@include('mainpage.show-info-personal')
+					<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<h2 class="title">ĐĂNG KÍ KHÁM BỆNH</h2>
 						<!-- choose step ======== -->
 						<ul class="step">
@@ -220,15 +128,16 @@
 						<!-- model display when click button =========-->
 						<div class="modal fade" id="myModal" role="dialog">
 						    <div class="modal-dialog">
-						      <form class="login">
+						      <form class="login" action="{{ route('login') }}" method="POST">
+						      	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						      	<div class="modal-content">
 							        <div class="modal-header">
 							          <button type="button" class="close" data-dismiss="modal">&times;</button>
 							          <h4 class="modal-title">LOGIN</h4>
 							        </div>
 							        <div class="modal-body">
-							          <input id = "username" class="group-control user" type="text" placeholder = "ID Benh nhan">
-									  		<input id = "password" class="group-control pass" type="text" placeholder = "Mat khau">
+							            <input id = "username" class="group-control user" name="email" type="text" placeholder = "ID Benh nhan">
+									  	<input id = "password" class="group-control pass" name="password" type="text" placeholder = "Mat khau">
 							        </div>
 							        <div class="modal-footer">
 							          <button id= "btn_login" class="btn btn-primary btn_login">LOGIN</button>

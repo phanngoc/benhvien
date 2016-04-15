@@ -8,6 +8,10 @@ use App\Models\Khoa;
 use Illuminate\Http\Request;
 use DB;
 use Input;
+use Auth;
+use Validator;
+use App\Models\Benhnhan;
+
 class HomeController extends Controller {
 
 	/*
@@ -46,7 +50,38 @@ class HomeController extends Controller {
 		$khoas = Khoa::where('benhvien_id', $id)->get();
 		$ykienphanhoi = Ykienphanhoi::where('status',1)->get();
 		$idBenhvien = $id;
-		return view('home', compact('benhviens', 'loaidichvus', 'phongkhams', 'khoas', 'idBenhvien', 'ykienphanhoi'));
+		$user = Auth::user();
+		return view('home', compact('benhviens', 'loaidichvus', 'phongkhams', 'khoas',
+		 'user', 'idBenhvien', 'ykienphanhoi'));
+	}
+
+	/**
+	 * Login.
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
+	public function login(Request $request) {
+		if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            return redirect()->intended('home');
+        }
+	}
+
+	/**
+	 * Update profile.
+	 * @return [type] [description]
+	 */
+	public function updateProfile(Request $request) {
+		$validator = Validator::make(
+		    $request->all(),
+		    Benhnhan::$rules
+		);
+		if ($validator->fails())
+		{
+			dd($validator->messages());
+			return redirect()->back()->withErrors($validator->errors());
+		}
+		Auth::user()->update($request->all());
+		return redirect()->route('home');
 	}
 
 	/**
@@ -70,8 +105,14 @@ class HomeController extends Controller {
 	 */
 	public function getRoomFromService() {
 		$idService = Input::get('idService');
+		$typeShow = Input::get('type');
+		$view = null;
 		$phongkhams = DB::table('phongkham')->where('dichvu_id', $idService)->get();
-		$view = view('mainpage.item-phongkham')->with('phongkhams', $phongkhams);
+		if ($typeShow == 'select') {
+			$view = view('mainpage.item-phongkham-select')->with('phongkhams', $phongkhams);
+		} else {
+			$view = view('mainpage.item-phongkham')->with('phongkhams', $phongkhams);
+		}
 		return $view;
 	}
 }
