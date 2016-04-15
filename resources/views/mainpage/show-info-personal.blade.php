@@ -41,21 +41,21 @@
 						      <div class="input-field col s6">
 						        <i class="material-icons prefix">account_circle</i>
 						        <input id="icon_prefix" type="text" class="validate" name="hoten" value="{{ $user->hoten }}">
-						        <label for="icon_prefix">Họ tên:</label>
 						      </div>
+						       <div class="input-field col s6">
+						          <i class="material-icons prefix">phone</i>
+						          <input id="icon_telephone" type="tel" class="validate" name="sodienthoai" value="{{ $user->sodienthoai }}">
+						        </div>
 						    </div>
 
 						    <div class="row">
 						        <div class="input-field col s6">
-						          <label class="lb_date"> Ngày sinh: </label>
 						          <i class="material-icons prefix">account_circle</i>
 						          <input id="icon_prefix" type="date" name="{{ $user->ngaysinh }}">
 						        </div>
 						        <div class="input-field col s6">
 						          <i class="material-icons prefix">email</i>
 						          <input id="email" type="email" class="validate" name="email" value="{{ $user->email }}">
-						          <label for="icon_telephone">Email</label>
-						          <label for="email" data-error="wrong" data-success="right">Email</label>
 						        </div>
 						    </div>
 
@@ -63,18 +63,15 @@
 						      <div class="input-field col s6">
 						          <i class="material-icons prefix">assignment_ind</i>
 						          <input id="icon_prefix" type="text" class="validate" name="CMND" value="{{ $user->CMND }}">
-						          <label for="icon_prefix">CMND:</label>
 						        </div>
 						        <div class="input-field col s6">
 						          <i class="material-icons prefix">location_on</i>
 						          <input id="icon_telephone" type="tel" class="validate" name="diachi" value="{{ $user->diachi }}">
-						          <label for="icon_telephone">Địa chỉ: </label>
 						        </div>
 						    </div>
 
 						    <div class="row">
 						        <div class="input-field col s6">
-						        <label class="lb_date"> Giới tính: </label>
 						        <i class="material-icons prefix">person_pin</i>
 						           <div class="male">
 						          <input name="gioitinh" value="0" type="radio" id="test1" {{ ($user->gioitinh == 0) ? 'checked' : '' }} />
@@ -85,13 +82,8 @@
 						          <label class="input_sex" for="test2">Female</label>
 						        </div>
 						        </div>
-						        <div class="input-field col s6">
-						          <i class="material-icons prefix">phone</i>
-						          <input id="icon_telephone" type="tel" class="validate" name="sodienthoai" value="{{ $user->sodienthoai }}">
-						          <label for="icon_telephone">Số điện thoại: </label>
-						        </div>
 						    </div>
-						    <button class="btn btn-primary">Update</button>
+						    <button class="btn btn-primary btn_update">Update</button>
 						</form>
 				    </div>
 					  <div class="col-md-12 infor_medical">
@@ -129,31 +121,35 @@
 					        </tbody>
 					    </table>
 					  </div>
-					  <div class="edit_profile col-md-12"  style="display: none;">
-					  	<form action="" method="POST">
-					  		<div id="fourth_form" class="col-md-6">
-							    <p class="choose_date"> Chọn ngày khám: </p>
-							    <div class="jquery-calendar"></div>
-							    <div class="time">
-							    	<p class="choose_time"> Chọn thời gian: </p>
+					  <div class="edit_profile"  style="display: none;">
+					  	<form action="" method="POST" style="width: 100%;">
+					  		<ul class="col-md-12">
+					  			<li class="col-md-6">
+					  				<p class="choose_date"> Chọn ngày khám: </p>
+							    	<input type="date" class="form-control"  value="2016-4-12">
+					  			</li>
+					  			<li class="col-md-6 time">
+					  				<p class="choose_time"> Chọn thời gian: </p>
 							    	<input id="timepicker" class="timepicker" placeholder="00:00" />
-							    </div>
-							</div>
-							<div class="select col-md-6">
-							  	<select class="selectpicker" id = "select-dich-vu" name="loaidichvu_id">
-							  		<option value="">Ten dich vu</option>
-					           		@foreach($loaidichvus as $loaidichvu)
-					           			<option value="{{ $loaidichvu->id }}">{{ $loaidichvu->tendichvu }}</option>
-					           		@endforeach
-					            </select>
-					            <select id="select-phong-kham" name="phongkham_id">
+					  			</li>
+					  			<li class="col-md-6">
+					  				<select class="selectpicker" id = "select-dich-vu" name="loaidichvu_id">
+								  		<option value="">Ten dich vu</option>
+						           		@foreach($loaidichvus as $loaidichvu)
+						           			<option value="{{ $loaidichvu->id }}">{{ $loaidichvu->tendichvu }}</option>
+						           		@endforeach
+						            </select>
+					  			</li>
+					  			<li class="col-md-6">
+					  				<select id="select-phong-kham" name="phongkham_id">
 					              
-					            </select>
-					            <div class="btn_edit_profile">
-					            	<button id="done" class="btn btn-primary  btn_profile"> Xong</button>
-					            	<button id="cancel" class="btn btn-default btn_profile"> Bỏ qua</button>
-					            </div>
-							</div>
+					            	</select>
+					  			</li>
+					  		</ul>
+					  		<div class="btn_edit_profile">
+				            	<button id="done" class="btn btn-primary  btn_profile"> Xong</button>
+				            	<button id="cancel" class="btn btn-default btn_profile"> Bỏ qua</button>
+					        </div>
 					  	</form>
 					  </div>	
 				</div>
