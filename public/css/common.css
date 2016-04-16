@@ -1399,18 +1399,20 @@ hr {
 
 
 /* page new detail------------------*/
-
+#news_detail {
+    display: inline-block;
+}
 #news_detail .title {
     color: #17A597;
     cursor: pointer;
 }
 
-#news_detail .title_main {
+.show_category_news #news_detail .title_main {
     color: #ff0000;
     text-align: center;
     font-size: 26px;
     font-weight: bold;
-    padding: 6px 0 50px 0;
+    margin: 80px 0;
 }
 
 #news_detail .title:hover,
@@ -1421,20 +1423,26 @@ hr {
 
 #news_detail .collection {
     margin: 0 !important;
-    height: 1850px;
+    max-height: 1850px;
+    height: auto;
+    background: #fff;
 }
 
 #news_detail .list_news .item_news {
     height: 230px;
+    padding-top: 20px;
 }
 
 #news_detail .list_news .item_news .circle {
     position: relative !important;
-    width: 280px !important;
-    height: 200px !important;
+    width: 250px !important;
+    height: 175px !important;
     border-radius: 0 !important;
 }
-
+.show_category_news #news_detail .content {
+    padding: 17px 100px 10px 0px;
+    text-align: justify;
+}
 #news_detail .time {
     color: #0CAF0C;
     font-style: italic;
@@ -1443,6 +1451,7 @@ hr {
 #news_detail .list_news .more {
     float: right;
     cursor: pointer;
+    margin-right: 35px;
 }
 
 #news_detail .next_page li {
@@ -1832,7 +1841,39 @@ footer.page-footer {
     -moz-transform: translateX(0);
     -o-transform: translateX(0);
 }
-
+.show_category_news nav,
+.show_detail_news nav {
+    margin-top: 40px;
+}
+#content {
+    display: inline-block;
+}
+.show_detail_news .wrap_section_content {
+    padding: 20px 50px;
+}
+.show_detail_news .wrap_section_content .content_detail {
+    padding: 0 120px;
+    font-size: 15px;
+    line-height: 2;
+}
+.show_detail_news .wrap_section_content #sub_news_detail .author {
+    float: right;
+    margin: 20px 87px 50px 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+.show_detail_news .fadedown,
+.show_category_news .fadedown {
+    opacity: 1;
+    -webkit-transform: translateY(-40px);
+    -moz-transform: translateY(-40px);
+    -o-transform: translateY(-40px);
+    transform: translateY(-40px);
+    transition: all 0.6s;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+}
 .fadedown {
     opacity: 0;
     -webkit-transform: translateY(-40px);
