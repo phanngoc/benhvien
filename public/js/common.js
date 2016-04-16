@@ -278,17 +278,3 @@ $(".closes").click(function() {
   $.scrollTo(this.hash, 800, { offset: -54 });
   return false;
 });
-// profile ==============================
-$(".infor_medical .btn_profile").click(function(){
-  $(".infor_medical").hide();
-  $(".edit_profile").show();
-});
-
-$(".edit_profile #done, .edit_profile #cancel").click(function(){
-  $(".infor_medical").show();
-  $(".edit_profile").hide();
-});
-$("#edit_infor_profile").click(function(){
-  $(".infor_profile").hide();
-  $("#first_form").show();
-});

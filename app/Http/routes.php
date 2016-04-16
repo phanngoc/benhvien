@@ -18,6 +18,16 @@ Route::get('home/{id?}', [
 	'uses' => 'HomeController@index',
 ]);
 
+Route::get('category/{id?}', [
+	'as' => 'category',
+	'uses' => 'HomeController@category',
+]);
+
+Route::get('news/{id?}', [
+	'as' => 'news',
+	'uses' => 'HomeController@news',
+]);
+
 Route::post('login', [
 	'as' => 'login',
 	'uses' => 'HomeController@login',
@@ -26,6 +36,16 @@ Route::post('login', [
 Route::post('update-profile', [
 	'as' => 'update-profile',
 	'uses' => 'HomeController@updateProfile',
+]);
+
+Route::post('update-info-care', [
+	'as' => 'update-info-care',
+	'uses' => 'HomeController@updateInfoCare',
+]);
+
+Route::post('delete-info-care', [
+	'as' => 'delete-info-care',
+	'uses' => 'HomeController@deleteInfoCare',
 ]);
 
 Route::get('ykienphanhoi', [

@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Đặt lịch khám</title>
-	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="icon" href="{{ asset('img/front/favicon.ico')}}" type="image/x-icon" />
-	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css')}}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ asset('css/swiper.min.css')}}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css')}}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ asset('css/animate.css')}}">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="{{ asset('css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link rel="stylesheet" href="{{ asset('css/common.css')}}" type="text/css" media="screen,projection" />
-	<script src="{{ asset('js/jquery-1.11.0.min.js')}}" type="text/javascript"></script>
-</head>
-<body>
+@extends('master')
+
+@section('content')
 <!-- loading ======== -->
 	<div class="loading">
 	    <div class="top-load">
@@ -111,167 +96,55 @@
 					</section>
 				</header>
 <!-- ================================ section dang ki kham benh ======================================================= -->
+				
 				<section id="sign" class="container each">
 					@include('mainpage.show-info-personal')
-					<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<h2 class="title">ĐĂNG KÍ KHÁM BỆNH</h2>
-						<!-- choose step ======== -->
-						<ul class="step">
-							<li id="step_1" class="circle1 wow animatedsss bounceIn">Bước 1</li>
-							<li id="step_2" class="circle1 wow animatedsss bounceIn">Bước 2</li>
-							<li id="step_3" class="circle1 wow animatedsss bounceIn">Bước 3</li>
-							<li id="step_4" class="circle1 wow animatedsss bounceIn">Bước 4</li>
-						</ul>
-						<!-- form dang nhap ID benh nhan khi nguoi dung la benh nhan ========== -->
-						<button class="btn  wow animateds fadeInRightBig signin btn-info btn-lg" type="submit" data-toggle="modal" data-target="#myModal">Đăng Nhập ID Bệnh Nhân
-						</button>
-						<!-- model display when click button =========-->
-						<div class="modal fade" id="myModal" role="dialog">
-						    <div class="modal-dialog">
-						      <form class="login" action="{{ route('login') }}" method="POST">
-						      	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						      	<div class="modal-content">
-							        <div class="modal-header">
-							          <button type="button" class="close" data-dismiss="modal">&times;</button>
-							          <h4 class="modal-title">LOGIN</h4>
-							        </div>
-							        <div class="modal-body">
-							            <input id = "username" class="group-control user" name="email" type="text" placeholder = "ID Benh nhan">
-									  	<input id = "password" class="group-control pass" name="password" type="text" placeholder = "Mat khau">
-							        </div>
-							        <div class="modal-footer">
-							          <button id= "btn_login" class="btn btn-primary btn_login">LOGIN</button>
-							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							        </div>
-							      </div>
-						      </form>
-						    </div>
-						 </div>
-	  					<!-- form dang ki, nguoi dung dien thong tin vao form  -->
-						<div class="row">
-						    @include('mainpage.form-register-info-user')
+					@if ($user == null)
+						<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<h2 class="title">ĐĂNG KÍ KHÁM BỆNH</h2>
+							<!-- choose step ======== -->
+							<ul class="step">
+								<li id="step_1" class="circle1 wow animatedsss bounceIn">Bước 1</li>
+								<li id="step_2" class="circle1 wow animatedsss bounceIn">Bước 2</li>
+								<li id="step_3" class="circle1 wow animatedsss bounceIn">Bước 3</li>
+								<li id="step_4" class="circle1 wow animatedsss bounceIn">Bước 4</li>
+							</ul>
+							<!-- form dang nhap ID benh nhan khi nguoi dung la benh nhan ========== -->
+							<button class="btn  wow animateds fadeInRightBig signin btn-info btn-lg" type="submit" data-toggle="modal" data-target="#myModal">Đăng Nhập ID Bệnh Nhân
+							</button>
+							<!-- model display when click button =========-->
+							<div class="modal fade" id="myModal" role="dialog">
+							    <div class="modal-dialog">
+							      <form class="login" action="{{ route('login') }}" method="POST">
+							      	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+							      	<div class="modal-content">
+								        <div class="modal-header">
+								          <button type="button" class="close" data-dismiss="modal">&times;</button>
+								          <h4 class="modal-title">LOGIN</h4>
+								        </div>
+								        <div class="modal-body">
+								            <input id = "username" class="group-control user" name="email" type="text" placeholder = "ID Benh nhan">
+										  	<input id = "password" class="group-control pass" name="password" type="text" placeholder = "Mat khau">
+								        </div>
+								        <div class="modal-footer">
+								          <button id= "btn_login" class="btn btn-primary btn_login">LOGIN</button>
+								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								        </div>
+								      </div>
+							      </form>
+							    </div>
+							 </div>
+		  					<!-- form dang ki, nguoi dung dien thong tin vao form  -->
+							<div class="row">
+							    @include('mainpage.form-register-info-user')
+							</div>
 						</div>
-					</div>
+					@endif
 				</section>
+				
 				<hr>
 			<!-- section hien thi tin tuc ========================================================================= -->
-				<section id="information" class="each container">
-					<div class="wrap_news"></div>
-					<h2 class="title3">TIN TỨC</h2>
-					<div class="row">
-						<ul class="infor col s12">
-							<div class="col s12 m6 l3 per_infor">
-								<li class="wow flipInY animatedss">
-						        	<a href="{{ asset('detail_news.blade.php')}}" class="menu_text" target="_blank">
-						        		<img src="{{ asset('img/images/icon_news.png')}}">
-						        		Tin hàng ngày
-						        		<div class="des">
-						        			<span class="sumary">
-			                                	Dựng mô hình 3D ngoại thất, nội thất cho công trình. nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình fefwesgfsefgwdfas sAThiết lập camera, ánh sáng, rendering
-			                                </span>
-						        		</div>
-						        	</a>
-						        </li>
-							</div>
-					        <div class="col s12 m6 l3 per_infor">
-					        	 <li class="wow flipInY animatedss">
-						        	<a href="#news2" class="menu_text click-view-detail" >
-						        		<img src="{{ asset('img/images/icon_doctor.png')}}">
-						        		Giải pháp
-						        		<div class="des">
-						        			<span class="sumary">
-			                                	Dựng mô hình 3D ngoại thất, nội thất cho công trình. nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình fefwesgfsefgwdfas sAThiết lập camera, ánh sáng, rendering
-			                                </span>
-						        		</div>
-						        	</a>
-						        </li>
-					        </div>
-					        <div class="col s12 m6 l3 per_infor">
-					       		<li class="wow flipInY animatedss">
-						        	<a href="#news1" class="menu_text click-view-detail">
-						        		<img src="{{ asset('img/images/icon_advised.png')}}">
-						        		Lời khuyên hữu ích
-						        		<div class="des">
-						        			<span class="sumary">
-			                                	Dựng mô hình 3D ngoại thất, nội thất cho công trình. nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình fefwesgfsefgwdfas sAThiết lập camera, ánh sáng, rendering
-			                                </span>
-						        		</div>
-						        	</a>
-						        </li>
-					        </div>
-					        <div class="col s12 m6 l3 per_infor">
-					        	<li class="wow flipInY animatedss">
-						        	<a href="#news1" class="menu_text click-view-detail">
-						        		<img src="{{ asset('img/images/icon_advised.png')}}">
-						        		Lời khuyên hữu ích
-						        		<div class="des">
-						        			<span class="sumary">
-			                                	Dựng mô hình 3D ngoại thất, nội thất cho công trình. nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình fefwesgfsefgwdfas sAThiết lập camera, ánh sáng, rendering
-			                                </span>
-						        		</div>
-						        	</a>
-						        </li>
-					        </div>
-					    </ul>
-					</div>
-					<!-- second row  -->
-					<div class="row">
-					    <ul class="infor col s12">
-							<div class="col s12 m6 l3 per_infor">
-								<li class="wow flipInY animateds">
-						        	<a href="#news1" class="menu_text click-view-detail">
-						        		<img src="{{ asset('img/images/icon_news.png')}}">
-						        		Tin hàng ngày
-						        		<div class="des">
-						        			<span class="sumary">
-			                                	Dựng mô hình 3D ngoại thất, nội thất cho công trình. nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình fefwesgfsefgwdfas sAThiết lập camera, ánh sáng, rendering
-			                                </span>
-						        		</div>
-						        	</a>
-						        </li>
-							</div>
-					        <div class="col s12 m6 l3 per_infor">
-					        	 <li class="wow flipInY animateds">
-						        	<a href="#news1" class="menu_text click-view-detail">
-						        		<img src="{{ asset('img/images/icon_doctor.png')}}">
-						        		Giải pháp
-						        		<div class="des">
-						        			<span class="sumary">
-			                                	Dựng mô hình 3D ngoại thất, nội thất cho công trình. nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình fefwesgfsefgwdfas sAThiết lập camera, ánh sáng, rendering
-			                                </span>
-						        		</div>
-						        	</a>
-						        </li>
-					        </div>
-					        <div class="col s12 m6 l3 per_infor">
-					       		<li class="wow flipInY animateds">
-						        	<a href="#news1" class="menu_text click-view-detail">
-						        		<img src="{{ asset('img/images/icon_advised.png')}}">
-						        		Lời khuyên hữu ích
-						        		<div class="des">
-						        			<span class="sumary">
-			                                	Dựng mô hình 3D ngoại thất, nội thất cho công trình. nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình fefwesgfsefgwdfas sAThiết lập camera, ánh sáng, rendering
-			                                </span>
-						        		</div>
-						        	</a>
-						        </li>
-					        </div>
-					        <div class="col s12 m6 l3 per_infor">
-					        	<li class="wow flipInY animateds">
-						        	<a href="#news1" class="menu_text click-view-detail">
-						        		<img src="{{ asset('img/images/icon_advised.png')}}">
-						        		Lời khuyên hữu ích
-						        		<div class="des">
-						        			<span class="sumary">
-			                                	Dựng mô hình 3D ngoại thất, nội thất cho công trình. nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình nội thất cho công trình fefwesgfsefgwdfas sAThiết lập camera, ánh sáng, rendering
-			                                </span>
-						        		</div>
-						        	</a>
-						        </li>
-					        </div>
-					    </ul>
-					</div>
-				</section>
+				@include('mainpage.show-category-news')
 				<hr>
 			<!-- section cac Khoa, Phong ban cua benh vien ============================================================= -->
 				<section id="news" class="each">
@@ -415,17 +288,5 @@
         </div>
       </div>
     </footer>
-	<script src="{{ asset('js/jquery-1.11.0.min.js')}}" type="text/javascript"></script>
-	<script src="{{ asset('js/bootstrap.min.js')}}"></script>
-	<script src="{{ asset('js/materialize.js')}}"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.als-1.7.js')}}"></script>
-	<script src="{{ asset('js/jquery.easing.1.3.js')}}" type="text/javascript"></script>
-	<script src="{{ asset('js/swiper.min.js')}}" type="text/javascript"></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.scrollTo-1.4.3.1-min.js')}}"></script>
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
-	<script src="{{ asset('js/wow.js')}}"></script>
-	<script src="{{ asset('js/calendar.js')}}"></script>
-	<script src="{{ asset('js/jquery.timepicker.js')}}"></script>
-	<script src="{{ asset('js/common.js')}}" type="text/javascript"></script>
-</body>
-</html>
+	
+@stop

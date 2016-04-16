@@ -19,4 +19,12 @@ class Tintuc extends Model {
         'noidung' => 'required',
         'category_id' => 'required',
     ];
+
+    /**
+     * [admin description]
+     * @return [type] [description]
+     */
+    public function admin() {
+        return $this->belongsTo('App\Models\Admin','author_id','id');
+    }
 }
