@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="content">
-	<div id="wd-wrapper">
+	<div id="wd-wrapper" class="show_detail_news">
 <!-- ============================================= section hompage ============================================ -->
 		<header>
 			<section class="each">
@@ -19,20 +19,22 @@
 			</section>
 		</header>
 <!-- ========================= section hien thi list thong tin tin tuc ========================================== -->
-		<a href="#" class="back_page"><img src="img/images/back icon.png"></a>
-		<section id="sub_news_detail">
-			<p class="time">{{ $news->updated_at }}</p>
-			<h2 class="title">{{ $news->tieude }}</h2>
-			<ul class="content_detail">
-				<li class="content">
-					 <p>{{ $news->noidung }}</p>
-				</li>
-				<li class="img_details">
-					<img src="{{ asset('uploads/'.$news->thumbnail) }}">
-				</li>
-				<li class="author">{{ $news->admin->hoten }}</li>
-			</ul>
-		</section>
+		<div class="wrap_section_content">
+			<a href="#" class="back_page"><img src="img/images/back icon.png"></a>
+			<section id="sub_news_detail">
+				<p class="time">{{ $news->updated_at }}</p>
+				<h2 class="title">{{ $news->tieude }}</h2>
+				<ul class="content_detail">
+					<li class="content">
+						 <p>{{ $news->noidung }}</p>
+					</li>
+					<li class="img_details">
+						<img src="{{ asset('uploads/'.$news->thumbnail) }}">
+					</li>
+				</ul>
+				<p class="author">{{ $news->admin->hoten }}</p>
+			</section>
+		</div>
 	</div>
 </div>
 		<!-- footer -->
@@ -45,12 +47,6 @@
 		  </div>
 		  <div class="col l4 offset-l2 s12">
 		    <h5 class="white-text">Links</h5>
-		    <ul>
-		      <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-		      <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-		      <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-		      <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-		    </ul>
 		  </div>
 		</div>
 		</div>

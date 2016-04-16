@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="content">
-	<div id="wd-wrapper">
+	<div id="wd-wrapper" class="show_category_news">
 <!-- ============================================= section hompage ============================================ -->
 		<header>
 			<section class="each">
@@ -70,12 +70,6 @@
 		  </div>
 		  <div class="col l4 offset-l2 s12">
 		    <h5 class="white-text">Links</h5>
-		    <ul>
-		      <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-		      <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-		      <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-		      <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-		    </ul>
 		  </div>
 		</div>
 		</div>
