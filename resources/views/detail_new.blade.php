@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<div id="content">
+<div id="content_detail_news">
 	<div id="wd-wrapper" class="show_detail_news">
 <!-- ============================================= section hompage ============================================ -->
 		<header>
