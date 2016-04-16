@@ -138,7 +138,7 @@
       $(this).addClass('status-choose');
       $('#third_form').find('input[name="phongkham"]').val(phongkhamId);
     });
-
+    
     $('input.timepicker').timepicker({
       change: function(time) {
         // var element = $(this), text;

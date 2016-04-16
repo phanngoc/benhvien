@@ -206,6 +206,9 @@
 	  $(".edit_profile").hide();
 	});
 
+   $(function() {
+      $('#timepicker').timepicker();
+  });
 	// $("#edit_infor_profile").click(function(){
 	//   $(".infor_profile").hide();
 	//   $("#first_form").show();
