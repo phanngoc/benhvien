@@ -138,12 +138,13 @@
       $(this).addClass('status-choose');
       $('#third_form').find('input[name="phongkham"]').val(phongkhamId);
     });
-   $('input.timepicker').timepicker({
+
+    $('input.timepicker').timepicker({
       change: function(time) {
-        var element = $(this), text;
-        var timepicker = element.timepicker();
-        text = 'Selected time is: ' + timepicker.format(time);
-        element.siblings('span.help-line').text(text);
+        // var element = $(this), text;
+        // var timepicker = element.timepicker();
+        // text = 'Selected time is: ' + timepicker.format(time);
+        // element.siblings('span.help-line').text(text);
       }
     });
   });

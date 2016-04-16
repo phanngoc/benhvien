@@ -5,6 +5,10 @@ use App\Models\Benhvien;
 use App\Models\Loaidichvu;
 use App\Models\Phongkham;
 use App\Models\Khoa;
+use App\Models\Thongtinkham;
+use App\Models\Loaitin;
+use App\Models\Tintuc;
+
 use Illuminate\Http\Request;
 use DB;
 use Input;
@@ -43,6 +47,7 @@ class HomeController extends Controller {
 	public function index($id = 1)
 	{
 		$loaidichvus = Loaidichvu::where('benhvien_id', $id)->get();
+		$loaitins = Loaitin::where('benhvien_id', $id)->get();
 		$benhviens = Benhvien::all();
 		$phongkhams = DB::table('phongkham')->leftJoin('loaidichvu', 'phongkham.dichvu_id', '=', 'loaidichvu.id')
 				->leftJoin('benhvien','benhvien.id','=','loaidichvu.benhvien_id')->where('benhvien.id', $id)->select('phongkham.id','phongkham.ten','phongkham.bacsi')->get();
@@ -52,7 +57,27 @@ class HomeController extends Controller {
 		$idBenhvien = $id;
 		$user = Auth::user();
 		return view('home', compact('benhviens', 'loaidichvus', 'phongkhams', 'khoas',
-		 'user', 'idBenhvien', 'ykienphanhoi'));
+		 'user', 'idBenhvien', 'ykienphanhoi', 'loaitins'));
+	}
+
+	/**
+	 * Category.
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
+	public function category(Request $request, $id) {
+		$tintucs = Tintuc::where('category_id', $id)->get();
+		return view('category_news', compact('tintucs'));
+	}
+
+	/**
+	 * New.
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
+	public function news(Request $request, $id) {
+		$news = Tintuc::with('admin')->find($id);
+		return view('detail_new', compact('news'));
 	}
 
 	/**
@@ -77,11 +102,43 @@ class HomeController extends Controller {
 		);
 		if ($validator->fails())
 		{
-			dd($validator->messages());
 			return redirect()->back()->withErrors($validator->errors());
 		}
 		Auth::user()->update($request->all());
 		return redirect()->route('home');
+	}
+
+	/**
+	 * [updateInfoCare description]
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
+	public function updateInfoCare(Request $request) {
+		$validator = Validator::make(
+		    $request->all(),
+		    Thongtinkham::$rules
+		);
+	
+		if ($validator->fails())
+		{
+			return redirect()->back()->withErrors($validator->errors());
+		}
+		$thoigiankham = $request->input('date').' '.substr($request->input('time'), 0, 5).':00';
+		Thongtinkham::find($request->input('thongtinkham_id'))->update([
+			'phongkham_id' => $request->input('phongkham_id'),
+			'thoigiankham' => $thoigiankham
+		]);
+		return redirect()->route('home');
+	}
+
+	/**
+	 * Delete info care.
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
+	public function deleteInfoCare(Request $request) {
+		Thongtinkham::find($request->input('thongtinkham_id'))->destroy();
+		return response()->json(['status' => '200']);
 	}
 
 	/**
@@ -106,10 +163,11 @@ class HomeController extends Controller {
 	public function getRoomFromService() {
 		$idService = Input::get('idService');
 		$typeShow = Input::get('type');
+		$phongkhamId = Input::get('phongkham_id');
 		$view = null;
 		$phongkhams = DB::table('phongkham')->where('dichvu_id', $idService)->get();
 		if ($typeShow == 'select') {
-			$view = view('mainpage.item-phongkham-select')->with('phongkhams', $phongkhams);
+			$view = view('mainpage.item-phongkham-select')->with('phongkhams', $phongkhams)->with('phongkhamId', $phongkhamId);
 		} else {
 			$view = view('mainpage.item-phongkham')->with('phongkhams', $phongkhams);
 		}
