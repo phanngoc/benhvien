@@ -1611,7 +1611,7 @@ ul.new_hospital li {
 }
 
 .information_profile .infor_medical {
-    padding-left: 30px;
+    width: 110%;
 }
 
 .information_profile .infor_medical .calender_madecal {
@@ -1644,13 +1644,41 @@ ul.new_hospital li {
 .information_profile .infor_medical .calender_madecal .btn_profile,
 .information_profile .infor_profile .btn_profile,
 .btn_profile {
-    height: 25px;
-    padding: 0px 9px 0px 9px;
-    font-size: 11px;
+    height: 28px;
+    font-size: 13px;
     text-transform: none;
     line-height: 25px;
+    padding: 0 23px;
+}
+.btn_update {
+    height: 30px;
+    font-size: 14px;
+    text-transform: none;
+    line-height: 25px;
+    float: right;
+    padding: 3px 30px 3px 30px;
 }
 
+.edit_profile .btn_edit_profile {
+    display: inline-block;
+    margin-left: 40%;
+}
+.edit_profile .btn-default {
+    margin-left: 0; 
+    margin-bottom: 0; 
+}
+.edit_profile .choose_date,
+.edit_profile .choose_time {
+    color: #00801B;
+    font-weight: bold;
+}
+.edit-profile form {
+    width: 112%;
+    display: inline-block;
+    padding: 35px;
+    border: 2px solid #9E9E9E;
+    margin-bottom: 60px;
+}
 .information_profile .edit_profile #fourth_form {
     margin-left: 0;
     float: left;
