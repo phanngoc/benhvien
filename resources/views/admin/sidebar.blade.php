@@ -17,9 +17,6 @@
       <a href="{{action('ScienceController@getScience')}}">Quản lý Khoa</a>
     </li>
     <li class="item_choose">
-      <a href="{{action('AdminController@getHopital')}}">Quản Lý thông tin Khoa</a>
-    </li>
-    <li class="item_choose">
       <a href="{{action('AdminController@getKindService')}}">Quản lý Loại Dịch Vụ</a>
     </li>
     <li  class="item_choose">
