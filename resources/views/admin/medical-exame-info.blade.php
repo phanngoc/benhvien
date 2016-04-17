@@ -17,8 +17,9 @@
                 </span>
             </div>
             <button class="btn btn-primary"> OK</button>
+            <button class="btn btn-primary pull-right" id="saveDaKham">Save</button>
           </div>
-           <table  class="table table-bordered">
+           <table  class="table table-bordered" id="tableThongTinKham">
               <thead>
                 <tr>
                   <th> Họ Tên </th>
@@ -31,36 +32,45 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td> Cún </td>
-                  <td> Bệnh Viện Đa Khoa Đà nẵng </td>
-                  <td> Khám Mắt </td>
-                  <td> Phòng Khám 1</td>
-                  <td> 28/4/2016 </td>
-                  <td> 14:00</td>
-                  <td> <input type="checkbox"> </td>
-                </tr>
-                <tr>
-                  <td> Cún </td>
-                  <td> Bệnh Viện Đa Khoa Đà nẵng </td>
-                  <td> Khám Mắt </td>
-                  <td> Phòng Khám 1</td>
-                  <td> 28/4/2016 </td>
-                  <td> 14:00</td>
-                  <td> <input type="checkbox"> </td>
-                </tr>
-                <tr>
-                  <td> Cún </td>
-                  <td> Bệnh Viện Đa Khoa Đà nẵng </td>
-                  <td> Khám Mắt </td>
-                  <td> Phòng Khám 1</td>
-                  <td> 28/4/2016 </td>
-                  <td> 14:00</td>
-                  <td> <input type="checkbox"> </td>
-                </tr>
+                @foreach ($thongtinkhams as $thongtinkham)
+                  <tr>
+                    <input type="hidden" name="thongtinkham_id" value="{{ $thongtinkham->id }}">
+                    <td> {{ $thongtinkham->benhnhan->hoten }} </td>
+                    <td> {{ $thongtinkham->phongkham->dichvu->benhvien->ten }}Bệnh Viện Đa Khoa Đà nẵng </td>
+                    <td> {{ $thongtinkham->phongkham->dichvu->tendichvu }} </td>
+                    <td> {{ $thongtinkham->phongkham->ten }} </td>
+                    <td> {{ substr($thongtinkham->thoigiankham,0,10) }}</td>
+                    <td> {{ substr($thongtinkham->thoigiankham,11,5) }}</td>
+                    <td> <input type="checkbox" {{ ($thongtinkham->dakham == 1) ? 'checked' : '' }} name="dakham" /></td>
+                  </tr>
+                @endforeach
               </tbody>
           </table>
         </div>
       </div>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('#saveDaKham').click(function(){
+            var arrResult = [];
+            $('#tableThongTinKham').find('tbody tr').each(function(key, value) {
+              var thongtinkhamId = $(value).find('input[name="thongtinkham_id"]').val();
+              var dakham = ($(value).find('input[name="dakham"]').is(':checked') == true) ? 1 : 0;
+              arrResult.push({thongtinkhamId : thongtinkhamId, dakham : dakham});
+            });
+           
+            $.ajax({
+              url : '{{route("updateStatusTakeMedical")}}',
+              method : 'POST',
+              data : { data : arrResult, _token : "{{csrf_token()}}" },
+              success : function(result) {
+                if (result.status = 200) {
+                  alert("Update successfully");
+                }
+              }
+            });
+          });
+        });
+    </script>
 @stop

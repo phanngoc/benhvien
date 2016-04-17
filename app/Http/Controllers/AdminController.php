@@ -7,6 +7,7 @@ use App\Models\Phongkham;
 use App\Models\Khoa;
 use App\Models\Loaitin;
 use App\Models\Tintuc;
+use App\Models\Thongtinkham;
 use Illuminate\Http\Request;
 use DB;
 use Validator;
@@ -163,10 +164,64 @@ class AdminController extends BaseController {
 	}
 
 	public function getMedicalExameInfo() {
-		return view('admin.medical-exame-info');
+		$thongtinkhams = Thongtinkham::with(['benhnhan','phongkham','phongkham.dichvu','phongkham.dichvu.benhvien'])->get();
+		return view('admin.medical-exame-info', compact('thongtinkhams'));
 	}
 
+	/**
+	 * [updateStatusTakeMedical description]
+	 * @return [type] [description]
+	 */
+	public function updateStatusTakeMedical(Request $request) {
+		$data = $request->data;
+		foreach ($data as $key => $value) {
+			Thongtinkham::find($value['thongtinkhamId'])->update([
+				'dakham' => $value['dakham']
+			]);
+		}
+		return response()->json(['status' => '200']);
+	}
+
+	/**
+	 * Show list idea
+	 * @return [type] [description]
+	 */
 	public function getIdea() {
-		return view('admin.idea');
+		$ykienphanhois = Ykienphanhoi::with('benhvien')->get();
+		return view('admin.idea', compact('ykienphanhois'));
+	}
+
+	/**
+	 * Show list idea
+	 * @return [type] [description]
+	 */
+	public function getEditIdea(Request $request, $id) {
+		$ykienphanhoi = Ykienphanhoi::find($id);
+		return view('admin.edit-idea', compact('ykienphanhoi'));
+	}
+
+	/**
+	 * [updateIdea description]
+	 * @param  Request $request [description]
+	 * @param  [type]  $id      [description]
+	 * @return [type]           [description]
+	 */
+	public function postUpdateIdea(Request $request, $id) {
+		$validator = Validator::make(
+		    $request->all(),
+		    Ykienphanhoi::$rules
+		);
+		if ($validator->fails())
+		{
+			return redirect()->back()->withErrors($validator->errors());
+		}
+
+		Ykienphanhoi::find($id)->update([
+			'hoten' => $request->input('hoten'),
+			'email' => $request->input('email'),
+			'ykien' => $request->input('ykien'),
+			'status' => ($request->input('status') == 'on') ? 1 : 0,
+		]);
+		return redirect(action('AdminController@getIdea'));
 	}
 }

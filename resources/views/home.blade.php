@@ -124,7 +124,7 @@
 								        </div>
 								        <div class="modal-body">
 								            <input id = "username" class="group-control user" name="email" type="text" placeholder = "ID Benh nhan">
-										  	<input id = "password" class="group-control pass" name="password" type="text" placeholder = "Mat khau">
+										  	<input id = "password" type="password" class="group-control pass" name="password" type="text" placeholder = "Mat khau">
 								        </div>
 								        <div class="modal-footer">
 								          <button id= "btn_login" class="btn btn-primary btn_login">LOGIN</button>
