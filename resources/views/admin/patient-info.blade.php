@@ -1,22 +1,12 @@
 @extends('admin.master-admin')
 
 @section('content')
-    <form id="login" style="display:none;">
-      <p class="title_login">LOGIN</p>
-      <input id = "username" class="group-control user" type="text" placeholder = "username">
-      <input id = "password" class="group-control pass" type="text" placeholder = "password">
-      <div class="check">
-        <input type="checkbox"><span>Remember</span>
-      </div>
-      <button id= "btn_login" class="btn btn-primary btn_login">LOGIN</button>
-    </form>
     <div class="col-md-12">
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="patients" class="col-md-12">
           <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
           <!-- post article -->
-          <form class="list_patient">
             <div class="inputs">
               <!-- search -->
               <div class="input-group stylish-input-group search_input">
@@ -35,7 +25,6 @@
               <tr>
                 <th>ID</th>
                 <th> Họ Tên </th>
-                <th> Bệnh Viện </th>
                 <th> Ngày Sinh </th>
                 <th> Email </th>
                 <th> CMND </th>
@@ -46,57 +35,46 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ($benhnhans as $benhnhan)
               <tr>
-                <td>BN01</td>
-                <td> Lê Văn Huy </td>
-                <td> Bệnh Viện Đa khoa Đà Nẵng </td>
-                <td>09/04/1992</td>
-                <td>abc@gmail.com</td>
-                <td> 187367824 </td>
-                <td>Nam </td>
-                <td>0974635284</td>
-                <td> Hải Châu, Đà Nẵng </td>
-                <td> <input type="checkbox"> </td>
+                <td>{{ $benhnhan->id }}</td>
+                <td>{{ $benhnhan->hoten }}</td>
+                <td>{{ substr($benhnhan->ngaysinh,0,10) }}</td>
+                <td>{{ $benhnhan->email }}</td>
+                <td>{{ $benhnhan->CMND }}</td>
+                <td>{{ ($benhnhan->gioitinh == 1) ? 'Nu' : 'Nam' }}</td>
+                <td>{{ $benhnhan->sodienthoai }}</td>
+                <td>{{ $benhnhan->diachi }}</td>
                 <td class="option">
-                  <button class="btn btn_edit"> <a href="../dat kham online/edit_patient.html">Chỉnh Sửa</a></button>
-                  <button class="btn btn_delete"> Xóa </button>
+                  <a class="btn btn_delete" data-href="{{action('AdminController@postDestroyPatient', $benhnhan->id)}}" data-token = "{{ csrf_token() }}"> Xóa </a>
                 </td>
               </tr>
-              <tr>
-                <td>BN02</td>
-                <td> Nguyễn Thị Thu Hương </td>
-                <td> Bệnh Viện Đa khoa Đà Nẵng </td>
-                <td>09/04/1992</td>
-                <td>abc@gmail.com</td>
-                <td> 187367824 </td>
-                <td>Nữ </td>
-                <td>0974635284</td>
-                <td> Hải Châu, Đà Nẵng </td>
-                <td class="option">
-                  <button class="btn btn_edit"> Chỉnh Sửa</button>
-                  <button class="btn btn_delete"> Xóa </button>
-                </td>
-              </tr>
-              <tr>
-                <td>BN02</td>
-                <td> Nguyễn Thị Thu Hương </td>
-                <td> Bệnh Viện Đa khoa Đà Nẵng </td>
-                <td>09/04/1992</td>
-                <td>abc@gmail.com</td>
-                <td> 187367824 </td>
-                <td>Nữ </td>
-                <td>0974635284</td>
-                <td> Hải Châu, Đà Nẵng </td>
-                <td class="option">
-                  <button class="btn btn_edit"> Chỉnh Sửa</button>
-                  <button class="btn btn_delete"> Xóa </button>
-                </td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
-          </form>
         </div>
       </div>
     </div>
-    <!--  -->
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $(".btn_delete").click(function(){
+              var link = $(this).data('href');
+              var token = $(this).data('token');
+              var r = confirm("Are you want to delete ?");
+              if (r == true) {
+                $.ajax({
+                  url : link,
+                  type : 'POST',
+                  data : { _token : token },
+                  success : function(result) {
+                    if (result.status == 200) {
+                      window.location.reload(true);
+                    }
+                  }
+                });
+              } 
+          });
+      });
+    </script>
 @stop

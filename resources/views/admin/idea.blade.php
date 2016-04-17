@@ -52,8 +52,8 @@
                     <td class="content_idea"> {{ $ykienphanhoi->ykien }} </td>
                     <td class="status"> <input type="checkbox" name="status" {{ ($ykienphanhoi->status == 1) ? 'checked' : '' }} /> </td>
                     <td>
-                      <button class="btn btn_edit"> <a href="{{ action('AdminController@getEditIdea', $ykienphanhoi->id) }}">Chỉnh Sửa </a></button>
-                      <button class="btn btn_delete"> Xóa </button>
+                      <a class="btn btn_edit" href="{{ action('AdminController@getEditIdea', $ykienphanhoi->id) }}">Chỉnh Sửa </a>
+                      <a class="btn btn_delete" data-href="{{ action('AdminController@postDestroyIdea', $ykienphanhoi->id) }}" data-token="{{ csrf_token() }}"> Xóa </a>
                     </td>
                   </tr>
                 @endforeach
@@ -64,5 +64,25 @@
       </div>
     </div>
     <!--  -->
-
+<script type="text/javascript">
+  $(document).ready(function(){
+      $(".btn_delete").click(function(){
+          var link = $(this).data('href');
+          var token = $(this).data('token');
+          var r = confirm("Are you want to delete ?");
+          if (r == true) {
+            $.ajax({
+              url : link,
+              type : 'POST',
+              data : { _token : token },
+              success : function(result) {
+                if (result.status == 200) {
+                  window.location.reload(true);
+                }
+              }
+            })
+          } 
+      });
+  });
+</script>
 @stop
