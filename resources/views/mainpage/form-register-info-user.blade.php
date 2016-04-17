@@ -9,7 +9,7 @@
       </div>
       <div class="input-field col s6 wow animatedss fadeInRightBig">
           <label> Mật Khẩu </label>
-          <input type="text" class="validate" name="Password">
+          <input type="text" class="validate" name="password">
       </div>
     </div>
 
@@ -17,7 +17,7 @@
         <div class="input-field col s6 wow animatedss fadeInLeftBig">
           <label class="lb_date"> Ngày sinh: </label>
           <i class="material-icons prefix">account_circle</i>
-          <input id="myDate" type="date">
+          <input id="myDate" name="ngaysinh" type="date">
         </div>
         <div class="input-field col s6 wow animatedss fadeInRightBig">
           <i class="material-icons prefix">email</i>
@@ -55,7 +55,7 @@
         </div>
         <div class="input-field col s6 wow animatedss fadeInRightBig">
           <i class="material-icons prefix">phone</i>
-          <input id="icon_telephone" type="tel" class="validate" name="phone">
+          <input id="icon_telephone" type="tel" class="validate" name="sodienthoai">
           <label for="icon_telephone">Số điện thoại: </label>
         </div>
     </div>
