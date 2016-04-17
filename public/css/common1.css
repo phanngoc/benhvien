@@ -482,13 +482,46 @@
   margin: 20px 0 45px 0;
 }
 #kind_of_news table{
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   width: 100%;
 }
-#kind_of_news table .option {
-  width: 25%;
+#kind_of_news table th {
+  text-align: center;
 }
+#kind_of_news table .show_icon {
+  width: 22%;
+}
+#kind_of_news table .wrap_img {
+  width: 150px;
+  height: 90px;
+  overflow: hidden;
+  margin: 10px;
+  position: relative;
+}
+#kind_of_news table .wrap_img img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+#kind_of_news table .option {
+  width: 20%;
+}
+#kind_of_news table .option .btn_edit {
+  font-size: 12px;
+  padding: 5px 8px;
+  background: #428bca;
+  color: #fff;
+  float: left;
+  border: 1px solid #C8BEBE;
+  margin-left: -18px;
+}
+
 /* quan ly thong tin benh vien --------------------*/
 #infor_hospital .infor_hospital {
   margin: 0 auto;

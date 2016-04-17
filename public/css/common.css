@@ -1845,7 +1845,7 @@ footer.page-footer {
 .show_detail_news nav {
     margin-top: 40px;
 }
-#content {
+#content_detail_news {
     display: inline-block;
 }
 .show_detail_news .wrap_section_content {

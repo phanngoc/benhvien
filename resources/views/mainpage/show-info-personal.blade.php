@@ -134,7 +134,7 @@
 					  		<ul class="col-md-12">
 					  			<li class="col-md-6">
 					  				<p class="choose_date"> Chọn ngày khám: </p>
-							    	<input type="date" class="form-control" name="date" value="2016-4-12">
+							    	<input type="date" class="form-control" value="2016-05-05">
 					  			</li>
 					  			<li class="col-md-6 time">
 					  				<p class="choose_time"> Chọn thời gian: </p>

@@ -29,7 +29,7 @@
           <table  class="table table-bordered">
             <thead>
               <tr>
-                <th> Icon </th>
+                <th class="show_icon"> Icon </th>
                 <th> Tên Loại Tin </th>
                 <th> Bệnh viện </th>
                 <th class="option"> Tùy Chọn </th>
@@ -38,7 +38,11 @@
             <tbody>
               @foreach($loaitin as $loai)
                 <tr>
-                  <td><img src="{{Asset('uploads/'.$loai->icon)}}"></td>
+                  <td class="show_icon">
+                    <div class="wrap_img">
+                      <img src="{{Asset('uploads/'.$loai->icon)}}">
+                    </div>
+                  </td>
                   <td> {{$loai->tentin}} </td>
                   <td>
                      {{$loai->tenbenhvien}}

@@ -17,7 +17,7 @@
         <div class="input-field col s6 wow animatedss fadeInLeftBig">
           <label class="lb_date"> Ngày sinh: </label>
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="date">
+          <input id="myDate" type="date">
         </div>
         <div class="input-field col s6 wow animatedss fadeInRightBig">
           <i class="material-icons prefix">email</i>
@@ -130,6 +130,9 @@
   </div> <!-- #fourth_form -->
 </form>
 <script type="text/javascript">
+  function myFunction() {
+    document.getElementById("myDate").defaultValue = "2014-02-09";
+  }
   $(document).ready(function(){
     $('#third_form').on('click','li.collection-item', function(){
       var phongkhamId = $(this).data('id');
