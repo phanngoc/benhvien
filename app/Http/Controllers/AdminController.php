@@ -8,6 +8,7 @@ use App\Models\Khoa;
 use App\Models\Loaitin;
 use App\Models\Tintuc;
 use App\Models\Thongtinkham;
+use App\Models\Benhnhan;
 use Illuminate\Http\Request;
 use DB;
 use Validator;
@@ -146,7 +147,7 @@ class AdminController extends BaseController {
 		return view('admin.list-room');
 	}
 
-	public function getCreatRoom() {
+	public function getCreateRoom() {
 		return view('admin.create_new_room');
 	}
 
@@ -160,9 +161,25 @@ class AdminController extends BaseController {
 	}
 
 	public function getPatientInfo() {
-		return view('admin.patient-info');
+		$benhnhans = Benhnhan::all();
+		return view('admin.patient-info', compact('benhnhans'));
 	}
 
+	/**
+	 * Delete patient.
+	 * @param  Request $request [description]
+	 * @param  [type]  $id      [description]
+	 * @return [type]           [description]
+	 */
+	public function postDestroyPatient(Request $request, $id) {
+		Benhnhan::destroy($id);
+		return response()->json(['status' => 200]);
+	}
+
+	/**
+	 * Show list info take care.
+	 * @return [type] [description]
+	 */
 	public function getMedicalExameInfo() {
 		$thongtinkhams = Thongtinkham::with(['benhnhan','phongkham','phongkham.dichvu','phongkham.dichvu.benhvien'])->get();
 		return view('admin.medical-exame-info', compact('thongtinkhams'));
@@ -192,7 +209,7 @@ class AdminController extends BaseController {
 	}
 
 	/**
-	 * Show list idea
+	 * Show edit idea
 	 * @return [type] [description]
 	 */
 	public function getEditIdea(Request $request, $id) {
@@ -223,5 +240,16 @@ class AdminController extends BaseController {
 			'status' => ($request->input('status') == 'on') ? 1 : 0,
 		]);
 		return redirect(action('AdminController@getIdea'));
+	}
+
+	/**
+	 * [postDestroyIdea description]
+	 * @param  Request $request [description]
+	 * @param  [type]  $id      [description]
+	 * @return [type]           [description]
+	 */
+	public function postDestroyIdea(Request $request, $id) {
+		Ykienphanhoi::destroy($id);
+		return response()->json(['status' => '200']);
 	}
 }

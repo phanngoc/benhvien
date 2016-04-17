@@ -9,17 +9,17 @@
           <!-- post article -->
           <form class="list_room">
             <div class="inputs">
-              <!-- search -->
-              <div class="input-group stylish-input-group search_input">
-                  <input type="text" class="form-control"  placeholder="Search" >
-                  <span class="input-group-addon">
-                      <button type="submit">
-                        <span class="glyphicon glyphicon-search"></span>
-                      </button>
-                  </span>
-              </div>
+                <!-- search -->
+                <div class="input-group stylish-input-group search_input">
+                    <input type="text" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                          <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
                 <!-- button -->
-                <button class="btn btn-primary btn_edit"> <a href="{{action('AdminController@getCreatRoom')}}"> Tạo mới </a></button>
+                <button class="btn btn-primary btn_edit"> <a href="{{action('AdminController@getCreateRoom')}}"> Tạo mới </a></button>
             </div>
             <table  class="table table-bordered">
               <thead>
