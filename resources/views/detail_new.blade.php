@@ -20,9 +20,11 @@
 		</header>
 <!-- ========================= section hien thi list thong tin tin tuc ========================================== -->
 		<div class="wrap_section_content">
-			<a href="#" class="back_page"><img src="img/images/back icon.png"></a>
-			<section id="sub_news_detail">
+			<div class="wrap_back">
+				<a href="#" class="back_page"><img src="../img/images/back icon.png"></a>
 				<p class="time">{{ $news->updated_at }}</p>
+			</div>
+			<section id="sub_news_detail">
 				<h2 class="title">{{ $news->tieude }}</h2>
 				<ul class="content_detail">
 					<li class="content">

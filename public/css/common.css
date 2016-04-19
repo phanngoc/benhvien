@@ -1906,6 +1906,15 @@ footer.page-footer {
 .show_detail_news .wrap_section_content {
     padding: 20px 50px;
 }
+.show_detail_news .wrap_section_content .wrap_back{
+    margin-left: 7%;
+}
+.show_detail_news .wrap_section_content .wrap_back .back_page img{
+    width: 20px;
+}
+.show_detail_news .wrap_section_content .wrap_back .time {
+    font-style: italic;
+}
 .show_detail_news .wrap_section_content .content_detail {
     padding: 0 120px;
     font-size: 15px;
