@@ -100,7 +100,7 @@
 				<section id="sign" class="container each">
 					@include('mainpage.show-info-personal')
 					@if ($user == null)
-						<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12 form_sign_medical">
 							<h2 class="title">ĐĂNG KÍ KHÁM BỆNH</h2>
 							<!-- choose step ======== -->
 							<ul class="step">
@@ -113,7 +113,7 @@
 							<button class="btn  wow animateds fadeInRightBig signin btn-info btn-lg" type="submit" data-toggle="modal" data-target="#myModal">Đăng Nhập ID Bệnh Nhân
 							</button>
 							<!-- model display when click button =========-->
-							<div class="modal fade" id="myModal" role="dialog">
+							<div class="modal fade form_login" id="myModal" role="dialog">
 							    <div class="modal-dialog">
 							      <form class="login" action="{{ route('login') }}" method="POST">
 							      	<input type="hidden" name="_token" value="{{ csrf_token() }}">
