@@ -127,6 +127,7 @@
 	        	?>
 	        </tbody>
 	    </table>
+	    <button class="btn btn-primary btn_create">Tạo đăng kí mới</button>
 	  </div>
 	  <div class="edit_profile"  style="display: none;">
 	  	<form action="{{ route('update-info-care') }}" method="POST" style="width: 100%;" id="update-info-care">
@@ -167,6 +168,10 @@
 
 <script type="text/javascript">
 	// Profile ==============================
+	$(".infor_medical .btn_create").click(function(){
+		$(".infor_medical").hide();
+	    $(".edit_profile").show();
+	});
 	$(".infor_medical .btn_profile").click(function(){
 		  $(".infor_medical").hide();
 		  $(".edit_profile").show();
