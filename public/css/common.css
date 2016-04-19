@@ -484,8 +484,11 @@ nav ul li a.active1 {
     font-size: 14px !important;
 }
 .nav-wrapper .right li a:hover,
-.btn:hover, .btn:focus, .btn:visited {
+.btn-primary:hover, .btn-primary:focus, .btn-primary:visited {
     color: #fff !important;
+    background: #2E6EA5 !important;
+    text-shadow: none !important;
+    transition: 0s !important;
 }
 .choose {
     width: 170px;
@@ -1607,7 +1610,14 @@ ul.new_hospital li {
     padding-top: 70px;
     padding-bottom: 38px;
 }
-
+.btn-logout {
+    float: right;
+    background: #2bbbad;
+    margin-right: -130px;
+}
+.btn-logout:hover, .btn-logout:focus, .btn-logout:visited {
+    background: #2bbbad !important;
+}
 .information_profile .infor_profile {
     margin-bottom: 60px;
 }
@@ -1648,10 +1658,16 @@ ul.new_hospital li {
     line-height: 3;
 }
 
-.information_profile .infor_medical .calender_madecal .btn-default {
+.information_profile .infor_medical .calender_madecal .btn-default, .btn_cancel {
     margin-left: 0;
     margin-bottom: 0;
     background: #C10C0C;
+}
+.information_profile .infor_medical .calender_madecal .btn-default:hover,
+.information_profile .infor_medical .calender_madecal .btn-default:focus,
+.information_profile .infor_medical .calender_madecal .btn-default:visited,
+.btn_cancel:hover, .btn_cancel:focus, .btn_cancel:visited {
+    color: #fff !important;
 }
 .edit_profile .select .btn_edit_profile {
   margin-top: 100px;
@@ -1687,10 +1703,29 @@ ul.new_hospital li {
     float: right;
     padding: 3px 30px 3px 30px;
 }
-
+.btn_cancel {
+    height: 30px;
+    font-size: 14px;
+    text-transform: none;
+    line-height: 25px;
+    float: right;
+    padding: 3px 30px 3px 30px;
+    margin-left: 10px;
+}
+.btn_cancel:hover, .btn_cancel:focus, .btn_cancel:visited {
+    color: #fff;
+    background: #C10C0C !important;
+}
 .edit_profile .btn_edit_profile {
     display: inline-block;
     margin-left: 40%;
+}
+.edit_profile .btn_edit_profile .btn_cancel {
+    margin:13px 0 0 16px;
+    height: 28px;
+    font-size: 13px;
+    line-height: 28px;
+    padding: 0 23px;
 }
 .edit_profile .btn-default {
     margin-left: 0; 
