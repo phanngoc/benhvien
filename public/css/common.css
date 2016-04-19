@@ -483,7 +483,10 @@ nav ul li a.active1 {
 .nav-wrapper .right li a {
     font-size: 14px !important;
 }
-
+.nav-wrapper .right li a:hover,
+.btn:hover, .btn:focus, .btn:visited {
+    color: #fff !important;
+}
 .choose {
     width: 170px;
     height: 44px;
@@ -550,7 +553,7 @@ nav ul li a.active1 {
     width: 100%;
     background: url('../img/images/share.png');
 }
-
+/*form login=================================*/
 #sign {
     position: relative;
 }
@@ -562,16 +565,33 @@ nav ul li a.active1 {
 }
 
 .modal {
+    overflow: visible;
     background: transparent !important;
     box-shadow: none !important;
 }
 
 .btn-info:hover,
 .btn_login:hover {
-    background-color: #2DADD3 !important;
-    box-shadow: none !important;
+    background-color: #2D6CA2 !important;
+    text-shadow: none !important;
 }
-
+.form_login .modal-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3c763d;
+}
+.form_login .btn-primary {
+    transition: initial !important;
+}
+.form_login .btn-default {
+    transition: initial !important;
+    color: #736767;
+    text-shadow: none !important;
+}
+.form_login .btn-default:hover {
+    background-color: #E1E1E1 !important;
+}
+/*---------------------------------------*/
 .khoa_list {
     width: 1080px;
     color: #a29175;
@@ -1383,7 +1403,7 @@ hr {
 }
 
 .content_ideas {
-    background: rgba(93, 92, 92, 0.93);
+    background: rgba(88, 60, 60, 0.85);
     padding: 0 70px 70px 70px;
 }
 
@@ -1945,7 +1965,15 @@ nav a#pull {
     height: 700px;
     overflow: hidden;
 }
-
+/*form sign medical information -----------------------*/
+.form_sign_medical .signin {
+    font-size: 15px;
+    text-shadow: none;
+    transition: initial !important;
+}
+.form_sign_medical .signin:hover {
+    background-color: #2CACD2 !important;
+}
 .lb_date {
     float: left;
     margin: -30px 0 0 48px;
@@ -1981,7 +2009,7 @@ nav a#pull {
 
 .step {
     display: inline-block;
-    margin-left: 27%;
+    margin-left: 20%;
 }
 
 
