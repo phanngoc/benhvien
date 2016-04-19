@@ -1652,7 +1652,17 @@ ul.new_hospital li {
 .information_profile .infor_medical {
     width: 110%;
 }
-
+.information_profile .infor_medical .btn_create {
+    margin: 40px 0 40px 0;
+    float: right;
+    background: #3c763d;
+}
+.information_profile .infor_medical .btn_create:hover,
+.information_profile .infor_medical .btn_create:focus,
+.information_profile .infor_medical .btn_create:visited {
+    background: #3c763d !important;
+    color: #fff !important;
+}
 .information_profile .infor_medical .calender_madecal {
     font-size: 17px;
     line-height: 3;
