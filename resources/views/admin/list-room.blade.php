@@ -19,7 +19,7 @@
                     </span>
                 </div>
                 <!-- button -->
-                <button class="btn btn-primary btn_edit"> <a href="{{action('AdminController@getCreateRoom')}}"> Tạo mới </a></button>
+                <button class="btn btn-primary btn_edit"> <a href="{{action('RoomController@getCreateRoom')}}"> Tạo mới </a></button>
             </div>
             <table  class="table table-bordered">
               <thead>
@@ -33,43 +33,46 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td> Bệnh Viện Đa khoa Đà Nẵng </td>
-                  <td><a href="{{action('AdminController@getInRoom')}}">Phòng Khám 1 </a></td>
-                  <td> Khám Nội </td>
-                  <td> Trần Hà Giang </td>
-                  <td> 8 </td>
-                  <td class="option">
-                    <button class="btn btn_edit"> <a href="{{action('AdminController@getEditRoom')}}"> Chỉnh Sửa </a></button>
-                    <button class="btn btn_delete"> Xóa </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td> Bệnh Viện Liên Chiểu Đà Nẵng </td>
-                  <td> <a href="{{action('AdminController@getInRoom')}}">Phòng Khám 2 </a></td>
-                  <td> Siêu Âm </td>
-                  <td> Trần Hà Giang </td>
-                  <td> 20 </td>
-                  <td class="option">
-                    <button class="btn btn_edit"> <a href="{{action('AdminController@getEditRoom')}}"> Chỉnh Sửa </a></button>
-                    <button class="btn btn_delete"> Xóa </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td> Bệnh Viện C Đà Nẵng </td>
-                  <td> <a href="{{action('AdminController@getInRoom')}}">Phòng Khám 3 </a></td>
-                  <td> Khám Ngoại</td>
-                  <td> Trần Hà Giang </td>
-                  <td> 12 </td>
-                  <td class="option">
-                    <button class="btn btn_edit"> <a href="{{action('AdminController@getEditRoom')}}"> Chỉnh Sửa </a></button>
-                    <button class="btn btn_delete"> Xóa </button>
-                  </td>
-                </tr>
+                @foreach($rooms as $room)
+                  <tr>
+                    <td>{{ $room->dichvu->benhvien->ten }}</td>
+                    <td><a href="{{action('AdminController@getInRoom')}}">{{ $room->ten }}</a></td>
+                    <td>{{ $room->dichvu->tendichvu }}</td>
+                    <td> {{ $room->bacsi }} </td>
+                    <td> 8 </td>
+                    <td class="option">
+                      <a class="btn btn_edit" href="{{action('RoomController@getEditRoom', $room->id)}}"> Chỉnh Sửa </a>
+                      <a class="btn btn-danger" data-href="{{ action('RoomController@postDestroyRoom', $room->id) }}" data-token="{{ csrf_token() }}" >Xóa</a>
+                    </td>
+                  </tr>
+                @endforeach
               </tbody>
           </table>
           </form>
         </div>
       </div>
     </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $(".btn-danger").click(function(){
+          var link = $(this).data('href');
+          var token = $(this).data('token');
+          var r = confirm("Are you want to delete ?");
+          if (r == true) {
+            $.ajax({
+              url : link,
+              type : 'POST',
+              data : { _token : token },
+              success : function(result) {
+                if (result.status == 200) {
+                  window.location.reload(true);
+                }
+              }
+            })
+          } 
+      });
+  });
+</script>
+
 @stop

@@ -68,6 +68,8 @@ Route::controller('admin', 'AdminController');
 Route::controller('new', 'NewController');
 Route::controller('science', 'ScienceController');
 
+Route::controller('room', 'RoomController');
+
 Route::post('updateStatusTakeMedical', [
 	'as' => 'updateStatusTakeMedical',
 	'uses' => 'AdminController@updateStatusTakeMedical',

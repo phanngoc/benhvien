@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Phongkham extends Model {
 
     protected $table = 'phongkham';
-    protected $fillable = ['benhvien_id', 'ten', 'bacsi'];
+    protected $fillable = ['dichvu_id', 'ten', 'bacsi'];
+
+    public static $rules = [
+    	'ten' => 'required',
+    	'bacsi' => 'required',
+    	'dichvu_id' => 'required'
+    ];
 
     /**
      * Many to One
