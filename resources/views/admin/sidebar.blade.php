@@ -20,7 +20,7 @@
       <a href="{{action('AdminController@getKindService')}}">Quản lý Loại Dịch Vụ</a>
     </li>
     <li  class="item_choose">
-      <a href="{{action('AdminController@getRooms')}}"> Phòng Khám </a>
+      <a href="{{action('RoomController@getRooms')}}"> Phòng Khám </a>
     </li>
     <li class="item_choose">
       <a href="{{action('AdminController@getPatientInfo')}}"> Quản lý thông tin bệnh nhân </a>

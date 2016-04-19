@@ -50,7 +50,7 @@ class AdminController extends BaseController {
 	 */
 	public function index()
 	{
-    $user = $this->getInfoUser();
+    	$user = $this->getInfoUser();
 		return view('admin.profile');
 	}
 
