@@ -7,15 +7,16 @@
         <div id="infor_hospital" class="col-md-12">
           <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
           <!-- post article -->
-          <form class="infor_hospital">
-              <input class="form-control" type="text" placeholder=" Nhập tên bệnh viện">
-              <input class="form-control" type="text" placeholder=" Địa chỉ ">
-              <input class="form-control" type="text" placeholder=" Số điện thoại ">
-              <input class="form-control" type="text" placeholder=" Số khoa ">
-              <textarea class="form-control" placeholder="Thông tin"></textarea>
+          <form class="infor_hospital" action="{{$urlPost}}" method="POST">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <input class="form-control" type="text" name="ten" placeholder=" Nhập tên bệnh viện" value="{{ isset($benhvien) ? $benhvien->ten : '' }}">
+              <input class="form-control" type="text" name="diachi" placeholder=" Địa chỉ " value="{{ isset($benhvien) ? $benhvien->diachi : '' }}">
+              <input class="form-control" type="text" name="sodienthoai" placeholder=" Số điện thoại " value="{{ isset($benhvien) ? $benhvien->sodienthoai : '' }}">
+              <input class="form-control" type="text" name="email" placeholder=" Email " value="{{ isset($benhvien) ? $benhvien->email : '' }}" >
+              <textarea class="form-control" name="thongtin" placeholder="Thông tin">{{ isset($benhvien) ? $benhvien->thongtin : '' }}</textarea>
               <div class="button">
                 <button class="btn btn-primary"> Thêm </button>
-                <button class="btn btn-default"> Bỏ qua </button>
+                <a class="btn btn-default" href="{{ action('HopitalController@getHopitals') }}"> Bỏ qua </a>
               </div>
           </form>
           <table  class="table table-bordered">
@@ -24,73 +25,50 @@
                 <th> Tên Bệnh Viện </th>
                 <th> Địa Chỉ </th>
                 <th> Số Điện Thoại </th>
-                <th> Số Khoa </th>
+                <th> Email </th>
                 <th class="infor"> Thông Tin </th>
                 <th class="option"> Tùy Chọn </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td> Bệnh Viện Đa Khoa Đà nẵng </td>
-                <td> Hải Phòng, Hải Châu, Đà Nẵng </td>
-                <td> 0511 244 222 </td>
-                <td> 30 </td>
-                <td class="infor"> But before we get into the nuances of address variations, 
-                it’s worth pointing out that addresses have a commonly understood structure. 
-                Through years of experience with mailing and postal systems, 
-                people have a pretty concrete idea of what constitutes an address block. 
-                This common understanding is so definitive that eyetracking data suggests, 
-                once people begin filling in a set of input fields that make up an address, 
-                they often cease looking at their labels. The basic structure of an address is so familiar, 
-                people don’t need the guidance labels provide. - See more at: 
-                </td>
-                <td class="option">
-                  <button class="btn btn_edit"> Chỉnh Sửa</button>
-                  <button class="btn btn_delete"> Xóa </button>
-                </td>
-              </tr>
-              <tr>
-                <td> Bệnh Viện Đa Khoa Đà nẵng </td>
-                <td> Hải Phòng, Hải Châu, Đà Nẵng </td>
-                <td> 0511 244 222 </td>
-                <td> 30 </td>
-                <td class="infor"> But before we get into the nuances of address variations, 
-                it’s worth pointing out that addresses have a commonly understood structure. 
-                Through years of experience with mailing and postal systems, 
-                people have a pretty concrete idea of what constitutes an address block. 
-                This common understanding is so definitive that eyetracking data suggests, 
-                once people begin filling in a set of input fields that make up an address, 
-                they often cease looking at their labels. The basic structure of an address is so familiar, 
-                people don’t need the guidance labels provide. - See more at: 
-                </td>
-                <td class="option">
-                  <button class="btn btn_edit"> Chỉnh Sửa</button>
-                  <button class="btn btn_delete"> Xóa </button>
-                </td>
-              </tr>
-              <tr>
-                <td> Bệnh Viện Đa Khoa Đà nẵng </td>
-                <td> Hải Phòng, Hải Châu, Đà Nẵng </td>
-                <td> 0511 244 222 </td>
-                <td> 30 </td>
-                <td class="infor"> But before we get into the nuances of address variations, 
-                it’s worth pointing out that addresses have a commonly understood structure. 
-                Through years of experience with mailing and postal systems, 
-                people have a pretty concrete idea of what constitutes an address block. 
-                This common understanding is so definitive that eyetracking data suggests, 
-                once people begin filling in a set of input fields that make up an address, 
-                they often cease looking at their labels. The basic structure of an address is so familiar, 
-                people don’t need the guidance labels provide. - See more at: 
-                </td>
-                <td class="option">
-                  <button class="btn btn_edit"> Chỉnh Sửa</button>
-                  <button class="btn btn_delete"> Xóa </button>
-                </td>
-              </tr>
+              @foreach ($benhviens as $benhvien)
+                <tr>
+                  <td>{{ $benhvien->ten }}</td>
+                  <td>{{ $benhvien->diachi }}</td>
+                  <td>{{ $benhvien->sodienthoai }}</td>
+                  <td>{{ $benhvien->email }}</td>
+                  <td>{{ $benhvien->thongtin }}</td>
+                  <td class="option">
+                    <a class="btn btn_edit" href="{{action('HopitalController@getEditHopital', $benhvien->id)}}"> Chỉnh Sửa</a>
+                    <a class="btn btn_delete" data-href="{{ action('HopitalController@postDestroyHopital', $benhvien->id) }}" data-token="{{ csrf_token() }}"> Xóa </a>
+                  </td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
       </div>
     </div>
-    <!--  -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $(".btn_delete").click(function(){
+          var link = $(this).data('href');
+          var token = $(this).data('token');
+          var r = confirm("Are you want to delete ?");
+          if (r == true) {
+            $.ajax({
+              url : link,
+              type : 'POST',
+              data : { _token : token },
+              success : function(result) {
+                if (result.status == 200) {
+                  window.location.reload(true);
+                }
+              }
+            })
+          } 
+      });
+  });
+</script> 
 @stop

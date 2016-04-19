@@ -54,11 +54,11 @@ class AdminController extends BaseController {
 		return view('admin.profile');
 	}
 
-  public function getCategoryNews() {
-	$benhvien = Benhvien::all();
-	$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien','loaitin.icon')->get();
-	return view('admin.category-news', compact('loaitin', 'benhvien'));
-  }
+	public function getCategoryNews() {
+		$benhvien = Benhvien::all();
+		$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien','loaitin.icon')->get();
+		return view('admin.category-news', compact('loaitin', 'benhvien'));
+	}
 
 	public function postCategoryNews(Request $request) {
 		$validator = Validator::make(
@@ -122,6 +122,10 @@ class AdminController extends BaseController {
 		return redirect(action('AdminController@getCategoryNews'));
 	}
 
+	public function postDestroyCategoryNew(Request $request, $id) {
+		Loaitin::destroy($id);
+		return response()->json(['status' => 200]);
+	}
 
   public function getInforHopitals() {
     return view('admin.inforhopital');

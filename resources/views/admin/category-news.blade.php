@@ -48,8 +48,8 @@
                      {{$loai->tenbenhvien}}
                   </td>
                   <td class="option">
-                    <a class="btn btn_edit" href="{{ action('AdminController@getEditCategoryNews', $loai->id) }}"> Chỉnh Sửa</a>
-                    <a class="btn btn_delete"> Xóa </a>
+                    <a class="btn btn_edit" href="{{ action('AdminController@getEditCategoryNews', $loai->id) }}">Chỉnh Sửa</a>
+                    <a class="btn btn_delete" data-href="{{ action('AdminController@postDestroyCategoryNew', $loai->id) }}" data-token="{{ csrf_token() }}">Xóa</a>
                   </td>
                 </tr>
               @endforeach
@@ -59,6 +59,29 @@
         </div>
       </div>
     </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $(".btn_delete").click(function(){
+          var link = $(this).data('href');
+          var token = $(this).data('token');
+          var r = confirm("Are you want to delete ?");
+          if (r == true) {
+            $.ajax({
+              url : link,
+              type : 'POST',
+              data : { _token : token },
+              success : function(result) {
+                if (result.status == 200) {
+                  window.location.reload(true);
+                }
+              }
+            })
+          } 
+      });
+  });
+</script>
+
 @stop
 
 @section('js')

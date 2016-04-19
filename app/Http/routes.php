@@ -69,6 +69,7 @@ Route::controller('new', 'NewController');
 Route::controller('science', 'ScienceController');
 
 Route::controller('room', 'RoomController');
+Route::controller('hopital', 'HopitalController');
 
 Route::post('updateStatusTakeMedical', [
 	'as' => 'updateStatusTakeMedical',
