@@ -6,7 +6,7 @@
 		<div class="col-md-12">
 			@include('admin.sidebar')
 			<div class="col-md-10">
-				<div id="post_news" class="col-md-12">
+				<div id="manage_news" class="col-md-12">
 					<h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
 					<div class="top_page_news">
 						<div class="input-group stylish-input-group search_input">
@@ -29,8 +29,8 @@
 		                <th> Hình Ảnh </th>
 		                <th class="title_news"> Tiêu Đề </th>
 		                <th> Lĩnh Vực </th>
-		                <th class="content_idea"> Nội Dung </th>
-		                <th> Tùy Chọn </th>
+		                <th class="content_news"> Nội Dung </th>
+		                <th class="option"> Tùy Chọn </th>
 		              </tr>
 		            </thead>
 		            <tbody>
@@ -43,7 +43,7 @@
                       </td>
                       <td class="title_news">{{ $new->tieude }}</td>
                       <td>{{ $new->nameloaitin }}</td>
-                      <td class="content_idea">{{ $new->noidung }}</td>
+                      <td class="content_news">{{ $new->noidung }}</td>
                       <td>
                         <button class="btn btn_edit"> <a href="{{action('NewController@getEditNew', $new->id)}}"> Chỉnh Sửa </a></button>
                         <a href="javascript:" class="delete-new" data-id="{{$new->id}}"><button class="btn btn_delete"> Xóa</button></a>

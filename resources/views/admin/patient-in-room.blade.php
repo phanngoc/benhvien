@@ -23,7 +23,7 @@
                   </span>
               </div>
                 <!-- button -->
-                <button class="btn btn-primary btn_edit"> OK</button>
+                <button class="btn btn-primary"> OK</button>
             </div>
             <table  class="table table-bordered">
             <thead>

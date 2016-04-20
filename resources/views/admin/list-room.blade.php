@@ -19,7 +19,7 @@
                     </span>
                 </div>
                 <!-- button -->
-                <button class="btn btn-primary btn_edit"> <a href="{{action('RoomController@getCreateRoom')}}"> Tạo mới </a></button>
+                <button class="btn btn-primary"> <a href="{{action('RoomController@getCreateRoom')}}"> Tạo mới </a></button>
             </div>
             <table  class="table table-bordered">
               <thead>
@@ -39,7 +39,7 @@
                     <td><a href="{{action('AdminController@getInRoom')}}">{{ $room->ten }}</a></td>
                     <td>{{ $room->dichvu->tendichvu }}</td>
                     <td> {{ $room->bacsi }} </td>
-                    <td> 8 </td>
+                    <td style="text-align: center;"> 8 </td>
                     <td class="option">
                       <a class="btn btn_edit" href="{{action('RoomController@getEditRoom', $room->id)}}"> Chỉnh Sửa </a>
                       <a class="btn btn-danger" data-href="{{ action('RoomController@postDestroyRoom', $room->id) }}" data-token="{{ csrf_token() }}" >Xóa</a>
