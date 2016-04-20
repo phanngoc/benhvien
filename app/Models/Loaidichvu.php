@@ -8,6 +8,10 @@ class Loaidichvu extends Model {
 
     protected $table = 'loaidichvu';
     protected $fillable = ['benhvien_id', 'tendichvu', 'giatien'];
+    public static $rules = [
+        'tendichvu' => 'required',
+        'giatien' => 'required'
+    ];
 
     /**
      * Many to One
