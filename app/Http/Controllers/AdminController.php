@@ -43,6 +43,10 @@ class AdminController extends BaseController {
 	    return $dataSample;
     }
     
+    public function showLogin() {
+    	return view('admin.login');
+    }
+
 	/**
 	 * Show the application dashboard to the user.
 	 *

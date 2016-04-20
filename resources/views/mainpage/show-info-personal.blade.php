@@ -104,7 +104,7 @@
 
 	        <tbody>
 	        	<?php
-	        		$thongtinkhams = DB::table('thongtinkham')->where('benhnhan_id', Auth::user()->id)->join('phongkham','phongkham.id','=','thongtinkham.phongkham_id')
+	        		$thongtinkhams = DB::table('thongtinkham')->where('benhnhan_id', Auth::user()->get()->id)->join('phongkham','phongkham.id','=','thongtinkham.phongkham_id')
 	        		->join('loaidichvu','loaidichvu.id','=','phongkham.dichvu_id')
 	        		->select(['thongtinkham.id', 'phongkham.id as phongkham_id','loaidichvu.id as loaidichvu_id','thoigiankham', 'tendichvu', 'ten', 'giatien'])->get();
 	        		foreach ($thongtinkhams as $key => $value) {
