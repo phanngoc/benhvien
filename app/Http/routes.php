@@ -63,6 +63,11 @@ Route::get('admin/profile', [
 	'uses' => 'AdminController@index',
 ]);
 
+Route::get('admin/login', [
+	'as' => 'admin.login',
+	'uses' => 'AdminController@showLogin',
+]);
+
 
 Route::controller('admin', 'AdminController');
 Route::controller('new', 'NewController');
