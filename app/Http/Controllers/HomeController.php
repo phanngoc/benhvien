@@ -55,7 +55,7 @@ class HomeController extends Controller {
 		$khoas = Khoa::where('benhvien_id', $id)->get();
 		$ykienphanhoi = Ykienphanhoi::where('status',1)->get();
 		$idBenhvien = $id;
-		$user = Auth::user();
+		$user =  Auth::user()->get();
 		return view('home', compact('benhviens', 'loaidichvus', 'phongkhams', 'khoas',
 		 'user', 'idBenhvien', 'ykienphanhoi', 'loaitins'));
 	}
