@@ -1,4 +1,5 @@
-<form class="col s12">
+<form class="col s12" method="POST" action="{{ route('register-info-care') }}">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <!-- first form ===================================== -->
   <div id="first_form" class="wow animated fadeInRightBig">
     <div class="row">
@@ -45,12 +46,12 @@
         <label class="lb_date"> Giới tính: </label>
         <i class="material-icons prefix">person_pin</i>
            <div class="male">
-          <input name="group1" type="radio" id="test1" />
+          <input type="radio" id="test1" name="gioitinh" value="0"/>
           <label class="input_sex" for="test1" name="gioitinh" value="0">Male</label>
         </div>
         <div>
-          <input name="group1" type="radio" id="test2" />
-          <label class="input_sex" for="test2" name="gioitinh" value="1">Female</label>
+          <input type="radio" id="test2" name="gioitinh" value="1"/>
+          <label class="input_sex" for="test2">Female</label>
         </div>
         </div>
         <div class="input-field col s6 wow animatedss fadeInRightBig">
@@ -114,7 +115,7 @@
         </li>
       @endforeach
     </ul>
-    <button id="third_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="submit" name="action">Tiếp
+    <button id="third_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button" name="action">Tiếp
       <i class="material-icons right">send</i>
     </button>
   </div> 
@@ -124,8 +125,8 @@
     <div class="jquery-calendar" id="datepicker"></div>
     <input type="text" class="display_date" name="date" value="thevalue" />
     <p class="choose_time"> Chọn thời gian: </p>
-    <input id="timepicker" class="timepicker" placeholder="00:00"/>
-    <button id="fourth_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button" name="action" data-toggle="modal" data-target="#myModal1"> OK
+    <input id="timepicker" class="timepicker" name="time" placeholder="00:00"/>
+    <button id="fourth_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="submit" name="action" data-toggle="modal" data-target="#myModal1"> OK
       <i class="material-icons right">send</i>
     </button>
   </div> <!-- #fourth_form -->
@@ -150,6 +151,7 @@
   $(function(){
     $('#datepicker').datepicker({
       onSelect: function(dateText, inst) {
+        console.log(dateText);
         $("input[name='date']").val(dateText);
       }
     });

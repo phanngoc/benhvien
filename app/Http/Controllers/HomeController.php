@@ -131,6 +131,46 @@ class HomeController extends Controller {
 		return redirect()->route('home');
 	}
 
+	private function convertDateAndTimeToSql($date, $time) {
+		$month = substr($date, 0, 2);
+		$day = substr($date, 3, 2);
+		$year = substr($date, 6, 4);
+		$hour = substr($time, 0, 2);
+		$minute = substr($time, 3, 2);
+		$result = $year.'-'.$month.'-'.$day.' '.$hour.':'.$minute.':00';
+		return $result;
+	}
+	/**
+	 * Registe info care.
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
+	public function registerInfoCare(Request $request) {
+
+		$benhnhan = Benhnhan::create([
+			'hoten' => $request->input('hoten'),
+			'username' => $request->input('username'),
+			'ngaysinh' => $request->input('diachi')." 00:00:00",
+			'CMND' => $request->input('CMND'),
+			'gioitinh' => $request->input('gioitinh'),
+			'diachi' => $request->input('diachi'),
+			'sodienthoai' => $request->input('sodienthoai'),
+			'email' => $request->input('email'),
+			'password' => bcrypt($request->input('password'))
+		]);
+
+		$thoigiankham = $this->convertDateAndTimeToSql($request->input('date'), $request->input('time'));
+		
+		Thongtinkham::create([
+			'benhnhan_id' => $benhnhan->id,
+			'phongkham_id' => $request->input('phongkham'),
+			'thoigiankham' => $thoigiankham
+		]);
+		
+
+		return redirect()->route('home');
+	}
+
 	/**
 	 * Delete info care.
 	 * @param  Request $request [description]
