@@ -48,6 +48,11 @@ Route::post('delete-info-care', [
 	'uses' => 'HomeController@deleteInfoCare',
 ]);
 
+Route::post('register-info-care', [
+	'as' => 'register-info-care',
+	'uses' => 'HomeController@registerInfoCare',
+]);
+
 Route::get('ykienphanhoi', [
 	'as' => 'ykienphanhoi',
 	'uses' => 'HomeController@submitYkienNguoiDung',
