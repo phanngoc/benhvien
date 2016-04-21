@@ -50,7 +50,9 @@ td {
     outline: 0;
     padding: 0;
 }
-
+.modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat{
+    float: none !important;
+}
 :focus {
     outline: 0;
 }
@@ -130,6 +132,7 @@ a:link,
 a:visited,
 a:hover,
 a:focus {
+    color: #fff;
     text-decoration: none;
     outline: 0;
     -webkit-transition: all 0.2s ease-in-out;
@@ -317,7 +320,7 @@ nav ul li a.active1 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .3);
     z-index: 9;
 }
 
@@ -484,6 +487,11 @@ nav ul li a.active1 {
     font-size: 14px !important;
 }
 .nav-wrapper .right li a:hover,
+.nav-wrapper .right li a:focus,
+.nav-wrapper .right li a:visited,
+.btn:hover, .btn:focus, .btn:visited {
+    color: #fff;
+}
 .btn-primary:hover, .btn-primary:focus, .btn-primary:visited {
     color: #fff !important;
     background: #2E6EA5 !important;
@@ -1055,8 +1063,7 @@ a.button:hover {
     font-size: 20px;
 }
 
-#second_form .list-dichvu li:hover,
-#third_form #list-phongkham li:hover {
+#second_form .list-dichvu li:hover {
     background: #dff0d8;
     cursor: default;
 }
@@ -1069,17 +1076,20 @@ a.button:hover {
     font-size: 27px;
     color: #FF2A1F;
     font-weight: bold;
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 60px;
+    text-align: left;
+    margin: 40px 0 20px 30px;
+    padding: 0;
 }
 
 
 /* third form---------*/
-
+#third_form ul li:nth-child(odd){
+    background: #dff0d8;
+}
 #third_form .collection li {
     min-height: 65px !important;
     padding: 24px 0 0 35px !important;
+    cursor: pointer;
 }
 
 #third_form li .form_datetime {
@@ -1100,11 +1110,13 @@ a.button:hover {
 /*form fourth----------------*/
 
 #fourth_form .jquery-calendar {
-    margin-left: 40%;
+    margin-left: 32%;
     margin-top: 30px;
-    margin-bottom: 45px;
+    margin-bottom: -20px;
 }
-
+#fourth_form .display_date {
+    opacity: 0;
+}
 #fourth_form .timepicker {
     width: 100px;
     text-align: center;
@@ -1119,6 +1131,7 @@ a.button:hover {
     color: #ff0000;
     margin-top: 20px;
     font-weight: bold;
+    margin-left: -90px;
 }
 
 #fourth_form .choose_time {
@@ -1270,8 +1283,34 @@ a.button:hover {
     border-bottom: 0;
     margin-bottom: 0;
 }
-
-
+/*thong bao thanh công----------*/
+.inform_success .modal-content,
+.inform_success .modal-footer {
+    background: #E9F9E2;
+}
+.inform_success .modal-footer {
+    border-top: 1px solid #3c763d;
+}
+.inform_success .modal-body {
+    font-size: 18px;
+    text-align: center;
+    color: #3c763d;
+    line-height: 2;
+}
+.inform_success .modal-body .success {
+    color: #E90A0A;
+    margin-top: 15px;
+    font-size: 20px;
+    margin-bottom: -8px;
+}
+.inform_success .modal-footer .btn_close {
+    background: #a94442;
+}
+.inform_success .modal-footer .btn_close:hover,
+.inform_success .modal-footer .btn_close:focus,
+.inform_success .modal-footer .btn_close:visited {
+    color: #fff;
+}
 /*--------- section search benh vien ------------*/
 
 hr {
@@ -2045,7 +2084,9 @@ nav a#pull {
 .continue {
     margin-left: 45%;
 }
-
+.active2 {
+    background-color: rgba(148, 73, 73, 0.93) !important;
+}
 .circle1 {
     height: 90px;
     width: 90px;
@@ -2058,7 +2099,11 @@ nav a#pull {
     margin-right: 50px;
     border-radius: 50%;
     cursor: pointer;
-    background-color: rgba(148, 73, 73, 0.93);
+    background-color: #ABA9A9;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;     
 }
 
 .step {

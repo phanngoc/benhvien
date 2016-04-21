@@ -77,24 +77,32 @@ $(document).ready(function() {
     $("#first_form").hide();
     $("#third_form").hide();
     $("#fourth_form").hide();
+    $(this).addClass("active");
+    $("#step_1, #step_3, #step_4").removeClass("active2");
   });
   $("#step_3,#second_btn").click(function() {
     $("#second_form").hide();
     $("#first_form").hide();
     $("#third_form").show();
     $("#fourth_form").hide();
+    $(this).addClass("active");
+    $("#step_1, #step_2, #step_4").removeClass("active2");
   });
   $("#step_1").click(function() {
     $("#first_form").show();
     $("#second_form").hide();
     $("#third_form").hide();
     $("#fourth_form").hide();
+    $(this).addClass("active");
+    $("#step_2, #step_3, #step_4").removeClass("active2");
   });
   $("#step_4,#third_btn").click(function() {
     $("#first_form").hide();
     $("#second_form").hide();
     $("#third_form").hide();
     $("#fourth_form").show();
+    $(this).addClass("active");
+    $("#step_1, #step_2, #step_3").removeClass("active2");
   });
 
 // display news detail
