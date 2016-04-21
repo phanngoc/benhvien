@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="{{ asset('css/swiper.min.css')}}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css')}}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ asset('css/animate.css')}}">
+	<link rel="stylesheet" href="{{ asset('css/jquery-ui.css')}}">
+	<link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css')}}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link rel="stylesheet" href="{{ asset('css/common.css')}}" type="text/css" media="screen,projection" />
@@ -27,7 +29,8 @@
 	<script type="text/javascript" src="{{ asset('js/jquery.scrollTo-1.4.3.1-min.js')}}"></script>
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 	<script src="{{ asset('js/wow.js')}}"></script>
-	<script src="{{ asset('js/calendar.js')}}"></script>
+	<script src="{{ asset('js/jquery-ui.js')}}"></script>
+	<script src="{{ asset('js/jquery-ui.min.js')}}"></script>
 	<script src="{{ asset('js/jquery.timepicker.js')}}"></script>
 	<script src="{{ asset('js/common.js')}}" type="text/javascript"></script>	
   @yield('js')

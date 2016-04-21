@@ -104,7 +104,7 @@
 							<h2 class="title">ĐĂNG KÍ KHÁM BỆNH</h2>
 							<!-- choose step ======== -->
 							<ul class="step">
-								<li id="step_1" class="circle1 wow animatedsss bounceIn">Bước 1</li>
+								<li id="step_1" class="circle1 active2 wow animatedsss bounceIn">Bước 1</li>
 								<li id="step_2" class="circle1 wow animatedsss bounceIn">Bước 2</li>
 								<li id="step_3" class="circle1 wow animatedsss bounceIn">Bước 3</li>
 								<li id="step_4" class="circle1 wow animatedsss bounceIn">Bước 4</li>

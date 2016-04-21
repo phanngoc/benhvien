@@ -13,10 +13,10 @@
     <div class="col-md-12">
       @include('admin.sidebar')
       <div class="col-md-10">
-        <div id="patients" class="col-md-12">
+        <div id="ideas_infor" class="col-md-12">
           <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
           <!-- post article -->
-          <div class="list_patient">
+          <div class="list_ideas">
             <div class="inputs">
               <!-- search -->
               <div class="input-group stylish-input-group search_input">

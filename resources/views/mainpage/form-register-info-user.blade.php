@@ -1,6 +1,6 @@
 <form class="col s12">
 <!-- first form ===================================== -->
-  <div id="first_form" class="animated fadeInRightBig" style="display:none;">
+  <div id="first_form" class="wow animated fadeInRightBig">
     <div class="row">
       <div class="input-field col s6 wow animatedss fadeInLeftBig">
         <i class="material-icons prefix">account_circle</i>
@@ -64,7 +64,7 @@
    </button>
   </div>
   <!-- sencond form ========================================================-->
-  <div id="second_form" style="display:none;">
+  <div id="second_form" style="display:none;" class="animateds fadeInRightBig">
     <input type="hidden" name="loaidichvu" value="0">
     <script type="text/javascript">
       $(document).ready(function(){
@@ -97,12 +97,12 @@
           </li>
         @endforeach
     </ul>
-    <button id="second_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="button">Tiếp
+    <button id="second_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button">Tiếp
       <i class="material-icons right">send</i>
    </button>
   </div>
   <!-- third form =========================================================s -->
-  <div id="third_form" style="display:none;">
+  <div id="third_form" style="display:none;" class="animateds fadeInRightBig">
     <input type="hidden" name="phongkham" value="">
     <ul class="collection" id="list-phongkham">
       @foreach ($phongkhams as $phongkham)
@@ -114,22 +114,47 @@
         </li>
       @endforeach
     </ul>
-    <button id="third_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="submit" name="action">Tiếp
+    <button id="third_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="submit" name="action">Tiếp
       <i class="material-icons right">send</i>
     </button>
   </div> 
   <!-- form choose time -->
-  <div id="fourth_form" style="display:none;">
+  <div id="fourth_form" style="display:none;" class="animateds fadeInRightBig">
     <p class="choose_date"> Chọn ngày khám: </p>
-    <div class="jquery-calendar"></div>
+    <div class="jquery-calendar" id="datepicker"></div>
+    <input type="text" class="display_date" name="date" value="thevalue" />
     <p class="choose_time"> Chọn thời gian: </p>
     <input id="timepicker" class="timepicker" placeholder="00:00"/>
-    <button id="fourth_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="submit" name="action">Tiếp
+    <button id="fourth_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button" name="action" data-toggle="modal" data-target="#myModal1"> OK
       <i class="material-icons right">send</i>
     </button>
   </div> <!-- #fourth_form -->
 </form>
+<!-- alert successfully when submit-======================= -->
+<div class="modal fade inform_success" id="myModal1" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p > Chúc mừng bạn đã đăng ký khám thành công qua hệ thống <b>Đăng kí khám Online</b></p>
+          <p class="success">Mã bệnh nhân của bạn là: <b>BN001</b> </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn_close" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- ============ -->
 <script type="text/javascript">
+  // display date====================
+  $(function(){
+    $('#datepicker').datepicker({
+      onSelect: function(dateText, inst) {
+        $("input[name='date']").val(dateText);
+      }
+    });
+  });
+  // =====================
   function myFunction() {
     document.getElementById("myDate").defaultValue = "2014-02-09";
   }

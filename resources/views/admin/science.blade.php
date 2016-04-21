@@ -4,10 +4,10 @@
 <div class="col-md-12">
   @include('admin.sidebar')
   <div class="col-md-10">
-    <div id="kind_of_news" class="col-md-12">
+    <div id="manage_science" class="col-md-12">
       <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
       <!-- post article -->
-      <form class="kind_of_news" method="POST" action="{{$urlPost}}" enctype="multipart/form-data">
+      <form class="sciences" method="POST" action="{{$urlPost}}" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{csrf_token()}}" />
           <select class="selectpicker form-control" name="benhvien_id">
             @foreach ($benhvien as $benh)
@@ -35,8 +35,8 @@
           <tr>
             <th>Bệnh Viện</th>
             <th>Tên Khoa</th>
-            <th>Thong tin</th>
-            <th>Hinh anh</th>
+            <th class="infor">Thông tin</th>
+            <th>Hình ảnh</th>
             <th class="option"> Tùy Chọn </th>
           </tr>
         </thead>
@@ -50,7 +50,7 @@
               ?>
             </td>
             <td><?php echo $value->tenkhoa; ?></td>
-            <td><?php echo $value->thongtin; ?></td>
+            <td class="infor"><?php echo $value->thongtin; ?></td>
             <td><img src="{{Asset('uploads/'.$value->hinhanh)}}" width="185" height="140"/></td>
             <td class="option">
               <a href="{{action('ScienceController@getEditScience', $value->id)}}"><button class="btn btn_edit"> Chỉnh Sửa</button></a>

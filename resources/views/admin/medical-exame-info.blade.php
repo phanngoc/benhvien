@@ -26,7 +26,7 @@
                   <th> Bệnh Viện </th>
                   <th> Dịch Vụ </th>
                   <th> Phòng Khám </th>
-                  <td> Ngày Khám </td>
+                  <th> Ngày Khám </th>
                   <th> Thời Gian Khám </th>
                   <th> Đã Khám </th>
                 </tr>

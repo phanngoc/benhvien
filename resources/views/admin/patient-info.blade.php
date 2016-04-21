@@ -31,7 +31,7 @@
                 <th> Giới Tính </th>
                 <th> Số Điện Thoại </th>
                 <th> Địa Chỉ </th>
-                <th class="option"> Tùy Chọn </th>
+                <th> Tùy Chọn </th>
               </tr>
             </thead>
             <tbody>

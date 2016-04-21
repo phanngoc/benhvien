@@ -21,23 +21,12 @@
 }
 #login {
 	text-align: center;
-    width: 250px;
-    margin: 0 auto;
-    padding-top: 50px;
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 50px;
 }
-.fullname {
-  width: 250px;
-  height: 35px;
-  color: #535353;
-  margin-bottom: 6px;
-  border-radius: 3px;
-  border: 1px solid #A9A3A3;
-  padding-left: 10px;
-  display: inherit;
-  margin-top: 30px;
-}
-.user {
-	width: 250px;
+#login .user {
+	width: 300px;
   height: 35px;
   color: #535353;
   margin-bottom: 6px;
@@ -46,11 +35,11 @@
   padding-left: 10px;
   display: inherit;
 }
-.pass {
-	width: 250px;
+#login .pass {
+	width: 300px;
   height: 35px;
   color: #535353;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 3px;
   border: 1px solid #A9A3A3;
   padding-left: 10px;
@@ -67,7 +56,7 @@
 	content: "";
 }
 .btn_login {
-	width: 250px !important;
+	width: 300px !important;
 }
 /*--------Profile Page---------------*/
 #wrap_content .menu {
@@ -226,45 +215,27 @@
   width: 18%;
 }
 /*post information about Science------------*/
-#create_infor_science .wrap_post .input_choose {
-  margin: 15px 0 25px 0;
-}
-#create_infor_science .wrap_post .form_create_infor .post_img img {
-    width: 400px;
-    height: 230px;
-}
-#create_infor_science .form_create_infor {
-  padding: 20px;
-  display: inline-block;
-  width: 1000px;
-  margin-bottom: 50px;
+#manage_science .sciences {
+  width: 500px;
   margin: 0 auto;
 }
-#create_infor_science .form_create_infor select,
-#create_infor_science .form_create_infor textarea,
-#create_infor_science .form_create_infor .post_img {
-  width: 400px;
-  margin: 0 auto;
-  margin-bottom: 20px;
+#manage_science .sciences textarea {
+  height: 150px;
 }
-#create_infor_science .form_create_infor .button {
+#manage_science .sciences .button {
   text-align: center;
+  margin: 40px 0;
 }
-#create_infor_science .form_create_infor .button .btn-primary a {
-  color: #fff;
+#manage_science table .infor {
+  width: 32%;
 }
-#create_infor_science .form_create_infor .button .btn-primary a:hover {
-  text-decoration: none;
-}
-#create_infor_science .form_create_infor .button .btn-default a {
-  color: #535353;
-}
-#create_infor_science .form_create_infor .button .btn-default a:hover {
-  text-decoration: none;
+#manage_science table .option {
+  padding-left: 12px !important;
+  width: 15%;
 }
 /* patients page ==============================*/
 #patients {
-  width: 125% !important;
+  width: 100% !important;
 }
 #patients .set_room {
   font-weight: bold;
@@ -273,12 +244,12 @@
  {
   color: #ED9F2F;;
 }
-#patients .list_patient .inputs {
+#patients .inputs {
   display: inline-block;
   margin-bottom: 50px;
   margin-left: 50px;
 }
-#patients .list_patient .search_input {
+#patients  .search_input {
   width: 200px;
   float: left;
   margin-right: 25px;
@@ -288,8 +259,17 @@
   float: left;
   margin-right: 25px;
 }
-#patients .list_patient .btn_edit_patient {
-  width: 80px;
+#patients .btn_delete {
+  font-size: 12px;
+  padding: 5px 10px;
+  background: #A50E0E;
+  color: #fff;
+  border: 1px solid #C8BEBE;
+}
+.btn_delete:hover,
+.btn_delete:focus,
+.btn_delete:visited {
+  color: #fff !important;
 }
 .stylish-input-group .input-group-addon{
     background: white !important;
@@ -394,9 +374,27 @@
   height: 0;
   visibility: hidden;
 }
+#room table th,
+#room table td {
+  text-align: center;
+}
+#room table .status {
+  padding-left: 0 !important;
+}
 /*----ideas-------*/
-.content_idea {
-  width: 34%;
+#ideas_infor {
+  width: 112%;
+}
+#ideas_infor .search_input {
+    width: 200px;
+    float: left;
+    margin-right: 25px;
+}
+#ideas_infor .inputs {
+  margin-bottom: 30px;
+}
+#ideas_infor .content_idea {
+  width: 30%;
 }
 .name_room {
   margin: 0 0 15px 0 !important;
@@ -419,6 +417,11 @@
   margin-right: 4px;
   border: 1px solid #C8BEBE;
 }
+.btn_edit:hover,
+.btn_edit:focus,
+.btn_edit:visited {
+  color: #fff !important;
+}
 .btn_delete {
   font-size: 12px;
   padding: 5px 10px;
@@ -427,8 +430,8 @@
   border: 1px solid #C8BEBE;
 }
 #patients .option {
-  padding-left: 9px !important;
-  width: 11%;
+  padding-left: 23px !important;
+  width: 9%;
 }
 /*edit ideas -----------------*/
 #edit_ideas .edit_idea,
@@ -521,8 +524,34 @@
   border: 1px solid #C8BEBE;
   margin-left: -18px;
 }
-
+/* quan ly tin tuc ------*/
+#manage_news  {
+  width: 125%;
+}
+#manage_news .search_input {
+    width: 200px;
+    float: left;
+    margin-right: 25px;
+}
+#manage_news .top_page_news {
+  margin-bottom: 30px;
+}
+#manage_news table .content_news {
+  width: 35%;
+}
+#manage_news table .title_news {
+  width: 15%;
+}
+#manage_news table .option {
+  width: 11%;
+}
+#manage_news table th {
+  text-align: center;
+}
 /* quan ly thong tin benh vien --------------------*/
+#infor_hospital {
+  width: 115%;
+}
 #infor_hospital .infor_hospital {
   margin: 0 auto;
   width: 800px;
@@ -531,22 +560,30 @@
 #infor_hospital input,
 #infor_hospital textarea {
   margin: 0 auto;
-  width: 400px;
+  width: 500px;
   margin-bottom: 20px;
+}
+#infor_hospital textarea {
+  height: 150px;
 }
 #infor_hospital .button{
   margin: 20px 0 45px 0;
 }
 #infor_hospital table{
-  max-width: 1000px;
   margin: 0 auto;
   width: 100%;
 }
+#infor_hospital table th {
+  text-align: center;
+}
 #infor_hospital table .option {
-  width: 18%;
+  width: 12%;
+}
+#infor_hospital table .option .btn_edit {
+  margin-left: -30px;
 }
 #infor_hospital table .infor {
-  width: 42%;
+  width: 37%;
 }
 /*list room--------------*/
 #list_room .list_room .inputs {
@@ -561,4 +598,12 @@
 }
 #list_room .list_room .btn_edit {
   width: 80px;
+}
+/* thong tin kham ------*/
+#create_infor_science {
+  width: 110%;
+}
+#create_infor_science .pull-right {
+  position: absolute;
+  margin-left: 10px;
 }
