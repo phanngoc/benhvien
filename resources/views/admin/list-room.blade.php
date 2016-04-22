@@ -42,7 +42,7 @@
                     <td style="text-align: center;"> 8 </td>
                     <td class="option">
                       <a class="btn btn_edit" href="{{action('RoomController@getEditRoom', $room->id)}}"> Chỉnh Sửa </a>
-                      <a class="btn btn-danger" data-href="{{ action('RoomController@postDestroyRoom', $room->id) }}" data-token="{{ csrf_token() }}" >Xóa</a>
+                      <a class="btn btn-danger btn_delete" data-href="{{ action('RoomController@postDestroyRoom', $room->id) }}" data-token="{{ csrf_token() }}" >Xóa</a>
                     </td>
                   </tr>
                 @endforeach
