@@ -145,8 +145,13 @@
   opacity: 0;
 }
 #profile .infor_profile {
+  width: 250px;
   margin-left: 35px;
   margin-top: 20px;
+}
+#profile .infor_profile input {
+  margin-bottom: 2px;
+  width: 100%;
 }
 #profile .wrap_infor {
   color: #fff;
