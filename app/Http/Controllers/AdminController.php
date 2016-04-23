@@ -9,9 +9,12 @@ use App\Models\Loaitin;
 use App\Models\Tintuc;
 use App\Models\Thongtinkham;
 use App\Models\Benhnhan;
+use App\Models\Admin;
+
 use Illuminate\Http\Request;
 use DB;
 use Validator;
+use Auth;
 
 class AdminController extends BaseController {
 
@@ -43,8 +46,47 @@ class AdminController extends BaseController {
 	    return $dataSample;
     }
     
+    /**
+     * [showLogin description]
+     * @return [type] [description]
+     */
     public function showLogin() {
+
+    	if (Auth::admin()->check()) {
+    		return redirect()->route('admin.profile');
+    	}
     	return view('admin.login');
+    }
+
+    /**
+     * Process login admin.
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function postLoginAdmin(Request $request) {
+    	
+    	$validator = Validator::make(
+		    $request->all(),
+		    [
+				'email' => 'required',
+				'password' => 'required',
+			]
+		);
+
+		if ($validator->fails()) {
+			return redirect()->back()->withErrors($validator->errors());
+		}
+
+		$isSuccess = Auth::admin()->attempt(array(
+	        'email'     => $request->input('email'),
+	        'password'  => $request->input('password'),
+	    ));
+
+	    if ($isSuccess) {
+	    	return redirect()->route('admin.profile');
+	    } else {
+	    	return redirect()->back();
+	    }
     }
 
 	/**
@@ -54,10 +96,42 @@ class AdminController extends BaseController {
 	 */
 	public function index()
 	{
-    	$user = $this->getInfoUser();
-		return view('admin.profile');
+    	$user = Auth::admin()->get();
+		return view('admin.profile', compact('user'));
 	}
 
+	/**
+	 * Update profile admin.
+	 * @return [type] [description]
+	 */
+	public function updateProfile(Request $request) {
+		$validator = Validator::make(
+		    $request->all(),
+		    [
+				'hoten' => 'required',
+				'email' => 'required',
+				'password' => 'required',
+				'username' => 'required',
+			]
+		);
+		if ($validator->fails())
+		{
+			return redirect()->back()->withErrors($validator->errors());
+		}
+
+		Auth::admin()->get()->update([
+			'hoten' => $request->input('hoten'),
+			'username' => $request->input('username'),
+			'password' => bcrypt($request->input('password')),
+			'hoten' => $request->input('hoten')
+		]);
+		return redirect()->route('admin.profile');
+	}
+
+	/**
+	 * [getCategoryNews description]
+	 * @return [type] [description]
+	 */
 	public function getCategoryNews() {
 		$benhvien = Benhvien::all();
 		$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien','loaitin.icon')->get();

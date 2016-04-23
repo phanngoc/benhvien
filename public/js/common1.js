@@ -23,9 +23,10 @@ $(".choose_list li").on("click",function(){
 });
 // edit profile--------------
 $(".infor_profile .btn_edit_profile").click(function(){
-	$(".user").prop("disabled", false);
-	$(".pass").prop("disabled", false);
-	$(".fullname").prop("disabled", false);
+	$("input[name='username']").prop("disabled", false);
+	$("input[name='password']").prop("disabled", false);
+	$("input[name='email']").prop("disabled", false);
+	$("input[name='hoten']").prop("disabled", false);
 });
 $(".infor_profile .btn_ok").click(function(){
 	$(".user").prop("disabled", true);

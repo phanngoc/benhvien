@@ -23,7 +23,7 @@
 		});
 	});
 </script>
-<button class="btn btn-primary btn-logout"> Đăng xuất </button>
+<a class="btn btn-primary btn-logout" href="{{ route('client.logout') }}"> Đăng xuất </a>
 <h2 class="title_profile"> TRANG CÁ NHÂN </h2>
 <div class="row information_profile">
     <ul class="col-md-12 infor_profile">
@@ -137,7 +137,7 @@
 	  		<ul class="col-md-12">
 	  			<li class="col-md-6">
 	  				<p class="choose_date"> Chọn ngày khám: </p>
-			    	<input type="date" class="form-control" value="2016-05-05" id="ngaykham">
+			    	<input type="date" name="date" class="form-control" value="2016-05-05" id="ngaykham">
 	  			</li>
 	  			<li class="col-md-6 time">
 	  				<p class="choose_time"> Chọn thời gian: </p>
@@ -168,29 +168,35 @@
 
 <script type="text/javascript">
 	// Profile ==============================
+	
+	var urlUpdateInfoCare = '{{ route("update-info-care") }}'; 
+	var urlCreateInfoCare = '{{ route("create-info-care") }}'; 
+	
 	$(".infor_medical .btn_create").click(function(){
 		$(".infor_medical").hide();
 	    $(".edit_profile").show();
+	    $('#update-info-care').attr('action', urlCreateInfoCare);
 	});
 	$(".infor_medical .btn_profile").click(function(){
-		  $(".infor_medical").hide();
-		  $(".edit_profile").show();
-		  var $trParent = $(this).parent().parent();
-		  var thongtinkham_id = $trParent.find('input[name="thongtinkham_id"]').val();
-		  var loaidichvu_id = $trParent.find('input[name="loaidichvu_id"]').val();
-		  var phongkham_id = $trParent.find('input[name="phongkham_id"]').val();
-		  var thoigiankham = $trParent.find('td.thoigiankham').text();
-		 
-		  var date = thoigiankham.substr(0, 11);
-		  var time = thoigiankham.substr(12, 5);
-		  console.log(date+"|"+time);
-		  var $formUpdateInfoCare = $('#update-info-care');
-		  $formUpdateInfoCare.find('input[name="date"]').val(date);
-		  $formUpdateInfoCare.find('input[name="time"]').val(time);
+		$('#update-info-care').attr('action', urlUpdateInfoCare);
+		$(".infor_medical").hide();
+		$(".edit_profile").show();
+		var $trParent = $(this).parent().parent();
+		var thongtinkham_id = $trParent.find('input[name="thongtinkham_id"]').val();
+		var loaidichvu_id = $trParent.find('input[name="loaidichvu_id"]').val();
+		var phongkham_id = $trParent.find('input[name="phongkham_id"]').val();
+		var thoigiankham = $trParent.find('td.thoigiankham').text();
 
-		  $formUpdateInfoCare.find('input[name="thongtinkham_id"]').val(thongtinkham_id);
-		  $formUpdateInfoCare.find('input[name="phongkham_id"]').val(phongkham_id);
-		  $formUpdateInfoCare.find('#select-dich-vu').val(loaidichvu_id).change();
+		var date = thoigiankham.substr(0, 11);
+		var time = thoigiankham.substr(12, 5);
+		console.log(date+"|"+time);
+		var $formUpdateInfoCare = $('#update-info-care');
+		$formUpdateInfoCare.find('input[name="date"]').val(date);
+		$formUpdateInfoCare.find('input[name="time"]').val(time);
+
+		$formUpdateInfoCare.find('input[name="thongtinkham_id"]').val(thongtinkham_id);
+		$formUpdateInfoCare.find('input[name="phongkham_id"]').val(phongkham_id);
+		$formUpdateInfoCare.find('#select-dich-vu').val(loaidichvu_id).change();
 	  
 	});
 
