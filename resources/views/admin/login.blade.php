@@ -57,10 +57,11 @@
 	}
 </style>
 <body>
-<form id="login">
+<form id="login" method="POST" action="{{ route('admin.post.login') }}">
+	<input type="hidden" name="_token" value="{{ csrf_token() }}">
     <p class="title_login">LOGIN</p>
-    <input id = "username" class="group-control user" type="text" placeholder = "username">
-    <input id = "password" class="group-control pass" type="text" placeholder = "password">
+    <input id = "email" class="group-control user" type="text" placeholder = "Email" name="email">
+    <input id = "password" class="group-control pass" type="text" placeholder = "Password" name="password">
     <div class="check">
       <input type="checkbox"><span>Remember</span>
     </div>

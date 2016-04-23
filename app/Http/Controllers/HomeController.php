@@ -86,9 +86,19 @@ class HomeController extends Controller {
 	 * @return [type]           [description]
 	 */
 	public function login(Request $request) {
-		if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+		if (Auth::user()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             return redirect()->intended('home');
         }
+	}
+
+	/**
+	 * Logout.
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
+	public function logout(Request $request) {
+		Auth::user()->logout();
+		return redirect()->route('home');
 	}
 
 	/**
@@ -123,11 +133,42 @@ class HomeController extends Controller {
 		{
 			return redirect()->back()->withErrors($validator->errors());
 		}
+
 		$thoigiankham = $request->input('date').' '.substr($request->input('time'), 0, 5).':00';
 		Thongtinkham::find($request->input('thongtinkham_id'))->update([
 			'phongkham_id' => $request->input('phongkham_id'),
 			'thoigiankham' => $thoigiankham
 		]);
+
+		return redirect()->route('home');
+	}
+
+	/**
+	 * Create info care.
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
+	public function createInfoCare(Request $request) {
+		
+		$validator = Validator::make(
+		    $request->all(),
+		    Thongtinkham::$rules
+		);
+	
+		if ($validator->fails())
+		{
+			return redirect()->back()->withErrors($validator->errors());
+		}
+
+		$thoigiankham = $request->input('date').' '.substr($request->input('time'), 0, 5).':00';
+		$userId = Auth::user()->get()->id;
+
+		Thongtinkham::create([
+			'phongkham_id' => $request->input('phongkham_id'),
+			'thoigiankham' => $thoigiankham,
+			'benhnhan_id' => $userId
+		]);
+
 		return redirect()->route('home');
 	}
 
@@ -146,7 +187,17 @@ class HomeController extends Controller {
 	 * @return [type]           [description]
 	 */
 	public function registerInfoCare(Request $request) {
-
+		$validator = Validator::make(
+		    $request->all(),
+		    Benhnhan::$rules + Thongtinkham::$rules
+		);	
+	
+		if ($validator->fails())
+		{
+			return redirect()->back()->withErrors($validator->errors());
+		}
+		
+		$password = bcrypt($request->input('password'));
 		$benhnhan = Benhnhan::create([
 			'hoten' => $request->input('hoten'),
 			'username' => $request->input('username'),
@@ -156,7 +207,7 @@ class HomeController extends Controller {
 			'diachi' => $request->input('diachi'),
 			'sodienthoai' => $request->input('sodienthoai'),
 			'email' => $request->input('email'),
-			'password' => bcrypt($request->input('password'))
+			'password' => $password
 		]);
 
 		$thoigiankham = $this->convertDateAndTimeToSql($request->input('date'), $request->input('time'));
@@ -167,8 +218,9 @@ class HomeController extends Controller {
 			'thoigiankham' => $thoigiankham
 		]);
 		
-
-		return redirect()->route('home');
+		if (Auth::user()->attempt(['email' => $request->input('email'), 'password' => $password])) {
+            return redirect()->route('home');
+        }
 	}
 
 	/**

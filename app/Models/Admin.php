@@ -13,7 +13,7 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
     use Authenticatable, CanResetPassword;
 
     protected $table = 'admin';
-    protected $fillable = ['hoten', 'username', 'email'];
+    protected $fillable = ['hoten', 'username', 'email', 'password'];
 
     public static $rules = [
         'hoten' => 'required',
