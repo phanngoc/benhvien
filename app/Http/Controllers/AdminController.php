@@ -323,4 +323,9 @@ class AdminController extends BaseController {
 		Ykienphanhoi::destroy($id);
 		return response()->json(['status' => '200']);
 	}
+
+	public function getInRoom() {
+		return view('admin.patient-in-room');
+	}
+	
 }
