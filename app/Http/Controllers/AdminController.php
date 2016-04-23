@@ -74,6 +74,7 @@ class AdminController extends BaseController {
 		);
 
 		if ($validator->fails()) {
+
 			return redirect()->back()->withErrors($validator->errors());
 		}
 
@@ -138,6 +139,11 @@ class AdminController extends BaseController {
 		return view('admin.category-news', compact('loaitin', 'benhvien'));
 	}
 
+	/**
+	 * [postCategoryNews description]
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
 	public function postCategoryNews(Request $request) {
 		$validator = Validator::make(
 		    $request->all(),
@@ -166,6 +172,11 @@ class AdminController extends BaseController {
 		return redirect(action('AdminController@getCategoryNews'));
 	}
 
+	/**
+	 * [getEditCategoryNews description]
+	 * @param  [type] $idCategoryNew [description]
+	 * @return [type]                [description]
+	 */
 	public function getEditCategoryNews($idCategoryNew) {
 		$categoryNew = Loaitin::find($idCategoryNew);
 		$benhvien = Benhvien::all();
@@ -173,6 +184,11 @@ class AdminController extends BaseController {
 		return view('admin.category-news-edit', compact('loaitin', 'benhvien','categoryNew'));
 	}
 
+	/**
+	 * [postEditCategoryNews description]
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
 	public function postEditCategoryNews(Request $request) {
 		$validator = Validator::make(
 		    $request->all(),
@@ -200,48 +216,21 @@ class AdminController extends BaseController {
 		return redirect(action('AdminController@getCategoryNews'));
 	}
 
+	/**
+	 * [postDestroyCategoryNew description]
+	 * @param  Request $request [description]
+	 * @param  [type]  $id      [description]
+	 * @return [type]           [description]
+	 */
 	public function postDestroyCategoryNew(Request $request, $id) {
 		Loaitin::destroy($id);
 		return response()->json(['status' => 200]);
 	}
 
-  public function getInforHopitals() {
-    return view('admin.inforhopital');
-  }
-
-  public function getHopital() {
-    return view('admin.hopital');
-  }
-
-  public function getKindService() {
-    return view('admin.kind-service');
-  }
-
-  public function getCreatInforScience() {
-    return view('admin.creat-infor-science');
-  }
-
-   public function getEditInforScience() {
-    return view('admin.edit_infor_science');
-  }
-
-	public function getRooms() {
-		return view('admin.list-room');
-	}
-
-	public function getCreateRoom() {
-		return view('admin.create_new_room');
-	}
-
-	public function getEditRoom() {
-		return view('admin.edit_room');
-	}
-
-
-	public function getInRoom() {
-		return view('admin.patient-in-room');
-	}
-
+	/**
+	 * [getPatientInfo description]
+	 * @return [type] [description]
+	 */
 	public function getPatientInfo() {
 		$benhnhans = Benhnhan::all();
 		return view('admin.patient-info', compact('benhnhans'));
