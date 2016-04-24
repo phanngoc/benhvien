@@ -1,5 +1,14 @@
 <form class="col s12" method="POST" action="{{ route('register-info-care') }}">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
+  @if (count($errors) > 0)
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
 <!-- first form ===================================== -->
   <div id="first_form" class="wow animated fadeInRightBig">
     <div class="row">
@@ -104,7 +113,7 @@
   </div>
   <!-- third form =========================================================s -->
   <div id="third_form" style="display:none;" class="animateds fadeInRightBig">
-    <input type="hidden" name="phongkham" value="">
+    <input type="hidden" name="phongkham_id" value="">
     <ul class="collection" id="list-phongkham">
       @foreach ($phongkhams as $phongkham)
         <li class="collection-item avatar" data-id="{{$phongkham->id}}">
@@ -126,9 +135,10 @@
     <input type="text" class="display_date" name="date" value="thevalue" />
     <p class="choose_time"> Chọn thời gian: </p>
     <input id="timepicker" class="timepicker" name="time" placeholder="00:00"/>
-    <button id="fourth_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="submit" name="action" data-toggle="modal" data-target="#myModal1"> OK
+    <button id="fourth_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button" name="action" data-toggle="modal" data-target="#myModal1"> OK
       <i class="material-icons right">send</i>
     </button>
+    <button type="submit" style="display: none" id="submitFormRegistInfoUser">Submit</button>
   </div> <!-- #fourth_form -->
 </form>
 <!-- alert successfully when submit-======================= -->
@@ -137,7 +147,6 @@
       <div class="modal-content">
         <div class="modal-body">
           <p > Chúc mừng bạn đã đăng ký khám thành công qua hệ thống <b>Đăng kí khám Online</b></p>
-          <p class="success">Mã bệnh nhân của bạn là: <b>BN001</b> </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn_close" data-dismiss="modal">Close</button>
@@ -166,7 +175,7 @@
       console.log("it ok:"+phongkhamId);
       $('#third_form').find('li.collection-item').removeClass('status-choose');
       $(this).addClass('status-choose');
-      $('#third_form').find('input[name="phongkham"]').val(phongkhamId);
+      $('#third_form').find('input[name="phongkham_id"]').val(phongkhamId);
     });
     
     $('input.timepicker').timepicker({
@@ -177,6 +186,15 @@
         // element.siblings('span.help-line').text(text);
       }
     });
+
+    $('#fourth_btn').click(function(){
+      $('#myModal1').modal('show');
+    });
+
+    $('#myModal1').find('.btn_close').click(function(){
+      $('#submitFormRegistInfoUser').click();
+    });
+
   });
 </script>
 

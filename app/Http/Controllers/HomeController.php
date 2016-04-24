@@ -44,8 +44,12 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index($id = 1)
+	public function index($id = -1)
 	{
+		if ($id == -1) {
+			$id = Benhvien::first()->id;
+		}
+
 		$loaidichvus = Loaidichvu::where('benhvien_id', $id)->get();
 		$loaitins = Loaitin::where('benhvien_id', $id)->get();
 		$benhviens = Benhvien::all();
@@ -187,6 +191,7 @@ class HomeController extends Controller {
 	 * @return [type]           [description]
 	 */
 	public function registerInfoCare(Request $request) {
+
 		$validator = Validator::make(
 		    $request->all(),
 		    Benhnhan::$rules + Thongtinkham::$rules
@@ -198,6 +203,7 @@ class HomeController extends Controller {
 		}
 		
 		$password = bcrypt($request->input('password'));
+
 		$benhnhan = Benhnhan::create([
 			'hoten' => $request->input('hoten'),
 			'username' => $request->input('username'),
@@ -214,11 +220,11 @@ class HomeController extends Controller {
 		
 		Thongtinkham::create([
 			'benhnhan_id' => $benhnhan->id,
-			'phongkham_id' => $request->input('phongkham'),
+			'phongkham_id' => $request->input('phongkham_id'),
 			'thoigiankham' => $thoigiankham
 		]);
 		
-		if (Auth::user()->attempt(['email' => $request->input('email'), 'password' => $password])) {
+		if (Auth::user()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             return redirect()->route('home');
         }
 	}
