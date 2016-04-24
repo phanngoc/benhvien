@@ -46,7 +46,19 @@ class HopitalController extends BaseController {
 			return redirect()->back()->withErrors($validator->errors());
 		}
 
-		Benhvien::create($request->all());
+		$fileName = '';
+		if ($request->hasFile('hinhanh')) {
+			$destinationPath = public_path().'/uploads/';
+			$extension = $request->file('hinhanh')->getClientOriginalExtension();
+			$fileName = str_random(40).'.'.$extension;
+			$request->file('hinhanh')->move($destinationPath, $fileName);
+		}
+
+		$data = $request->all();
+		$data['hinhanh'] = $fileName;
+
+		Benhvien::create($data);
+
 		return redirect(action('HopitalController@getHopitals'));
 	}
 
@@ -68,9 +80,10 @@ class HopitalController extends BaseController {
 	  * @return [type]           [description]
 	  */
 	public function postEditHopital(Request $request, $id) {
+
 	    $validator = Validator::make(
 		    $request->all(),
-		    Benhvien::$rules
+		    Benhvien::$rulesEdit
 		);
 
 		if ($validator->fails())
@@ -78,7 +91,20 @@ class HopitalController extends BaseController {
 			return redirect()->back()->withErrors($validator->errors());
 		}
 
-		Benhvien::find($id)->update($request->all());
+		$fileName = '';
+		$data = $request->all();
+
+		if ($request->hasFile('hinhanh')) {
+			$destinationPath = public_path().'/uploads/';
+			$extension = $request->file('hinhanh')->getClientOriginalExtension();
+			$fileName = str_random(40).'.'.$extension;
+			$request->file('hinhanh')->move($destinationPath, $fileName);
+			$data['hinhanh'] = $fileName;
+		} else {
+			$data['hinhanh'] = $request->input('hinhanh_hidden');	
+		}
+
+		Benhvien::find($id)->update($data);
 		
 		return redirect(action('HopitalController@getEditHopital', $id));
 	  }
