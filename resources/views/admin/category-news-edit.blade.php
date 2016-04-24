@@ -21,6 +21,8 @@
                 @endforeach
               </select>
 
+              <textarea class="form-control" cols="50" rows="5" placeholder="Nhap noi dung loai tin" style="margin-bottom:10px;" name="description">{{ $categoryNew->description }}</textarea>
+              
               <div class="post_img">
                 <input class="input_choose" type='file' name="icon" onchange="readURL(this);"/>
                 <img title="Image" id="display_img" src="{{ (strlen($categoryNew->icon) != 0) ? Asset('uploads/'.$categoryNew->icon) : Asset('img/images/default_spot_main_photo.png') }}" alt="your image" style="width: 240px; height: 180px;" />
