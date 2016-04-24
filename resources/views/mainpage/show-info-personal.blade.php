@@ -189,10 +189,10 @@
 
 		var date = thoigiankham.substr(0, 11);
 		var time = thoigiankham.substr(12, 5);
-		console.log(date+"|"+time);
+		console.log("|"+date+"|");
 		var $formUpdateInfoCare = $('#update-info-care');
-		$formUpdateInfoCare.find('input[name="date"]').val(date);
-		$formUpdateInfoCare.find('input[name="time"]').val(time);
+		$formUpdateInfoCare.find('input[name="date"]').val(date.trim());
+		$formUpdateInfoCare.find('input[name="time"]').val(time.trim());
 
 		$formUpdateInfoCare.find('input[name="thongtinkham_id"]').val(thongtinkham_id);
 		$formUpdateInfoCare.find('input[name="phongkham_id"]').val(phongkham_id);
@@ -215,13 +215,13 @@
 	});
 
 	$(".edit_profile #done, .edit_profile #cancel").click(function(){
-	  $(".infor_medical").show();
-	  $(".edit_profile").hide();
+	   $(".infor_medical").show();
+	   $(".edit_profile").hide();
 	});
 
-   $(function() {
-      $('#timepicker').timepicker();
-  });
+    $(function() {
+       $('#timepicker').timepicker();
+    });
 	// $("#edit_infor_profile").click(function(){
 	//   $(".infor_profile").hide();
 	//   $("#first_form").show();
