@@ -650,6 +650,7 @@ nav ul li a.active1 {
 }
 
 .khoa_list .khoa_item .khoa_title {
+    width: 400px;
     display: inline-block;
     margin-top: 4px;
     -webkit-box-sizing: border-box;
@@ -1063,7 +1064,9 @@ a.button:hover {
 #second_form .list-dichvu {
     font-size: 20px;
 }
-
+#second_form .list-dichvu li a {
+    color: #8a6d3b !important;
+}
 #second_form .list-dichvu li:hover {
     background: #dff0d8;
     cursor: default;
@@ -2099,7 +2102,6 @@ nav a#pull {
     color: #fff;
     margin-right: 50px;
     border-radius: 50%;
-    cursor: pointer;
     background-color: #ABA9A9;
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
@@ -2111,7 +2113,12 @@ nav a#pull {
     display: inline-block;
     margin-left: 20%;
 }
-
+.form_sign_medical .connect {
+    margin-top: -50px;
+    margin-bottom: 50px;
+    width: 430px;
+    border-top: 8px solid #31708F;
+}
 
 /*Media Query*/
 

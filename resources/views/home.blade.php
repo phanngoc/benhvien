@@ -109,6 +109,7 @@
 								<li id="step_3" class="circle1 wow animatedsss bounceIn">Bước 3</li>
 								<li id="step_4" class="circle1 wow animatedsss bounceIn">Bước 4</li>
 							</ul>
+							<hr class="connect"></hr>
 							<!-- form dang nhap ID benh nhan khi nguoi dung la benh nhan ========== -->
 							<button class="btn  wow animateds fadeInRightBig signin btn-info btn-lg" type="submit" data-toggle="modal" data-target="#myModal">Đăng Nhập ID Bệnh Nhân
 							</button>
