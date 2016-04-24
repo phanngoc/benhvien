@@ -7,13 +7,16 @@
         <div id="infor_hospital" class="col-md-12">
           <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
           <!-- post article -->
-          <form class="infor_hospital" action="{{$urlPost}}" method="POST">
+          <form class="infor_hospital" action="{{$urlPost}}" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <input class="form-control" type="text" name="ten" placeholder=" Nhập tên bệnh viện" value="{{ isset($benhvien) ? $benhvien->ten : '' }}">
               <input class="form-control" type="text" name="diachi" placeholder=" Địa chỉ " value="{{ isset($benhvien) ? $benhvien->diachi : '' }}">
               <input class="form-control" type="text" name="sodienthoai" placeholder=" Số điện thoại " value="{{ isset($benhvien) ? $benhvien->sodienthoai : '' }}">
               <input class="form-control" type="text" name="email" placeholder=" Email " value="{{ isset($benhvien) ? $benhvien->email : '' }}" >
               <textarea class="form-control" name="thongtin" placeholder="Thông tin">{{ isset($benhvien) ? $benhvien->thongtin : '' }}</textarea>
+              <input type="file" name="hinhanh" onchange="readURL(this);">
+              <input type="hidden" name="hinhanh_hidden" value="{{isset($benhvien) ? $benhvien->hinhanh : ''}}">
+              <img title="Image" id="display_img" src="{{ isset($benhvien) ? Asset('uploads/'.$benhvien->hinhanh) : Asset('img/images/default_spot_main_photo.png') }}" alt="your image" style="width: 240px; height: 180px;" data-pin-nopin="true">
               <div class="button">
                 <button class="btn btn-primary"> Thêm </button>
                 <a class="btn btn-default" href="{{ action('HopitalController@getHopitals') }}"> Bỏ qua </a>
@@ -23,6 +26,7 @@
             <thead>
               <tr>
                 <th> Tên Bệnh Viện </th>
+                <th> Hinh anh </th>
                 <th> Địa Chỉ </th>
                 <th> Số Điện Thoại </th>
                 <th> Email </th>
@@ -34,6 +38,7 @@
               @foreach ($benhviens as $benhvien)
                 <tr>
                   <td>{{ $benhvien->ten }}</td>
+                  <td><img src="{{ Asset('uploads/'.$benhvien->hinhanh) }}" alt="" width="120" height="90"></td>
                   <td>{{ $benhvien->diachi }}</td>
                   <td>{{ $benhvien->sodienthoai }}</td>
                   <td>{{ $benhvien->email }}</td>
