@@ -64,7 +64,7 @@ class AdminController extends BaseController {
      * @return [type]           [description]
      */
     public function postLoginAdmin(Request $request) {
-    	
+
     	$validator = Validator::make(
 		    $request->all(),
 		    [
@@ -88,6 +88,15 @@ class AdminController extends BaseController {
 	    } else {
 	    	return redirect()->back();
 	    }
+    }
+
+    /**
+     * Logout.
+     * @return [type] [description]
+     */
+    public function logout() {
+    	Auth::admin()->logout();
+    	return redirect()->route('admin.login');
     }
 
 	/**

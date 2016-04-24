@@ -1,8 +1,8 @@
 <div class="slide-top">
   <a href="#wd-wrapper" class="brand-logo logo">Logo</a>
   <div class="infor-admin">
-    <p class="name_admin">HaGiang</p>
-    <button class="btn btn_logout">Đăng xuất</button>
+    <p class="name_admin">{{ Auth::admin()->get()->hoten }}</p>
+    <a class="btn btn_logout" href="{{ route('admin.logout') }}">Đăng xuất</a>
   </div>
 </div>
 <div class="col-md-2 menu">
