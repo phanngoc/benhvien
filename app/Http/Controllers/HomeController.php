@@ -265,4 +265,16 @@ class HomeController extends Controller {
 		}
 		return $view;
 	}
+
+	/**
+	 * Search ajax hoptial.
+	 * @param  Request $request [description]
+	 * @return [type]           [description]
+	 */
+	public function searchHopital(Request $request) {
+	    $textSearch = $request->input('textSearch');
+	    $benhviens = DB::table('benhvien')->where('ten', 'like','%'.$textSearch.'%')->get();
+	    $view = view('mainpage.result-search-hopital')->with('benhviens', $benhviens);
+	    return $view;
+	}
 }

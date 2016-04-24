@@ -27,7 +27,7 @@
 	<script src="{{ asset('js/jquery.easing.1.3.js')}}" type="text/javascript"></script>
 	<script src="{{ asset('js/swiper.min.js')}}" type="text/javascript"></script>
 	<script type="text/javascript" src="{{ asset('js/jquery.scrollTo-1.4.3.1-min.js')}}"></script>
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBLRp5potmIciUpRJQ6qH4e6Uk0oKLDQbo&callback=initAutocomplete&libraries=places" async defer></script>	
 	<script src="{{ asset('js/wow.js')}}"></script>
 	<script src="{{ asset('js/jquery-ui.js')}}"></script>
 	<script src="{{ asset('js/jquery-ui.min.js')}}"></script>

@@ -23,6 +23,11 @@ Route::get('category/{id?}', [
 	'uses' => 'HomeController@category',
 ]);
 
+Route::get('searchHopital', [
+	'as' => 'searchHopital',
+	'uses' => 'HomeController@searchHopital',
+]);
+
 Route::get('news/{id?}', [
 	'as' => 'news',
 	'uses' => 'HomeController@news',

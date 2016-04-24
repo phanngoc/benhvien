@@ -186,37 +186,11 @@
 
 				</section>
 				<hr>
+
 			<!-- section tra cuu thong tin benh vien, dia chi benh vien ======================================================== -->
-				<section id="find" class = "container each">
-					<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<h2 class="title">TRA CỨU THÔNG TIN BỆNH VIỆN</h2>
-						<!-- thong tin benh vien -->
-						<ul class="hospital wow animatedss fadeInLeftBig">
-							<li>
-								<h2 class="name_hospital">BỆNH VIỆN ĐA KHOA ĐÀ NẴNG</h2>
-								<p>124, Hải Phòng, Q. Hải Châu</p>
-								<p>+(0511)3826755</p>
-								<p>+(0511)3894560</p>
-							</li>
-							<li>
-								<h2 class="name_hospital">BỆNH VIỆN C ĐÀ NẴNG</h2>
-								<p>124, Hải Phòng, Q. Hải Châu</p>
-								<p>+(0511)3826755</p>
-								<p>+(0511)3894560</p>
-		    				</li>
-						</ul>
-						<!-- map ====== -->
-						<div id="map" class="wow animatedss fadeInRightBig" ></div>
-						<form action="action_page.php" class="search wow animateds fadeInRightBig">
-						  <input type="search" name="googlesearch" style="color: #fff;">
-						  <button class="btn waves-effect waves-light" type="submit" name="action">Search
-						    <i class="material-icons right">search</i>
-						  </button>
-						</form>
-					</div>
-				</section>
+				@include('mainpage.search-info-hopital')
 				<hr>
-<!-- section Y kien khach hang hien thi ================================== -->
+			<!-- section Y kien khach hang hien thi ================================== -->
 				<section id="response1" class="container each">
 					<h2 class="title">Ý KIẾN KHÁCH HÀNG</h2>
 					<div class="als-container" id="idea">
@@ -288,5 +262,4 @@
         </div>
       </div>
     </footer>
-	
 @stop
