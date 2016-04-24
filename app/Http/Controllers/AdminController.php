@@ -144,7 +144,7 @@ class AdminController extends BaseController {
 	 */
 	public function getCategoryNews() {
 		$benhvien = Benhvien::all();
-		$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien','loaitin.icon')->get();
+		$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien','loaitin.icon','loaitin.description as description')->get();
 		return view('admin.category-news', compact('loaitin', 'benhvien'));
 	}
 
@@ -176,7 +176,8 @@ class AdminController extends BaseController {
 		Loaitin::create([
 			 'name' => $request->input('name'),
 			 'benhvien_id' => $request->input('benhvien_id'),
-			 'icon' => $fileName
+			 'icon' => $fileName,
+			 'description' => $request->input('description')
 			]);
 		return redirect(action('AdminController@getCategoryNews'));
 	}
@@ -189,7 +190,7 @@ class AdminController extends BaseController {
 	public function getEditCategoryNews($idCategoryNew) {
 		$categoryNew = Loaitin::find($idCategoryNew);
 		$benhvien = Benhvien::all();
-		$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien')->get();
+		$loaitin = DB::table('loaitin')->join('benhvien','benhvien.id','=','loaitin.benhvien_id')->select('loaitin.id','loaitin.name as tentin','benhvien.ten as tenbenhvien','loaitin.description as description')->get();
 		return view('admin.category-news-edit', compact('loaitin', 'benhvien','categoryNew'));
 	}
 
@@ -220,7 +221,8 @@ class AdminController extends BaseController {
 		Loaitin::find($request->input('id'))->update([
 			 'name' => $request->input('name'),
 			 'benhvien_id' => $request->input('benhvien_id'),
-			 'icon' => $fileName
+			 'icon' => $fileName,
+			 'description' => $request->input('description')
 			]);
 		return redirect(action('AdminController@getCategoryNews'));
 	}
