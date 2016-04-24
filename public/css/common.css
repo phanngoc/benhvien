@@ -151,7 +151,9 @@ img {
 
 
 /*wrapper*/
-
+#response2 {
+    position: relative;
+}
 #wd-wrapper {
     width: 100%;
 }

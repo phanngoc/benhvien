@@ -77,7 +77,7 @@ $(document).ready(function() {
     $("#first_form").hide();
     $("#third_form").hide();
     $("#fourth_form").hide();
-    $(this).addClass("active");
+    $("#step_2").addClass("active2");
     $("#step_1, #step_3, #step_4").removeClass("active2");
   });
   $("#step_3,#second_btn").click(function() {
@@ -85,7 +85,7 @@ $(document).ready(function() {
     $("#first_form").hide();
     $("#third_form").show();
     $("#fourth_form").hide();
-    $(this).addClass("active");
+    $("#step_3").addClass("active2");
     $("#step_1, #step_2, #step_4").removeClass("active2");
   });
   $("#step_1").click(function() {
@@ -93,7 +93,7 @@ $(document).ready(function() {
     $("#second_form").hide();
     $("#third_form").hide();
     $("#fourth_form").hide();
-    $(this).addClass("active");
+    $("#step_1").addClass("active2");
     $("#step_2, #step_3, #step_4").removeClass("active2");
   });
   $("#step_4,#third_btn").click(function() {
@@ -101,7 +101,7 @@ $(document).ready(function() {
     $("#second_form").hide();
     $("#third_form").hide();
     $("#fourth_form").show();
-    $(this).addClass("active");
+    $("#step_4").addClass("active2");
     $("#step_1, #step_2, #step_3").removeClass("active2");
   });
 

@@ -34,15 +34,28 @@
       </div>
   </div>
   <div id="message-success" class="col s12" style="display: none">
-      <h3>Cam on nhung y kien dong gop tu ban</h3>
+      <h3> Cảm ơn ý kiến đóng góp của bạn! </h3>
   </div>
 </section>
 </div>
 </div>
 
 <style type="text/css">
+  #message-success {
+    height: 150px;
+    width: 500px;
+    background: rgb(46, 175, 163);
+    margin: 0 auto;
+    border-radius: 18px;
+    position: absolute;
+    top: 40%;
+    left: 25%;
+  }
   #message-success h3{
     text-align: center;
+    color: #fff;
+    line-height: 215px;
+    font-size: 20px;
   }
 </style>
 
@@ -59,11 +72,17 @@
         url : "{{route('ykienphanhoi')}}",
         data : {first_name  : first_name, last_name : last_name, email : email, ykien : ykien, benhvien_id : benhvien_id },
         success : function(response) {
-          $('#wrap-response-option').hide();
-          $('#message-success').show();
+          $('#message-success').fadeIn("slow");
+          setInterval(function(){
+              disappare();
+          }, 2000);
+          $("input, textarea").val("");
         }
       });
     });
 
   });
+    function disappare() {
+      $('#message-success').fadeOut("slow");
+    }
 </script>
