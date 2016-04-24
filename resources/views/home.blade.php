@@ -168,7 +168,7 @@
 												<div class="img_content">
 													<div class="view view-fifth">
 														<a href="#ns-6" class="click-view-detail image">
-															<img src="{{ asset($khoa->hinhanh)}}" alt="" />
+															<img src="{{ asset('uploads/'.$khoa->hinhanh)}}" alt="" />
 															<span class="line"></span>
 														</a>
 													</div>
