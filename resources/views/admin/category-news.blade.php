@@ -15,7 +15,7 @@
                   <option value="{{$bv->id}}">{{$bv->ten}}</option>
                 @endforeach
               </select>
-
+              <textarea class="form-control" cols="50" rows="5" placeholder="Nhap noi dung loai tin" style="margin-bottom:10px;"></textarea>
               <div class="post_img">
                 <input class="input_choose" type='file' name="icon" onchange="readURL(this);"/>
                 <img title="Image" id="display_img" src="{{ Asset('img/images/default_spot_main_photo.png') }}" alt="your image" style="width: 240px; height: 180px;" />
@@ -32,6 +32,7 @@
                 <th class="show_icon"> Icon </th>
                 <th> Tên Loại Tin </th>
                 <th> Bệnh viện </th>
+                <th>Miêu tả</th>
                 <th class="option"> Tùy Chọn </th>
               </tr>
             </thead>
@@ -47,6 +48,7 @@
                   <td>
                      {{$loai->tenbenhvien}}
                   </td>
+                  <td>nk kdsjfkd jdfjs jdkjslv ksjfk</td>
                   <td class="option">
                     <a class="btn btn_edit" href="{{ action('AdminController@getEditCategoryNews', $loai->id) }}">Chỉnh Sửa</a>
                     <a class="btn btn_delete" data-href="{{ action('AdminController@postDestroyCategoryNew', $loai->id) }}" data-token="{{ csrf_token() }}">Xóa</a>

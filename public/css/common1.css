@@ -524,7 +524,7 @@
   margin: 20px 0 45px 0;
 }
 #kind_of_news table{
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   width: 100%;
 }
@@ -532,7 +532,7 @@
   text-align: center;
 }
 #kind_of_news table .show_icon {
-  width: 22%;
+  width: 15%;
 }
 #kind_of_news table .wrap_img {
   width: 150px;
