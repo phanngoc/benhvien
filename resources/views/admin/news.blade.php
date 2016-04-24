@@ -3,7 +3,7 @@
   	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery.datetimepicker.css')}}"/>
 @stop
 @section('content')
-		<div class="col-md-12">
+		<div class="">
 			@include('admin.sidebar')
 			<div class="col-md-10">
 				<div id="manage_news" class="col-md-12">

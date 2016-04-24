@@ -79,7 +79,7 @@
 										@endforeach
 				                </select>
 				            </div>
-	            		<button class="btn waves-effect waves-light fadeleft" type="submit" name="action">Đặt khám
+	            		<button class="btn waves-effect waves-light fadeleft" type="submit" name="action"><a href="#sign">Đặt khám</a>
 						    <i class="material-icons right">settings_phone</i>
 						</button>
 						</div>

@@ -7,7 +7,7 @@
   float: left;
   position: absolute;
   top: -10px;
-  left: 9%;
+  left: 4%;
   z-index: 1212;
   transform: scale(0.8);
 }
@@ -58,15 +58,41 @@
 .btn_login {
 	width: 300px !important;
 }
+/*---------logout ---------------*/
+.slide-top {
+  width: 100%;
+  height: 75px;
+  background: #B6BDB6;
+  position: fixed;
+  z-index: 99;
+}
+.infor-admin {
+  float: right;
+  margin-right: 80px;
+  margin-top: 20px;
+}
+.infor-admin .btn_logout {
+  background: #3C763D;
+  color: #fff;
+}
+.infor-admin .name_admin {
+  margin-right: 50px;
+  position: absolute;
+  right: 155px;
+  top: 27px;
+  color: #fff;
+}
 /*--------Profile Page---------------*/
 #wrap_content .menu {
-  background: rgb(146, 161, 146);
-  height: 1200px;
+  position: fixed;
+  top: 66px;
+  background: #fff;
+  height: auto;
   padding: 0 !important;
 }
 .choose_list {
     margin: 0 auto;
-    margin-top: 30%;
+    margin-top: 5%;
     padding: 0;
 }
 .choose_list li {
@@ -78,10 +104,10 @@
 .choose_list li:focus,
 .active{
   cursor: pointer;
-  background: rgba(100, 109, 100, 0.66);
+  background: rgba(204, 220, 204, 0.66);
 }
 .choose_list li a {
-  color: #fff !important;
+  color: #388639 !important;
 }
 .choose_list li a:hover,
 .choose_list li a:focus,
@@ -93,10 +119,18 @@
 	height: 50px;
   line-height: 50px;
 }
+#wrap_content {
+  min-width: 1200px;
+  overflow: hidden;
+}
+.col-md-10 {
+  margin-left: 210px;
+}
 #profile {
   padding: 0 !important;
   display: inline-block;
-  margin: 50px 0 0 0;
+  width: 500px;
+  margin: 80px 0 0 200px;
 }
 #profile #display_img {
   width: 365px;
@@ -108,7 +142,7 @@
   color: #3c763d;
   font-size: 28px;
   font-weight: bold;
-  margin-left: -31px;
+  margin-left: 95px;
   padding-top: 31px;
   padding-bottom: 45px;
   margin-top: 0;
@@ -388,7 +422,7 @@
 }
 /*----ideas-------*/
 #ideas_infor {
-  width: 112%;
+  width: 100%;
 }
 #ideas_infor .search_input {
     width: 200px;
@@ -399,7 +433,7 @@
   margin-bottom: 30px;
 }
 #ideas_infor .content_idea {
-  width: 30%;
+  width: 23%;
 }
 .name_room {
   margin: 0 0 15px 0 !important;
@@ -531,7 +565,7 @@
 }
 /* quan ly tin tuc ------*/
 #manage_news  {
-  width: 125%;
+  width: 100%;
 }
 #manage_news .search_input {
     width: 200px;
@@ -542,20 +576,17 @@
   margin-bottom: 30px;
 }
 #manage_news table .content_news {
-  width: 35%;
+  width: 23%;
 }
 #manage_news table .title_news {
   width: 15%;
 }
 #manage_news table .option {
-  width: 11%;
-}
-#manage_news table th {
-  text-align: center;
+  width: 14%;
 }
 /* quan ly thong tin benh vien --------------------*/
 #infor_hospital {
-  width: 115%;
+  width: 100%;
 }
 #infor_hospital .infor_hospital {
   margin: 0 auto;
@@ -582,13 +613,13 @@
   text-align: center;
 }
 #infor_hospital table .option {
-  width: 12%;
+  width: 14%;
 }
 #infor_hospital table .option .btn_edit {
   margin-left: -30px;
 }
 #infor_hospital table .infor {
-  width: 37%;
+  width: 28%;
 }
 /*list room--------------*/
 #list_room .list_room .inputs {
@@ -606,7 +637,7 @@
 }
 /* thong tin kham ------*/
 #create_infor_science {
-  width: 110%;
+  width: 100%;
 }
 #create_infor_science .pull-right {
   position: absolute;

@@ -1,5 +1,11 @@
-<div class="col-md-2 menu">
+<div class="slide-top">
   <a href="#wd-wrapper" class="brand-logo logo">Logo</a>
+  <div class="infor-admin">
+    <p class="name_admin">HaGiang</p>
+    <button class="btn btn_logout">Đăng xuất</button>
+  </div>
+</div>
+<div class="col-md-2 menu">
   <ul class="choose_list">
     <li class="item_choose">
       <a href="{{action('AdminController@index')}}">Thông tin cá nhân</a>
@@ -30,9 +36,6 @@
     </li>
     <li class="item_choose">
       <a href="{{action('AdminController@getIdea')}}"> Thông tin khách hàng phản hồi </a>
-    </li>
-    <li class="item_choose">
-      <a href="#">Đăng xuất</a>
     </li>
   </ul>
 </div>
