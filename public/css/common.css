@@ -714,7 +714,6 @@ a.menu_text {
 .row {
     padding: 0 !important;
 }
-
 .title3 {
     position: relative;
     font-size: 27px;
@@ -1433,7 +1432,7 @@ hr {
 
 #idea .als-prev {
     height: 20px;
-    top: 22px;
+    top: 30px;
     left: 5px;
     z-index: 1111;
     background: rgba(0, 0, 0, 0.2);
@@ -1441,7 +1440,7 @@ hr {
 
 #idea .als-next {
     height: 20px;
-    top: 22px;
+    top: 30px;
     right: 1px;
     background: rgba(0, 0, 0, 0.2);
 }

@@ -194,28 +194,32 @@
 				<section id="response1" class="container each">
 					<h2 class="title">Ý KIẾN KHÁCH HÀNG</h2>
 					<div class="als-container" id="idea">
+						<span class="als-prev"><img src="img/images/btn_previous.png" alt="prev" title="previous" /></span>
 					  <!--  -->
-				    <ul class="als-wrapper list_images">
-					@foreach ($ykienphanhoi as $key => $ykien)
-					  <a href="#idea_item1" class="click_show">
-				      <li class="als-item wow animateds zoomIn">
-				      	<div id="flip{{ ($key == 0) ? '' : $key }}">
-							<div class="anh">
-								<img class="circle" src="{{ asset('img/images/icon_advised.png')}}"></img>
-							</div>
-							<div class="name">
-								<h4 class="full_name">{{ $ykien->hoten }}</h4>
-								<p class="job">{{ $ykien->email }}</p>
-							</div>
-							</div>
-							<!-- thong tin y kien khi click vao khach hang -->
-							<div id="infor{{ ($key == 0) ? '' : $key }}">
-								<p>{{ $ykien->ykien }}</p>
-						  </div>
-				       </li>
-				      </a>
-					@endforeach
-				    </ul>
+					  <div class="als-viewport">
+					  	<ul class="als-wrapper list_images">
+						@foreach ($ykienphanhoi as $key => $ykien)
+						  <a href="#idea_item1" class="click_show">
+						      <li class="als-item wow animateds zoomIn">
+						      	<div id="flip{{ ($key == 0) ? '' : $key }}">
+									<div class="anh">
+										<img class="circle" src="{{ asset('img/images/icon_advised.png')}}"></img>
+									</div>
+									<div class="name">
+										<h4 class="full_name">{{ $ykien->hoten }}</h4>
+										<p class="job">{{ $ykien->email }}</p>
+									</div>
+								</div>
+									<!-- thong tin y kien khi click vao khach hang -->
+								<div id="infor{{ ($key == 0) ? '' : $key }}">
+									<p>{{ $ykien->ykien }}</p>
+								 </div>
+						       </li>
+					      </a>
+						@endforeach
+					    </ul>
+					  </div>
+					   <span class="als-next"><img src="img/images/btn_next.png" alt="next" title="next" /></span> <!-- "next" button -->
 					  <div class="content_ideas" style="display: none;">
 						<div id= "idea_item1" class="detail_idea">
 							<div class="ct-close"><a href="#response1" class="closes">x</a></div>
@@ -231,7 +235,7 @@
 								</div>
 							</div>
 						</div>
-						</div>
+					</div>
 				</section>
 			    <hr>
 <!-- section Phan hoi cua nguoi dung ============================================== -->
