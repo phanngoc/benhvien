@@ -1,7 +1,7 @@
 @extends('admin.master-admin')
 
 @section('content')
-<div class="col-md-12">
+<div class="">
   @include('admin.sidebar')
   <div class="col-md-10">
     <div id="manage_science" class="col-md-12">

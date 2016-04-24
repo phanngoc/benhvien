@@ -1,7 +1,7 @@
 @extends('admin.master-admin')
 
 @section('content')
-    <div class="col-md-12">
+    <div class="">
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="create_infor_science" class="col-md-12">
@@ -36,7 +36,7 @@
                   <tr>
                     <input type="hidden" name="thongtinkham_id" value="{{ $thongtinkham->id }}">
                     <td> {{ $thongtinkham->benhnhan->hoten }} </td>
-                    <td> {{ $thongtinkham->phongkham->dichvu->benhvien->ten }}Bệnh Viện Đa Khoa Đà nẵng </td>
+                    <td> {{ $thongtinkham->phongkham->dichvu->benhvien->ten }}</td>
                     <td> {{ $thongtinkham->phongkham->dichvu->tendichvu }} </td>
                     <td> {{ $thongtinkham->phongkham->ten }} </td>
                     <td> {{ substr($thongtinkham->thoigiankham,0,10) }}</td>

@@ -1,7 +1,7 @@
 @extends('admin.master-admin')
 
 @section('content')
-    <div class="col-md-12">
+    <div class="">
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="list_room" class="col-md-12">
