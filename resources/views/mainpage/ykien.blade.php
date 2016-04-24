@@ -75,7 +75,7 @@
           $('#message-success').fadeIn("slow");
           setInterval(function(){
               disappare();
-          }, 2000);
+          }, 3000);
           $("input, textarea").val("");
         }
       });

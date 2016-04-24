@@ -2,9 +2,11 @@
 	<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<h2 class="title">TRA CỨU THÔNG TIN BỆNH VIỆN</h2>
 		<!-- thong tin benh vien -->
-		<input type="text" name="search_info_hopital" style="color: #fff;">
-		<button class="btn btn-primary" id="btn-search-info">Search</button>
-		<ul class="hospital wow animatedss fadeInLeftBig" id="list-result-search-hopital">
+		<div class="wrap_search">
+			<input type="text" name="search_info_hopital" placeholder="Nhap ten benh vien can tim" style="color: #fff; width: 500px;" >
+			<button class="btn btn-primary" id="btn-search-info">Search</button>
+		</div>
+		<ul class="hospital animated fadeInLeftBig" id="list-result-search-hopital">
 			@foreach ($benhviens as $benhvien)
 				<li data-id="{{$benhvien->id}}" data-diachi="{{ $benhvien->diachi }}" class="item-benhvien" data-lat="{{ $benhvien->lat }}" data-lng="{{ $benhvien->lng }}">
 					<h2 class="name_hospital">{{ $benhvien->ten }}</h2>
@@ -22,6 +24,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#btn-search-info').click(function(e) {
+			$("#list-result-search-hopital").show();
 			var textSearch = $('input[name="search_info_hopital"]').val();
 			$.ajax({
 				url : '{{ route("searchHopital") }}?textSearch='+textSearch,
@@ -55,14 +58,27 @@
 </script>
 
 <style type="text/css">
+	.wrap_search {
+		position: relative;
+	    margin-bottom: 30px;
+	}
 	#btn-search-info {
 		clear: both;
 	    display: block;
 	    text-align: center;
-	    margin: 18px auto;
+	    position: absolute;
+	    top: 0;
+	    left: 42%;
 	}
-
+	#list-result-search-hopital {
+		display: none;
+	}
+	#list-result-search-hopital li {
+		cursor: pointer;
+	}
 	.active-item {
-		background-color: #e5c9c9;
+		background-color: rgba(0, 0, 0, 0.1);
+	    width: auto;
+	    margin-right: 30px;
 	}
 </style>
