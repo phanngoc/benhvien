@@ -25,7 +25,7 @@
 				            </div>
 				            <div class="button">
 				                <button class="btn btn-primary">Xong </button>
-				                <button class="btn btn-default">Bỏ qua</button>
+				                <a class="btn btn-default" href="javascript:history.go(-1)">Bỏ qua</a>
 				            </div>
 				        </form>
 					</div>
