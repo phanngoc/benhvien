@@ -44,8 +44,12 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index($id = 1)
+	public function index($id = -1)
 	{
+		if ($id == -1) {
+			$id = Benhvien::first()->id;
+		}
+
 		$loaidichvus = Loaidichvu::where('benhvien_id', $id)->get();
 		$loaitins = Loaitin::where('benhvien_id', $id)->get();
 		$benhviens = Benhvien::all();
