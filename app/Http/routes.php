@@ -89,6 +89,11 @@ Route::post('admin/login', [
 	'uses' => 'AdminController@postLoginAdmin',
 ]);
 
+Route::get('admin/logout', [
+	'as' => 'admin.logout',
+	'uses' => 'AdminController@logout',
+]);
+
 Route::group(['middleware' => 'admin'], function () {
 
 	Route::get('admin/profile', [
