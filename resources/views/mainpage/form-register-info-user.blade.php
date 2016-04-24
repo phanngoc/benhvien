@@ -135,14 +135,14 @@
     <input type="text" class="display_date" name="date" value="thevalue" />
     <p class="choose_time"> Chọn thời gian: </p>
     <input id="timepicker" class="timepicker" name="time" placeholder="00:00"/>
-    <button id="fourth_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button" name="action" data-toggle="modal" data-target="#myModal1"> OK
+    <button id="fourth_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button" name="action" data-toggle="modal" data-target="#myModal_"> OK
       <i class="material-icons right">send</i>
     </button>
     <button type="submit" style="display: none" id="submitFormRegistInfoUser">Submit</button>
   </div> <!-- #fourth_form -->
 </form>
 <!-- alert successfully when submit-======================= -->
-<div class="modal fade inform_success" id="myModal1" role="dialog">
+<div class="modal fade inform_success" id="myModal_" role="dialog">
   <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
