@@ -197,7 +197,7 @@
 					  <!--  -->
 				    <ul class="als-wrapper list_images">
 					@foreach ($ykienphanhoi as $key => $ykien)
-					  <a href="#idea_item1" class="click_show">
+					  <a href="#idea_item{{$key}}" class="click_show">
 				      <li class="als-item wow animateds zoomIn">
 				      	<div id="flip{{ ($key == 0) ? '' : $key }}">
 							<div class="anh">
@@ -216,22 +216,17 @@
 				      </a>
 					@endforeach
 				    </ul>
-					  <div class="content_ideas" style="display: none;">
-						<div id= "idea_item1" class="detail_idea">
-							<div class="ct-close"><a href="#response1" class="closes">x</a></div>
-								<div class="content_idea">
-									Hành trình Đỏ 2015 – Hành trình vận động hiến máu xuyên Việt tổ chức tại 22 tỉnh, thành phố trên cả nước, diễn ra từ ngày 5- 26/7/2015  chia thành 2 đoàn Nam, Bắc. Đoàn Hành trình Đỏ phía Nam bắt đầu xuất quân tại tỉnh Cà Mau và phía Bắc xuất quân tại tỉnh Vĩnh Phúc. Theo báo cáo của Ban tổ chức Hành trình Đỏ  2015, tính đến ngày 19/7, Hành trình Đỏ đã di chuyển qua 2/3 chặng đường, vận động khoảng 25.000 lượt người đăng ký hiến máu và đã tiếp nhận được hơn
-									For the seventh year running it beat out major international capitals including New York, London, Paris, Hong Kong and Dubai -- none of which made it anywhere near the top 20.Immediately behind Vienna are a slew of other mainly Western European cities, with Zurich, Switzerland in second place and Munich, Germany in fourth
+				    	
+					    <div class="content_ideas" style="display: none;">
+							@foreach ($ykienphanhoi as $key => $ykien)
+							    <div id="idea_item{{$key}}" class="detail_idea">
+									<div class="ct-close"><a href="#response1" class="closes">x</a></div>
+									<div class="content_idea">
+										{{ $ykien->ykien }}
+									</div>
 								</div>
-							</div>
-							<div id= "idea_item2" class="detail_idea">
-							<div class="ct-close"><a href="#response1" class="closes">x</a></div>
-								<div class="content_idea">
-									Hành trình Đỏ 2015 – Hành trình vận động hiến máu xuyên Việt tổ chức tại 22 tỉnh, thành phố trên cả nước, diễn ra từ ngày 5- 26/7/2015  chia thành 2 đoàn Nam, Bắc. Đoàn Hành trình Đỏ phía Nam bắt đầu xuất quân tại tỉnh Cà Mau và phía Bắc xuất quân tại tỉnh Vĩnh Phúc. Theo báo cáo của Ban tổ chức Hành trình Đỏ  2015, tính đến ngày 19/7, Hành trình Đỏ đã di chuyển qua 2/3 chặng đường, vận động khoảng 25.000 lượt người đăng ký hiến máu và đã tiếp nhận được hơn
-								</div>
-							</div>
-						</div>
-						</div>
+							@endforeach
+					    </div>
 				</section>
 			    <hr>
 <!-- section Phan hoi cua nguoi dung ============================================== -->
