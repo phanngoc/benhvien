@@ -195,7 +195,7 @@
 				<section id="response1" class="container each">
 					<h2 class="title">Ý KIẾN KHÁCH HÀNG</h2>
 					<div class="als-container" id="idea">
-						<span class="als-prev"><img src="../img/images/btn_previous.png" alt="prev" title="previous" /></span>
+						<span class="als-prev"><img src="{{ asset('img/images/btn_previous.png')}}" alt="prev" title="previous" /></span>
 					  <!--  -->
 					  <div class="als-viewport">
 					  	<ul class="als-wrapper list_images">
@@ -220,7 +220,7 @@
 						@endforeach
 					    </ul>
 					  </div>
-					   <span class="als-next"><img src="../img/images/btn_next.png" alt="next" title="next" /></span> <!-- "next" button -->
+					   <span class="als-next"><img src="{{ asset('img/images/btn_next.png')}}" alt="next" title="next" /></span> <!-- "next" button -->
 					  <div class="content_ideas" style="display: none;">
 							@foreach ($ykienphanhoi as $key => $ykien)
 							    <div id="idea_item{{$key}}" class="detail_idea">
