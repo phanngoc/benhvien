@@ -118,7 +118,7 @@ class HomeController extends Controller {
 		{
 			return redirect()->back()->withErrors($validator->errors());
 		}
-		Auth::user()->update($request->all());
+		Auth::user()->get()->update($request->all());
 		return redirect()->route('home');
 	}
 
