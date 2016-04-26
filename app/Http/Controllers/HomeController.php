@@ -40,6 +40,15 @@ class HomeController extends Controller {
 	}
 
 	/**
+	 * Page init firstly.
+	 * @return [type] [description]
+	 */
+	public function pageInitFirst() {
+		$benhviens = Benhvien::all();
+		return view('page-homepage', compact('benhviens'));
+	}
+
+	/**
 	 * Show the application dashboard to the user.
 	 *
 	 * @return Response

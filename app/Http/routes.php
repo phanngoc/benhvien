@@ -13,7 +13,12 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home/{id?}', [
+Route::get('home', [
+	'as' => 'homepage',
+	'uses' => 'HomeController@pageInitFirst',
+]);
+
+Route::get('home/{id}', [
 	'as' => 'home',
 	'uses' => 'HomeController@index',
 ]);
