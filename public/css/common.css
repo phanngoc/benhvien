@@ -211,7 +211,12 @@ img {
     text-align: center;
     margin: 0 auto;
 }
-
+#banner_page {
+    height: 679px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
 .right {
     margin-right: 15px;
 }
@@ -1478,7 +1483,7 @@ hr {
     text-align: center;
     font-size: 26px;
     font-weight: bold;
-    margin: 80px 0;
+    margin: 65px 0;
 }
 
 #news_detail .title:hover,
@@ -1488,25 +1493,58 @@ hr {
 }
 
 #news_detail .collection {
-    margin: 0 !important;
+    /*margin: 0 !important;*/
     max-height: 1850px;
     height: auto;
     background: #fff;
+    margin-left: 111px;
+    width: 1130px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
+#news_detail .wrap_list_news {
+    background: rgba(0, 0, 0, 0.19);
+    display: inline-block;
+    width: 100%;
+}
 #news_detail .list_news .item_news {
     height: 230px;
     padding-top: 20px;
 }
-
-#news_detail .list_news .item_news .circle {
-    position: relative !important;
-    width: 250px !important;
-    height: 175px !important;
-    border-radius: 0 !important;
+#news_detail .list_news .item_news .wrap_photo {
+    position: relative;
+    width: 250px;
+    height: 175px;
+    overflow: hidden;
+}
+#news_detail .list_news .item_news .wrap_photo img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+#news_detail .next_page {
+    display: inline-block;
+    margin-top: 0px;
+    background: #fff;
+    margin-bottom: 40px;
+    box-shadow: none !important;
+}
+#news_detail .content_news {
+    padding-left: 40px;
+}
+.collection .collection-item.avatar {
+    padding-left: 0 !important;
+}
+.collection .collection-item {
+    /*padding: 0 !important;*/
 }
 .show_category_news #news_detail .content {
-    padding: 17px 100px 10px 0px;
+    /*padding: 17px 100px 10px 0px;*/
     text-align: justify;
 }
 #news_detail .time {
@@ -1528,7 +1566,26 @@ hr {
     margin-left: 42%;
 }
 
-
+/*detail news-------*/
+#sub_news_detail .wrap_img {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top:20px;
+    margin-bottom: 30px;
+}
+#sub_news_detail .wrap_img img {
+     position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
 /*------------*/
 
 ul.new_hospital {
@@ -2119,7 +2176,37 @@ nav a#pull {
     width: 430px;
     border-top: 8px solid #31708F;
 }
-
+.page-footer ul li {
+    float: left;
+    margin-right: 7px;
+}
+.page-footer ul {
+    display: inline-block;
+    transform: scale(0.6);
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+}
+.icon_facebook {
+    width: 60px;
+    height: 61px;
+    background-size: 100%;
+    background: url('../img/images/icon_facebook.png') no-repeat;
+    display: inline-block;
+}
+.icon_twiter {
+    width: 60px;
+    height: 61px;
+    background-size: 100%;
+    background: url('../img/images/icon_tw.png') no-repeat;
+    display: inline-block;
+}
+.icon_google {
+    width: 60px;
+    height: 61px;
+    background-size: 100%;
+    background: url('../img/images/icon_google.png') no-repeat;
+    display: inline-block;
+}
 /*Media Query*/
 
 @media (max-width: 1600px) {}
