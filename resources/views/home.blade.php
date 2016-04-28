@@ -1,19 +1,6 @@
 @extends('master')
 
 @section('content')
-<!-- loading ======== -->
-	<div class="loading">
-	    <div class="top-load">
-	        <div id='qLlogo' class="fadeInDownBig animated">
-	            <img src="{{ asset('img/front/logo.png')}}" alt="" />
-	        </div>
-	        <div class="bg-filter"></div>
-	    </div>
-	    <div class="bottom-load">
-	        <div class="load-bar"></div>
-	        <div class="bg-filter"></div>
-	    </div>
-	</div>
 		<div id="content">
 			<div id="wd-wrapper">
 				<header>
@@ -21,11 +8,12 @@
 					<section id="banner" class="each">
 					<!-- ====== menu ===== -->
 						<div class="navbar-fixed">
-							<div id="bg_menu" class="first fadedown">
+							<div id="bg_menu" class="first">
 								 <nav>
 								    <div class="nav-wrapper">
 								      <a href="#wd-wrapper" class="brand-logo logo">Logo</a>
 								      <ul id="nav-mobile" class="right hide-on-med-and-down">
+								      	<li><a href="#wd-wrapper">TRANG CHU</a></li>
 								        <li><a href="#sign">ĐĂNG KÍ KHÁM</a></li>
 								        <li><a href="#information">TIN TỨC</a></li>
 								        <li><a href="#news">THÔNG TIN KHOA</a></li>
@@ -68,18 +56,18 @@
 						</div>
 						<!-- display choose dropdown ======== -->
 						<div id="choose_hospital" class="text">
-							<h2 id="name_hospital" class="screen fadeleft">BỆNH VIỆN ĐÀ NẴNG</h2>
-							<p class="center fadeleft">-------------- Hệ thống đặt khám trực tuyến ---------------</p>
+							<h2 id="name_hospital" class="screen ">BỆNH VIỆN ĐÀ NẴNG</h2>
+							<p class="center ">-------------- Hệ thống đặt khám trực tuyến ---------------</p>
 
-							<div  class="input-field col s12 m6 input_center fadeleft">
-				                <select id="mySelectBox" class="icons fadeleft" name="mySelectBox">
+							<div  class="input-field col s12 m6 input_center ">
+				                <select id="mySelectBox" class="icons " name="mySelectBox">
 				                  <option value="" disabled selected>Ghé Thăm</option>
 										@foreach ($benhviens as $benhvien)
 											<option value="{{ $benhvien->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$benhvien->ten}}</option>
 										@endforeach
 				                </select>
 				            </div>
-	            		<button class="btn waves-effect waves-light fadeleft" type="submit" name="action"><a href="#sign">Đặt khám</a>
+	            		<button class="btn waves-effect waves-light" type="submit" name="action"><a href="#sign">Đặt khám</a>
 						    <i class="material-icons right">settings_phone</i>
 						</button>
 						</div>
@@ -88,7 +76,7 @@
 							$(document).ready(function(){
 								$('select[id="mySelectBox"]').change(function(){
 									var idBenhvien = $(this).val();
-									window.location.href = "{{route('home')}}/"+idBenhvien;
+									window.location.href = "{{URL::to('/')}}/home/"+idBenhvien;
 								});
 							});
 						</script>
@@ -195,7 +183,7 @@
 				<section id="response1" class="container each">
 					<h2 class="title">Ý KIẾN KHÁCH HÀNG</h2>
 					<div class="als-container" id="idea">
-						<span class="als-prev"><img src="../img/images/btn_previous.png" alt="prev" title="previous" /></span>
+						<span class="als-prev"><img src="{{ asset('img/images/btn_previous.png')}}" alt="prev" title="previous" /></span>
 					  <!--  -->
 					  <div class="als-viewport">
 					  	<ul class="als-wrapper list_images">
@@ -220,7 +208,7 @@
 						@endforeach
 					    </ul>
 					  </div>
-					   <span class="als-next"><img src="../img/images/btn_next.png" alt="next" title="next" /></span> <!-- "next" button -->
+					   <span class="als-next"><img src="{{ asset('img/images/btn_next.png')}}" alt="next" title="next" /></span> <!-- "next" button -->
 					  <div class="content_ideas" style="display: none;">
 							@foreach ($ykienphanhoi as $key => $ykien)
 							    <div id="idea_item{{$key}}" class="detail_idea">
@@ -239,28 +227,28 @@
 		@include('mainpage.ykien')
 		<!-- footer -->
 	 <footer class="page-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
-            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
-            <ul>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">
-        © 2014 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
-      </div>
-    </footer>
-@stop
+	  <div class="container">
+	    <div class="row">
+	      <div class="col l6 s12">
+	        <h5 class="white-text">BENH VIEN DA NANG</h5>
+	        <p class="grey-text text-lighten-4">Email: hospitaldanang@yahoo.com</p>
+	        <p class="grey-text text-lighten-4">Phone: 0511(3) 101.222</p>
+	      </div>
+	      <div class="col l4 offset-l2 s12">
+	        <ul>
+	          <li>
+	          	<a class="grey-text text-lighten-3" href="#!"><i class="icon_facebook">&nbsp</i></a>
+	          </li>
+	          <li><a class="grey-text text-lighten-3" href="#!"><i class="icon_twiter">&nbsp</i></a></li>
+	          <li><a class="grey-text text-lighten-3" href="#!"><i class="icon_google">&nbsp</i></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="footer-copyright">
+	    <div class="container">
+	    © 2016 Copyright Benh vien Danang
+	    </div>
+	  </div>
+	</footer>
+	@stop

@@ -21,13 +21,16 @@
 <!-- ========================= section hien thi list thong tin tin tuc ========================================== -->
 		<section id="news_detail">
 			<h2 class="title_main"> HOẠT ĐỘNG HÀNG NGÀY </h2>
-			<ul class="collection list_news col-md-12">
+			<div class="wrap_list_news">
+				<ul class="collection list_news col-md-12">
 				@foreach ($tintucs as $tintuc)
 					<li class="collection-item avatar item_news">
 				    	<div class="col-md-3">
-				    		 <img src="{{ Asset('uploads/'.$tintuc->thumbnail) }}" alt="" class="circle">
+				    		<div class="wrap_photo">
+				    		    <img src="{{ Asset('uploads/'.$tintuc->thumbnail) }}" alt="">
+				    		</div>
 				    	</div>
-				     	<div class="col-md-9">
+				     	<div class="col-md-9 content_news">
 				     		<a class="title" href="{{ route('news', $tintuc->id) }}">{{ $tintuc->tieude }}</a>
 				     		<p class="time">{{ $tintuc->updated_at }}</p>
 						    <p class="content">{{ $tintuc->noidung }}</p>
@@ -36,6 +39,8 @@
 				    </li>
 				@endforeach
 			</ul>
+			</div>
+			
 			<nav class="next_page">
 			  <ul class="pagination">
 			    <li class="page-item">
@@ -61,23 +66,29 @@
 	</div>
 </div>
 		<!-- footer -->
-<footer class="page-footer">
-	<div class="container">
-		<div class="row">
-		  <div class="col l6 s12">
-		    <h5 class="white-text">Footer Content</h5>
-		    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-		  </div>
-		  <div class="col l4 offset-l2 s12">
-		    <h5 class="white-text">Links</h5>
-		  </div>
-		</div>
-		</div>
-		<div class="footer-copyright">
-		<div class="container">
-		© 2014 Copyright Text
-		<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-		</div>
-	</div>
+<footer class="page-footer" style="margin-top:0 !important;">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">BENH VIEN DA NANG</h5>
+        <p class="grey-text text-lighten-4">Email: hospitaldanang@yahoo.com</p>
+        <p class="grey-text text-lighten-4">Phone: 0511(3) 101.222</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <ul>
+          <li>
+          	<a class="grey-text text-lighten-3" href="#!"><i class="icon_facebook">&nbsp</i></a>
+          </li>
+          <li><a class="grey-text text-lighten-3" href="#!"><i class="icon_twiter">&nbsp</i></a></li>
+          <li><a class="grey-text text-lighten-3" href="#!"><i class="icon_google">&nbsp</i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2016 Copyright Benh vien Danang
+    </div>
+  </div>
 </footer>
 @stop
