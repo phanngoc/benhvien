@@ -11,7 +11,7 @@
 					<div id="bg_menu" class="first fadedown menu_">
 						 <nav>
 						    <div class="nav-wrapper">
-						      <a href="{{ route('home') }}" class="brand-logo logo">Logo</a>
+						      <a href="{{ route('homepage') }}" class="brand-logo logo">Logo</a>
 						    </div>
 						  </nav>
 					</div>
@@ -20,7 +20,7 @@
 		</header>
 <!-- ========================= section hien thi list thong tin tin tuc ========================================== -->
 		<section id="news_detail">
-			<h2 class="title_main"> HOẠT ĐỘNG HÀNG NGÀY </h2>
+			<h2 class="title_main"> {{ $loaitin->name }} </h2>
 			<div class="wrap_list_news">
 				<ul class="collection list_news col-md-12">
 				@foreach ($tintucs as $tintuc)

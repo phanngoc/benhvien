@@ -80,8 +80,9 @@ class HomeController extends Controller {
 	 * @return [type]           [description]
 	 */
 	public function category(Request $request, $id) {
+		$loaitin = Loaitin::find($id);
 		$tintucs = Tintuc::where('category_id', $id)->get();
-		return view('category_news', compact('tintucs'));
+		return view('category_news', compact('tintucs', 'loaitin'));
 	}
 
 	/**
