@@ -11,7 +11,7 @@
 					<div id="bg_menu" class="first fadedown menu_">
 						 <nav>
 						    <div class="nav-wrapper">
-						      <a href="#wd-wrapper" class="brand-logo logo">Logo</a>
+						      <a href="{{ route('homepage') }}" class="brand-logo logo">Logo</a>
 						    </div>
 						  </nav>
 					</div>
@@ -21,7 +21,7 @@
 <!-- ========================= section hien thi list thong tin tin tuc ========================================== -->
 		<div class="wrap_section_content">
 			<div class="wrap_back">
-				<a href="#" class="back_page"><img src="../img/images/back icon.png"></a>
+				<a href="javascript:window.history.back();" class="back_page"><img src="{{ Asset('img/images/back icon.png') }}"></a>
 				<p class="time">{{ $news->updated_at }}</p>
 			</div>
 			<section id="sub_news_detail">
