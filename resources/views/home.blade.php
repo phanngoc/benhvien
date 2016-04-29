@@ -51,19 +51,23 @@
 							</div>
 				        </div>
 				        <!--  display content introduce of each hospital when click ====== -->
-						<div class="introduce hidden-sm" style="display: none;">
-							Tổ chức Y tế thế giới WHO xếp các loại thịt chế biến như xúc xích, thịt xông khóa… vào nhóm thực phẩm có khả năng gây ung thư cao tương đương với formaldehyde, thuốc lá, bức xạ gamma. Thịt đỏ cũng là một thực phẩm dễ gây ung thư. Các chuyên gia cho biết, khẩu phần ăn chứa 50 g thịt chế biến sẵn mỗi ngày khiến tăng 18% nguy cơ mắc ung thưa. Tuy nhiên, nhiều người vẫn tranh cãi rằng, mức độ rủi ro có thể không nghiêm trọng đến vậy.
+						<div class="introduce hidden-sm">
+							{{ $benhvien->thongtin }}
 						</div>
 						<!-- display choose dropdown ======== -->
-						<div id="choose_hospital" class="text">
-							<h2 id="name_hospital" class="screen ">BỆNH VIỆN ĐÀ NẴNG</h2>
+						<div id="choose_hospital" class="hospital_detail_text">
+							<h2 id="name_hospital" class="screen ">{{ $benhvien->ten }}</h2>
 							<p class="center ">-------------- Hệ thống đặt khám trực tuyến ---------------</p>
 
 							<div  class="input-field col s12 m6 input_center ">
 				                <select id="mySelectBox" class="icons " name="mySelectBox">
 				                  <option value="" disabled selected>Ghé Thăm</option>
-										@foreach ($benhviens as $benhvien)
-											<option value="{{ $benhvien->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$benhvien->ten}}</option>
+										@foreach ($benhviens as $bv)
+											@if ($bv->id == $benhvien->id)
+												<option value="{{ $bv->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle" selected>{{$bv->ten}}</option>
+											@else
+												<option value="{{ $bv->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$bv->ten}}</option>
+											@endif
 										@endforeach
 				                </select>
 				            </div>
@@ -104,7 +108,7 @@
 							<!-- model display when click button =========-->
 							<div class="modal fade form_login" id="myModal" role="dialog">
 							    <div class="modal-dialog">
-							      <form class="login" action="{{ route('login') }}" method="POST">
+							      <form class="login" action="{{ route('login', $benhvien->id) }}" method="POST">
 							      	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 							      	<div class="modal-content">
 								        <div class="modal-header">

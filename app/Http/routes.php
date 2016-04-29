@@ -38,7 +38,7 @@ Route::get('news/{id?}', [
 	'uses' => 'HomeController@news',
 ]);
 
-Route::post('login', [
+Route::post('login/{id}', [
 	'as' => 'login',
 	'uses' => 'HomeController@login',
 ]);
@@ -48,7 +48,7 @@ Route::get('client/logout', [
 	'uses' => 'HomeController@logout',
 ]);
 
-Route::post('update-profile', [
+Route::post('update-profile/{id}', [
 	'as' => 'update-profile',
 	'uses' => 'HomeController@updateProfile',
 ]);
@@ -58,7 +58,7 @@ Route::post('create-info-care', [
 	'uses' => 'HomeController@createInfoCare',
 ]);
 
-Route::post('update-info-care', [
+Route::post('update-info-care/{id}', [
 	'as' => 'update-info-care',
 	'uses' => 'HomeController@updateInfoCare',
 ]);
@@ -68,7 +68,7 @@ Route::post('delete-info-care', [
 	'uses' => 'HomeController@deleteInfoCare',
 ]);
 
-Route::post('register-info-care', [
+Route::post('register-info-care/{id}', [
 	'as' => 'register-info-care',
 	'uses' => 'HomeController@registerInfoCare',
 ]);

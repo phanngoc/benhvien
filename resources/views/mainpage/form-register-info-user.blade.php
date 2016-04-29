@@ -1,4 +1,4 @@
-<form class="col s12" method="POST" action="{{ route('register-info-care') }}">
+<form class="col s12" method="POST" action="{{ route('register-info-care', $benhvien->id) }}">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
   @if (count($errors) > 0)
       <div class="alert alert-danger">
@@ -188,10 +188,11 @@
     });
 
     $('#fourth_btn').click(function(){
-      $('#myModal1').modal('show');
+      $('#myModal_').modal('show');
     });
 
-    $('#myModal1').find('.btn_close').click(function(){
+    $('#myModal_').find('.btn_close').click(function(){
+      $('#myModal_').modal('hide');
       $('#submitFormRegistInfoUser').click();
     });
 
