@@ -11,7 +11,7 @@
 							<div id="bg_menu" class="first">
 								 <nav>
 								    <div class="nav-wrapper">
-								      <a href="#wd-wrapper" class="brand-logo logo">Logo</a>
+								      <a href="{{ route('homepage') }}" class="brand-logo logo">Logo</a>
 								      <ul id="nav-mobile" class="right hide-on-med-and-down">
 								      	<li><a href="#wd-wrapper">TRANG CHU</a></li>
 								        <li><a href="#sign">ĐĂNG KÍ KHÁM</a></li>
