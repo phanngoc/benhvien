@@ -38,7 +38,7 @@
     	<button id="edit_infor_profile" class="btn btn-primary btn_profile"> Chỉnh sửa </button>
     </ul>
     <div class="edit-profile" style="display: none">
-    	<form action="{{ route('update-profile') }}" method="POST" id="update-profile">
+    	<form action="{{ route('update-profile', $benhvien->id) }}" method="POST" id="update-profile">
     		<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 	    	<div class="row">
 		      <div class="input-field col s6">
@@ -130,7 +130,7 @@
 	    <button class="btn btn-primary btn_create">Tạo đăng kí mới</button>
 	  </div>
 	  <div class="edit_profile"  style="display: none;">
-	  	<form action="{{ route('update-info-care') }}" method="POST" style="width: 100%;" id="update-info-care">
+	  	<form action="{{ route('update-info-care', $benhvien->id) }}" method="POST" style="width: 100%;" id="update-info-care">
 	  		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	  		<input type="hidden" name="thongtinkham_id" value="">
 	  		<input type="hidden" name="phongkham_id" value="">
@@ -169,8 +169,8 @@
 <script type="text/javascript">
 	// Profile ==============================
 	
-	var urlUpdateInfoCare = '{{ route("update-info-care") }}'; 
-	var urlCreateInfoCare = '{{ route("create-info-care") }}'; 
+	var urlUpdateInfoCare = '{{ route("update-info-care", $benhvien->id) }}'; 
+	var urlCreateInfoCare = '{{ route("create-info-care", $benhvien->id) }}'; 
 	
 	$(".infor_medical .btn_create").click(function(){
 		$(".infor_medical").hide();

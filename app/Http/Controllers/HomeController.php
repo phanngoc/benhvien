@@ -69,7 +69,8 @@ class HomeController extends Controller {
 		$ykienphanhoi = Ykienphanhoi::where('status',1)->get();
 		$idBenhvien = $id;
 		$user =  Auth::user()->get();
-		return view('home', compact('benhviens', 'loaidichvus', 'phongkhams', 'khoas',
+		$benhvien = Benhvien::find($id);
+		return view('home', compact('benhviens', 'benhvien', 'loaidichvus', 'phongkhams', 'khoas',
 		 'user', 'idBenhvien', 'ykienphanhoi', 'loaitins'));
 	}
 
@@ -98,9 +99,9 @@ class HomeController extends Controller {
 	 * @param  Request $request [description]
 	 * @return [type]           [description]
 	 */
-	public function login(Request $request) {
+	public function login(Request $request, $id) {
 		if (Auth::user()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
-            return redirect()->intended('home');
+            return redirect()->route('home', $id);
         }
 	}
 
@@ -111,14 +112,14 @@ class HomeController extends Controller {
 	 */
 	public function logout(Request $request) {
 		Auth::user()->logout();
-		return redirect()->route('home');
+		return redirect()->route('homepage');
 	}
 
 	/**
 	 * Update profile.
 	 * @return [type] [description]
 	 */
-	public function updateProfile(Request $request) {
+	public function updateProfile(Request $request, $id) {
 		$validator = Validator::make(
 		    $request->all(),
 		    Benhnhan::$rules
@@ -128,7 +129,7 @@ class HomeController extends Controller {
 			return redirect()->back()->withErrors($validator->errors());
 		}
 		Auth::user()->get()->update($request->all());
-		return redirect()->route('home');
+		return redirect()->route('home', $id);
 	}
 
 	/**
@@ -136,7 +137,7 @@ class HomeController extends Controller {
 	 * @param  Request $request [description]
 	 * @return [type]           [description]
 	 */
-	public function updateInfoCare(Request $request) {
+	public function updateInfoCare(Request $request, $id) {
 		$validator = Validator::make(
 		    $request->all(),
 		    Thongtinkham::$rules
@@ -153,7 +154,7 @@ class HomeController extends Controller {
 			'thoigiankham' => $thoigiankham
 		]);
 
-		return redirect()->route('home');
+		return redirect()->route('home', $id);
 	}
 
 	/**
@@ -161,7 +162,7 @@ class HomeController extends Controller {
 	 * @param  Request $request [description]
 	 * @return [type]           [description]
 	 */
-	public function createInfoCare(Request $request) {
+	public function createInfoCare(Request $request, $id) {
 		
 		$validator = Validator::make(
 		    $request->all(),
@@ -182,7 +183,7 @@ class HomeController extends Controller {
 			'benhnhan_id' => $userId
 		]);
 
-		return redirect()->route('home');
+		return redirect()->route('home', $id);
 	}
 
 	private function convertDateAndTimeToSql($date, $time) {
@@ -199,7 +200,7 @@ class HomeController extends Controller {
 	 * @param  Request $request [description]
 	 * @return [type]           [description]
 	 */
-	public function registerInfoCare(Request $request) {
+	public function registerInfoCare(Request $request, $id) {
 
 		$validator = Validator::make(
 		    $request->all(),
@@ -234,7 +235,7 @@ class HomeController extends Controller {
 		]);
 		
 		if (Auth::user()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
-            return redirect()->route('home');
+            return redirect()->route('home', $id);
         }
 	}
 
