@@ -218,7 +218,7 @@ class HomeController extends Controller {
 		$benhnhan = Benhnhan::create([
 			'hoten' => $request->input('hoten'),
 			'username' => $request->input('username'),
-			'ngaysinh' => $request->input('diachi')." 00:00:00",
+			'ngaysinh' => $request->input('ngaysinh')." 00:00:00",
 			'CMND' => $request->input('CMND'),
 			'gioitinh' => $request->input('gioitinh'),
 			'diachi' => $request->input('diachi'),
