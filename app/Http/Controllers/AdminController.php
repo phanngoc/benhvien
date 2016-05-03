@@ -335,8 +335,14 @@ class AdminController extends BaseController {
 		return response()->json(['status' => '200']);
 	}
 
-	public function getInRoom() {
-		return view('admin.patient-in-room');
+	/**
+	 * Get info care in room.
+	 * @param  [type] $phongkhamId [description]
+	 * @return [type]              [description]
+	 */
+	public function getInRoom($phongkhamId) {
+		$thongtinkhams = Thongtinkham::with('benhnhan')->where('phongkham_id', $phongkhamId)->get();
+		return view('admin.patient-in-room', compact('thongtinkhams'));
 	}
 	
 }

@@ -28,31 +28,19 @@
             <table  class="table table-bordered">
             <thead>
               <tr>
-                <th> ID Bệnh Nhân </th>
                 <th> Tên Bệnh Nhân </th>
                 <th> Giờ Khám </th>
                 <th> Đã Khám</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>BN01</td>
-                <td> Lê Văn Huy </td>
-                <td class="set_time"> 8:00 23/4/2016 </td>
-                <td class="status"> <input type="checkbox"> </td>
-              </tr>
-              <tr>
-                <td>BN01</td>
-                <td> Lê Văn Huy </td>
-                <td class="set_time"> 8:00 23/4/2016 </td>
-                <td class="status"> <input type="checkbox"> </td>
-              </tr>
-              <tr>
-                <td>BN01</td>
-                <td> Lê Văn Huy </td>
-                <td class="set_time"> 8:00 23/4/2016 </td>
-                <td class="status"> <input type="checkbox"> </td>
-              </tr>
+              @foreach ($thongtinkhams as $thongtinkham)
+                <tr>
+                  <td> {{ $thongtinkham->benhnhan->hoten }} </td>
+                  <td class="set_time"> {{ $thongtinkham->thoigiankham }} </td>
+                  <td class="status"> <input type="checkbox" {{ ($thongtinkham->dakham == 1) ? 'checked' : '' }} /> </td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
           </form>
