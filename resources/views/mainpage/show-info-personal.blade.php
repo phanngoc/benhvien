@@ -23,7 +23,7 @@
 		});
 	});
 </script>
-<a class="btn btn-primary btn-logout" href="{{ route('client.logout') }}"> Đăng xuất </a>
+<a class="btn btn-primary btn-logout" href="{{ route('client.logout', $benhvien->id) }}"> Đăng xuất </a>
 <h2 class="title_profile"> TRANG CÁ NHÂN </h2>
 <div class="row information_profile">
     <ul class="col-md-12 infor_profile">

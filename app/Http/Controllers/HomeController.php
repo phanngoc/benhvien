@@ -111,9 +111,9 @@ class HomeController extends Controller {
 	 * @param  Request $request [description]
 	 * @return [type]           [description]
 	 */
-	public function logout(Request $request) {
+	public function logout(Request $request, $id) {
 		Auth::user()->logout();
-		return redirect()->route('homepage');
+	    return redirect()->route('home', $id);
 	}
 
 	/**

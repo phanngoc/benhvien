@@ -43,7 +43,7 @@ Route::post('login/{id}', [
 	'uses' => 'HomeController@login',
 ]);
 
-Route::get('client/logout', [
+Route::get('client/logout/{id}', [
 	'as' => 'client.logout',
 	'uses' => 'HomeController@logout',
 ]);
