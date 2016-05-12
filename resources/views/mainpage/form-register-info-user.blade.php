@@ -69,9 +69,12 @@
           <label for="icon_telephone">Số điện thoại: </label>
         </div>
     </div>
-   <button id="first_btn" class="btn waves-effect waves-light continue wow animateds fadeInUpBig" type="button">Tiếp
-      <i class="material-icons right">send</i>
-   </button>
+    <div class="wrap_button">
+      <button id="first_btn_next" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button">Next
+        <i class="material-icons right">skip_next</i>
+      </button>
+    </div>
+    
   </div>
   <!-- sencond form ========================================================-->
   <div id="second_form" style="display:none;" class="animateds fadeInRightBig">
@@ -107,9 +110,14 @@
           </li>
         @endforeach
     </ul>
-    <button id="second_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button">Tiếp
-      <i class="material-icons right">send</i>
-   </button>
+    <div class="wrap_button">
+      <button id="second_btn_pre" class="btn waves-effect waves-light back animateds fadeInUpBig" type="button">Back
+        <i class="material-icons right">skip_previous</i>
+      </button>
+      <button id="second_btn_next" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button">Next
+        <i class="material-icons right">skip_next</i>
+      </button>
+    </div>
   </div>
   <!-- third form =========================================================s -->
   <div id="third_form" style="display:none;" class="animateds fadeInRightBig">
@@ -124,9 +132,14 @@
         </li>
       @endforeach
     </ul>
-    <button id="third_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button" name="action">Tiếp
-      <i class="material-icons right">send</i>
-    </button>
+    <div class="wrap_button">
+      <button id="third_btn_pre" class="btn waves-effect waves-light back animateds fadeInUpBig" type="button">Back
+        <i class="material-icons right">skip_previous</i>
+      </button>
+      <button id="third_btn_next" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button">Next
+        <i class="material-icons right">skip_next</i>
+      </button>
+    </div>
   </div> 
   <!-- form choose time -->
   <div id="fourth_form" style="display:none;" class="animateds fadeInRightBig">
@@ -135,9 +148,13 @@
     <input type="text" class="display_date" name="date" value="thevalue" />
     <p class="choose_time"> Chọn thời gian: </p>
     <input id="timepicker" class="timepicker" name="time" placeholder="00:00"/>
-    <button id="fourth_btn" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button" name="action" data-toggle="modal" data-target="#myModal_"> OK
-      <i class="material-icons right">send</i>
-    </button>
+    <div class="wrap_button">
+      <button id="fourth_btn_pre" class="btn waves-effect waves-light back animateds fadeInUpBig" type="button">Back
+        <i class="material-icons right">skip_previous</i>
+      </button>
+      <button id="fourth_btn_next" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button">Next
+        <i class="material-icons right">skip_next</i>
+      </button>
     <button type="submit" style="display: none" id="submitFormRegistInfoUser">Submit</button>
   </div> <!-- #fourth_form -->
 </form>
@@ -212,7 +229,7 @@
       }
     });
 
-    $('#fourth_btn').click(function(){
+    $('#fourth_btn_next').click(function(){
       $('#myModal_').modal('show');
     });
 
