@@ -10,6 +10,10 @@
 	<link rel="stylesheet" href="{{asset('css/common1.css')}}" type="text/css" media="screen,projection" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.datetimepicker.css')}}"/>
     <script src="{{asset('js/jquery-1.11.0.min.js')}}" type="text/javascript"></script>
+    
+    <link href="{{ Asset('js/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{asset('js/datatables/jquery.dataTables.min.js')}}" type="text/javascript"></script>
+  	<script src="{{asset('js/datatables/dataTables.bootstrap.min.js')}}" type="text/javascript"></script>
   @yield('css')
 </head>
 <body>

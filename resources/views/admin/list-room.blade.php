@@ -21,7 +21,7 @@
                 <!-- button -->
                 <button class="btn btn-primary"> <a href="{{action('RoomController@getCreateRoom')}}"> Tạo mới </a></button>
             </div>
-            <table  class="table table-bordered">
+            <table  class="table table-bordered" id="list-room">
               <thead>
                 <tr>
                   <th> Bệnh Viện </th>
@@ -54,6 +54,18 @@
     </div>
 
 <script type="text/javascript">
+
+  $(function () {
+    $('#list-room').dataTable({
+      "bPaginate": true,
+      "bLengthChange": false,
+      "bFilter": true,
+      "bSort": true,
+      "bInfo": false,
+      "bAutoWidth": false
+    });
+  });
+  
   $(document).ready(function(){
       $(".btn-danger").click(function(){
           var link = $(this).data('href');

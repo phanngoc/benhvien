@@ -26,7 +26,7 @@
                 <button class="btn btn-default"> Bỏ qua </button>
               </div>
           </form>
-          <table  class="table table-bordered">
+          <table class="table table-bordered" id="category-news">
             <thead>
               <tr>
                 <th class="show_icon"> Icon </th>
@@ -63,6 +63,18 @@
     </div>
 
 <script type="text/javascript">
+
+  $(function () {
+    $('#category-news').dataTable({
+      "bPaginate": true,
+      "bLengthChange": false,
+      "bFilter": true,
+      "bSort": true,
+      "bInfo": false,
+      "bAutoWidth": false
+    });
+  });
+  
   $(document).ready(function(){
       $(".btn_delete").click(function(){
           var link = $(this).data('href');

@@ -20,7 +20,7 @@
             </ul>
               <div class="button">
                 <button class="btn btn-primary">Xong</button>
-                <button class="btn btn-default" type="button">Bỏ qua</button>
+                <a class="btn btn-default" href="javascript:history.back()">Bỏ qua</a>
               </div>
           </form>
         </div> <!-- #edit_ideas -->

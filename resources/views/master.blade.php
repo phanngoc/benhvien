@@ -16,6 +16,7 @@
     <link href="{{ asset('css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link rel="stylesheet" href="{{ asset('css/common.css')}}" type="text/css" media="screen,projection" />
 	<script src="{{ asset('js/jquery-1.11.0.min.js')}}" type="text/javascript"></script>
+
 	@yield('css')
 </head>
 <body>

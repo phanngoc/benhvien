@@ -28,7 +28,7 @@
 <div class="row information_profile">
     <ul class="col-md-12 infor_profile">
     	<li class="col-md-6"> {{ $user->hoten }}</li>
-    	<li class="col-md-6"> Sinh ngay: <span class="display"> {{ $user->ngaysinh }}</span></li>
+    	<li class="col-md-6"> Sinh ngay: <span class="display"> {{ substr($user->ngaysinh, 0, 11) }}</span></li>
     	<li class="col-md-6"> Email: <span class="display"> {{ $user->email }}</span></li>
     	<li class="col-md-6">CMND: <span class="display">{{ $user->CMND }}</span></li>
     	<li class="col-md-6">Dia Chi: <span class="display">{{ $user->diachi }}</span></li>

@@ -30,7 +30,7 @@
             <button class="btn btn-default"> Bỏ qua </button>
           </div>
       </form>
-      <table  class="table table-bordered">
+      <table class="table table-bordered" id="science">
         <thead>
           <tr>
             <th>Bệnh Viện</th>
@@ -60,6 +60,20 @@
           @endforeach
         </tbody>
       </table>
+
+      <script type="text/javascript">
+        $(function () {
+          $('#science').dataTable({
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": false
+          });
+        });
+      </script>
+
     </div>
   </div>
 </div>

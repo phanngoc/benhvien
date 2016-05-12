@@ -14,7 +14,7 @@ class Benhnhan extends Model implements AuthenticatableContract, CanResetPasswor
 
     protected $table = 'benhnhan';
     protected $fillable = ['hoten', 'username', 'password', 'ngaysinh', 'diachi', 'CMND', 'gioitinh',
-    	'sodienthoai', 'email'
+    	'sodienthoai', 'email', 'code'
     ];
 
     public static $rules = [

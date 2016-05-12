@@ -26,7 +26,7 @@
                 <a class="btn btn-default" onclick="location.reload();"> Bỏ qua </a>
               </div>
           </form>
-          <table  class="table table-bordered">
+          <table  class="table table-bordered" id="list-kind-service">
             <thead>
               <tr>
                 <th> Tên Bệnh Viện </th>
@@ -54,6 +54,20 @@
     </div>
 
 <script type="text/javascript">
+
+  $(function () {
+
+    $('#list-kind-service').dataTable({
+      "bPaginate": true,
+      "bLengthChange": false,
+      "bFilter": true,
+      "bSort": true,
+      "bInfo": false,
+      "bAutoWidth": false
+    });
+    
+  });
+
   $(document).ready(function(){
       $(".btn_delete").click(function(){
           var link = $(this).data('href');

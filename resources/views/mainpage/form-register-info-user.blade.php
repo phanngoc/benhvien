@@ -1,4 +1,4 @@
-<form class="col s12" method="POST" action="{{ route('register-info-care', $benhvien->id) }}">
+<form class="col s12" method="POST" action="{{ route('register-info-care', $benhvien->id) }}" id="elem-form-register">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
   @if (count($errors) > 0)
       <div class="alert alert-danger">
@@ -154,8 +154,29 @@
       </div>
   </div>
 </div>
+
+<script type="text/javascript" src="{{ Asset('js/jquery-validation-1.15.0/dist/jquery.validate.js') }}"></script>
+<script type="text/javascript" src="{{ Asset('js/jquery-validation-1.15.0/dist/additional-methods.js') }}"></script>
+
 <!-- ============ -->
 <script type="text/javascript">
+    $('#elem-form-register').validate({
+      rules: {
+        hoten: {
+          required: true,
+        },
+        password: {
+          required: true,
+        },
+        ngaysinh: {
+          required: true,
+        },
+        email: {
+          required: true,
+        }
+      }
+    });
+
   // display date====================
   $(function(){
     $('#datepicker').datepicker({
@@ -164,12 +185,16 @@
         $("input[name='date']").val(dateText);
       }
     });
+
   });
+
   // =====================
   function myFunction() {
     document.getElementById("myDate").defaultValue = "2014-02-09";
   }
+
   $(document).ready(function(){
+
     $('#third_form').on('click','li.collection-item', function(){
       var phongkhamId = $(this).data('id');
       console.log("it ok:"+phongkhamId);

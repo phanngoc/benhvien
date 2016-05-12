@@ -216,6 +216,7 @@ class HomeController extends Controller {
 		$password = bcrypt($request->input('password'));
 
 		$benhnhan = Benhnhan::create([
+			'code' => str_random(40),
 			'hoten' => $request->input('hoten'),
 			'username' => $request->input('username'),
 			'ngaysinh' => $request->input('ngaysinh')." 00:00:00",
