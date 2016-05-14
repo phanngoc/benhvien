@@ -22,10 +22,10 @@
 		<div class="wrap_section_content">
 			<div class="wrap_back">
 				<a href="javascript:window.history.back();" class="back_page"><img src="{{ Asset('img/images/back icon.png') }}"></a>
-				<p class="time">{{ $news->updated_at }}</p>
 			</div>
 			<section id="sub_news_detail">
 				<h2 class="title">{{ $news->tieude }}</h2>
+				<p class="time">{{ $news->updated_at }}</p> <span class="name_hospital">||  Bệnh viện Đa Khoa Đà Nẵng</span>
 				<ul class="content_detail">
 					<li class="content">
 						 <p>{{ $news->noidung }}</p>

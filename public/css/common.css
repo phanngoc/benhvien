@@ -2141,9 +2141,15 @@ nav a#pull {
 .input_sex {
     padding-left: 30px !important;
 }
-
-.continue {
+.wrap_button {
+    text-align: center;
+    margin: 25px 0 10px 0;
+}
+#fourth_btn {
     margin-left: 45%;
+}
+.continue {
+    margin-left: 1%;
 }
 .active2 {
     background-color: rgba(148, 73, 73, 0.93) !important;
@@ -2206,6 +2212,21 @@ nav a#pull {
     background-size: 100%;
     background: url('../img/images/icon_google.png') no-repeat;
     display: inline-block;
+}
+#sub_news_detail .title {
+    margin-top: -45px;
+}
+#sub_news_detail .time {
+    margin: -20px 0 10px 120px;
+    color: #A52623;
+    float: left;
+}
+#sub_news_detail .name_hospital {
+    color: #A52623;
+    font-size: 12px;
+    display: inherit;
+    margin-left: 16.5%;
+    margin-top: -20px;
 }
 /*Media Query*/
 

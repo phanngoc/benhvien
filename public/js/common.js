@@ -72,7 +72,7 @@ $(document).ready(function() {
   });
 
   // display step in form==========================
-  $("#first_btn").click(function() {
+  $("#first_btn_next").click(function() {
     $("#second_form").show();
     $("#first_form").hide();
     $("#third_form").hide();
@@ -80,7 +80,7 @@ $(document).ready(function() {
     $("#step_2").addClass("active2");
     $("#step_1, #step_3, #step_4").removeClass("active2");
   });
-  $("#second_btn").click(function() {
+  $("#second_btn_next").click(function() {
     $("#second_form").hide();
     $("#first_form").hide();
     $("#third_form").show();
@@ -88,7 +88,7 @@ $(document).ready(function() {
     $("#step_3").addClass("active2");
     $("#step_1, #step_2, #step_4").removeClass("active2");
   });
-  $("#first_btn").click(function() {
+  $("#first_btn_next").click(function() {
     $("#first_form").hide();
     $("#second_form").show();
     $("#third_form").hide();
@@ -96,13 +96,38 @@ $(document).ready(function() {
     $("#step_2").addClass("active2");
     $("#step_1, #step_3, #step_4").removeClass("active2");
   });
-  $("#third_btn").click(function() {
+  $("#third_btn_next").click(function() {
     $("#first_form").hide();
     $("#second_form").hide();
     $("#third_form").hide();
     $("#fourth_form").show();
     $("#step_4").addClass("active2");
     $("#step_1, #step_2, #step_3").removeClass("active2");
+  });
+// ---------
+  $("#second_btn_pre").click(function() {
+    $("#second_form").hide();
+    $("#first_form").show();
+    $("#third_form").hide();
+    $("#fourth_form").hide();
+    $("#step_1").addClass("active2");
+    $("#step_2, #step_3, #step_4").removeClass("active2");
+  });
+  $("#fourth_btn_pre").click(function() {
+    $("#first_form").hide();
+    $("#second_form").hide();
+    $("#third_form").show();
+    $("#fourth_form").hide();
+    $("#step_3").addClass("active2");
+    $("#step_1, #step_2, #step_4").removeClass("active2");
+  });
+  $("#third_btn_pre").click(function() {
+    $("#first_form").hide();
+    $("#second_form").show();
+    $("#third_form").hide();
+    $("#fourth_form").hide();
+    $("#step_2").addClass("active2");
+    $("#step_1, #step_3, #step_4").removeClass("active2");
   });
 
 // display news detail
