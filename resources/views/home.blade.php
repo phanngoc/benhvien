@@ -13,7 +13,7 @@
 								    <div class="nav-wrapper">
 								      <a href="{{ route('homepage') }}" class="brand-logo logo">Logo</a>
 								      <ul id="nav-mobile" class="right hide-on-med-and-down">
-								      	<li><a href="#wd-wrapper">TRANG CHU</a></li>
+								      	<li><a href="#wd-wrapper">TRANG CHỦ </a></li>
 								        <li><a href="#sign">ĐĂNG KÍ KHÁM</a></li>
 								        <li><a href="#information">TIN TỨC</a></li>
 								        <li><a href="#news">THÔNG TIN KHOA</a></li>

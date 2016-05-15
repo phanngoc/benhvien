@@ -61,9 +61,7 @@
 										@endforeach
 				                </select>
 				            </div>
-	            		<button class="btn waves-effect waves-light fadeleft" type="submit" name="action"><a href="#sign">Đặt khám</a>
-						    <i class="material-icons right">settings_phone</i>
-						</button>
+	            			<img class="hompage_logo" src="img/front/logo.png">
 						</div>
 
 						<script type="text/javascript">
