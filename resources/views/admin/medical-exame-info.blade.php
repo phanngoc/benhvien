@@ -17,7 +17,6 @@
                     </button>
                 </span>
             </div> -->
-            <button class="btn btn-primary"> OK</button>
             <button class="btn btn-primary pull-right" id="saveDaKham">Save</button>
           </div>
            <table  class="table table-bordered" id="tableThongTinKham">

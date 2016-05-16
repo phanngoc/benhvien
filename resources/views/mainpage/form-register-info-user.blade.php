@@ -164,6 +164,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <p > Chúc mừng bạn đã đăng ký khám thành công qua hệ thống <b>Đăng kí khám Online</b></p>
+          <p> Mã bệnh nhân của bạn là: </p> <span>BN123</span>>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn_close" data-dismiss="modal">Close</button>
