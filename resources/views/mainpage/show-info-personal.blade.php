@@ -33,8 +33,8 @@
     	<li class="col-md-6">CMND: <span class="display">{{ $user->CMND }}</span></li>
     	<li class="col-md-6">Dia Chi: <span class="display">{{ $user->diachi }}</span></li>
     	<li class="col-md-6">Gioi Tinh: <span class="display">{{ ($user->gioitinh == 0) ? 'Nam' : 'Nu' }}</span></li>
-    	<li class="col-md-6">So Dien Thoai: <span class="display">{{ $user->sodienthoai }}</span></li>
-    	<li class="col-md-6">Mã bệnh nhân: <span class="display"> BN002 </span></li>
+    	<li class="col-md-6">Số điện thoại: <span class="display">{{ $user->sodienthoai }}</span></li>
+    	<li class="col-md-6">Mã bệnh nhân: <span class="display"> {{ $user->code }} </span></li>
     	<button id="edit_infor_profile" class="btn btn-primary btn_profile"> Chỉnh sửa </button>
     </ul>
     <div class="edit-profile" style="display: none">
@@ -82,8 +82,7 @@
 		        </div>
 		        <div>
 		          <input name="gioitinh" value="1" type="radio" id="test2" {{ ($user->gioitinh == 1) ? 'checked' : '' }} />
-		          <label class="input_sex" for="test2">Female</label>
-		        </div>
+		          <label class="input_sex" for="test2">Female</label>		        </div>
 		        </div>
 		    </div>
 		    <button class="btn btn-default btn_cancel">Bỏ qua</button>

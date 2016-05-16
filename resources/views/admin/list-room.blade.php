@@ -36,7 +36,7 @@
                 @foreach($rooms as $room)
                   <tr>
                     <td>{{ $room->dichvu->benhvien->ten }}</td>
-                    <td><a href="{{action('AdminController@getInRoom')}}">{{ $room->ten }}</a></td>
+                    <td><a href="{{action('AdminController@getInRoom', $room->id)}}">{{ $room->ten }}</a></td>
                     <td>{{ $room->dichvu->tendichvu }}</td>
                     <td> {{ $room->bacsi }} </td>
                     <td style="text-align: center;"> 8 </td>

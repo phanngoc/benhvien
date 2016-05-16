@@ -25,7 +25,7 @@
 			</div>
 			<section id="sub_news_detail">
 				<h2 class="title">{{ $news->tieude }}</h2>
-				<p class="time">{{ $news->updated_at }}</p> <span class="name_hospital">||  Bệnh viện Đa Khoa Đà Nẵng</span>
+				<p class="time">{{ $news->updated_at }}</p> <span class="name_hospital">||  {{ $news->loaitin->benhvien->ten }}</span>
 				<ul class="content_detail">
 					<li class="content">
 						 <p>{{ $news->noidung }}</p>
