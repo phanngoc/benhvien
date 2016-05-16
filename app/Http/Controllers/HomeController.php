@@ -91,7 +91,7 @@ class HomeController extends Controller {
 	 * @return [type]           [description]
 	 */
 	public function news(Request $request, $id) {
-		$news = Tintuc::with('admin')->find($id);
+		$news = Tintuc::with(array('admin','loaitin.benhvien'))->find($id);
 		return view('detail_new', compact('news'));
 	}
 
@@ -216,7 +216,7 @@ class HomeController extends Controller {
 		$password = bcrypt($request->input('password'));
 
 		$benhnhan = Benhnhan::create([
-			'code' => str_random(40),
+			'code' => str_random(10),
 			'hoten' => $request->input('hoten'),
 			'username' => $request->input('username'),
 			'ngaysinh' => $request->input('ngaysinh')." 00:00:00",

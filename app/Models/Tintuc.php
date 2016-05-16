@@ -22,9 +22,18 @@ class Tintuc extends Model {
 
     /**
      * [admin description]
-     * @return [type] [description]
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function admin() {
         return $this->belongsTo('App\Models\Admin','author_id','id');
     }
+
+    /**
+     * Many to One
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function loaitin() {
+        return $this->belongsTo('App\Models\Loaitin','category_id','id');
+    }
+
 }

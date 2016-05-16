@@ -19,7 +19,7 @@
       </div>
       <div class="input-field col s6 wow animatedss fadeInRightBig">
           <label> Mật Khẩu </label>
-          <input type="text" class="validate" name="password">
+          <input type="password" class="validate" name="password">
       </div>
     </div>
 
@@ -152,19 +152,18 @@
       <button id="fourth_btn_pre" class="btn waves-effect waves-light back animateds fadeInUpBig" type="button">Back
         <i class="material-icons right">skip_previous</i>
       </button>
-      <button id="fourth_btn_next" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button">Next
+      <button id="fourth_btn_next" class="btn waves-effect waves-light continue animateds fadeInUpBig" type="button" data-toggle="modal" data-target="#myModal_" data-backdrop="false">Next
         <i class="material-icons right">skip_next</i>
       </button>
     <button type="submit" style="display: none" id="submitFormRegistInfoUser">Submit</button>
   </div> <!-- #fourth_form -->
 </form>
 <!-- alert successfully when submit-======================= -->
-<div class="modal fade inform_success" id="myModal_" role="dialog">
+<div class="modal inform_success" id="myModal_" role="dialog">
   <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
           <p > Chúc mừng bạn đã đăng ký khám thành công qua hệ thống <b>Đăng kí khám Online</b></p>
-          <p> Mã bệnh nhân của bạn là: </p> <span>BN123</span>>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn_close" data-dismiss="modal">Close</button>
@@ -215,7 +214,6 @@
 
     $('#third_form').on('click','li.collection-item', function(){
       var phongkhamId = $(this).data('id');
-      console.log("it ok:"+phongkhamId);
       $('#third_form').find('li.collection-item').removeClass('status-choose');
       $(this).addClass('status-choose');
       $('#third_form').find('input[name="phongkham_id"]').val(phongkhamId);
@@ -231,7 +229,7 @@
     });
 
     $('#fourth_btn_next').click(function(){
-      $('#myModal_').modal('show');
+      // $('#myModal_').modal('show');
     });
 
     $('#myModal_').find('.btn_close').click(function(){

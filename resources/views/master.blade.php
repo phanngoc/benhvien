@@ -31,13 +31,32 @@
 	<script type="text/javascript">
 		var map;
 
+		function setMapByAddress(address) {
+			var geocoder = new google.maps.Geocoder();      
+			geocoder.geocode({ 'address': address}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+				    map.setCenter(results[0].geometry.location);
+				    map.setZoom(14);
+				    var marker = new google.maps.Marker({
+				        map: map,
+				        position: results[0].geometry.location
+				    });
+				}
+			});  
+		}
+		
 		function initAutocomplete() {
-		    map = new google.maps.Map(document.getElementById('map'), {
-		        center: {lat: 16.058929, lng: 108.212038},
-		        zoom: 13,
-		        mapTypeId: google.maps.MapTypeId.ROADMAP
-		    });
 
+			map = new google.maps.Map(document.getElementById('map'), {
+			        center: {lat: 16.058929, lng: 108.212038},
+			        zoom: 13,
+			        mapTypeId: google.maps.MapTypeId.ROADMAP
+			    });
+
+			@if (isset($benhvien))
+				setMapByAddress('{{ $benhvien->diachi }}');
+			@endif
+		    
 		    // Create the search box and link it to the UI element.
 		    var input = document.getElementById('input_search_google');
 		    var searchBox = new google.maps.places.SearchBox(input);

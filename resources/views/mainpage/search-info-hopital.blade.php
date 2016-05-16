@@ -22,7 +22,9 @@
 </section>
 
 <script type="text/javascript">
+	
 	$(document).ready(function() {
+
 		$('#btn-search-info').click(function(e) {
 			$("#list-result-search-hopital").show();
 			var textSearch = $('input[name="search_info_hopital"]').val();
@@ -40,20 +42,9 @@
 			var lat = $(this).data('lat');
 			var lng = $(this).data('lng');
 			var address = $(this).data('diachi');
-			var geocoder = new google.maps.Geocoder();      
-			geocoder.geocode( { 'address': address}, function(results, status) {
-				console.log(results);
-				if (status == google.maps.GeocoderStatus.OK) {
-				    map.setCenter(results[0].geometry.location);
-				    map.setZoom(14);
-				    var marker = new google.maps.Marker({
-				        map: map,
-				        position: results[0].geometry.location
-				    });
-				}
-			});  
-
+			setMapByAddress(address);
 		});
+
 	});
 </script>
 
