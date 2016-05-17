@@ -26,6 +26,11 @@ class RoomController extends BaseController {
 
     public function getRooms() {
 	   $rooms = Phongkham::with(['dichvu','dichvu.benhvien'])->get();
+	   foreach ($rooms as $key => $value) {
+	   	 $countpatient = DB::table('thongtinkham')->select(DB::raw('count(*) as countpatient'))->where('phongkham_id', $value->id)
+	   	 		->first()->countpatient;
+	   	 $rooms[$key]->countpatient = $countpatient;
+	   }
        return view('admin.list-room', compact('rooms'));
     }
 

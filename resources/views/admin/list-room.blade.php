@@ -39,7 +39,7 @@
                     <td><a href="{{action('AdminController@getInRoom', $room->id)}}">{{ $room->ten }}</a></td>
                     <td>{{ $room->dichvu->tendichvu }}</td>
                     <td> {{ $room->bacsi }} </td>
-                    <td style="text-align: center;"> 8 </td>
+                    <td style="text-align: center;"> {{ $room->countpatient }} </td>
                     <td class="option">
                       <a class="btn btn_edit" href="{{action('RoomController@getEditRoom', $room->id)}}"> Chỉnh Sửa </a>
                       <a class="btn btn-danger btn_delete" data-href="{{ action('RoomController@postDestroyRoom', $room->id) }}" data-token="{{ csrf_token() }}" >Xóa</a>
