@@ -9,15 +9,6 @@
           <!-- post article -->
           <form class="list_room">
             <div class="inputs">
-                <!-- search -->
-                <div class="input-group stylish-input-group search_input">
-                    <input type="text" class="form-control"  placeholder="Search" >
-                    <span class="input-group-addon">
-                        <button type="submit">
-                          <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
                 <!-- button -->
                 <button class="btn btn-primary"> <a href="{{action('RoomController@getCreateRoom')}}"> Tạo mới </a></button>
             </div>
@@ -39,7 +30,7 @@
                     <td><a href="{{action('AdminController@getInRoom', $room->id)}}">{{ $room->ten }}</a></td>
                     <td>{{ $room->dichvu->tendichvu }}</td>
                     <td> {{ $room->bacsi }} </td>
-                    <td style="text-align: center;"> 8 </td>
+                    <td style="text-align: center;"> {{ $room->countpatient }} </td>
                     <td class="option">
                       <a class="btn btn_edit" href="{{action('RoomController@getEditRoom', $room->id)}}"> Chỉnh Sửa </a>
                       <a class="btn btn-danger btn_delete" data-href="{{ action('RoomController@postDestroyRoom', $room->id) }}" data-token="{{ csrf_token() }}" >Xóa</a>

@@ -8,19 +8,10 @@
           <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
           <!-- post article -->
             <div class="inputs">
-              <!-- search -->
-              <div class="input-group stylish-input-group search_input">
-                  <input type="text" class="form-control"  placeholder="Search" >
-                  <span class="input-group-addon">
-                      <button type="submit">
-                          <span class="glyphicon glyphicon-search"></span>
-                      </button>
-                  </span>
-              </div>
                 <!-- button -->
                 <button class="btn btn-primary btn_edit_patient"> OK</button>
             </div>
-            <table  class="table table-bordered">
+            <table  class="table table-bordered" id="list-patient">
             <thead>
               <tr>
                 <th>ID</th>
@@ -57,6 +48,18 @@
     </div>
 
     <script type="text/javascript">
+
+      $(function () {
+          $('#list-patient').dataTable({
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": false
+          });
+      });
+
       $(document).ready(function(){
           $(".btn_delete").click(function(){
               var link = $(this).data('href');
