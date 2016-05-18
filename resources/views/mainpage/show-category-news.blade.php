@@ -1,6 +1,6 @@
 <section id="information" class="each container">
 	<div class="wrap_news"></div>
-	<h2 class="title3">TIN TỨC</h2>
+	<h2 class="title3">NEWS</h2>
 	<div class="row">
 		<ul class="infor col s12">
 			@foreach($loaitins as $loaitin)

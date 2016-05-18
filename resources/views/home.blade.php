@@ -13,13 +13,13 @@
 								    <div class="nav-wrapper">
 								      <a href="{{ route('homepage') }}" class="brand-logo logo">Logo</a>
 								      <ul id="nav-mobile" class="right hide-on-med-and-down">
-								      	<li><a href="#wd-wrapper">TRANG CHỦ </a></li>
-								        <li><a href="#sign">ĐĂNG KÍ KHÁM</a></li>
-								        <li><a href="#information">TIN TỨC</a></li>
-								        <li><a href="#news">THÔNG TIN KHOA</a></li>
-								        <li><a href="#find">TRA CỨU</a></li>
-										<li><a href="#response1">Ý KIẾN KHÁCH HÀNG</a></li>
-										<li><a href="#response2">PHẢN HỒI</a></li>
+								      	<li><a href="#wd-wrapper">HOMEPAGE </a></li>
+								        <li><a href="#sign">REGISTER EXAMINATION</a></li>
+								        <li><a href="#information">NEWS</a></li>
+								        <li><a href="#news">WARD</a></li>
+								        <li><a href="#find">LOCATION</a></li>
+										<li><a href="#response1">VIEW FEEDBACK</a></li>
+										<li><a href="#response2">SEND FEEDBACK</a></li>
 								      </ul>
 								    </div>
 								  </nav>
@@ -27,41 +27,18 @@
 						</div>
 						<!-- ========== swiper slider ========== -->
 						<div class="swiper-container">
-				        <div class="swiper-wrapper">
-					            <div class="swiper-slide">
-								    <img src="{{ asset('img/images/2.jpg')}}" alt="" class="image img-responsive">
-								</div>
-
-								<div class="swiper-slide">
-								    <img src="{{ asset('img/images/3.jpg')}}" alt="" class="image img-responsive" >
-								</div>
-
-								<div class="swiper-slide">
-								    <img src="{{ asset('img/images/4.jpg')}}" alt="" class="image img-responsive">
-								</div>
-
-								<div class="swiper-slide">
-								    <img src="{{ asset('img/images/5.jpg')}}" alt="" class="image img-responsive">
-								</div>
-								<div class="swiper-slide">
-								    <img src="{{ asset('img/images/6.jpg')}}" alt="" class="image img-responsive">
-								</div>
-							</div>
-							<div class="dark">
-							</div>
+							<img  class="banner" src="{{asset('img/images/bvda_khoa.jpg')}}">
+							<!-- <div class="dark"></div> -->
+							<marquee class="scoll_text" behavior="scroll" direction="up" style"height:100px;" scrolldelay="250"> {{ $benhvien->thongtin }}<br><br>Email: {{ $benhvien->email }} <br>Phone Number: {{ $benhvien->sodienthoai }}</span></marquee>
 				        </div>
-				        <!--  display content introduce of each hospital when click ====== -->
-						<div class="introduce hidden-sm">
-							{{ $benhvien->thongtin }}
-						</div>
+						
 						<!-- display choose dropdown ======== -->
 						<div id="choose_hospital" class="hospital_detail_text">
 							<h2 id="name_hospital" class="screen ">{{ $benhvien->ten }}</h2>
-							<p class="center ">-------------- Hệ thống đặt khám trực tuyến ---------------</p>
 
 							<div  class="input-field col s12 m6 input_center ">
 				                <select id="mySelectBox" class="icons " name="mySelectBox">
-				                  <option value="" disabled selected>Ghé Thăm</option>
+				                  <option value="" disabled selected>Visit</option>
 										@foreach ($benhviens as $bv)
 											@if ($bv->id == $benhvien->id)
 												<option value="{{ $bv->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle" selected>{{$bv->ten}}</option>
@@ -71,7 +48,7 @@
 										@endforeach
 				                </select>
 				            </div>
-	            		<button class="btn waves-effect waves-light" type="submit" name="action"><a href="#sign">Đặt khám</a>
+	            		<button class="btn waves-effect waves-light" type="submit" name="action"><a href="#sign">Register</a>
 						    <i class="material-icons right">settings_phone</i>
 						</button>
 						</div>
@@ -93,17 +70,17 @@
 					@include('mainpage.show-info-personal')
 					@if ($user == null)
 						<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12 form_sign_medical">
-							<h2 class="title">ĐĂNG KÍ KHÁM BỆNH</h2>
+							<h2 class="title">REGISTER EXAMINATION</h2>
 							<!-- choose step ======== -->
 							<ul class="step">
-								<li id="step_1" class="circle1 active2 wow animatedsss bounceIn">Bước 1</li>
-								<li id="step_2" class="circle1 wow animatedsss bounceIn">Bước 2</li>
-								<li id="step_3" class="circle1 wow animatedsss bounceIn">Bước 3</li>
-								<li id="step_4" class="circle1 wow animatedsss bounceIn">Bước 4</li>
+								<li id="step_1" class="circle1 active2 wow animatedsss bounceIn">Step 1</li>
+								<li id="step_2" class="circle1 wow animatedsss bounceIn">Step 2</li>
+								<li id="step_3" class="circle1 wow animatedsss bounceIn">Step 3</li>
+								<li id="step_4" class="circle1 wow animatedsss bounceIn">Step 4</li>
 							</ul>
 							<hr class="connect"></hr>
 							<!-- form dang nhap ID benh nhan khi nguoi dung la benh nhan ========== -->
-							<button class="btn  wow animateds fadeInRightBig signin btn-info btn-lg" type="submit" data-toggle="modal" data-target="#myModal">Đăng Nhập ID Bệnh Nhân
+							<button class="btn  wow animateds fadeInRightBig signin btn-info btn-lg" type="submit" data-toggle="modal" data-target="#myModal">LOGIN
 							</button>
 							<!-- model display when click button =========-->
 							<div class="modal fade form_login" id="myModal" role="dialog">
@@ -135,17 +112,18 @@
 					@endif
 				</section>
 				
-				<hr>
+				<hr class="border">
 			<!-- section hien thi tin tuc ========================================================================= -->
 				@include('mainpage.show-category-news')
-				<hr>
+				<hr class="border">
 			<!-- section cac Khoa, Phong ban cua benh vien ============================================================= -->
 				<section id="news" class="each">
-				    <h2 class="title">THÔNG TIN CÁC KHOA, PHÒNG BAN</h2>
+					<article>
+				    <h2 class="title">OVERVIEW ABOUT WARDS</h2>
 				    <!-- list khoa ======= -->
 				    <ul class="khoa_list" id="list_khoa">
 			            @foreach($khoas as $khoa)
-							<li id="show_dialog" class="khoa_item arrow_up x_scrollFadeIn">
+							<li id="show_dialog" class="khoa_item  animateds fadeInDown">
 								<a data-toggle="modal" data-target="#myModal{{$khoa->id}}">
 									<p class="khoa_title">{{$khoa->tenkhoa}}</p>
 								</a>
@@ -176,16 +154,16 @@
 							</li>
 							@endforeach
 			          </ul>
-
+			          </article>
 				</section>
-				<hr>
+				<hr class="border">
 
 			<!-- section tra cuu thong tin benh vien, dia chi benh vien ======================================================== -->
 				@include('mainpage.search-info-hopital')
-				<hr>
+				<hr class="border">
 			<!-- section Y kien khach hang hien thi ================================== -->
 				<section id="response1" class="container each">
-					<h2 class="title">Ý KIẾN KHÁCH HÀNG</h2>
+					<h2 class="title">IDEAS FEEDBACK</h2>
 					<div class="als-container" id="idea">
 						<span class="als-prev"><img src="{{ asset('img/images/btn_previous.png')}}" alt="prev" title="previous" /></span>
 					  <!--  -->
@@ -226,7 +204,7 @@
 					</div>
 
 				</section>
-			    <hr>
+			    <hr class="border">
 <!-- section Phan hoi cua nguoi dung ============================================== -->
 		@include('mainpage.ykien')
 		<!-- footer -->

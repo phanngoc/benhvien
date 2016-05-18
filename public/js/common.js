@@ -35,6 +35,10 @@ $(document).ready(function() {
       // $(document).on("scroll", onScroll);
     });
   });
+
+  $("body").flowUp("section", { transalteY: 450, duration: 1 });
+  $(".khoa_list").flowUp(".khoa_item", { transalteY: 300, duration: 1 });
+  $(".hospital").flowUp(".item-benhvien", { transalteY: 300, duration: 1 });
 });
 
 function onScroll(event) {
@@ -54,22 +58,6 @@ function onScroll(event) {
 
 // ================
 $(document).ready(function() {
-
-  $(window).on("load", function() {
-    $(window).scroll(function() {
-      $(".khoa_item").each(function() {
-        var objectBottom = $(this).offset().top + $(this).outerHeight();
-        var windowBottom = $(window).scrollTop() + $(window).innerHeight();
-
-        if (objectBottom < windowBottom) {
-          if ($(this).css("opacity") == 0) { $(this).fadeTo(500, 1); }
-        } else {
-          if ($(this).css("opacity") == 1) { $(this).fadeTo(500, 0); }
-        }
-      });
-    });
-    $(window).scroll();
-  });
 
   // display step in form==========================
   $("#first_btn_next").click(function() {
