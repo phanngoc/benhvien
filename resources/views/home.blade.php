@@ -123,36 +123,12 @@
 				    <!-- list khoa ======= -->
 				    <ul class="khoa_list" id="list_khoa">
 			            @foreach($khoas as $khoa)
-							<li id="show_dialog" class="khoa_item  animateds fadeInDown">
+							<li data-name="{{$khoa->tenkhoa}}" data-info="{{ $khoa->thongtin }}" data-image="{{ asset('uploads/'.$khoa->hinhanh)}}" class="khoa_item js-show-detail animateds fadeInDown">
 								<a data-toggle="modal" data-target="#myModal{{$khoa->id}}">
 									<p class="khoa_title">{{$khoa->tenkhoa}}</p>
-								</a>
-								<!-- click vao ten khoa, se hien ra thong tin chi tiet cua khoa -->
-								<div class="row TTKhoa modal fade" id="myModal{{$khoa->id}}" role="dialog" style="width: 100%; max-height: 100%;">
-									 <div class="modal-dialog content_dialog">
-										 <div class="modal-content">
-												<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<h2 class="modal_title">{{$khoa->tenkhoa}}</h2>
-											</div>
-											<div class="modal-body">
-												<div class="img_content">
-													<div class="view view-fifth">
-														<a href="#ns-6" class="click-view-detail image">
-															<img src="{{ asset('uploads/'.$khoa->hinhanh)}}" alt="" />
-															<span class="line"></span>
-														</a>
-													</div>
-												</div>
-												<div class="para">
-													<p>{{ $khoa->thongtin }}</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div> <!-- .row TTKhoa modal fade -->
+								</a>			
 							</li>
-							@endforeach
+						@endforeach
 			          </ul>
 			          </article>
 				</section>
@@ -208,6 +184,30 @@
 <!-- section Phan hoi cua nguoi dung ============================================== -->
 		@include('mainpage.ykien')
 		<!-- footer -->
+	<!-- click vao ten khoa, se hien ra thong tin chi tiet cua khoa -->
+	<div class="row TTKhoa modal fade" id="myModal-detail" role="dialog" style="width: 100%; max-height: 100%;">
+		 <div class="modal-dialog content_dialog">
+			 <div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h2 id="detail-name" class="modal_title"></h2>
+				</div>
+				<div class="modal-body">
+					<div class="img_content">
+						<div class="view view-fifth">
+							<a href="#ns-6" class="click-view-detail image">
+								<img id="detail-image" src="" alt="" />
+								<span class="line"></span>
+							</a>
+						</div>
+					</div>
+					<div class="para">
+						<p id="detail-info"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- .row TTKhoa modal fade -->
 	 <footer class="page-footer">
 	  <div class="container">
 	    <div class="row">

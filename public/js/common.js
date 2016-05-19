@@ -39,6 +39,7 @@ $(document).ready(function() {
   $("body").flowUp("section", { transalteY: 450, duration: 1 });
   $(".khoa_list").flowUp(".khoa_item", { transalteY: 300, duration: 1 });
   $(".hospital").flowUp(".item-benhvien", { transalteY: 300, duration: 1 });
+  $("#ykienphanhoi").flowUp(".row", { transalteY: 300, duration: 1 });
 });
 
 function onScroll(event) {
@@ -302,4 +303,15 @@ $(".closes").click(function() {
   var getid = $(this).attr("href");
   $.scrollTo(this.hash, 800, { offset: -54 });
   return false;
+});
+$(".js-show-detail").click(function() {
+  var name = $(this).attr('data-name');
+  var image = $(this).attr('data-image');
+  var info = $(this).attr('data-info');
+  $("#detail-name", "#myModal-detail").html(name);
+  $("#detail-image", "#myModal-detail").attr("src",image);
+  $("#detail-info", "#myModal-detail").html(info);
+  
+  $("#myModal-detail").modal();
+  
 });

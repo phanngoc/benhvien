@@ -149,6 +149,9 @@ img {
     -ms-interpolation-mode: bicubic;
 }
 
+.container {
+    max-width: 100%;
+}
 #response1 {
     width: 100%;
     background: #dff0d8;
@@ -613,7 +616,7 @@ nav ul li a.active1 {
     width: 100%;
     padding: 0px;
     position: relative;
-    background: url('../img/images/images.png');
+    background: url('../img/images/images.png') no-repeat;
 }
 #sign .form_sign_medical{
     width: 70%;
@@ -728,6 +731,10 @@ nav ul li a.active1 {
     padding: 10px 4px;
     margin-left: 40px;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 33px;
 }
 
 .khoa_list .khoa_item .wrapper .horizontal {
@@ -777,14 +784,13 @@ a.menu_text {
     margin-bottom: 0 !important;
 }
 
-.per_infor,
 .row {
     padding: 0 !important;
 }
 .title3 {
     position: relative;
-    font-size: 27px;
-    color: #fff;
+    font-size: 28px;
+    color: #ff0000;
     font-weight: bold;
     text-align: center;
     padding-top: 70px;
@@ -860,13 +866,21 @@ a.menu_text {
 }
 
 .name {
-    text-align: center;
+    width: 164px;
+    margin-left: 44px;
+    text-align: left;
     font-size: 14px;
-    margin-top: 30px;
+    margin-top: 15px;
+    margin-bottom: 10px;
     color: #3B8C3D;
 }
-
+.name p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .full_name {
+    margin-left: 20px;
     font-weight: bold;
 }
 
@@ -1511,22 +1525,28 @@ hr.border {
 #idea .als-next {
     height: 20px;
     top: 30px;
-    right: 1px;
+    right: -64px;
 }
 
 .content_ideas {
-    background: rgba(88, 60, 60, 0.85);
+    background: url("../img/images/ideas.png");
+    background-size: 100%;
     padding: 0 70px 70px 70px;
 }
 
 .content_ideas .ct-close {
+    font-weight: bold;
     padding: 20px 0 35px 0;
 }
-
+.content_ideas .ct-close a {
+    color: #9A0E0C;
+}
 .detail_idea .content_idea {
-    color: #fff;
+    color: #3c763d;
     font-size: 15px;
     line-height: 2;
+    font-weight: bold;
+    word-wrap: break-word;
 }
 
 
@@ -1728,7 +1748,9 @@ ul.new_hospital li {
     -webkit-filter: grayscale(100%);
 }
 
-
+#information .row .col {
+    padding: 0;
+}
 /*Thong tin khoa-----*/
 
 .khoa_item .modal_title {
@@ -1740,10 +1762,21 @@ ul.new_hospital li {
     width: 100% !important;
 }
 
+#myModal-detail .content_dialog {
+    width: 1000px;
+}
 .khoa_item .content_dialog {
     width: 1000px !important;
 }
-
+#myModal-detail .content_dialog .modal-content .view-fifth {
+    width: 48%;
+    margin-right: 25px;
+}
+#myModal-detail .content_dialog .modal-content #detail-name {
+    font-size: 30px;
+    color: #D33537;
+    font-weight: bold;
+}
 .khoa_item .modal-content .img_content {
     width: 57%;
     float: left;
