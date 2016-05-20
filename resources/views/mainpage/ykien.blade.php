@@ -1,18 +1,14 @@
 <section id="response2" class = "container each">
   <div id="wrap-response-option">
-    <h2 class="title"> PHẢN HỒI </h2>
-    <h3 class="sub_title">Hãy góp ý cho chúng tôi</h3>
+    <h2 class="title"> WRITE FEEDBACK </h2>
+    <h3 class="sub_title">Let contribute comments for us!</h3>
      <div class="row">
         <form class="col s12" id="ykienphanhoi">
           <input type="hidden" name="benhvien_id" value="{{ $idBenhvien }}">
           <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
               <input  id="first_name" type="text" class="validate" name="first_name">
-              <label for="first_name"> Họ tên</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate" name="last_name">
-              <label for="last_name"> Chức vụ </label>
+              <label for="first_name"> Fullname</label>
             </div>
           </div>
           <div class="row">
@@ -24,7 +20,7 @@
           <div class="row">
             <div class="input-field col s12">
               <textarea id="textarea1" class="materialize-textarea" name="comment"></textarea>
-              <label for="textarea1"> Ý kiến phản hồi </label>
+              <label for="textarea1"> Comment </label>
             </div>
           </div>
           <button class="btn waves-effect waves-light" type="button" id="submitYkien">Submit
@@ -34,7 +30,7 @@
       </div>
   </div>
   <div id="message-success" class="col s12" style="display: none">
-      <h3> Cảm ơn ý kiến đóng góp của bạn! </h3>
+      <h3> Thank for your comment! </h3>
   </div>
 </section>
 </div>

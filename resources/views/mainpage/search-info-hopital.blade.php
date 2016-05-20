@@ -1,9 +1,9 @@
 <section id="find" class = "container each">
 	<div class="wd-header-line col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<h2 class="title">TRA CỨU THÔNG TIN BỆNH VIỆN</h2>
+		<h2 class="title">LOCATION</h2>
 		<!-- thong tin benh vien -->
 		<div class="wrap_search">
-			<input type="text" name="search_info_hopital" placeholder="Nhap ten benh vien can tim" style="color: #fff; width: 500px;" >
+			<input type="text" name="search_info_hopital" placeholder="Name hospital" style="color: #fff; width: 500px;" >
 			<button class="btn btn-primary" id="btn-search-info">Search</button>
 		</div>
 		<ul class="hospital animated fadeInLeftBig" id="list-result-search-hopital">
@@ -16,7 +16,7 @@
 			@endforeach
 		</ul>
 		<!-- map ====== -->
-		<div id="map" class="wow animatedss fadeInRightBig" ></div>
+		<div id="map" class="wow animateds fadeInRightBig" ></div>
 		<input type="search" name="googlesearch" style="color: #fff;" id="input_search_google">
 	</div>
 </section>
@@ -61,9 +61,9 @@
 	    top: 0;
 	    left: 42%;
 	}
-	#list-result-search-hopital {
+	/*#list-result-search-hopital {
 		display: none;
-	}
+	}*/
 	#list-result-search-hopital li {
 		cursor: pointer;
 	}

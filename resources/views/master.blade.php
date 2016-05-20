@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Đặt lịch khám</title>
+	<title>Register Examination</title>
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="icon" href="{{ asset('img/front/favicon.ico')}}" type="image/x-icon" />
@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css')}}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ asset('css/animate.css')}}">
 	<link rel="stylesheet" href="{{ asset('css/jquery-ui.css')}}">
+	<link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css')}}">
 	<link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css')}}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -24,6 +25,7 @@
 	<script src="{{ asset('js/jquery-1.11.0.min.js')}}" type="text/javascript"></script>
 	<script src="{{ asset('js/bootstrap.min.js')}}"></script>
 	<script src="{{ asset('js/materialize.js')}}"></script>
+	<script src="{{ asset('js/flowup.js')}}"></script>
 	<script type="text/javascript" src="{{ asset('js/jquery.als-1.7.js')}}"></script>
 	<script src="{{ asset('js/jquery.easing.1.3.js')}}" type="text/javascript"></script>
 	<script src="{{ asset('js/swiper.min.js')}}" type="text/javascript"></script>

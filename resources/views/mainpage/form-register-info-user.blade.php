@@ -15,17 +15,17 @@
       <div class="input-field col s6 wow animatedss fadeInLeftBig">
         <i class="material-icons prefix">account_circle</i>
         <input id="icon_prefix" type="text" class="validate" name="hoten">
-        <label for="icon_prefix">Họ tên:</label>
+        <label for="icon_prefix">Full name:</label>
       </div>
       <div class="input-field col s6 wow animatedss fadeInRightBig">
-          <label> Mật Khẩu </label>
+          <label> Password </label>
           <input type="password" class="validate" name="password">
       </div>
     </div>
 
      <div class="row">
         <div class="input-field col s6 wow animatedss fadeInLeftBig">
-          <label class="lb_date"> Ngày sinh: </label>
+          <label class="lb_date"> Birthday: </label>
           <i class="material-icons prefix">account_circle</i>
           <input id="myDate" name="ngaysinh" type="date">
         </div>
@@ -41,18 +41,18 @@
       <div class="input-field col s6 wow animatedss fadeInLeftBig">
           <i class="material-icons prefix">assignment_ind</i>
           <input id="icon_prefix" type="text" class="validate" name="CMND">
-          <label for="icon_prefix">CMND:</label>
+          <label for="icon_prefix">Identity card:</label>
         </div>
         <div class="input-field col s6 wow animatedss fadeInRightBig">
           <i class="material-icons prefix">location_on</i>
           <input id="icon_telephone" type="tel" class="validate" name="diachi">
-          <label for="icon_telephone">Địa chỉ: </label>
+          <label for="icon_telephone">Address: </label>
         </div>
     </div>
 
     <div class="row">
         <div class="input-field col s6 wow animatedss fadeInLeftBig">
-        <label class="lb_date"> Giới tính: </label>
+        <label class="lb_date"> Sex: </label>
         <i class="material-icons prefix">person_pin</i>
            <div class="male">
           <input type="radio" id="test1" name="gioitinh" value="0"/>
@@ -66,7 +66,7 @@
         <div class="input-field col s6 wow animatedss fadeInRightBig">
           <i class="material-icons prefix">phone</i>
           <input id="icon_telephone" type="tel" class="validate" name="sodienthoai">
-          <label for="icon_telephone">Số điện thoại: </label>
+          <label for="icon_telephone">Phone number: </label>
         </div>
     </div>
     <div class="wrap_button">
@@ -99,7 +99,7 @@
         });
       });
     </script>
-    <h2 class="title">Loại Dịch Vụ</h2>
+    <h2 class="title">Services</h2>
     <ul class="collection with-header list-dichvu">
         @foreach ($loaidichvus as $loaidichvu)
           <li class="collection-item" data-id = "{{$loaidichvu->id}}">
@@ -143,10 +143,10 @@
   </div> 
   <!-- form choose time -->
   <div id="fourth_form" style="display:none;" class="animateds fadeInRightBig">
-    <p class="choose_date"> Chọn ngày khám: </p>
+    <p class="choose_date"> Choose date: </p>
     <div class="jquery-calendar" id="datepicker"></div>
     <input type="text" class="display_date" name="date" value="thevalue" />
-    <p class="choose_time"> Chọn thời gian: </p>
+    <p class="choose_time"> Choose time: </p>
     <input id="timepicker" class="timepicker" name="time" placeholder="00:00"/>
     <div class="wrap_button">
       <button id="fourth_btn_pre" class="btn waves-effect waves-light back animateds fadeInUpBig" type="button">Back
@@ -163,7 +163,7 @@
   <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
-          <p > Chúc mừng bạn đã đăng ký khám thành công qua hệ thống <b>Đăng kí khám Online</b></p>
+          <p > Congratulations! You've been registed successfully!</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn_close" data-dismiss="modal">Close</button>

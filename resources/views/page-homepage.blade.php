@@ -50,12 +50,12 @@
 						</div>
 						<!-- display choose dropdown ======== -->
 						<div id="choose_hospital" class="text">
-							<h2 id="name_hospital" class="screen fadeleft">BỆNH VIỆN ĐÀ NẴNG</h2>
-							<p class="center fadeleft">-------------- Hệ thống đặt khám trực tuyến ---------------</p>
+							<h2 id="name_hospital" class="screen fadeleft">HOSPITAL IN DANANG</h2>
+							<p class="center fadeleft">-------------- System Register Examination Online ---------------</p>
 
 							<div  class="input-field col s12 m6 input_center fadeleft">
 				                <select id="mySelectBox" class="icons fadeleft" name="mySelectBox">
-				                  <option value="" disabled selected>Ghé Thăm</option>
+				                  <option value="" disabled selected>Visit</option>
 										@foreach ($benhviens as $benhvien)
 											<option value="{{ $benhvien->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$benhvien->ten}}</option>
 										@endforeach
