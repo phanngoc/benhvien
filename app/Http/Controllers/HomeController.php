@@ -66,7 +66,7 @@ class HomeController extends Controller {
 				->leftJoin('benhvien','benhvien.id','=','loaidichvu.benhvien_id')->where('benhvien.id', $id)->select('phongkham.id','phongkham.ten','phongkham.bacsi')->get();
 
 		$khoas = Khoa::where('benhvien_id', $id)->get();
-		$ykienphanhoi = Ykienphanhoi::where('status',1)->where('benhvien_id', $id)->get();
+		$ykienphanhoi = Ykienphanhoi::where('status', 1)->where('benhvien_id', $id)->get();
 		$idBenhvien = $id;
 		$user =  Auth::user()->get();
 		$benhvien = Benhvien::find($id);
@@ -81,7 +81,8 @@ class HomeController extends Controller {
 	 */
 	public function category(Request $request, $id) {
 		$loaitin = Loaitin::find($id);
-		$tintucs = Tintuc::where('category_id', $id)->get();
+		$tintucs = Tintuc::where('category_id', $id)->paginate(10);
+		$tintucs->setPath(route('category', $id));
 		return view('category_news', compact('tintucs', 'loaitin'));
 	}
 
@@ -259,7 +260,7 @@ class HomeController extends Controller {
 	public function submitYkienNguoiDung(Request $request) {
 		$data = $request->all();
 		Ykienphanhoi::create([
-			'hoten' => $data['last_name'].' '.$data['first_name'],
+			'hoten' => $data['fullname'],
 			'email' => $data['email'],
 			'ykien' => $data['ykien'],
 			'benhvien_id' => $data['benhvien_id'],

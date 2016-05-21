@@ -42,7 +42,8 @@
 			</div>
 			
 			<nav class="next_page">
-			  <ul class="pagination">
+			{!! $tintucs->render() !!}
+			<!--   <ul class="pagination">
 			    <li class="page-item">
 			      <a class="page-link" href="#" aria-label="Previous">
 			        <span aria-hidden="true">&laquo;</span>
@@ -60,7 +61,7 @@
 			        <span class="sr-only">Next</span>
 			      </a>
 			    </li>
-			  </ul>
+			  </ul> -->
 			</nav>
 		</section>
 	</div>
