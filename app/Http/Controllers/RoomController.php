@@ -7,6 +7,7 @@ use App\Models\Phongkham;
 use App\Models\Khoa;
 use App\Models\Loaitin;
 use App\Models\Tintuc;
+use App\Models\Thongtinkham;
 use Illuminate\Http\Request;
 use DB;
 use Validator;
@@ -103,6 +104,7 @@ class RoomController extends BaseController {
 	  */
 	public function postDestroyRoom(Request $request, $id) {
 	    Phongkham::destroy($id);
+	    Thongtinkham::where('phongkham_id', $id)->delete();
 	    return response()->json(['status' => 200]);
 	  }
 }

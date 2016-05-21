@@ -255,6 +255,7 @@ class AdminController extends BaseController {
 	 */
 	public function postDestroyPatient(Request $request, $id) {
 		Benhnhan::destroy($id);
+		Thongtinkham::where('benhnhan_id', $id)->delete();
 		return response()->json(['status' => 200]);
 	}
 
