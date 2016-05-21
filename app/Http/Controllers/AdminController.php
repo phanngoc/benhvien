@@ -235,6 +235,7 @@ class AdminController extends BaseController {
 	 */
 	public function postDestroyCategoryNew(Request $request, $id) {
 		Loaitin::destroy($id);
+		Tintuc::where('category_id', $id)->delete();
 		return response()->json(['status' => 200]);
 	}
 
