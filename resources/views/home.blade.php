@@ -150,7 +150,7 @@
 						      <li class="als-item wow animateds zoomIn">
 						      	<div id="flip{{ ($key == 0) ? '' : $key }}">
 									<div class="anh">
-										<img class="circle" src="{{ asset('img/images/icon_advised.png')}}"></img>
+										<img class="circle" src="{{ asset('img/images/user_icon.png')}}"></img>
 									</div>
 									<div class="name">
 										<h4 class="full_name">{{ $ykien->hoten }}</h4>
