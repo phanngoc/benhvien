@@ -12,10 +12,10 @@
               <input type="hidden" name="id" value="{{$new->id}}">
 			        <select class="selectpicker form-control" name="category_id">
                 @foreach($loaitin as $loai)
-                  @if($loai->id == $new->category_id)
-                    <option value="{{$loai->id}}" selected>{{ $loai->name }}-{{ $loai->ten }}</option>
+                  @if($loai->loaitinid == $new->category_id)
+                    <option value="{{$loai->loaitinid}}" selected>{{ $loai->name }}-{{ $loai->ten }}</option>
                   @else
-                    <option value="{{$loai->id}}"> {{ $loai->name }}-{{ $loai->ten }} </option>
+                    <option value="{{$loai->loaitinid}}"> {{ $loai->name }}-{{ $loai->ten }} </option>
                   @endif
                 @endforeach
 							</select>
