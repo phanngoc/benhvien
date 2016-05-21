@@ -22,7 +22,8 @@
                 <a class="btn btn-default" href="{{ action('HopitalController@getHopitals') }}"> Bỏ qua </a>
               </div>
           </form>
-          <table  class="table table-bordered">
+
+          <table class="table table-bordered" id="list-hopital">
             <thead>
               <tr>
                 <th> Tên Bệnh Viện </th>
@@ -51,9 +52,23 @@
               @endforeach
             </tbody>
           </table>
+
         </div>
       </div>
     </div>
+
+<script type="text/javascript">
+  $(function () {
+      $('#list-hopital').dataTable({
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bSort": true,
+        "bInfo": false,
+        "bAutoWidth": false
+      });
+  });
+</script>
 
 <script type="text/javascript">
   $(document).ready(function(){

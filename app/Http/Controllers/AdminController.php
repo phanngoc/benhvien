@@ -81,7 +81,7 @@ class AdminController extends BaseController {
 		$isSuccess = Auth::admin()->attempt(array(
 	        'email'     => $request->input('email'),
 	        'password'  => $request->input('password'),
-	    ));
+	    ), true);
 
 	    if ($isSuccess) {
 	    	return redirect()->route('admin.profile');
@@ -255,6 +255,7 @@ class AdminController extends BaseController {
 	 */
 	public function postDestroyPatient(Request $request, $id) {
 		Benhnhan::destroy($id);
+		Thongtinkham::where('benhnhan_id', $id)->delete();
 		return response()->json(['status' => 200]);
 	}
 

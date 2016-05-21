@@ -11,7 +11,7 @@
 			              	<input type="hidden" name="_token" value="{{csrf_token()}}"/>
 			        		<select class="selectpicker form-control" name="category_id">
 				                @foreach($loaitin as $loai)
-				                    <option value="{{$loai->id}}"> {{ $loai->name }}({{ $loai->ten }}) </option>
+				                    <option value="{{$loai->loaitinid}}"> {{ $loai->name }}({{ $loai->ten }}) </option>
 				                @endforeach
 							</select>
 

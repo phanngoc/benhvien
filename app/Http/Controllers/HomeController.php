@@ -102,7 +102,7 @@ class HomeController extends Controller {
 	 * @return [type]           [description]
 	 */
 	public function login(Request $request, $id) {
-		if (Auth::user()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+		if (Auth::user()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], true)) {
             return redirect()->route('home', $id);
         }
 	}
