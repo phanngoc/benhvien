@@ -81,7 +81,7 @@ class AdminController extends BaseController {
 		$isSuccess = Auth::admin()->attempt(array(
 	        'email'     => $request->input('email'),
 	        'password'  => $request->input('password'),
-	    ));
+	    ), true);
 
 	    if ($isSuccess) {
 	    	return redirect()->route('admin.profile');

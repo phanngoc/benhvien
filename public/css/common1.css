@@ -595,8 +595,8 @@
   width: 800px;
   text-align: center;
 }
-#infor_hospital input,
-#infor_hospital textarea {
+#infor_hospital .infor_hospital input,
+#infor_hospital .infor_hospital textarea {
   margin: 0 auto;
   width: 500px;
   margin-bottom: 20px;
