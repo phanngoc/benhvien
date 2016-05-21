@@ -66,7 +66,7 @@ class HomeController extends Controller {
 				->leftJoin('benhvien','benhvien.id','=','loaidichvu.benhvien_id')->where('benhvien.id', $id)->select('phongkham.id','phongkham.ten','phongkham.bacsi')->get();
 
 		$khoas = Khoa::where('benhvien_id', $id)->get();
-		$ykienphanhoi = Ykienphanhoi::where('status',1)->get();
+		$ykienphanhoi = Ykienphanhoi::where('status',1)->where('benhvien_id', $id)->get();
 		$idBenhvien = $id;
 		$user =  Auth::user()->get();
 		$benhvien = Benhvien::find($id);
@@ -291,7 +291,7 @@ class HomeController extends Controller {
 	 */
 	public function searchHopital(Request $request) {
 	    $textSearch = $request->input('textSearch');
-	    $benhviens = DB::table('benhvien')->where('ten', 'like','%'.$textSearch.'%')->get();
+	    $benhviens = DB::table('benhvien')->where('ten', 'like', '%'.$textSearch.'%')->get();
 	    $view = view('mainpage.result-search-hopital')->with('benhviens', $benhviens);
 	    return $view;
 	}
