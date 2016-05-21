@@ -29,7 +29,7 @@
                 <th> Hinh anh </th>
                 <th> Địa Chỉ </th>
                 <th> Số Điện Thoại </th>
-                <th> Email </th>
+                <th class="email_hospital"> Email </th>
                 <th class="infor"> Thông Tin </th>
                 <th class="option"> Tùy Chọn </th>
               </tr>
@@ -41,7 +41,7 @@
                   <td><img src="{{ Asset('uploads/'.$benhvien->hinhanh) }}" alt="" width="120" height="90"></td>
                   <td>{{ $benhvien->diachi }}</td>
                   <td>{{ $benhvien->sodienthoai }}</td>
-                  <td>{{ $benhvien->email }}</td>
+                  <td class="email_hospital">{{ $benhvien->email }}</td>
                   <td>{{ $benhvien->thongtin }}</td>
                   <td class="option">
                     <a class="btn btn_edit" href="{{action('HopitalController@getEditHopital', $benhvien->id)}}"> Chỉnh Sửa</a>

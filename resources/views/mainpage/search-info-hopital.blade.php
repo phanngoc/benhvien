@@ -67,8 +67,13 @@
 	#list-result-search-hopital li {
 		cursor: pointer;
 	}
+	#list-result-search-hopital li:hover,
+	#list-result-search-hopital li:focus,
+	#list-result-search-hopital li:visited {
+	    background: rgba(59, 9, 9, 0.26);
+	} 
 	.active-item {
-		background-color: rgba(0, 0, 0, 0.1);
+		background: rgba(59, 9, 9, 0.26);
 	    width: auto;
 	    margin-right: 30px;
 	}

@@ -39,6 +39,11 @@
                     <input type="hidden" name="thongtinkham_id" value="{{ $thongtinkham->id }}">
                     <td> {{ $thongtinkham->benhnhan->hoten }} </td>
                     <td class="column-code"> {{ $thongtinkham->benhnhan->code }} </td>
+                    <?php if ($thongtinkham->phongkham == null) 
+                    {
+                        dd(1);
+                    }
+                    ?>
                     <td> {{ $thongtinkham->phongkham->dichvu->benhvien->ten }}</td>
                     <td> {{ $thongtinkham->phongkham->dichvu->tendichvu }} </td>
                     <td> {{ $thongtinkham->phongkham->ten }} </td>

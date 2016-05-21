@@ -7,10 +7,6 @@
         <div id="patients" class="col-md-12">
           <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
           <!-- post article -->
-            <div class="inputs">
-                <!-- button -->
-                <button class="btn btn-primary btn_edit_patient"> OK</button>
-            </div>
             <table  class="table table-bordered" id="list-patient">
             <thead>
               <tr>

@@ -204,6 +204,7 @@
   width: 120px;
 }
 /*quan ly tin tuc*/
+
 #create_news .wrap_post .input_choose {
   margin: 15px 0 25px 0;
 }
@@ -573,7 +574,8 @@
     margin-right: 25px;
 }
 #manage_news .top_page_news {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  margin-left: 92%;
 }
 #manage_news table .content_news {
   width: 23%;
@@ -612,8 +614,11 @@
 #infor_hospital table th {
   text-align: center;
 }
+#infor_hospital table .email_hospital {
+  width: 20%;
+}
 #infor_hospital table .option {
-  width: 14%;
+  width: 29%;
 }
 #infor_hospital table .option .btn_edit {
   margin-left: -30px;
@@ -624,8 +629,8 @@
 /*list room--------------*/
 #list_room .list_room .inputs {
   display: inline-block;
-  margin-bottom: 50px;
-  margin-left: 50px;
+  margin-bottom: 15px;
+  margin-left: 92%;
 }
 #list_room .list_room .search_input {
   width: 200px;
