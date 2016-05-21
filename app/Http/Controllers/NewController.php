@@ -90,7 +90,7 @@ class NewController extends BaseController {
 	 */
 	public function getEditNew($id) {
 	    $new = Tintuc::find($id);
-	    $loaitin = DB::table('loaitin')->join('benhvien','loaitin.benhvien_id','=','benhvien.id')->get();
+	    $loaitin = DB::table('loaitin')->select('loaitin.id as loaitinid', 'name', 'benhvien.*')->join('benhvien','loaitin.benhvien_id','=','benhvien.id')->get();
 	    return view('admin.news.edit-new', compact('loaitin', 'new'));
 	}
 
