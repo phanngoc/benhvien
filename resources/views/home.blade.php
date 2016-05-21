@@ -27,7 +27,7 @@
 						</div>
 						<!-- ========== swiper slider ========== -->
 						<div class="swiper-container">
-							<img  class="banner" src="{{asset('img/images/bvda_khoa.jpg')}}">
+							<img  class="banner" src="{{asset('uploads/'.$benhvien->hinhanh)}}">
 							<!-- <div class="dark"></div> -->
 							<marquee class="scoll_text" behavior="scroll" direction="up" style"height:100px;" scrolldelay="250"> {{ $benhvien->thongtin }}<br><br>Email: {{ $benhvien->email }} <br>Phone Number: {{ $benhvien->sodienthoai }}</span></marquee>
 				        </div>
@@ -80,7 +80,7 @@
 							</ul>
 							<hr class="connect"></hr>
 							<!-- form dang nhap ID benh nhan khi nguoi dung la benh nhan ========== -->
-							<button class="btn  wow animateds fadeInRightBig signin btn-info btn-lg" type="submit" data-toggle="modal" data-target="#myModal">LOGIN
+							<button class="btn  wow animateds fadeInRightBig signin btn-info btn-lg" type="submit" data-toggle="modal" data-target="#myModal" data-backdrop="false" data-dismiss="modal">LOGIN
 							</button>
 							<!-- model display when click button =========-->
 							<div class="modal fade form_login" id="myModal" role="dialog">
@@ -146,7 +146,7 @@
 					  <div class="als-viewport">
 					  	<ul class="als-wrapper list_images">
 						@foreach ($ykienphanhoi as $key => $ykien)
-						  <a href="#idea_item1" class="click_show">
+						  <a href="#idea_item{{$key}}" class="click_show">
 						      <li class="als-item wow animateds zoomIn">
 						      	<div id="flip{{ ($key == 0) ? '' : $key }}">
 									<div class="anh">

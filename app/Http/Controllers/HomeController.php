@@ -81,7 +81,8 @@ class HomeController extends Controller {
 	 */
 	public function category(Request $request, $id) {
 		$loaitin = Loaitin::find($id);
-		$tintucs = Tintuc::where('category_id', $id)->get();
+		$tintucs = Tintuc::where('category_id', $id)->paginate(10);
+		$tintucs->setPath(route('category', $id));
 		return view('category_news', compact('tintucs', 'loaitin'));
 	}
 
