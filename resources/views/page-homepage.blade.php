@@ -57,7 +57,7 @@
 				                <select id="mySelectBox" class="icons fadeleft" name="mySelectBox">
 				                  <option value="" disabled selected>Visit</option>
 										@foreach ($benhviens as $benhvien)
-											<option value="{{ $benhvien->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$benhvien->ten}}</option>
+											<option value="{{ $benhvien->id }}" class="circle">{{$benhvien->ten}}</option>
 										@endforeach
 				                </select>
 				            </div>

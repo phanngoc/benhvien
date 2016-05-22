@@ -22,6 +22,7 @@
            <table  class="table table-bordered" id="tableThongTinKham">
               <thead>
                 <tr>
+                  <th> STT</th>
                   <th> Họ Tên </th>
                   <th> Mã code </th>
                   <th> Bệnh Viện </th>
@@ -37,6 +38,7 @@
                 @foreach ($thongtinkhams as $thongtinkham)
                   <tr>
                     <input type="hidden" name="thongtinkham_id" value="{{ $thongtinkham->id }}">
+                    <td> 2 </td>
                     <td> {{ $thongtinkham->benhnhan->hoten }} </td>
                     <td class="column-code"> {{ $thongtinkham->benhnhan->code }} </td>
                     <?php if ($thongtinkham->phongkham == null) 

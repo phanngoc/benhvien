@@ -23,19 +23,20 @@
 		});
 	});
 </script>
-<a class="btn btn-primary btn-logout" href="{{ route('client.logout', $benhvien->id) }}"> Đăng xuất </a>
-<h2 class="title_profile"> TRANG CÁ NHÂN </h2>
+<a class="btn btn-primary btn-logout" href="{{ route('client.logout', $benhvien->id) }}"> Logout </a>
+<h2 class="title_profile"> PROFILE </h2>
 <div class="row information_profile">
     <ul class="col-md-12 infor_profile">
-    	<li class="col-md-6"> {{ $user->hoten }}</li>
-    	<li class="col-md-6"> Sinh ngay: <span class="display"> {{ substr($user->ngaysinh, 0, 11) }}</span></li>
+    	<li class="col-md-6" style="font-weight: bold;"> {{ $user->hoten }}</li>
+    	<li class="col-md-6"> Birthday: <span class="display"> {{ substr($user->ngaysinh, 0, 11) }}</span></li>
     	<li class="col-md-6"> Email: <span class="display"> {{ $user->email }}</span></li>
-    	<li class="col-md-6">CMND: <span class="display">{{ $user->CMND }}</span></li>
-    	<li class="col-md-6">Dia Chi: <span class="display">{{ $user->diachi }}</span></li>
-    	<li class="col-md-6">Gioi Tinh: <span class="display">{{ ($user->gioitinh == 0) ? 'Nam' : 'Nu' }}</span></li>
-    	<li class="col-md-6">Số điện thoại: <span class="display">{{ $user->sodienthoai }}</span></li>
-    	<li class="col-md-6">Mã bệnh nhân: <span class="display"> {{ $user->code }} </span></li>
-    	<button id="edit_infor_profile" class="btn btn-primary btn_profile"> Chỉnh sửa </button>
+    	<li class="col-md-6">Identity card: <span class="display">{{ $user->CMND }}</span></li>
+    	<li class="col-md-6">Address: <span class="display">{{ $user->diachi }}</span></li>
+    	<li class="col-md-6">Sex: <span class="display">{{ ($user->gioitinh == 0) ? 'Nam' : 'Nu' }}</span></li>
+    	<li class="col-md-6">Phone number: <span class="display">{{ $user->sodienthoai }}</span></li>
+    	<li class="col-md-6">Code: <span class="display"> {{ $user->code }} </span></li>
+    	<li class="col-md-12">Number of order: <span class="display"> 2 </span></li>
+    	<button id="edit_infor_profile" class="btn btn-primary btn_profile"> Edit </button>
     </ul>
     <div class="edit-profile" style="display: none">
     	<form action="{{ route('update-profile', $benhvien->id) }}" method="POST" id="update-profile">
@@ -85,7 +86,7 @@
 		          <label class="input_sex" for="test2">Female</label>		        </div>
 		        </div>
 		    </div>
-		    <button class="btn btn-default btn_cancel">Bỏ qua</button>
+		    <button class="btn btn-default btn_cancel">Cancel</button>
 		    <button class="btn btn-primary btn_update">Update</button>
 		</form>
     </div>
@@ -93,11 +94,11 @@
 	    <table class="calender_madecal bordered">
 	      <thead>
 	          <tr>
-	              <th data-field="id">Thời gian</th>
-	              <th data-field="name"> Dịch vụ khám </th>
-	              <th data-field="price"> Phòng khám </th>
-	              <th> Tổng thanh toán</th>
-	              <th> Tùy chọn </th>
+	              <th data-field="id">Time</th>
+	              <th data-field="name"> Services </th>
+	              <th data-field="price"> Clinic </th>
+	              <th> Bill</th>
+	              <th> Option </th>
 	          </tr>
 	        </thead>
 
@@ -117,8 +118,8 @@
 					            <td> {{ $value->ten }} </td>
 					            <td> {{ $value->giatien }} </td>
 					            <td>
-					            	<button class="btn btn-primary btn_profile"> Chỉnh sửa </button>
-					            	<button type="button" class="btn btn-default btn_profile delete-thongtinkham"> Xóa </button>
+					            	<button class="btn btn-primary btn_profile"> Edit </button>
+					            	<button type="button" class="btn btn-default btn_profile delete-thongtinkham"> Delete </button>
 					            </td>
 					          </tr>
 	        			<?php
@@ -126,7 +127,7 @@
 	        	?>
 	        </tbody>
 	    </table>
-	    <button class="btn btn-primary btn_create">Tạo đăng kí mới</button>
+	    <button class="btn btn-primary btn_create">Create a new examination</button>
 	  </div>
 	  <div class="edit_profile"  style="display: none;">
 	  	<form action="{{ route('update-info-care', $benhvien->id) }}" method="POST" style="width: 100%;" id="update-info-care">
@@ -135,16 +136,20 @@
 	  		<input type="hidden" name="phongkham_id" value="">
 	  		<ul class="col-md-12">
 	  			<li class="col-md-6">
-	  				<p class="choose_date"> Chọn ngày khám: </p>
+	  				<p class="choose_date"> Choose date: </p>
 			    	<input type="date" name="date" class="form-control" value="2016-05-05" id="ngaykham">
 	  			</li>
 	  			<li class="col-md-6 time">
-	  				<p class="choose_time"> Chọn thời gian: </p>
-			    	<input id="timepicker" class="timepicker" name="time" placeholder="00:00" />
+	  				<p class="choose_time"> Choose time: </p>
+			    	<select class="selectpicker choose_time">
+				      <option value="" disabled selected>Choose time</option>
+				      <option>Morning</option>
+				      <option>Afternoon</option>
+				    </select>
 	  			</li>
 	  			<li class="col-md-6">
 	  				<select class="selectpicker" id = "select-dich-vu" name="loaidichvu_id">
-				  		<option value="">Ten dich vu</option>
+				  		<option value="">Services</option>
 		           		@foreach($loaidichvus as $loaidichvu)
 		           			<option value="{{ $loaidichvu->id }}">{{ $loaidichvu->tendichvu }}</option>
 		           		@endforeach
@@ -157,8 +162,8 @@
 	  			</li>
 	  		</ul>
 	  		<div class="btn_edit_profile">
-            	<button id="done" class="btn btn-primary  btn_profile"> Xong</button>
-            	<button id="cancel" class="btn btn-default btn_profile btn_cancel" type="button"> Bỏ qua</button>
+            	<button id="done" class="btn btn-primary  btn_profile"> Done</button>
+            	<button id="cancel" class="btn btn-default btn_profile btn_cancel" type="button">Cancel</button>
 	        </div>
 	  	</form>
 	  </div>	
