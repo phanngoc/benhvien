@@ -617,6 +617,7 @@ nav ul li a.active1 {
     padding: 0px;
     position: relative;
     background: url('../img/images/images.png') no-repeat;
+    background-size: 100% 100%;
 }
 #sign .form_sign_medical{
     width: 70%;
@@ -801,7 +802,7 @@ a.menu_text {
 }
 .title3 {
     position: relative;
-    font-size: 28px;
+    font-size: 30px;
     color: #ff0000;
     font-weight: bold;
     text-align: center;
@@ -1145,7 +1146,7 @@ a.button:hover {
 }
 
 .title {
-    font-size: 27px;
+    font-size: 30px;
     color: #FF2A1F;
     font-weight: bold;
     text-align: center;
@@ -1210,7 +1211,7 @@ a.button:hover {
 /*form fourth----------------*/
 
 #fourth_form .jquery-calendar {
-    margin-left: 32%;
+    margin-left: 24%;
     margin-top: 30px;
     margin-bottom: -20px;
 }
@@ -1226,24 +1227,26 @@ a.button:hover {
 }
 
 #fourth_form .choose_date {
-    font-size: 17px;
+    font-size: 24px;
     text-align: center;
     color: #ff0000;
     margin-top: 20px;
     font-weight: bold;
-    margin-left: -90px;
+    margin-left: -265px;
 }
 
 #fourth_form .choose_time {
     position: absolute;
-    right: 190px;
-    bottom: 121px;
+    right: 215px;
+    bottom: 210px;
     font-size: 14px;
     color: #26A69A;
-    font-style: italic;
     font-weight: bold;
 }
-
+#fourth_form .select-wrapper input.select-dropdown {
+    color: #A80906;
+    border-bottom: 1px solid #31708f;
+}
 .cal {
     background-color: white;
     display: block;
@@ -1574,6 +1577,11 @@ hr.border {
 #news_detail {
     display: inline-block;
 }
+#news_detail .background_news_detail {
+    position: absolute;
+    top: 10px;
+    left: 110px;
+}
 #news_detail .title {
     color: #17A597;
     cursor: pointer;
@@ -1582,15 +1590,15 @@ hr.border {
 .show_category_news #news_detail .title_main {
     color: #ff0000;
     text-align: center;
-    font-size: 26px;
+    font-size: 35px;
     font-weight: bold;
     margin: 17px 0px 17px 30px;
     line-height: 160px;
 }
-.title_main {
+/*.title_main {
     height: 166px;
     background: url('../img/images/health-news.png') no-repeat;
-}
+}*/
 
 #news_detail .title:hover,
 #news_detail .title:focus,
@@ -1827,7 +1835,7 @@ ul.new_hospital li {
 }
 
 .title_profile {
-    font-size: 27px;
+    font-size: 30px;
     color: #FF2A1F;
     font-weight: bold;
     text-align: center;

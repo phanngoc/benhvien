@@ -41,9 +41,9 @@
 				                  <option value="" disabled selected>Visit</option>
 										@foreach ($benhviens as $bv)
 											@if ($bv->id == $benhvien->id)
-												<option value="{{ $bv->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle" selected>{{$bv->ten}}</option>
+												<option value="{{ $bv->id }}" class="circle" selected>{{$bv->ten}}</option>
 											@else
-												<option value="{{ $bv->id }}" data-icon="{{asset('img/images/4.jpg')}}" class="circle">{{$bv->ten}}</option>
+												<option value="{{ $bv->id }}" class="circle">{{$bv->ten}}</option>
 											@endif
 										@endforeach
 				                </select>
