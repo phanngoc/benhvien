@@ -146,8 +146,12 @@
     <p class="choose_date"> Choose date: </p>
     <div class="jquery-calendar" id="datepicker"></div>
     <input type="text" class="display_date" name="date" value="thevalue" />
-    <p class="choose_time"> Choose time: </p>
-    <input id="timepicker" class="timepicker" name="time" placeholder="00:00"/>
+    <select class="selectpicker choose_time">
+      <option value="" disabled selected>Choose time</option>
+      <option>Morning</option>
+      <option>Afternoon</option>
+    </select>
+
     <div class="wrap_button">
       <button id="fourth_btn_pre" class="btn waves-effect waves-light back animateds fadeInUpBig" type="button">Back
         <i class="material-icons right">skip_previous</i>
