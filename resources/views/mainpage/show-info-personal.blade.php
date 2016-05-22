@@ -35,7 +35,8 @@
     	<li class="col-md-6">Sex: <span class="display">{{ ($user->gioitinh == 0) ? 'Nam' : 'Nu' }}</span></li>
     	<li class="col-md-6">Phone number: <span class="display">{{ $user->sodienthoai }}</span></li>
     	<li class="col-md-6">Code: <span class="display"> {{ $user->code }} </span></li>
-    	<li class="col-md-12">Number of order: <span class="display"> 2 </span></li>
+    	<li class="col-md-6">Number of order: <span class="display"> 2 </span></li>
+    	<li class="col-md-6">Time: <span class="display"> Morning </span></li>
     	<button id="edit_infor_profile" class="btn btn-primary btn_profile"> Edit </button>
     </ul>
     <div class="edit-profile" style="display: none">
