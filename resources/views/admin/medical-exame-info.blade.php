@@ -29,29 +29,30 @@
                   <th> Dịch Vụ </th>
                   <th> Phòng Khám </th>
                   <th> Ngày Khám </th>
-                  <th> Thời Gian Khám </th>
-                  <th> Thời gian đăng kí</th>
+                  <th> Buổi </th>
+                  <th> Thứ tự khám </th>
                   <th> Đã Khám </th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($thongtinkhams as $thongtinkham)
+                @foreach ($thongtinkhams as $key => $thongtinkham)
+                  <?php
+                    $order = DB::table('thongtinkham')->where('thoigiankham', $thongtinkham->thoigiankham)
+                      ->where('buoi', $thongtinkham->buoi)
+                      ->where('id', '<>' , $thongtinkham->id)
+                      ->where('created_at', '<', $thongtinkham->created_at)->count();
+                  ?>
                   <tr>
                     <input type="hidden" name="thongtinkham_id" value="{{ $thongtinkham->id }}">
-                    <td> 2 </td>
+                    <td> {{ $key }} </td>
                     <td> {{ $thongtinkham->benhnhan->hoten }} </td>
                     <td class="column-code"> {{ $thongtinkham->benhnhan->code }} </td>
-                    <?php if ($thongtinkham->phongkham == null) 
-                    {
-                        dd(1);
-                    }
-                    ?>
                     <td> {{ $thongtinkham->phongkham->dichvu->benhvien->ten }}</td>
                     <td> {{ $thongtinkham->phongkham->dichvu->tendichvu }} </td>
                     <td> {{ $thongtinkham->phongkham->ten }} </td>
-                    <td> {{ substr($thongtinkham->thoigiankham,0,10) }}</td>
-                    <td> {{ substr($thongtinkham->thoigiankham,11,5) }}</td>
-                    <td> {{ $thongtinkham->created_at }} </td>
+                    <td> {{ $thongtinkham->thoigiankham }}</td>
+                    <td> {{ ($thongtinkham->buoi == 1) ? 'Morning' : 'Afternoon' }}</td>
+                    <td> {{ $order + 1 }} </td>
                     <td> <input type="checkbox" {{ ($thongtinkham->dakham == 1) ? 'checked' : '' }} name="dakham" /></td>
                   </tr>
                 @endforeach

@@ -53,7 +53,7 @@ Route::post('update-profile/{id}', [
 	'uses' => 'HomeController@updateProfile',
 ]);
 
-Route::post('create-info-care', [
+Route::post('create-info-care/{id}', [
 	'as' => 'create-info-care',
 	'uses' => 'HomeController@createInfoCare',
 ]);

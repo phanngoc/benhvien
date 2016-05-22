@@ -149,12 +149,32 @@ class HomeController extends Controller {
 		{
 			return redirect()->back()->withErrors($validator->errors());
 		}
+		
+		$thoigiankham = $request->input('date');
+		$thongtinkham = Thongtinkham::find($request->input('thongtinkham_id'));
 
-		$thoigiankham = $request->input('date').' '.substr($request->input('time'), 0, 5).':00';
-		Thongtinkham::find($request->input('thongtinkham_id'))->update([
-			'phongkham_id' => $request->input('phongkham_id'),
-			'thoigiankham' => $thoigiankham
-		]);
+		if ($thongtinkham) {
+			$order = DB::table('thongtinkham')->where('thoigiankham', $thoigiankham)
+	        						->where('buoi', $request->input('buoi'))
+	        						->where('id', '<>' , $request->input('thongtinkham_id'))
+	        						->where('created_at', '<', $thongtinkham->created_at)->count();
+
+	        if (($order + 1) > 20) {
+
+	        	return redirect()->route('home', $id)->with('messageError', '1');
+
+	        } else {
+
+	        	$thongtinkham->update([
+					'phongkham_id' => $request->input('phongkham_id'),
+					'thoigiankham' => $thoigiankham,
+					'buoi' => $request->input('buoi')
+				]);
+
+	        }
+			
+		}
+		
 
 		return redirect()->route('home', $id);
 	}
@@ -176,15 +196,28 @@ class HomeController extends Controller {
 			return redirect()->back()->withErrors($validator->errors());
 		}
 
-		$thoigiankham = $request->input('date').' '.substr($request->input('time'), 0, 5).':00';
+		$thoigiankham = $request->input('date');
 		$userId = Auth::user()->get()->id;
 
-		Thongtinkham::create([
-			'phongkham_id' => $request->input('phongkham_id'),
-			'thoigiankham' => $thoigiankham,
-			'benhnhan_id' => $userId
-		]);
+		$order = DB::table('thongtinkham')->where('thoigiankham', $thoigiankham)
+        						->where('buoi', $request->input('buoi'))
+        						->count();
 
+        if (($order + 1) > 20) {
+
+        	return redirect()->route('home', $id)->with('messageError', '1');
+
+        } else {
+
+        	Thongtinkham::create([
+				'phongkham_id' => $request->input('phongkham_id'),
+				'thoigiankham' => $thoigiankham,
+				'buoi' => $request->input('buoi'),
+				'benhnhan_id' => $userId
+			]);
+
+        }
+        
 		return redirect()->route('home', $id);
 	}
 
@@ -197,6 +230,15 @@ class HomeController extends Controller {
 		$result = $year.'-'.$month.'-'.$day.' '.$hour.':'.$minute.':00';
 		return $result;
 	}
+
+	private function convertDateToSql($date) {
+		$month = substr($date, 0, 2);
+		$day = substr($date, 3, 2);
+		$year = substr($date, 6, 4);
+		$result = $year.'-'.$month.'-'.$day;
+		return $result;
+	}
+
 	/**
 	 * Registe info care.
 	 * @param  Request $request [description]
@@ -229,12 +271,13 @@ class HomeController extends Controller {
 			'password' => $password
 		]);
 
-		$thoigiankham = $this->convertDateAndTimeToSql($request->input('date'), $request->input('time'));
+		$thoigiankham = $this->convertDateToSql($request->input('date'));
 		
 		Thongtinkham::create([
 			'benhnhan_id' => $benhnhan->id,
 			'phongkham_id' => $request->input('phongkham_id'),
-			'thoigiankham' => $thoigiankham
+			'thoigiankham' => $thoigiankham,
+			'buoi' => $request->input('buoi')
 		]);
 		
 		if (Auth::user()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {

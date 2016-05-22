@@ -21,7 +21,7 @@
 <!-- ========================= section hien thi list thong tin tin tuc ========================================== -->
 		<section id="news_detail">
 			<h2 class="title_main"> {{ $loaitin->name }} </h2>
-			<img class="background_news_detail" src="../img/images/health-news.png"></img>
+			<img class="background_news_detail" src="{{ asset('uploads/'.$loaitin->icon) }}"></img>
 			<div class="wrap_list_news">
 				<ul class="collection list_news col-md-12">
 				@foreach ($tintucs as $tintuc)

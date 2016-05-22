@@ -146,10 +146,10 @@
     <p class="choose_date"> Choose date: </p>
     <div class="jquery-calendar" id="datepicker"></div>
     <input type="text" class="display_date" name="date" value="thevalue" />
-    <select class="selectpicker choose_time">
+    <select class="selectpicker choose_time" name="buoi">
       <option value="" disabled selected>Choose time</option>
-      <option>Morning</option>
-      <option>Afternoon</option>
+      <option value="1">Morning</option>
+      <option value="2">Afternoon</option>
     </select>
 
     <div class="wrap_button">
