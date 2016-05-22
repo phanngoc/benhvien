@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Thongtinkham extends Model {
 
     protected $table = 'thongtinkham';
-    protected $fillable = ['benhnhan_id', 'phongkham_id', 'thoigiankham', 'dakham'];
+    protected $fillable = ['benhnhan_id', 'phongkham_id', 'thoigiankham', 'dakham', 'buoi'];
 
     public static $rules = [
         'phongkham_id' => 'required',
         'date' => 'required',
-        'time' => 'required'
+        'buoi' => 'required'
     ];
 
     /**

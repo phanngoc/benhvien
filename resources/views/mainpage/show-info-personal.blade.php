@@ -32,11 +32,9 @@
     	<li class="col-md-6"> Email: <span class="display"> {{ $user->email }}</span></li>
     	<li class="col-md-6">Identity card: <span class="display">{{ $user->CMND }}</span></li>
     	<li class="col-md-6">Address: <span class="display">{{ $user->diachi }}</span></li>
-    	<li class="col-md-6">Sex: <span class="display">{{ ($user->gioitinh == 0) ? 'Nam' : 'Nu' }}</span></li>
+    	<li class="col-md-6">Sex: <span class="display">{{ ($user->gioitinh == 0) ? 'Male' : 'Female' }}</span></li>
     	<li class="col-md-6">Phone number: <span class="display">{{ $user->sodienthoai }}</span></li>
     	<li class="col-md-6">Code: <span class="display"> {{ $user->code }} </span></li>
-    	<li class="col-md-6">Number of order: <span class="display"> 2 </span></li>
-    	<li class="col-md-6">Time: <span class="display"> Morning </span></li>
     	<button id="edit_infor_profile" class="btn btn-primary btn_profile"> Edit </button>
     </ul>
     <div class="edit-profile" style="display: none">
@@ -87,15 +85,31 @@
 		          <label class="input_sex" for="test2">Female</label>		        </div>
 		        </div>
 		    </div>
-		    <button class="btn btn-default btn_cancel">Cancel</button>
+		    <button class="btn btn-default btn_cancel" type="button">Cancel</button>
 		    <button class="btn btn-primary btn_update">Update</button>
 		</form>
     </div>
 	  <div class="col-md-12 infor_medical">
+	  	@if (Session::get('messageError'))
+	  		<div class="alert alert-danger" id="messageError">
+			  <strong>Danger!</strong> Time which you choose have exceed the limit people.
+			</div>
+
+			<script type="text/javascript">
+	  			setTimeout(function() {
+	  				$('#messageError').hide(1000);
+	  			}, 5000);
+	  		</script>
+	  	@endif
+
+
+
 	    <table class="calender_madecal bordered">
 	      <thead>
 	          <tr>
-	              <th data-field="id">Time</th>
+	              <th data-field="date">Date</th>
+	              <th data-field="time">Time</th>
+	              <th data-field="order">Order</th>
 	              <th data-field="name"> Services </th>
 	              <th data-field="price"> Clinic </th>
 	              <th> Bill</th>
@@ -107,14 +121,22 @@
 	        	<?php
 	        		$thongtinkhams = DB::table('thongtinkham')->where('benhnhan_id', Auth::user()->get()->id)->join('phongkham','phongkham.id','=','thongtinkham.phongkham_id')
 	        		->join('loaidichvu','loaidichvu.id','=','phongkham.dichvu_id')
-	        		->select(['thongtinkham.id', 'phongkham.id as phongkham_id','loaidichvu.id as loaidichvu_id','thoigiankham', 'tendichvu', 'ten', 'giatien'])->get();
+	        		->select(['thongtinkham.id', 'phongkham.id as phongkham_id','loaidichvu.id as loaidichvu_id','thoigiankham', 'buoi', 'tendichvu', 'ten', 'giatien', 'thongtinkham.created_at'])->get();
 	        		foreach ($thongtinkhams as $key => $value) {
+
+	        			$order = DB::table('thongtinkham')->where('thoigiankham', $value->thoigiankham)
+	        						->where('buoi', $value->buoi)
+	        						->where('id', '<>' , $value->id)
+	        						->where('created_at', '<', $value->created_at)->count();	
 	        			?>
 							<tr>
 								<input type="hidden" name="thongtinkham_id" value="{{ $value->id }}">
 								<input type="hidden" name="phongkham_id" value="{{ $value->phongkham_id }}">
 								<input type="hidden" name="loaidichvu_id" value="{{ $value->loaidichvu_id }}">
+								<input type="hidden" name="buoi" value="{{ $value->buoi }}">
 					            <td class="thoigiankham"> {{ $value->thoigiankham }} </td>
+					            <td class="buoi"> {{ ($value->buoi == 1) ? 'Morning' : 'Afternoon' }} </td>
+					            <td class="order">{{ $order + 1 }}</td>
 					            <td> {{ $value->tendichvu }} </td>
 					            <td> {{ $value->ten }} </td>
 					            <td> {{ $value->giatien }} </td>
@@ -142,10 +164,10 @@
 	  			</li>
 	  			<li class="col-md-6 time">
 	  				<p class="choose_time"> Choose time: </p>
-			    	<select class="selectpicker choose_time">
+			    	<select class="selectpicker choose_time" name="buoi">
 				      <option value="" disabled selected>Choose time</option>
-				      <option>Morning</option>
-				      <option>Afternoon</option>
+				      <option value="1">Morning</option>
+				      <option value="2">Afternoon</option>
 				    </select>
 	  			</li>
 	  			<li class="col-md-6">
@@ -182,6 +204,7 @@
 	    $(".edit_profile").show();
 	    $('#update-info-care').attr('action', urlCreateInfoCare);
 	});
+
 	$(".infor_medical .btn_profile").click(function(){
 		$('#update-info-care').attr('action', urlUpdateInfoCare);
 		$(".infor_medical").hide();
@@ -191,13 +214,11 @@
 		var loaidichvu_id = $trParent.find('input[name="loaidichvu_id"]').val();
 		var phongkham_id = $trParent.find('input[name="phongkham_id"]').val();
 		var thoigiankham = $trParent.find('td.thoigiankham').text();
-
-		var date = thoigiankham.substr(0, 11);
-		var time = thoigiankham.substr(12, 5);
-		console.log("|"+date+"|");
+		var buoi = $trParent.find('input[name="buoi"]').val();
+	
 		var $formUpdateInfoCare = $('#update-info-care');
-		$formUpdateInfoCare.find('input[name="date"]').val(date.trim());
-		$formUpdateInfoCare.find('input[name="time"]').val(time.trim());
+		$formUpdateInfoCare.find('input[name="date"]').val(thoigiankham.trim());
+		$formUpdateInfoCare.find('select[name="buoi"]').val(buoi).trigger('change');
 
 		$formUpdateInfoCare.find('input[name="thongtinkham_id"]').val(thongtinkham_id);
 		$formUpdateInfoCare.find('input[name="phongkham_id"]').val(phongkham_id);
@@ -227,6 +248,12 @@
     $(function() {
        $('#timepicker').timepicker();
     });
+
+    $('#update-profile .btn_cancel').click(function() {
+    	$('.edit-profile').hide();
+    	$('.infor_profile').show();
+    });
+
 	// $("#edit_infor_profile").click(function(){
 	//   $(".infor_profile").hide();
 	//   $("#first_form").show();
