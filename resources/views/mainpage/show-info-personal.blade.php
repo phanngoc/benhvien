@@ -92,7 +92,7 @@
 	  <div class="col-md-12 infor_medical">
 	  	@if (Session::get('messageError'))
 	  		<div class="alert alert-danger" id="messageError">
-			  <strong>Danger!</strong> Time which you choose have exceed the limit people.
+			  <strong>Danger!</strong> {{ Session::get('messageError') }}
 			</div>
 
 			<script type="text/javascript">

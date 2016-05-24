@@ -24,7 +24,7 @@ class Benhnhan extends Model implements AuthenticatableContract, CanResetPasswor
         'CMND' => 'required',
         'gioitinh' => 'required',
         'sodienthoai' => 'required',
-        'email' => 'required'
+        'email' => 'required|unique:benhnhan'
     ];
     
     public static $rulesEdit = [
