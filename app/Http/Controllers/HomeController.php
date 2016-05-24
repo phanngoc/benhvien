@@ -152,8 +152,10 @@ class HomeController extends Controller {
 		
 		$thoigiankham = $request->input('date');
 		$thongtinkham = Thongtinkham::find($request->input('thongtinkham_id'));
+		$userId = Auth::user()->get()->id;
 
 		if ($thongtinkham) {
+
 			$order = DB::table('thongtinkham')->where('thoigiankham', $thoigiankham)
 	        						->where('buoi', $request->input('buoi'))
 	        						->where('id', '<>' , $request->input('thongtinkham_id'))
@@ -161,17 +163,21 @@ class HomeController extends Controller {
 
 	        if (($order + 1) > 20) {
 
-	        	return redirect()->route('home', $id)->with('messageError', '1');
-
-	        } else {
-
-	        	$thongtinkham->update([
-					'phongkham_id' => $request->input('phongkham_id'),
-					'thoigiankham' => $thoigiankham,
-					'buoi' => $request->input('buoi')
-				]);
+	        	return redirect()->route('home', $id)->with('messageError', 'Time which you choose have exceed the limit people.');
 
 	        }
+
+	        if ($this->checkRegisterTimeBefore($userId, $request->input('date'), $request->input('buoi'))) {
+
+        		return redirect()->route('home', $id)->with('messageError', 'You have choose this time before.');
+
+        	}
+
+        	$thongtinkham->update([
+				'phongkham_id' => $request->input('phongkham_id'),
+				'thoigiankham' => $thoigiankham,
+				'buoi' => $request->input('buoi')
+			]);
 			
 		}
 		
@@ -205,22 +211,32 @@ class HomeController extends Controller {
 
         if (($order + 1) > 20) {
 
-        	return redirect()->route('home', $id)->with('messageError', '1');
-
-        } else {
-
-        	Thongtinkham::create([
-				'phongkham_id' => $request->input('phongkham_id'),
-				'thoigiankham' => $thoigiankham,
-				'buoi' => $request->input('buoi'),
-				'benhnhan_id' => $userId
-			]);
+        	return redirect()->route('home', $id)->with('messageError', 'Time which you choose have exceed the limit people.');
 
         }
+
+        if ($this->checkRegisterTimeBefore($userId, $request->input('date'), $request->input('buoi'))) {
+
+        	return redirect()->route('home', $id)->with('messageError', 'You have choose this time before.');
+
+        }
+
+    	Thongtinkham::create([
+			'phongkham_id' => $request->input('phongkham_id'),
+			'thoigiankham' => $thoigiankham,
+			'buoi' => $request->input('buoi'),
+			'benhnhan_id' => $userId
+		]);
         
 		return redirect()->route('home', $id);
 	}
 
+	/**
+	 * Convert date and time to sql.
+	 * @param  [type] $date [description]
+	 * @param  [type] $time [description]
+	 * @return [type]       [description]
+	 */
 	private function convertDateAndTimeToSql($date, $time) {
 		$month = substr($date, 0, 2);
 		$day = substr($date, 3, 2);
@@ -237,6 +253,24 @@ class HomeController extends Controller {
 		$year = substr($date, 6, 4);
 		$result = $year.'-'.$month.'-'.$day;
 		return $result;
+	}
+
+	/**
+	 * [checkRegisterBefore description]
+	 * @return [type] [description]
+	 */
+	public function checkRegisterTimeBefore($benhnhanId, $date, $buoi) {
+
+		$infoCare = DB::table('thongtinkham')->where('thoigiankham', $date)
+	        						->where('buoi', $buoi)
+	        						->where('benhnhan_id', $benhnhanId)
+	        						->first();
+	    if ($infoCare) {
+
+	    	return true;
+	    }
+
+	    return false; 						
 	}
 
 	/**
@@ -272,7 +306,23 @@ class HomeController extends Controller {
 		]);
 
 		$thoigiankham = $this->convertDateToSql($request->input('date'));
-		
+
+		$order = DB::table('thongtinkham')->where('thoigiankham', $thoigiankham)
+	        						->where('buoi', $request->input('buoi'))
+	        						->count();
+
+        if (($order + 1) > 20) {
+
+        	return redirect()->route('home', $id)->with('messageError', 'Time which you choose have exceed the limit people.');
+
+        }
+
+        if ($this->checkRegisterTimeBefore($benhnhan->id, $request->input('date'), $request->input('buoi'))) {
+
+        	return redirect()->route('home', $id)->with('messageError', 'You have choose this time before.');
+        
+        }
+
 		Thongtinkham::create([
 			'benhnhan_id' => $benhnhan->id,
 			'phongkham_id' => $request->input('phongkham_id'),
@@ -315,15 +365,21 @@ class HomeController extends Controller {
 	 * @return [type] [description]
 	 */
 	public function getRoomFromService() {
+
 		$idService = Input::get('idService');
 		$typeShow = Input::get('type');
 		$phongkhamId = Input::get('phongkham_id');
 		$view = null;
 		$phongkhams = DB::table('phongkham')->where('dichvu_id', $idService)->get();
+
 		if ($typeShow == 'select') {
+
 			$view = view('mainpage.item-phongkham-select')->with('phongkhams', $phongkhams)->with('phongkhamId', $phongkhamId);
+		
 		} else {
+
 			$view = view('mainpage.item-phongkham')->with('phongkhams', $phongkhams);
+
 		}
 		return $view;
 	}
