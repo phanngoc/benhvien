@@ -343,8 +343,9 @@ class AdminController extends BaseController {
 	 * @return [type]              [description]
 	 */
 	public function getInRoom($phongkhamId) {
+		$phongkham = Phongkham::with('dichvu', 'dichvu.benhvien')->find($phongkhamId);
 		$thongtinkhams = Thongtinkham::with('benhnhan')->where('phongkham_id', $phongkhamId)->get();
-		return view('admin.patient-in-room', compact('thongtinkhams'));
+		return view('admin.patient-in-room', compact('thongtinkhams', 'phongkham'));
 	}
 	
 }

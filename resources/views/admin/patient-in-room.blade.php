@@ -5,27 +5,17 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="room" class="col-md-12">
-          <h2 class="hospital">Danang Hospital</h2>
+          <h2 class="hospital">{{ $phongkham->dichvu->benhvien->ten }}</h2>
           <!-- post article -->
-          <h3 class="name_room"> Clinic No.1 </h3>
+          <h3 class="name_room"> {{ $phongkham->ten }} </h3>
           <div class="doctor">
-            <p > Dr: </p> <span>Nguyễn Lê Thúy</span>
+            <p > Dr: </p> <span>{{ $phongkham->bacsi }}</span>
           </div>
           <form class="room">
             <div class="inputs">
-              <!-- search -->
-              <div class="input-group stylish-input-group search_input">
-                  <input type="text" class="form-control"  placeholder="Search" >
-                  <span class="input-group-addon">
-                      <button type="submit">
-                          <span class="glyphicon glyphicon-search"></span>
-                      </button>
-                  </span>
-              </div>
-                <!-- button -->
-                <button class="btn btn-primary"> OK</button>
+
             </div>
-            <table  class="table table-bordered">
+            <table  class="table table-bordered" id="patient-in-room">
             <thead>
               <tr>
                 <th> Patient's name </th>
@@ -47,4 +37,17 @@
         </div>
       </div>
     </div>
+
+    <script type="text/javascript">
+        $(function () {
+          $('#patient-in-room').dataTable({
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": false
+          });
+        });
+    </script>
 @stop
