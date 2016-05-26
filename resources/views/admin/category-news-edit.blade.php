@@ -4,12 +4,12 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="kind_of_news" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
           <form class="kind_of_news" method="POST" action="{{action('AdminController@postEditCategoryNews')}}" enctype="multipart/form-data">
               <input name="_token" type="hidden" value="{{csrf_token()}}"/>
               <input type="hidden" name="id" value="{{$categoryNew->id}}">
-              <input class="form-control" type="text" name="name" placeholder="Nhập Tên loại tin" value="{{ $categoryNew->name }}">
+              <input class="form-control" type="text" name="name" placeholder="Kind of News" value="{{ $categoryNew->name }}">
 
               <select class="form-control" name="benhvien_id">
                 @foreach($benhvien as $bv)
@@ -21,7 +21,7 @@
                 @endforeach
               </select>
 
-              <textarea class="form-control" cols="50" rows="5" placeholder="Nhap noi dung loai tin" style="margin-bottom:10px;" name="description">{{ $categoryNew->description }}</textarea>
+              <textarea class="form-control" cols="50" rows="5" placeholder="Description" style="margin-bottom:10px;" name="description">{{ $categoryNew->description }}</textarea>
               
               <div class="post_img">
                 <input class="input_choose" type='file' name="icon" onchange="readURL(this);"/>
@@ -29,17 +29,17 @@
               </div>
 
               <div class="button">
-                <button class="btn btn-primary"> Thêm </button>
-                <button class="btn btn-default"> Bỏ qua </button>
+                <button class="btn btn-primary"> Done </button>
+                <button class="btn btn-default"> Cancel </button>
               </div>
           </form>
           <table class="table table-bordered">
             <thead>
               <tr>
                 <th> Icon </th>
-                <th> Tên Loại Tin </th>
-                <th> Bệnh viện </th>
-                <th class="option"> Tùy Chọn </th>
+                <th> Kind of News </th>
+                <th> Hospital </th>
+                <th class="option"> Option </th>
               </tr>
             </thead>
             <tbody>
@@ -51,8 +51,8 @@
                      {{$loai->tenbenhvien}}
                   </td>
                   <td class="option">
-                    <a class="btn btn_edit" href="{{ action('AdminController@getEditCategoryNews', $loai->id) }}"> Chỉnh Sửa</a>
-                    <a class="btn btn_delete"> Xóa </a>
+                    <a class="btn btn_edit" href="{{ action('AdminController@getEditCategoryNews', $loai->id) }}"> Edit</a>
+                    <a class="btn btn_delete"> Delete </a>
                   </td>
                 </tr>
               @endforeach

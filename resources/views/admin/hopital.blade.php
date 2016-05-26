@@ -5,7 +5,7 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="post_information" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
           <div class="top_page_infor">
             <div class="input-group stylish-input-group search_input">
@@ -16,7 +16,7 @@
                     </button>
                 </span>
             </div>
-            <button class="btn btn-primary"><a href="{{action('AdminController@getCreatInforScience')}}"> Tạo Mới </a></button>
+            <button class="btn btn-primary"><a href="{{action('AdminController@getCreatInforScience')}}"> Create </a></button>
           </div>
           <!-- post article -->
           <div class="wrap_list_infor">
@@ -24,11 +24,11 @@
                <table  class="table table-bordered">
                   <thead>
                     <tr>
-                      <th> Bệnh Viện</th>
-                      <th class="name_science"> Tên Khoa </th>
-                      <th class="img_science"> Hình Ảnh </th>
-                      <th class="content_idea"> Thông Tin Khoa </th>
-                      <th> Tùy Chọn </th>
+                      <th> Hospital</th>
+                      <th class="name_science"> Department </th>
+                      <th class="img_science"> Images </th>
+                      <th class="content_idea"> Depertment's Information </th>
+                      <th> Option </th>
                     </tr>
                   </thead>
                   <tbody>

@@ -5,7 +5,7 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="create_infor_science" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
           <form class="form_create_infor">
             <select class="selectpicker form-control">

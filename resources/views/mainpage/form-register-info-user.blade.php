@@ -168,7 +168,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <p > Congratulations! You've been registed successfully! </p>
-          <p style="color: #ff0000;">Lets bring your CODE in form information to hospital.</p>
+          <p style="color: #ff0000;">Lets bring your CODE in form information to hospital on time.</p>
           <p>We always welcome you!</p>
         </div>
         <div class="modal-footer">

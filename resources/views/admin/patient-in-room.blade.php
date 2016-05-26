@@ -5,11 +5,11 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="room" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
-          <h3 class="name_room"> Phòng Khám 1 </h3>
+          <h3 class="name_room"> Clinic No.1 </h3>
           <div class="doctor">
-            <p > Bác Sỹ: </p> <span>Nguyễn Lê Thúy</span>
+            <p > Dr: </p> <span>Nguyễn Lê Thúy</span>
           </div>
           <form class="room">
             <div class="inputs">
@@ -28,9 +28,9 @@
             <table  class="table table-bordered">
             <thead>
               <tr>
-                <th> Tên Bệnh Nhân </th>
-                <th> Giờ Khám </th>
-                <th> Đã Khám</th>
+                <th> Patient's name </th>
+                <th> Time </th>
+                <th> Make a exam </th>
               </tr>
             </thead>
             <tbody>

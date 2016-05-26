@@ -98,7 +98,7 @@
 			<script type="text/javascript">
 	  			setTimeout(function() {
 	  				$('#messageError').hide(1000);
-	  			}, 5000);
+	  			}, 10000);
 	  		</script>
 	  	@endif
 

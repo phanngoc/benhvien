@@ -5,7 +5,7 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="ideas_infor" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
           <div class="list_ideas">
             <!-- <div class="inputs">
@@ -24,12 +24,12 @@
             <table  class="table table-bordered" id="list-idea">
               <thead>
                 <tr>
-                  <th> Bệnh Viện </th>
-                  <th> Họ Tên </th>
+                  <th> Hospital </th>
+                  <th> Name </th>
                   <th> Email </th>
-                  <th class="content_idea"> Nội Dung </th>
-                  <th> Trạng Thái Đăng </th>
-                  <th> Tùy Chọn </th>
+                  <th class="content_idea"> Content</th>
+                  <th> Posting status </th>
+                  <th> Option </th>
                 </tr>
               </thead>
               <tbody>
@@ -41,8 +41,8 @@
                     <td class="content_idea"> {{ $ykienphanhoi->ykien }} </td>
                     <td class="status"> <input type="checkbox" name="status" {{ ($ykienphanhoi->status == 1) ? 'checked' : '' }} /> </td>
                     <td>
-                      <a class="btn btn_edit" href="{{ action('AdminController@getEditIdea', $ykienphanhoi->id) }}">Chỉnh Sửa </a>
-                      <a class="btn btn_delete" data-href="{{ action('AdminController@postDestroyIdea', $ykienphanhoi->id) }}" data-token="{{ csrf_token() }}"> Xóa </a>
+                      <a class="btn btn_edit" href="{{ action('AdminController@getEditIdea', $ykienphanhoi->id) }}">Edit </a>
+                      <a class="btn btn_delete" data-href="{{ action('AdminController@postDestroyIdea', $ykienphanhoi->id) }}" data-token="{{ csrf_token() }}"> Delete </a>
                     </td>
                   </tr>
                 @endforeach

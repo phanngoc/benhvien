@@ -7,28 +7,28 @@
 			@include('admin.sidebar')
 			<div class="col-md-10">
 				<div id="manage_news" class="col-md-12">
-					<h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+					<h2 class="hospital">Danang Hospital</h2>
 					<div class="top_page_news">
-						<button class="btn btn-primary"><a href="{{action('NewController@getCreateNew')}}"> Tạo Mới </a></button>
+						<button class="btn btn-primary"><a href="{{action('NewController@getCreateNew')}}"> Create </a></button>
 					</div>
 					<!-- post article -->
 					<div class="wrap_list_news">
 						<table class="table table-bordered" id="list-new">
 				            <thead>
 				              <tr>
-				              	<th> Bệnh Viện</th>
-				                <th> Thời Gian </th>
-				                <th> Hình Ảnh </th>
-				                <th class="title_news"> Tiêu Đề </th>
-				                <th> Lĩnh Vực </th>
-				                <th class="content_news"> Nội Dung </th>
-				                <th class="option"> Tùy Chọn </th>
+				              	<th> Hospital</th>
+				                <th> Time </th>
+				                <th> Images </th>
+				                <th class="title_news">News' Title </th>
+				                <th> Kind of News </th>
+				                <th class="content_news"> Content </th>
+				                <th class="option"> Option </th>
 				              </tr>
 				            </thead>
 				            <tbody>
 			                  @foreach($news as $new)
 			                    <tr>
-			                      <td> Bệnh Viện Đa Khoa Đà Nẵng</td>
+			                      <td> Danang Hospital </td>
 			                      <td class="time">{{ $new->created_at }}</td>
 			                      <td>
 			                        <img id="display_img" src="{{ ($new->thumbnail == '') ? Asset('img/images/6.jpg') : asset('uploads/'.$new->thumbnail) }}" alt="your image" style="width: 100px; height: 70px; " />

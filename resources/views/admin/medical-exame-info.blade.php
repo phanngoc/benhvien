@@ -6,7 +6,7 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="create_infor_science" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
+          <h2 class="hospital"> Danang Hospital </h2>
           <!-- post article -->
            <div class="top_page_infor">
          <!--    <div class="input-group stylish-input-group search_input">
@@ -22,16 +22,16 @@
            <table  class="table table-bordered" id="tableThongTinKham">
               <thead>
                 <tr>
-                  <th> STT</th>
-                  <th> Họ Tên </th>
-                  <th> Mã code </th>
-                  <th> Bệnh Viện </th>
-                  <th> Dịch Vụ </th>
-                  <th> Phòng Khám </th>
-                  <th> Ngày Khám </th>
-                  <th> Buổi </th>
-                  <th> Thứ tự khám </th>
-                  <th> Đã Khám </th>
+                  <th> No</th>
+                  <th> Full name </th>
+                  <th> Patient Code </th>
+                  <th> Hospital </th>
+                  <th> Services </th>
+                  <th> Clinic </th>
+                  <th> Date </th>
+                  <th> Time </th>
+                  <th> No of Order </th>
+                  <th> Make a exame </th>
                 </tr>
               </thead>
               <tbody>

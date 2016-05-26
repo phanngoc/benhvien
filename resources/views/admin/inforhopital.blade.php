@@ -5,34 +5,34 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="infor_hospital" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
           <form class="infor_hospital" action="{{$urlPost}}" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <input class="form-control" type="text" name="ten" placeholder=" Nhập tên bệnh viện" value="{{ isset($benhvien) ? $benhvien->ten : '' }}">
-              <input class="form-control" type="text" name="diachi" placeholder=" Địa chỉ " value="{{ isset($benhvien) ? $benhvien->diachi : '' }}">
-              <input class="form-control" type="text" name="sodienthoai" placeholder=" Số điện thoại " value="{{ isset($benhvien) ? $benhvien->sodienthoai : '' }}">
+              <input class="form-control" type="text" name="ten" placeholder=" Hospital's Name" value="{{ isset($benhvien) ? $benhvien->ten : '' }}">
+              <input class="form-control" type="text" name="diachi" placeholder=" Address " value="{{ isset($benhvien) ? $benhvien->diachi : '' }}">
+              <input class="form-control" type="text" name="sodienthoai" placeholder=" Phone number " value="{{ isset($benhvien) ? $benhvien->sodienthoai : '' }}">
               <input class="form-control" type="text" name="email" placeholder=" Email " value="{{ isset($benhvien) ? $benhvien->email : '' }}" >
-              <textarea class="form-control" name="thongtin" placeholder="Thông tin">{{ isset($benhvien) ? $benhvien->thongtin : '' }}</textarea>
+              <textarea class="form-control" name="thongtin" placeholder="Information">{{ isset($benhvien) ? $benhvien->thongtin : '' }}</textarea>
               <input type="file" name="hinhanh" onchange="readURL(this);">
               <input type="hidden" name="hinhanh_hidden" value="{{isset($benhvien) ? $benhvien->hinhanh : ''}}">
               <img title="Image" id="display_img" src="{{ isset($benhvien) ? Asset('uploads/'.$benhvien->hinhanh) : Asset('img/images/default_spot_main_photo.png') }}" alt="your image" style="width: 240px; height: 180px;" data-pin-nopin="true">
               <div class="button">
-                <button class="btn btn-primary"> Thêm </button>
-                <a class="btn btn-default" href="{{ action('HopitalController@getHopitals') }}"> Bỏ qua </a>
+                <button class="btn btn-primary"> Done </button>
+                <a class="btn btn-default" href="{{ action('HopitalController@getHopitals') }}"> Cancel </a>
               </div>
           </form>
 
           <table class="table table-bordered" id="list-hopital">
             <thead>
               <tr>
-                <th> Tên Bệnh Viện </th>
-                <th> Hinh anh </th>
-                <th> Địa Chỉ </th>
-                <th> Số Điện Thoại </th>
+                <th> Hospital </th>
+                <th> Images </th>
+                <th> Address </th>
+                <th> Phone number </th>
                 <th class="email_hospital"> Email </th>
-                <th class="infor"> Thông Tin </th>
-                <th class="option"> Tùy Chọn </th>
+                <th class="infor"> Information </th>
+                <th class="option"> Option </th>
               </tr>
             </thead>
             <tbody>
@@ -45,8 +45,8 @@
                   <td class="email_hospital">{{ $benhvien->email }}</td>
                   <td>{{ $benhvien->thongtin }}</td>
                   <td class="option">
-                    <a class="btn btn_edit" href="{{action('HopitalController@getEditHopital', $benhvien->id)}}"> Chỉnh Sửa</a>
-                    <a class="btn btn_delete" data-href="{{ action('HopitalController@postDestroyHopital', $benhvien->id) }}" data-token="{{ csrf_token() }}"> Xóa </a>
+                    <a class="btn btn_edit" href="{{action('HopitalController@getEditHopital', $benhvien->id)}}"> Edit</a>
+                    <a class="btn btn_delete" data-href="{{ action('HopitalController@postDestroyHopital', $benhvien->id) }}" data-token="{{ csrf_token() }}"> Delete </a>
                   </td>
                 </tr>
               @endforeach

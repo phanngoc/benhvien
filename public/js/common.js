@@ -59,7 +59,6 @@ function onScroll(event) {
 
 // ================
 $(document).ready(function() {
-
   // display step in form==========================
   $("#first_btn_next").click(function() {
     $("#second_form").show();
@@ -185,15 +184,15 @@ $(document).ready(function() {
   $("#bg_menu").removeClass("first");
   $(window).scroll(function() {
     if ($(this).scrollTop() > truheight) {
-      $("header nav").addClass("f-nav");
-      $("#bg_menu").addClass("first");
+      // $("header nav").addClass("f-nav");
+      // $("#bg_menu").addClass("first");
       $("#menu").show();
       $("h1").addClass("menu_logo");
 
     } else {
-      $("header nav").removeClass("f-nav");
+      // $("header nav").removeClass("f-nav");
       $("#menu").hide();
-      $("#bg_menu").removeClass("first");
+      // $("#bg_menu").removeClass("first");
       $("h1").removeClass("menu_logo");
     }
 

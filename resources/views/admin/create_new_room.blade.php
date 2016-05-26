@@ -5,11 +5,11 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="create_room" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
           <form class="create_new_room">
             <ul>
-              <li> <input class="form-control" type="text" placeholder="Tên phòng"> </li>
+              <li> <input class="form-control" type="text" placeholder="Clinic's name"> </li>
               <li> <input class="form-control" type="text" placeholder=" Bác Sỹ trực">  </li>
               <li> 
                 <select class="selectpicker choose_type_news form-control">

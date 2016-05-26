@@ -4,7 +4,7 @@
     @include('admin.sidebar')
     <div class="col-md-10">
       <div id="profile" class="col-md-12">
-        <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+        <h2 class="hospital">Danang Hospital</h2>
         <div class="wrap_infor">
           <p style="color: #3c763d; font-weight:bold;">Admin: </p><span class="name">{{ $user->hoten }}</span>
           <form class="infor_profile" action="{{ route('admin.updateProfile') }}" method="POST">

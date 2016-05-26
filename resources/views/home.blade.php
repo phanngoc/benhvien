@@ -4,27 +4,27 @@
 		<div id="content">
 			<div id="wd-wrapper">
 				<header>
+					<!-- ====== menu ===== -->
+					<div class="navbar-fixed">
+						<div id="bg_menu" class="first">
+							 <nav>
+							    <div class="nav-wrapper">
+							      <a href="{{ route('homepage') }}" class="brand-logo logo">Logo</a>
+							      <ul id="nav-mobile" class="right hide-on-med-and-down">
+							      	<li><a href="#wd-wrapper">HOMEPAGE </a></li>
+							        <li><a href="#sign">REGISTER EXAMINATION</a></li>
+							        <li><a href="#information">NEWS</a></li>
+							        <li><a href="#news">DEPARTMENT</a></li>
+							        <li><a href="#find">LOCATION</a></li>
+									<li><a href="#response1">VIEW FEEDBACK</a></li>
+									<li><a href="#response2">SEND FEEDBACK</a></li>
+							      </ul>
+							    </div>
+							  </nav>
+						</div>
+					</div>
 <!-- ============================================= section hompage ============================================ -->
 					<section id="banner" class="each">
-					<!-- ====== menu ===== -->
-						<div class="navbar-fixed">
-							<div id="bg_menu" class="first">
-								 <nav>
-								    <div class="nav-wrapper">
-								      <a href="{{ route('homepage') }}" class="brand-logo logo">Logo</a>
-								      <ul id="nav-mobile" class="right hide-on-med-and-down">
-								      	<li><a href="#wd-wrapper">HOMEPAGE </a></li>
-								        <li><a href="#sign">REGISTER EXAMINATION</a></li>
-								        <li><a href="#information">NEWS</a></li>
-								        <li><a href="#news">WARD</a></li>
-								        <li><a href="#find">LOCATION</a></li>
-										<li><a href="#response1">VIEW FEEDBACK</a></li>
-										<li><a href="#response2">SEND FEEDBACK</a></li>
-								      </ul>
-								    </div>
-								  </nav>
-							</div>
-						</div>
 						<!-- ========== swiper slider ========== -->
 						<div class="swiper-container">
 							<img  class="banner" src="{{asset('uploads/'.$benhvien->hinhanh)}}">
@@ -119,7 +119,7 @@
 			<!-- section cac Khoa, Phong ban cua benh vien ============================================================= -->
 				<section id="news" class="each">
 					<article>
-				    <h2 class="title">OVERVIEW ABOUT WARDS</h2>
+				    <h2 class="title">OVERVIEW ABOUT DEPARTMENT</h2>
 				    <!-- list khoa ======= -->
 				    <ul class="khoa_list" id="list_khoa">
 			            @foreach($khoas as $khoa)
