@@ -5,12 +5,12 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="kind_of_news" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
           <form class="kind_of_news" method="POST" action="{{ $urlPost }}">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <select class="selectpicker form-control" name="benhvien_id">
-                <option> Chọn Bệnh Viện </option>
+                <option> Choose Hospital </option>
                 @foreach($benhviens as $benhvien)
                   @if (isset($loaidichvu) && $loaidichvu->benhvien_id == $benhvien->id)
                     <option value="{{ $benhvien->id }}" selected>{{ $benhvien->ten }}</option>
@@ -19,20 +19,20 @@
                   @endif
                 @endforeach
               </select>
-              <input class="form-control" type="text" name="tendichvu" placeholder="Nhập Loại Dịch Vụ" value="{{ isset($loaidichvu) ? $loaidichvu->tendichvu : '' }}">
-              <input class="form-control" type="text" name="giatien" placeholder="Giá tiền" value="{{ isset($loaidichvu) ? $loaidichvu->giatien : '' }}" >
+              <input class="form-control" type="text" name="tendichvu" placeholder="Services" value="{{ isset($loaidichvu) ? $loaidichvu->tendichvu : '' }}">
+              <input class="form-control" type="text" name="giatien" placeholder="Price" value="{{ isset($loaidichvu) ? $loaidichvu->giatien : '' }}" >
               <div class="button">
                 <button class="btn btn-primary"> Thêm </button>
-                <a class="btn btn-default" onclick="location.reload();"> Bỏ qua </a>
+                <a class="btn btn-default" onclick="location.reload();"> Cancel </a>
               </div>
           </form>
           <table  class="table table-bordered" id="list-kind-service">
             <thead>
               <tr>
-                <th> Tên Bệnh Viện </th>
-                <th> Tên Dịch Vụ </th>
-                <th> Giá tiền </th>
-                <th class="option"> Tùy Chọn </th>
+                <th> Hospital </th>
+                <th> Services </th>
+                <th> Price </th>
+                <th class="option"> Option </th>
               </tr>
             </thead>
             <tbody>

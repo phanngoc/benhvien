@@ -5,7 +5,7 @@
   @include('admin.sidebar')
   <div class="col-md-10">
     <div id="manage_science" class="col-md-12">
-      <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+      <h2 class="hospital">Danang Hospital</h2>
       <!-- post article -->
       <form class="sciences" method="POST" action="{{$urlPost}}" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{csrf_token()}}" />
@@ -19,25 +19,25 @@
             @endforeach
           </select>
           <p class="errors">{{$errors->first('benhvien_id')}}</p>
-          <input class="form-control" type="text" placeholder="Nhập Tên Khoa" name="tenkhoa" value="{{isset($khoa) ? $khoa->tenkhoa : ''}}">
+          <input class="form-control" type="text" placeholder="Department's Name" name="tenkhoa" value="{{isset($khoa) ? $khoa->tenkhoa : ''}}">
           <p class="errors">{{$errors->first('tenkhoa')}}</p>
-          <textarea class="form-control"  placeholder=" Nhập mo ta khoa" name="thongtin">{{isset($khoa) ? $khoa->thongtin : ''}}</textarea> 
+          <textarea class="form-control"  placeholder=" Description" name="thongtin">{{isset($khoa) ? $khoa->thongtin : ''}}</textarea> 
           <p class="errors">{{$errors->first('thongtin')}}</p>
           <input name="hinhanh" type="file"/>
           <p class="errors">{{$errors->first('hinhanh')}}</p>
           <div class="button">
-            <button class="btn btn-primary"> Thêm </button>
-            <button class="btn btn-default"> Bỏ qua </button>
+            <button class="btn btn-primary"> Done </button>
+            <button class="btn btn-default"> Cancel </button>
           </div>
       </form>
       <table class="table table-bordered" id="science">
         <thead>
           <tr>
-            <th>Bệnh Viện</th>
-            <th>Tên Khoa</th>
-            <th class="infor">Thông tin</th>
-            <th>Hình ảnh</th>
-            <th class="option"> Tùy Chọn </th>
+            <th>Hospital</th>
+            <th>Department</th>
+            <th class="infor">Information</th>
+            <th>Images</th>
+            <th class="option"> Option </th>
           </tr>
         </thead>
         <tbody>

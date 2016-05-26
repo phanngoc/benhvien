@@ -218,7 +218,7 @@ img {
 }
 
 #banner {
-    height: 664px;
+    height: 600px;
     width: 100%;
     text-align: center;
     margin: 0 auto;
@@ -618,6 +618,7 @@ nav ul li a.active1 {
     position: relative;
     background: url('../img/images/images.png') no-repeat;
     background-size: 100% 100%;
+    z-index: 12;
 }
 #sign .form_sign_medical{
     width: 70%;
@@ -1572,7 +1573,14 @@ hr.border {
     word-wrap: break-word;
 }
 
-
+.navbar-fixed nav {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.caret {
+    border: none;
+}
 /* page new detail------------------*/
 #news_detail {
     display: inline-block;
@@ -2048,6 +2056,7 @@ ul.new_hospital li {
 
 footer.page-footer {
     background-color: #238278;
+    margin-top: 0;
 }
 
 
@@ -2144,6 +2153,7 @@ footer.page-footer {
 }
 #content_detail_news {
     display: inline-block;
+    background: #dff0d8;
 }
 .show_detail_news .wrap_section_content {
     padding: 20px 50px;

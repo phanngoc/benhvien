@@ -5,20 +5,20 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="patients" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
             <table  class="table table-bordered" id="list-patient">
             <thead>
               <tr>
                 <th>ID</th>
-                <th> Họ Tên </th>
-                <th> Ngày Sinh </th>
+                <th> Full name </th>
+                <th> Birtdate </th>
                 <th> Email </th>
-                <th> CMND </th>
-                <th> Giới Tính </th>
-                <th> Số Điện Thoại </th>
-                <th> Địa Chỉ </th>
-                <th> Tùy Chọn </th>
+                <th> Identity Card </th>
+                <th> Sex </th>
+                <th> Phone Number </th>
+                <th> Address </th>
+                <th> Option </th>
               </tr>
             </thead>
             <tbody>

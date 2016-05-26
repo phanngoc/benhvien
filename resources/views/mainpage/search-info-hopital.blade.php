@@ -7,11 +7,18 @@
 			<button class="btn btn-primary" id="btn-search-info">Search</button>
 		</div>
 		<ul class="hospital animated fadeInLeftBig" id="list-result-search-hopital">
-			@foreach ($benhviens as $benhvien)
-				<li data-id="{{$benhvien->id}}" data-diachi="{{ $benhvien->diachi }}" class="item-benhvien" data-lat="{{ $benhvien->lat }}" data-lng="{{ $benhvien->lng }}">
-					<h2 class="name_hospital">{{ $benhvien->ten }}</h2>
-					<p>{{ $benhvien->diachi }}</p>
-					<p>{{ $benhvien->sodienthoai }}</p>
+			@foreach ($benhviens as $benhvienitem)
+				<?php
+					$active = ""; 
+					if ($benhvien->id == $benhvienitem->id) 
+					{
+						$active = "active-item";
+					}
+				?>
+				<li data-id="{{$benhvienitem->id}}" data-diachi="{{ $benhvienitem->diachi }}" class="item-benhvien {{$active}}" data-lat="{{ $benhvienitem->lat }}" data-lng="{{ $benhvienitem->lng }}">
+					<h2 class="name_hospital">{{ $benhvienitem->ten }}</h2>
+					<p>{{ $benhvienitem->diachi }}</p>
+					<p>{{ $benhvienitem->sodienthoai }}</p>
 				</li>
 			@endforeach
 		</ul>

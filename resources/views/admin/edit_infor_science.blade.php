@@ -5,11 +5,11 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="create_infor_science" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
           <form class="form_create_infor">
             <select class="selectpicker form-control">
-              <option> Chọn Bệnh Viện </option>
+              <option> Choose Hospital </option>
               <option> Bệnh viện Đa khoa Đà Nẵng</option>
               <option> Bệnh viện C Đà Nẵng </option>
               <option> Bệnh Viện Liên Chiểu Đà Nẵng </option>

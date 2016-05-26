@@ -5,22 +5,22 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="list_room" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
           <form class="list_room">
             <div class="inputs">
                 <!-- button -->
-                <button class="btn btn-primary"> <a href="{{action('RoomController@getCreateRoom')}}"> Tạo mới </a></button>
+                <button class="btn btn-primary"> <a href="{{action('RoomController@getCreateRoom')}}"> Create </a></button>
             </div>
             <table  class="table table-bordered" id="list-room">
               <thead>
                 <tr>
-                  <th> Bệnh Viện </th>
-                  <th> Tên Phòng </th>
-                  <th> Dịch Vụ </th>
-                  <th> Bác Sỹ Trực </th>
-                  <th> Số Lượng Bệnh Nhân </th>
-                  <th class="option"> Tùy Chọn </th>
+                  <th> Hospital </th>
+                  <th> Clinic </th>
+                  <th> Services </th>
+                  <th> Docter </th>
+                  <th> Number of Patient </th>
+                  <th class="option"> Option </th>
                 </tr>
               </thead>
               <tbody>

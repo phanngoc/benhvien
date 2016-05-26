@@ -4,36 +4,36 @@
       @include('admin.sidebar')
       <div class="col-md-10">
         <div id="kind_of_news" class="col-md-12">
-          <h2 class="hospital">Bệnh Viện Đa Khoa Đà Nẵng</h2>
+          <h2 class="hospital">Danang Hospital</h2>
           <!-- post article -->
           <form class="kind_of_news" method="POST" action="{{action('AdminController@postCategoryNews')}}" enctype="multipart/form-data">
               <input name="_token" type="hidden" value="{{csrf_token()}}"/>
-              <input class="form-control" type="text" name="name" placeholder=" Nhập Tên loại tin">
+              <input class="form-control" type="text" name="name" placeholder="Kind of News">
 
               <select class="form-control" name="benhvien_id">
                 @foreach($benhvien as $bv)
                   <option value="{{$bv->id}}">{{$bv->ten}}</option>
                 @endforeach
               </select>
-              <textarea class="form-control" cols="50" rows="5" placeholder="Nhap noi dung loai tin" style="margin-bottom:10px;" name="description"></textarea>
+              <textarea class="form-control" cols="50" rows="5" placeholder="Description" style="margin-bottom:10px;" name="description"></textarea>
               <div class="post_img">
                 <input class="input_choose" type='file' name="icon" onchange="readURL(this);"/>
                 <img title="Image" id="display_img" src="{{ Asset('img/images/default_spot_main_photo.png') }}" alt="your image" style="width: 240px; height: 180px;" />
               </div>
 
               <div class="button">
-                <button class="btn btn-primary"> Thêm </button>
-                <button class="btn btn-default"> Bỏ qua </button>
+                <button class="btn btn-primary"> Done </button>
+                <button class="btn btn-default"> Cancel </button>
               </div>
           </form>
           <table class="table table-bordered" id="category-news">
             <thead>
               <tr>
                 <th class="show_icon"> Icon </th>
-                <th> Tên Loại Tin </th>
-                <th> Bệnh viện </th>
-                <th> Miêu tả</th>
-                <th class="option"> Tùy Chọn </th>
+                <th> Kind of News </th>
+                <th> Hospital </th>
+                <th> Description </th>
+                <th class="option"> Option </th>
               </tr>
             </thead>
             <tbody>
@@ -50,8 +50,8 @@
                   </td>
                   <td>{{ $loai->description }}</td>
                   <td class="option">
-                    <a class="btn btn_edit" href="{{ action('AdminController@getEditCategoryNews', $loai->id) }}">Chỉnh Sửa</a>
-                    <a class="btn btn_delete" data-href="{{ action('AdminController@postDestroyCategoryNew', $loai->id) }}" data-token="{{ csrf_token() }}">Xóa</a>
+                    <a class="btn btn_edit" href="{{ action('AdminController@getEditCategoryNews', $loai->id) }}">Edit</a>
+                    <a class="btn btn_delete" data-href="{{ action('AdminController@postDestroyCategoryNew', $loai->id) }}" data-token="{{ csrf_token() }}">Delete</a>
                   </td>
                 </tr>
               @endforeach
