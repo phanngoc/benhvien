@@ -27,7 +27,7 @@
               @foreach ($thongtinkhams as $thongtinkham)
                 <tr>
                   <td> {{ $thongtinkham->benhnhan->hoten }} </td>
-                  <td class="set_time"> {{ $thongtinkham->thoigiankham }} </td>
+                  <td class="set_time"> {{ $thongtinkham->thoigiankham }} {{ $thongtinkham->buoi == 1 ? "Morning" : "Afternoon" }} </td>
                   <td class="status"> <input type="checkbox" {{ ($thongtinkham->dakham == 1) ? 'checked' : '' }} /> </td>
                 </tr>
               @endforeach
