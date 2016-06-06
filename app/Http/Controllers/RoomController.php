@@ -36,7 +36,7 @@ class RoomController extends BaseController {
     }
 
 	public function getCreateRoom() {
-    	$dichvus = Loaidichvu::all();
+    $dichvus = Loaidichvu::with('benhvien')->get();
 		return view('admin.create-room', compact('dichvus'));
 	}
 
@@ -61,13 +61,13 @@ class RoomController extends BaseController {
 	      	'bacsi' => $request->input('bacsi'),
 	      	'dichvu_id' => $request->input('dichvu_id')
 		]);
-		
+
 		return redirect(action('RoomController@getRooms'));
 	}
 
 	public function getEditRoom($id) {
 	    $room = Phongkham::find($id);
-	    $dichvus = Loaidichvu::all();
+	    $dichvus = Loaidichvu::with('benhvien')->get();
 	    return view('admin.edit_room', compact('room', 'dichvus'));
 	}
 
@@ -76,7 +76,7 @@ class RoomController extends BaseController {
 	  * @param  Request $request [description]
 	  * @return [type]           [description]
 	  */
-	 
+
 	public function postEditRoom(Request $request, $id) {
 	    $validator = Validator::make(
 		    $request->all(),
@@ -93,7 +93,7 @@ class RoomController extends BaseController {
 	      	'bacsi' => $request->input('bacsi'),
 	      	'dichvu_id' => $request->input('dichvu_id')
 		]);
-		
+
 		return redirect(action('RoomController@getRooms'));
 	  }
 
