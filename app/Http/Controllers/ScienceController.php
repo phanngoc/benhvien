@@ -39,7 +39,7 @@ class ScienceController extends BaseController {
 		$khoas = Khoa::all();
 		$benhvien = Benhvien::all();
 		$urlPost = action('ScienceController@postCreateScience');
-    	return view('admin.science', compact('khoas', 'benhvien', 'urlPost'));
+    return view('admin.science', compact('khoas', 'benhvien', 'urlPost'));
 	}
 
 	public function postCreateScience(Request $request) {

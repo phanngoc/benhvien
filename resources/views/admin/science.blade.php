@@ -21,7 +21,7 @@
           <p class="errors">{{$errors->first('benhvien_id')}}</p>
           <input class="form-control" type="text" placeholder="Department's Name" name="tenkhoa" value="{{isset($khoa) ? $khoa->tenkhoa : ''}}">
           <p class="errors">{{$errors->first('tenkhoa')}}</p>
-          <textarea class="form-control"  placeholder=" Description" name="thongtin">{{isset($khoa) ? $khoa->thongtin : ''}}</textarea> 
+          <textarea class="form-control"  placeholder=" Description" name="thongtin">{{isset($khoa) ? $khoa->thongtin : ''}}</textarea>
           <p class="errors">{{$errors->first('thongtin')}}</p>
           <input name="hinhanh" type="file"/>
           <p class="errors">{{$errors->first('hinhanh')}}</p>
@@ -54,7 +54,7 @@
             <td><img src="{{Asset('uploads/'.$value->hinhanh)}}" width="185" height="140"/></td>
             <td class="option">
               <a href="{{action('ScienceController@getEditScience', $value->id)}}"><button class="btn btn_edit"> Chỉnh Sửa</button></a>
-              <button class="btn btn_delete"> Xóa </button>
+              <a href="javascript:" class="delete-new" data-id="{{$value->id}}"><button class="btn btn_delete"> Xóa</button></a>
             </td>
           </tr>
           @endforeach
@@ -63,6 +63,7 @@
 
       <script type="text/javascript">
         $(function () {
+
           $('#science').dataTable({
             "bPaginate": true,
             "bLengthChange": false,
@@ -71,7 +72,16 @@
             "bInfo": false,
             "bAutoWidth": false
           });
+
+          $('.delete-new').click(function(){
+            var id = $(this).data('id');
+            var r = confirm("Are you sure to delete science ?");
+            if (r == true) {
+                window.location.href = "{{ action('ScienceController@getDestroyScience') }}" + "?id=" + id;
+            }
+          });
         });
+
       </script>
 
     </div>

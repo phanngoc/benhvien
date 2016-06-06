@@ -65,6 +65,7 @@ class NewController extends BaseController {
 		}
 
 		$fileName = '';
+		
 		if ($request->hasFile('thumbnail')) {
 			$destinationPath = public_path().'/uploads/';
 			$fileName = str_random(40);
